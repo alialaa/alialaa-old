@@ -1,8 +1,8 @@
 module.exports = {
-    extends: ["./node_modules/commitlint-config-gitmoji"],
+    extends: ["gitmoji"],
     parserPreset: {
         parserOpts: {
-            headerPattern: /^(:\w*:)(?:\((.*?)\))?\s((?:.*(?=\())|.*)(?:\(#(\d*)\))?/,
+            headerPattern: /^(:\w*:)(?:\s)(?:\((.*?)\))?\s((?:.*(?=\())|.*)(?:\(#(\d*)\))?/,
             headerCorrespondence: ["type", "scope", "subject", "ticket"]
         }
     }

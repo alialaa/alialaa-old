@@ -25,6 +25,7 @@
     "@types/node": "^13.13.4",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
+    "@types/react-helmet": "^5.0.15",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
     "@typescript-eslint/parser": "^2.30.0",
     "commitlint-config-gitmoji": "^1.0.1",
@@ -54,10 +55,22 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "npm run lint -- --fix",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "validate": "npm run lint && npm run format:check && npm run typecheck"
+  },
+  "lint-staged": {
+    "**/*.{json,mdx,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
+      "pre-commit": "tsc && lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
