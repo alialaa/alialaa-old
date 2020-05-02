@@ -60,12 +60,10 @@
   },
   "lint-staged": {
     "**/*.{json,mdx,css,scss,md}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "husky": {
