@@ -9,8 +9,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 
+import "normalize.css";
 import Header from "./header";
-import "./layout.css";
+import { Global, css } from "@emotion/core";
+import global from "./global-styles";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     const data = useStaticQuery(graphql`
@@ -25,6 +27,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <>
+            <Global
+                styles={css`
+                    ${global}
+                `}
+            />
             <Header siteTitle={data.site.siteMetadata.title} />
             <div
                 style={{
