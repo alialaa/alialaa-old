@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import Image from "../components/image";
-import SEO from "../components/seo";
+import { Image, SEO } from "@components";
 import { css } from "@emotion/core";
 
 const IndexPage = () => (
