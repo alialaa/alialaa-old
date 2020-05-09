@@ -8,11 +8,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-
-import "normalize.css";
 import Header from "./header";
 import { Global, css } from "@emotion/core";
+
+import "normalize.css";
+import "./global-styles/fonts.css";
 import global from "./global-styles";
+import typography from "./global-styles/typography";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     const data = useStaticQuery(graphql`
@@ -30,6 +32,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <Global
                 styles={css`
                     ${global}
+                    ${typography}
                 `}
             />
             <Header siteTitle={data.site.siteMetadata.title} />

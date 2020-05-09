@@ -1,3 +1,6 @@
+# Licensed Fonts
+src/fonts
+
 # Logs
 logs
 *.log
