@@ -2,8 +2,13 @@ import React from "react";
 import { Link } from "gatsby";
 
 import { Image, SEO } from "@components";
-import { css } from "@emotion/core";
-
+import { mq } from "@utils";
+console.log(mq.pxToEM(40));
+console.log(mq.getBPSize("large", "px"));
+console.log(mq.lessThan("medium"));
+console.log(mq.largerThan("xlarge"));
+console.log(mq.between("small", "medium"));
+console.log(mq.only("xlarge"));
 const IndexPage = () => (
     <>
         <SEO title="Home" />
