@@ -2,9 +2,9 @@ import React, { useRef, useState, useCallback, Suspense } from "react";
 import { Canvas, useFrame, useThree } from "react-three-fiber";
 import * as THREE from "three";
 import Effects from "./effects";
-// import Stars from "./Stars";
-// import Earth from "./Earth";
-// import Text from "./Text";
+import Stars from "./stars";
+import Earth from "./Earth";
+import Text from "./Text";
 
 function Camera({ mouse }: { mouse: React.RefObject<[number, number]> }) {
     const { camera } = useThree();
@@ -47,7 +47,7 @@ function Space() {
     const onMouseMove = useCallback(({ clientX: x, clientY: y }) => {
         mouse.current = [x - window.innerWidth / 2, y - window.innerHeight / 2];
     }, []);
-
+    if (typeof window === "undefined") return null; //don't render during SSR
     return (
         <>
             <div style={{ height: "700px" }}>
@@ -69,10 +69,7 @@ function Space() {
                         gl.setClearColor(new THREE.Color("#030008"));
                     }}
                 >
-                    {/* <fog attach="fog" args={['#010a1f', 35, 100]} /> */}
-                    {/* <fogExp2 attach="fog" args={['#333', 0.1]} /> */}
                     <Camera mouse={mouse} />
-                    {/* <Controls /> */}
                     <ambientLight intensity={0.03} />
                     <Light />
                     <pointLight
@@ -85,11 +82,11 @@ function Space() {
                         <meshBasicMaterial attach="material" color="#FFFF99" fog={false} />
                         {/* <pointLight distance={6100} intensity={50} color="white" /> */}
                     </mesh>
-                    {/* <Stars /> */}
-                    {/* <Suspense fallback={null}>
+                    <Stars />
+                    <Suspense fallback={null}>
                         <Earth down={down} night={night} />
-                    </Suspense> */}
-                    {/* <Suspense fallback={null}>
+                    </Suspense>
+                    <Suspense fallback={null}>
                         <group position={[400, -100, -400]}>
                             <Text size={30} position={[0, 0, 0]}>
                                 {" Hello, I'm Ali"}
@@ -98,18 +95,7 @@ function Space() {
                                 A Front-end Web Developer
                             </Text>
                         </group>
-                    </Suspense> */}
-                    {/* <mesh rotation={[-Math.PI / 2, 0, 0]}>
-        <planeBufferGeometry attach="geometry" args={[1000,1000]} />
-        <meshStandardMaterial metalness={0.6} roughness={1} attach="material" color="#010a1f" />
-      </mesh> */}
-                    <Suspense fallback={null}>
-                        {/* <UFO position={[0,0,-400]} scale={[100,100,100]} /> */}
                     </Suspense>
-                    {/* <gridHelper args={[50,50]} /> */}
-                    {/* <axesHelper scale={1000} args={[1]} /> */}
-                    {/* <Box castShadow position={[-1.2, 10, 0]} /> */}
-                    {/* <Box castShadow position={[1.2, 10, 0]} /> */}
                     {/* <Effects down={down} /> */}
                 </Canvas>
             </div>
