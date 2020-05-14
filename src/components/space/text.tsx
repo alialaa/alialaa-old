@@ -21,12 +21,12 @@ export default function Text({
             font,
             size: 40,
             height: 100,
-            curveSegments: 32,
+            curveSegments: 8,
             bevelEnabled: true,
             bevelThickness: 30,
             bevelSize: 1.5,
             bevelOffset: 0,
-            bevelSegments: 32
+            bevelSegments: 8
         }),
         [font]
     );

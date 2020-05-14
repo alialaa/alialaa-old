@@ -50,7 +50,7 @@ function Space() {
     if (typeof window === "undefined") return null; //don't render during SSR
     return (
         <>
-            <div style={{ height: "700px" }}>
+            <div style={{ height: "100%", position: "absolute", width: "100%", top: 0, left: 0 }}>
                 <Canvas
                     // style={{backgroundColor: '#010a1f'}}
                     pixelRatio={window.devicePixelRatio}
@@ -89,7 +89,7 @@ function Space() {
                     <Suspense fallback={null}>
                         <group position={[400, -100, -400]}>
                             <Text size={30} position={[0, 0, 0]}>
-                                {" Hello, I'm Ali"}
+                                {"Hello, I'm Ali"}
                             </Text>
                             <Text size={20} position={[0, -200, 0]}>
                                 A Front-end Web Developer
