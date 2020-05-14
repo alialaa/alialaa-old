@@ -31,7 +31,8 @@ module.exports = {
     rules: {
         "prettier/prettier": "error",
         "react/prop-types": "off", // Disable prop-types as we use TypeScript for type checking
-        "@typescript-eslint/explicit-function-return-type": "off"
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/ban-ts-ignore": "off"
     },
     overrides: [
         // Override some TypeScript rules just for .js files
