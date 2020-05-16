@@ -53,6 +53,7 @@ function Space() {
             <div style={{ height: "100%", position: "absolute", width: "100%", top: 0, left: 0 }}>
                 <Canvas
                     // style={{backgroundColor: '#010a1f'}}
+                    resize={{ debounce: { resize: 1000, scroll: 0 } }}
                     pixelRatio={window.devicePixelRatio}
                     camera={{ position: [0, 0, 2000], near: 0.01, far: 10000, fov: 40 }}
                     onMouseUp={() => set(false)}
@@ -69,7 +70,7 @@ function Space() {
                         gl.setClearColor(new THREE.Color("#030008"));
                     }}
                 >
-                    <Camera mouse={mouse} />
+                    {/* <Camera mouse={mouse} /> */}
                     <ambientLight intensity={0.03} />
                     <Light />
                     <pointLight
@@ -96,7 +97,7 @@ function Space() {
                             </Text>
                         </group>
                     </Suspense>
-                    {/* <Effects down={down} /> */}
+                    <Effects down={down} />
                 </Canvas>
             </div>
             <button onClick={() => setNight(!night)} style={{ position: "absolute", bottom: 0 }}>

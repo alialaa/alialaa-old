@@ -53,7 +53,6 @@ export default function Effects({ down }: EffectsProps) {
         void composer?.current?.setSize(size.width, size.height);
     }, [size]);
     useFrame(() => {
-        // console.log(badTV.current);
         if (badTV.current) {
             // @ts-ignore
             badTV.current.uniforms["time"].value += 0.1;
@@ -67,7 +66,7 @@ export default function Effects({ down }: EffectsProps) {
     return (
         <effectComposer ref={composer} args={[gl]}>
             <renderPass attachArray="passes" scene={scene} camera={camera} />
-            <unrealBloomPass attachArray="passes" args={[aspect, 0.6, 0.9, 0]} />
+            <unrealBloomPass attachArray="passes" args={[aspect, 0.5, 0.9, 0]} />
             <shaderPass
                 attachArray="passes"
                 args={[VignetteShader]}
@@ -75,7 +74,8 @@ export default function Effects({ down }: EffectsProps) {
                 uniforms-darkness-value={1}
                 renderToScreen
             />
-            <glitchPass attachArray="passes" factor={down ? 0.8 : 0} />
+            <filmPass attachArray="passes" args={down ? [0.6, 0.3, 658, 0] : [0.15, 0.2, 550, 0]} />
+            {/* <glitchPass attachArray="passes" factor={down ? 0.8 : 0} /> */}
             {!down && (
                 <>
                     <shaderPass
@@ -88,18 +88,11 @@ export default function Effects({ down }: EffectsProps) {
                         uniforms-rollSpeed-value={0}
                         renderToScreen
                     />
-                    <filmPass attachArray="passes" args={[0.1, 0.2, 550, 0]} />
-                    <shaderPass
-                        attachArray="passes"
-                        args={[RGBShiftShader]}
-                        uniforms-amount-value={0.0}
-                        renderToScreen
-                    />
                     <shaderPass
                         ref={staticShader}
                         attachArray="passes"
                         args={[StaticShader]}
-                        uniforms-amount-size={0.09}
+                        uniforms-amount-size={0.05}
                         uniforms-amount-value={0.05}
                         renderToScreen
                     />
@@ -114,13 +107,10 @@ export default function Effects({ down }: EffectsProps) {
                         uniforms-distortion-value={down ? 2 : 0.05}
                         uniforms-distortion2-value={down ? 2 : 0.05}
                         uniforms-speed-value={0.4}
-                        uniforms-rollSpeed-value={down ? 0.8 : 0}
+                        uniforms-rollSpeed-value={down ? 0.3 : 0}
                         renderToScreen
                     />
-                    <filmPass
-                        attachArray="passes"
-                        args={down ? [0.6, 0.3, 658, 0] : [0.1, 0.1, 658, 0]}
-                    />
+
                     <shaderPass
                         attachArray="passes"
                         args={[RGBShiftShader]}

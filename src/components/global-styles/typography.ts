@@ -33,6 +33,11 @@ const styles = css`
     h6 {
         font-size: 1.6rem;
     }
+    a {
+        &:focus {
+            outline: 3px solid var(--pink);
+        }
+    }
 `;
 
 export default styles;

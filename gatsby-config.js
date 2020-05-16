@@ -31,6 +31,7 @@ module.exports = {
                     "@components": "./components",
                     "@utils": "./utils",
                     "@images": "./images",
+                    "@hooks": "./hooks",
                     static: {
                         root: "./public", // <- will used as this alias' root dir
                         alias: "./static" // <- will become ./public/static

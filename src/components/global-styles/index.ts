@@ -1,8 +1,11 @@
 import { css } from "@emotion/core";
+import typography from "./typography";
+import utility from "./utility";
 
 const styles = css`
     :root {
-        --main: #f03;
+        --purple: #2f1264;
+        --pink: #ee1d90;
     }
     html {
         font-size: 62.5%;
@@ -15,6 +18,8 @@ const styles = css`
         color: #000000;
         text-align: left;
     }
+    ${typography}
+    ${utility}
 `;
 
 export default styles;
