@@ -18,6 +18,12 @@ const styles = css`
         color: #000000;
         text-align: left;
     }
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+        position: relative;
+    }
     ${typography}
     ${utility}
 `;

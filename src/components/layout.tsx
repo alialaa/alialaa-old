@@ -1,7 +1,8 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { Header } from "@components";
+import { Header, Space } from "@components";
 import { Global, css } from "@emotion/core";
+import { useLocation } from "@reach/router";
 
 import "normalize.css";
 import "./global-styles/font-visby.css";
@@ -18,7 +19,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             }
         }
     `);
-
+    const { pathname } = useLocation();
     return (
         <>
             <Global

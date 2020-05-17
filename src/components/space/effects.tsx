@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import React, { useRef, useMemo, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { extend, useThree, useFrame, ReactThreeFiber } from "react-three-fiber";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
@@ -48,7 +48,8 @@ export default function Effects({ down }: EffectsProps) {
     const badTV = useRef<ShaderPass>();
     const staticShader = useRef<ShaderPass>();
     const { scene, gl, size, camera } = useThree();
-    const aspect = useMemo(() => new THREE.Vector2(size.width, size.height), [size]);
+    const [aspect] = useState(() => new THREE.Vector2(size.width, size.height));
+    // const aspect = useMemo(() => new THREE.Vector2(size.width, size.height), [size]);
     useEffect(() => {
         void composer?.current?.setSize(size.width, size.height);
     }, [size]);
@@ -75,7 +76,7 @@ export default function Effects({ down }: EffectsProps) {
                 renderToScreen
             />
             <filmPass attachArray="passes" args={down ? [0.6, 0.3, 658, 0] : [0.15, 0.2, 550, 0]} />
-            {/* <glitchPass attachArray="passes" factor={down ? 0.8 : 0} /> */}
+            <glitchPass attachArray="passes" factor={down ? 1 : 0} />
             {!down && (
                 <>
                     <shaderPass
@@ -92,8 +93,8 @@ export default function Effects({ down }: EffectsProps) {
                         ref={staticShader}
                         attachArray="passes"
                         args={[StaticShader]}
-                        uniforms-amount-size={0.05}
-                        uniforms-amount-value={0.05}
+                        uniforms-amount-size={0.03}
+                        uniforms-amount-value={0.03}
                         renderToScreen
                     />
                 </>
@@ -107,7 +108,7 @@ export default function Effects({ down }: EffectsProps) {
                         uniforms-distortion-value={down ? 2 : 0.05}
                         uniforms-distortion2-value={down ? 2 : 0.05}
                         uniforms-speed-value={0.4}
-                        uniforms-rollSpeed-value={down ? 0.3 : 0}
+                        uniforms-rollSpeed-value={down ? 0.7 : 0}
                         renderToScreen
                     />
 

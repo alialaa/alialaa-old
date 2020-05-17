@@ -5,6 +5,8 @@ import Effects from "./effects";
 import Stars from "./stars";
 import Earth from "./Earth";
 import Text from "./Text";
+import { NavigationItemType } from "@utils";
+import { useMedia } from "@hooks";
 
 function Camera({ mouse }: { mouse: React.RefObject<[number, number]> }) {
     const { camera } = useThree();
@@ -18,58 +20,40 @@ function Camera({ mouse }: { mouse: React.RefObject<[number, number]> }) {
 }
 
 function Light() {
-    return (
-        <>
-            {/* <pointLight 
-        // shadow-mapSize-width={2048}
-        // shadow-mapSize-height={2048} 
-        // castShadow 
-        ref={light} 
-        color={'#fff'}
-        intensity={1} 
-        position={[10, 20, 10]} 
-      /> */}
-            <directionalLight
-                // shadow-mapSize-width={2048}
-                // shadow-mapSize-height={2048}
-                // castShadow
-                intensity={0.6}
-                position={[1, 0.5, 0]}
-            />
-        </>
-    );
+    return <directionalLight intensity={0.6} position={[1, 0.5, 0]} />;
 }
 
-function Space() {
+function Space({ page }: { page: NavigationItemType | undefined }) {
     const [down, set] = useState<boolean>(false);
     const [night, setNight] = useState<boolean>(false);
     const mouse = useRef<[number, number]>([0, 0]);
+    const isSmall = useMedia(`screen and (max-width: ${890 / 16}em)`);
     const onMouseMove = useCallback(({ clientX: x, clientY: y }) => {
         mouse.current = [x - window.innerWidth / 2, y - window.innerHeight / 2];
     }, []);
     if (typeof window === "undefined") return null; //don't render during SSR
     return (
-        <>
-            <div style={{ height: "100%", position: "absolute", width: "100%", top: 0, left: 0 }}>
-                <Canvas
-                    // style={{backgroundColor: '#010a1f'}}
-                    resize={{ debounce: { resize: 1000, scroll: 0 } }}
-                    pixelRatio={window.devicePixelRatio}
-                    camera={{ position: [0, 0, 2000], near: 0.01, far: 10000, fov: 40 }}
-                    onMouseUp={() => set(false)}
-                    onMouseDown={() => set(true)}
-                    onMouseMove={onMouseMove}
-                    // shadowMap
-                    onCreated={({ gl, camera }) => {
-                        // gl.gammaFactor = 2.2;
-                        // gl.gammaOutput = true;
-                        // gl.physicallyCorrectLights = true;
-                        // gl.toneMapping = THREE.ACESFilmicToneMapping
-                        // gl.outputEncoding = THREE.sRGBEncoding
-                        camera.lookAt(0, 0, 0);
-                        gl.setClearColor(new THREE.Color("#030008"));
-                    }}
-                >
+        // <div style={{ paddingTop: "52%", position: "relative" }}>
+
+        <Canvas
+            resize={
+                (window as any).ResizeObserver
+                    ? { debounce: { resize: 1000, scroll: 0 } }
+                    : undefined
+            }
+            pixelRatio={window.devicePixelRatio}
+            camera={{ position: [0, 0, 2000], near: 0.01, far: 10000, fov: 40 }}
+            onMouseUp={() => set(false)}
+            onMouseDown={() => set(true)}
+            onMouseMove={onMouseMove}
+            onCreated={({ gl, camera }) => {
+                camera.lookAt(0, 0, 0);
+                gl.setClearColor(new THREE.Color("#030008"));
+            }}
+        >
+            <Stars />
+            {!isSmall && (
+                <>
                     {/* <Camera mouse={mouse} /> */}
                     <ambientLight intensity={0.03} />
                     <Light />
@@ -81,12 +65,12 @@ function Space() {
                     <mesh scale={[40, 40, 40]} position={[1400, 800, -1000]}>
                         <sphereBufferGeometry attach="geometry" args={[4, 32, 32]} />
                         <meshBasicMaterial attach="material" color="#FFFF99" fog={false} />
-                        {/* <pointLight distance={6100} intensity={50} color="white" /> */}
                     </mesh>
-                    <Stars />
-                    <Suspense fallback={null}>
-                        <Earth down={down} night={night} />
-                    </Suspense>
+                    {page && page.to === "/" && (
+                        <Suspense fallback={null}>
+                            <Earth down={down} night={night} />
+                        </Suspense>
+                    )}
                     <Suspense fallback={null}>
                         <group position={[400, -100, -400]}>
                             <Text size={30} position={[0, 0, 0]}>
@@ -97,16 +81,14 @@ function Space() {
                             </Text>
                         </group>
                     </Suspense>
-                    <Effects down={down} />
-                </Canvas>
-            </div>
-            <button onClick={() => setNight(!night)} style={{ position: "absolute", bottom: 0 }}>
-                toggle
-            </button>
-            {/* <div style={{position: 'absolute', bottom: '10%', right: '20%'}}>
-      <h1 style={{color: '#fff'}}>Hello, I'm Ali</h1>
-    </div> */}
-        </>
+                    {/* <Effects down={down} /> */}
+                </>
+            )}
+        </Canvas>
+        // <button onClick={() => setNight(!night)} style={{ position: "absolute", bottom: 0 }}>
+        //     toggle
+        // </button>
+        // </div>
     );
 }
 

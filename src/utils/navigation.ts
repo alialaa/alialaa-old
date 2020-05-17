@@ -1,4 +1,9 @@
-const navigation = [
+export type NavigationItemType = {
+    title: string;
+    to: string;
+};
+
+export const navigation: NavigationItemType[] = [
     {
         title: "Home",
         to: "/"
@@ -25,4 +30,6 @@ const navigation = [
     }
 ];
 
-export default navigation;
+export function getPageInfo(pathname: string) {
+    return navigation.find(i => i.to === pathname);
+}

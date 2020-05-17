@@ -5,7 +5,7 @@ const breakpoints = {
     large: 1200,
     xlarge: 1440
 };
-const baseFontSize = 10;
+const baseFontSize = 16;
 type breakpointType = keyof typeof breakpoints;
 const isFirst = (bp: breakpointType): boolean => {
     return Object.keys(breakpoints).indexOf(bp) === 0;
@@ -21,18 +21,18 @@ const getBPSize = (bp: breakpointType, unit: "px" | "em" | "rem" = "px") => {
     return unit === "px" ? breakpoints[bp] : breakpoints[bp] / baseFontSize;
 };
 const lessThan = (bp: breakpointType): string => {
-    return `@media screen and (max-width: ${pxToEM(breakpoints[bp]) - 0.0625})`;
+    return `@media screen and (max-width: ${pxToEM(breakpoints[bp]) - 0.0625}em)`;
 };
 const largerThan = (bp: breakpointType): string => {
-    return `@media screen and (min-width: ${pxToEM(breakpoints[bp])})`;
+    return `@media screen and (min-width: ${pxToEM(breakpoints[bp])}em)`;
 };
 const between = (minBP: breakpointType, maxBP: breakpointType): string => {
     if (breakpoints[minBP] >= breakpoints[maxBP]) {
         throw new Error("Invalid media query range.");
     }
-    return `@media screen and (min-width: ${pxToEM(breakpoints[minBP])}) and (max-width: ${pxToEM(
+    return `@media screen and (min-width: ${pxToEM(breakpoints[minBP])}em) and (max-width: ${pxToEM(
         breakpoints[maxBP]
-    ) - 0.0625})`;
+    ) - 0.0625}em)`;
 };
 const only = (bp: breakpointType): string => {
     if (isFirst(bp)) {
