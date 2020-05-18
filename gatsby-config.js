@@ -30,6 +30,7 @@ module.exports = {
                 root: "./src",
                 aliases: {
                     "@components": "./components",
+                    "@context": "./context",
                     "@utils": "./utils",
                     "@images": "./images",
                     "@hooks": "./hooks",

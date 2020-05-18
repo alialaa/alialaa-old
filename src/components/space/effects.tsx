@@ -41,9 +41,10 @@ declare global {
 
 type EffectsProps = {
     down: boolean;
+    animations: boolean;
 };
 
-export default function Effects({ down }: EffectsProps) {
+export default function Effects({ down, animations }: EffectsProps) {
     const composer = useRef<EffectComposer>(null);
     const badTV = useRef<ShaderPass>();
     const staticShader = useRef<ShaderPass>();
@@ -75,9 +76,12 @@ export default function Effects({ down }: EffectsProps) {
                 uniforms-darkness-value={1}
                 renderToScreen
             />
-            <filmPass attachArray="passes" args={down ? [0.6, 0.3, 658, 0] : [0.15, 0.2, 550, 0]} />
-            <glitchPass attachArray="passes" factor={down ? 1 : 0} />
-            {!down && (
+            <filmPass
+                attachArray="passes"
+                args={down && animations ? [0.6, 0.3, 658, 0] : [0.12, 0.17, 550, 0]}
+            />
+            {animations && <glitchPass attachArray="passes" factor={down ? 1 : 0} />}
+            {!down && animations && (
                 <>
                     <shaderPass
                         ref={badTV}
@@ -99,7 +103,7 @@ export default function Effects({ down }: EffectsProps) {
                     />
                 </>
             )}
-            {down && (
+            {down && animations && (
                 <>
                     <shaderPass
                         ref={badTV}

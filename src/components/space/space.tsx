@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback, Suspense } from "react";
+import React, { useRef, useState, useCallback, Suspense, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "react-three-fiber";
 import * as THREE from "three";
 import Effects from "./effects";
@@ -8,9 +8,24 @@ import Text from "./Text";
 import { NavigationItemType } from "@utils";
 import { useMedia } from "@hooks";
 
-function Camera({ mouse }: { mouse: React.RefObject<[number, number]> }) {
+function Camera({
+    mouse,
+    animations
+}: {
+    mouse: React.RefObject<[number, number]>;
+    animations: boolean;
+}) {
     const { camera } = useThree();
+    useEffect(() => {
+        console.log(animations);
+        if (!animations && mouse.current) {
+            camera.position.x = 0;
+            camera.position.y = 0;
+            camera.lookAt(0, 0, 0);
+        }
+    }, [animations]);
     useFrame(() => {
+        if (!animations) return;
         if (!mouse.current) return;
         camera.position.x += 0.15 * ((1 - mouse.current[0]) * 0.2 - camera.position.x);
         camera.position.y += 0.15 * (mouse.current[1] * 1 - camera.position.y);
@@ -23,9 +38,16 @@ function Light() {
     return <directionalLight intensity={0.6} position={[1, 0.5, 0]} />;
 }
 
-function Space({ page }: { page: NavigationItemType | undefined }) {
+function Space({
+    page,
+    night,
+    animations
+}: {
+    page: NavigationItemType | undefined;
+    night: boolean;
+    animations: boolean;
+}) {
     const [down, set] = useState<boolean>(false);
-    const [night, setNight] = useState<boolean>(false);
     const mouse = useRef<[number, number]>([0, 0]);
     const isSmall = useMedia(`screen and (max-width: ${890 / 16}em)`);
     const onMouseMove = useCallback(({ clientX: x, clientY: y }) => {
@@ -33,8 +55,6 @@ function Space({ page }: { page: NavigationItemType | undefined }) {
     }, []);
     if (typeof window === "undefined") return null; //don't render during SSR
     return (
-        // <div style={{ paddingTop: "52%", position: "relative" }}>
-
         <Canvas
             resize={
                 (window as any).ResizeObserver
@@ -54,7 +74,7 @@ function Space({ page }: { page: NavigationItemType | undefined }) {
             <Stars />
             {!isSmall && (
                 <>
-                    {/* <Camera mouse={mouse} /> */}
+                    <Camera mouse={mouse} animations={animations} />
                     <ambientLight intensity={0.03} />
                     <Light />
                     <pointLight
@@ -81,14 +101,10 @@ function Space({ page }: { page: NavigationItemType | undefined }) {
                             </Text>
                         </group>
                     </Suspense>
-                    {/* <Effects down={down} /> */}
+                    <Effects down={down} animations={animations} />
                 </>
             )}
         </Canvas>
-        // <button onClick={() => setNight(!night)} style={{ position: "absolute", bottom: 0 }}>
-        //     toggle
-        // </button>
-        // </div>
     );
 }
 

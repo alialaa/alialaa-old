@@ -43,6 +43,7 @@ const styles = css`
         left: 0;
         width: 100%;
         height: 100%;
+        background-color: #030008;
     }
     h1 {
         pointer-events: auto;
