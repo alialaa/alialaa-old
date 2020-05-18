@@ -7,14 +7,15 @@ import moonImg from "@images/2k_moon.jpg";
 import { animated, useSpring } from "react-spring/three";
 console.log(earthImg);
 type EarthProps = {
-    down: boolean;
+    animations: boolean;
     night: boolean;
 };
-export default function Earth({ down, night }: EarthProps) {
+export default function Earth({ animations, night }: EarthProps) {
     const ref = useRef();
     const moonRef = useRef();
     const { rotation } = useSpring({
-        rotation: night ? [0, Math.PI * 0.3, 0] : [0, -Math.PI * 0.5, 0]
+        rotation: night ? [0, Math.PI * 0.3, 0] : [0, -Math.PI * 0.5, 0],
+        immediate: !animations
     });
     const [earth, moon] = useLoader<any>(THREE.TextureLoader, [earthImg, moonImg]);
     return (

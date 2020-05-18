@@ -88,7 +88,7 @@ function Space({
                     </mesh>
                     {page && page.to === "/" && (
                         <Suspense fallback={null}>
-                            <Earth down={down} night={night} />
+                            <Earth animations={animations} night={night} />
                         </Suspense>
                     )}
                     <Suspense fallback={null}>
