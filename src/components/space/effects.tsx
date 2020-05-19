@@ -76,10 +76,12 @@ export default function Effects({ down, animations }: EffectsProps) {
                 uniforms-darkness-value={1}
                 renderToScreen
             />
-            <filmPass
-                attachArray="passes"
-                args={down && animations ? [0.6, 0.3, 658, 0] : [0.12, 0.17, 550, 0]}
-            />
+            {animations && (
+                <filmPass
+                    attachArray="passes"
+                    args={down ? [0.6, 0.3, 658, 0] : [0.12, 0.17, 550, 0]}
+                />
+            )}
             {animations && <glitchPass attachArray="passes" factor={down ? 1 : 0} />}
             {!down && animations && (
                 <>

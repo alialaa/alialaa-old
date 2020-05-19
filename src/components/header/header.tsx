@@ -29,6 +29,7 @@ const Logo = ({ siteTitle, animations }: { siteTitle: string; animations: boolea
     return (
         <svg
             role="img"
+            focusable="false"
             aria-labelledby="svg-logo-title svg-logo-desc"
             width="120px"
             height="60px"
@@ -64,6 +65,44 @@ const Header = ({ siteTitle }: HeaderProps) => {
 
     return (
         <header css={styles}>
+            <button
+                style={{ zIndex: 1000, position: "absolute", top: 40, left: 40 }}
+                className={`color-scheme-button ${dark ? "dark-active" : "light-active"} ${
+                    !animations ? "no-motion" : ""
+                }`}
+                onClick={() => toggleDark()}
+                type="button"
+                aria-pressed={dark ? "true" : "false"}
+                aria-label="Dark Mode"
+                title={dark ? "Activate Light Mode" : "Activate Dark Mode"}
+            >
+                <div className="moon">
+                    <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        viewBox="0 0 16 16"
+                        fill="#ffffff"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fillRule="evenodd"
+                            d="M14.53 10.53a7 7 0 01-9.058-9.058A7.003 7.003 0 008 15a7.002 7.002 0 006.53-4.47z"
+                            clipRule="evenodd"
+                        />
+                    </svg>
+                </div>
+                <div className="sun">
+                    <div className="body"></div>
+                    {Array(8)
+                        .fill(null)
+                        .map((r, i) => (
+                            <div
+                                key={`ray_${i}`}
+                                className={`ray ray_${i} ${i % 2 === 0 ? "small" : ""}`}
+                            />
+                        ))}
+                </div>
+            </button>
             <button
                 onClick={() => toggleAnimations()}
                 style={{ zIndex: 1000, position: "absolute", top: 0, left: 0 }}

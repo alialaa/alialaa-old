@@ -8,6 +8,7 @@ const dash = keyframes`
 		stroke-dashoffset: 0;
 	}
 `;
+const rayPos = "15%";
 const styles = css`
     position: relative;
     .content {
@@ -28,7 +29,7 @@ const styles = css`
         }
     }
     .canvas-wrap {
-        padding-top: 50%;
+        padding-top: 47%;
         position: relative;
         @media screen and (max-width: ${890 / 16}em) {
             padding-top: 0;
@@ -99,6 +100,163 @@ const styles = css`
             stroke-dasharray: 2000;
             stroke-dashoffset: 2000;
             animation: ${dash} 3s linear infinite;
+        }
+    }
+    .color-scheme-button {
+        background: transparent;
+        border: none;
+        height: 26px;
+        width: 26px;
+        padding: 0;
+        cursor: pointer;
+        padding: 8px;
+        box-sizing: content-box;
+        &.no-motion {
+            .moon,
+            .sun,
+            .body,
+            .ray {
+                transition: none !important;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .moon,
+            .sun,
+            .body,
+            .ray {
+                transition: none !important;
+            }
+        }
+        &:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 100%;
+        }
+        &.light-active {
+            .moon {
+                opacity: 0;
+                transform: scale(0.5) rotateZ(-60deg);
+                transition-delay: 0s;
+            }
+            .sun {
+                opacity: 1;
+                .body {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+                .ray {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+        }
+        &.dark-active {
+            .moon {
+                opacity: 1;
+                transform: scale(1) rotateZ(0deg);
+            }
+            .sun {
+                /* opacity: 0; */
+                .body {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+                .ray {
+                    transform: scale(0) !important;
+                    opacity: 0;
+                }
+            }
+        }
+        .moon,
+        .sun {
+            height: 26px;
+            width: 26px;
+        }
+        .sun {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            .body {
+                width: 45%;
+                height: 45%;
+                background-color: #fff;
+                border-radius: 100%;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+            .ray {
+                width: 3px;
+                height: 3px;
+                background-color: #fff;
+                border-radius: 100%;
+                position: absolute;
+                transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                &.small {
+                    width: 2px;
+                    height: 2px;
+                }
+                &.ray_0 {
+                    top: ${rayPos};
+                    left: ${rayPos};
+                    transition-delay: 0s;
+                }
+                &.ray_1 {
+                    top: 0;
+                    left: 50%;
+                    transform: scale(1) translateX(-50%);
+                    transition-delay: 0.15s;
+                }
+                &.ray_2 {
+                    top: ${rayPos};
+                    right: ${rayPos};
+                    transition-delay: 0.2s;
+                }
+                &.ray_3 {
+                    top: 50%;
+                    right: 0;
+                    transform: scale(1) translateY(-50%);
+                    transition-delay: 0.1s;
+                }
+                &.ray_4 {
+                    bottom: ${rayPos};
+                    right: ${rayPos};
+                    transition-delay: 0s;
+                }
+                &.ray_5 {
+                    bottom: 0;
+                    left: 50%;
+                    transform: scale(1) translateX(-50%);
+                    transition-delay: 0.25s;
+                }
+                &.ray_6 {
+                    bottom: ${rayPos};
+                    left: ${rayPos};
+                    transition-delay: 0.1s;
+                }
+                &.ray_7 {
+                    top: 50%;
+                    left: 0;
+                    transform: scale(1) translateY(-50%);
+                    transition-delay: 0.35s;
+                }
+            }
+        }
+        .moon {
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition-delay: 0.35s;
+            svg {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 `;

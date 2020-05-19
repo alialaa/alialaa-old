@@ -56,6 +56,7 @@ function Space({
     if (typeof window === "undefined") return null; //don't render during SSR
     return (
         <Canvas
+            aria-hidden
             resize={
                 (window as any).ResizeObserver
                     ? { debounce: { resize: 1000, scroll: 0 } }

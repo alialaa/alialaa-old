@@ -33,9 +33,10 @@ const styles = css`
     h6 {
         font-size: 1.6rem;
     }
-    a {
+    a,
+    button {
         &:focus {
-            outline: 3px solid var(--pink);
+            outline: 2px solid var(--pink);
         }
     }
 `;
