@@ -22,11 +22,11 @@ export default function Text({
             size: 40,
             height: 100,
             curveSegments: 8,
+            bevelSegments: 8,
             bevelEnabled: true,
             bevelThickness: 30,
             bevelSize: 1.5,
-            bevelOffset: 0,
-            bevelSegments: 8
+            bevelOffset: 0
         }),
         [font]
     );

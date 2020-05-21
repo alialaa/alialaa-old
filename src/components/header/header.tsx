@@ -56,25 +56,28 @@ H287.781z"
     );
 };
 
-type HeaderProps = {
-    siteTitle: string;
-};
-const Header = ({ siteTitle }: HeaderProps) => {
-    const { pathname } = useLocation();
-    const { toggleAnimations, toggleDark, animations, dark } = useTheme();
-
+const DarkModeButton = ({
+    dark,
+    animations,
+    toggleDark
+}: {
+    dark: boolean;
+    animations: boolean;
+    toggleDark: () => void;
+}) => {
     return (
-        <header css={styles}>
-            <button
-                style={{ zIndex: 1000, position: "absolute", top: 40, left: 40 }}
+        <button
+            className="toggle-button"
+            onClick={() => toggleDark()}
+            type="button"
+            aria-pressed={dark ? "true" : "false"}
+            aria-label="Dark Mode"
+            title={dark ? "Activate Light Mode" : "Activate Dark Mode"}
+        >
+            <div
                 className={`color-scheme-button ${dark ? "dark-active" : "light-active"} ${
                     !animations ? "no-motion" : ""
                 }`}
-                onClick={() => toggleDark()}
-                type="button"
-                aria-pressed={dark ? "true" : "false"}
-                aria-label="Dark Mode"
-                title={dark ? "Activate Light Mode" : "Activate Dark Mode"}
             >
                 <div className="moon">
                     <svg
@@ -102,19 +105,57 @@ const Header = ({ siteTitle }: HeaderProps) => {
                             />
                         ))}
                 </div>
-            </button>
-            <button
-                onClick={() => toggleAnimations()}
-                style={{ zIndex: 1000, position: "absolute", top: 0, left: 0 }}
+            </div>
+            <p aria-hidden className="toggle-button-text">{`Dark Mode: ${dark ? "On" : "Off"}`}</p>
+        </button>
+    );
+};
+
+const AnmationsButton = ({
+    dark,
+    animations,
+    toggleAnimations
+}: {
+    dark: boolean;
+    animations: boolean;
+    toggleAnimations: () => void;
+}) => {
+    return (
+        <button
+            className="toggle-button"
+            onClick={() => toggleAnimations()}
+            type="button"
+            aria-pressed={animations ? "true" : "false"}
+            aria-label="Animations"
+            title={animations ? "Turn off animations" : "Turn on animations"}
+        >
+            <div
+                className={`animations-button ${
+                    animations ? "animations-active" : "animations-inactive"
+                } ${!animations ? "no-motion" : ""}`}
             >
-                animations {animations ? "on" : "off"}
-            </button>
-            <button
-                onClick={() => toggleDark()}
-                style={{ zIndex: 1000, position: "absolute", top: 0, left: 200 }}
-            >
-                dark {dark ? "on" : "off"}
-            </button>
+                <div className="circles">
+                    <div className="circle circle_1"></div>
+                    <div className="circle circle_2"></div>
+                    <div className="circle circle_3"></div>
+                </div>
+            </div>
+            <p aria-hidden className="toggle-button-text">{`Animations: ${
+                animations ? "On" : "Off"
+            }`}</p>
+        </button>
+    );
+};
+
+type HeaderProps = {
+    siteTitle: string;
+};
+const Header = ({ siteTitle }: HeaderProps) => {
+    const { pathname } = useLocation();
+    const { toggleAnimations, toggleDark, animations, dark } = useTheme();
+
+    return (
+        <header css={styles}>
             <div className="canvas-wrap">
                 <div className="canvas">
                     <Space night={dark} page={getPageInfo(pathname)} animations={animations} />
@@ -142,6 +183,14 @@ const Header = ({ siteTitle }: HeaderProps) => {
                         })}
                     </ul>
                 </nav>
+            </div>
+            <div className="toggle-buttons">
+                <DarkModeButton dark={dark} animations={animations} toggleDark={toggleDark} />
+                <AnmationsButton
+                    dark={dark}
+                    animations={animations}
+                    toggleAnimations={toggleAnimations}
+                />
             </div>
         </header>
     );

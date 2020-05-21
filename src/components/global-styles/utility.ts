@@ -18,7 +18,7 @@ const styles = css`
         position: absolute;
         width: auto;
         height: auto;
-        z-index: 100;
+        z-index: 200;
         color: #fff;
         padding: 0.85rem 2rem;
         font-weight: 500;

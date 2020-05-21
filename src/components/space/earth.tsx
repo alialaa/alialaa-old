@@ -23,7 +23,7 @@ export default function Earth({ animations, night }: EarthProps) {
             ref={ref}
             scale={[100, 100, 100]}
             rotation={rotation}
-            position={[-1200, -400, -1000]}
+            position={[-1400, -400, -1000]}
         >
             <mesh>
                 <sphereBufferGeometry attach="geometry" args={[5, 32, 32]} />

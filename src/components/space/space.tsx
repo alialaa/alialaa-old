@@ -28,7 +28,7 @@ function Camera({
         if (!animations) return;
         if (!mouse.current) return;
         camera.position.x += 0.15 * ((1 - mouse.current[0]) * 0.2 - camera.position.x);
-        camera.position.y += 0.15 * (mouse.current[1] * 1 - camera.position.y);
+        camera.position.y += 0.15 * (mouse.current[1] * 0.6 - camera.position.y);
         camera.lookAt(0, 0, 0);
     });
     return null;
@@ -83,7 +83,7 @@ function Space({
                         position={[400, 400, -1000]}
                         color={new THREE.Color("#270a57")}
                     />
-                    <mesh scale={[40, 40, 40]} position={[1400, 800, -1000]}>
+                    <mesh scale={[40, 40, 40]} position={[1500, 800, -1000]}>
                         <sphereBufferGeometry attach="geometry" args={[4, 32, 32]} />
                         <meshBasicMaterial attach="material" color="#FFFF99" fog={false} />
                     </mesh>
@@ -93,9 +93,9 @@ function Space({
                         </Suspense>
                     )}
                     <Suspense fallback={null}>
-                        <group position={[400, -100, -400]}>
+                        <group position={[350, -100, -350]}>
                             <Text size={30} position={[0, 0, 0]}>
-                                {"Hello, I'm Ali"}
+                                {"Hello, I'm Ali Alaa"}
                             </Text>
                             <Text size={20} position={[0, -200, 0]}>
                                 A Front-end Web Developer

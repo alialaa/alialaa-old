@@ -11,6 +11,7 @@ const dash = keyframes`
 const rayPos = "15%";
 const styles = css`
     position: relative;
+    overflow: hidden;
     .content {
         position: absolute;
         z-index: 100;
@@ -65,6 +66,7 @@ const styles = css`
             list-style: none;
             pointer-events: auto;
             padding: 0;
+            text-align: center;
             li {
                 display: inline-block;
                 &:after {
@@ -102,15 +104,99 @@ const styles = css`
             animation: ${dash} 3s linear infinite;
         }
     }
-    .color-scheme-button {
+    .toggle-buttons {
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        z-index: 100;
+        display: flex;
+        ${mq.lessThan("small")} {
+            position: relative;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            margin-top: -3rem;
+            margin-bottom: 6rem;
+        }
+    }
+
+    .toggle-button {
         background: transparent;
         border: none;
-        height: 26px;
-        width: 26px;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         cursor: pointer;
         padding: 8px;
+        margin: 0 5px;
+        &:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .toggle-button-text {
+            color: #ffffff;
+            font-size: 11px;
+            margin: 0;
+            margin-top: 10px;
+            ${mq.lessThan("small")} {
+                font-size: 10px;
+            }
+        }
+    }
+    .animations-button {
+        height: 26px;
+        width: 26px;
         box-sizing: content-box;
+        ${mq.lessThan("medium")} {
+            height: 20px;
+            width: 20px;
+        }
+        &.animations-inactive {
+            .circles {
+                .circle {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .circles {
+            width: 100%;
+            height: 100%;
+            .circle {
+                position: absolute;
+                width: 50%;
+                height: 50%;
+                background: #fff;
+                border-radius: 100%;
+                transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                &.circle_1 {
+                    opacity: 0.9;
+                    bottom: 0;
+                    right: 0;
+                }
+                &.circle_2 {
+                    opacity: 0.5;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                }
+                &.circle_3 {
+                    opacity: 0.2;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+    .color-scheme-button {
+        height: 26px;
+        width: 26px;
+        box-sizing: content-box;
+        ${mq.lessThan("medium")} {
+            height: 20px;
+            width: 20px;
+        }
         &.no-motion {
             .moon,
             .sun,
@@ -126,11 +212,6 @@ const styles = css`
             .ray {
                 transition: none !important;
             }
-        }
-        &:focus {
-            outline: none;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 100%;
         }
         &.light-active {
             .moon {
@@ -169,8 +250,8 @@ const styles = css`
         }
         .moon,
         .sun {
-            height: 26px;
-            width: 26px;
+            height: 100%;
+            width: 100%;
         }
         .sun {
             position: absolute;
