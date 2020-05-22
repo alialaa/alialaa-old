@@ -1,7 +1,21 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+import React from "react";
 
-// You can delete this file if you're not using it
+export const onRenderBody = ({ setPreBodyComponents }) => {
+    setPreBodyComponents([
+        React.createElement("script", {
+            dangerouslySetInnerHTML: {
+                __html: `
+          (function() {    
+            var prefersDarkModeSystem =
+            window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches === true;
+            var prefersDarkModeLocalStorage = JSON.parse(localStorage.getItem("dark") || "null");
+
+            document.documentElement.setAttribute('data-dark', prefersDarkModeLocalStorage === null
+                ? prefersDarkModeSystem
+                : prefersDarkModeLocalStorage)
+            })()
+        `
+            }
+        })
+    ]);
+};

@@ -112,11 +112,9 @@ const DarkModeButton = ({
 };
 
 const AnmationsButton = ({
-    dark,
     animations,
     toggleAnimations
 }: {
-    dark: boolean;
     animations: boolean;
     toggleAnimations: () => void;
 }) => {
@@ -152,7 +150,7 @@ type HeaderProps = {
 };
 const Header = ({ siteTitle }: HeaderProps) => {
     const { pathname } = useLocation();
-    const { toggleAnimations, toggleDark, animations, dark } = useTheme();
+    const { toggleAnimations, toggleDark, animations, dark, loaded: settingstLoaded } = useTheme();
 
     return (
         <header css={styles}>
@@ -184,14 +182,12 @@ const Header = ({ siteTitle }: HeaderProps) => {
                     </ul>
                 </nav>
             </div>
-            <div className="toggle-buttons">
-                <DarkModeButton dark={dark} animations={animations} toggleDark={toggleDark} />
-                <AnmationsButton
-                    dark={dark}
-                    animations={animations}
-                    toggleAnimations={toggleAnimations}
-                />
-            </div>
+            {settingstLoaded && (
+                <div className="toggle-buttons">
+                    <DarkModeButton dark={dark} animations={animations} toggleDark={toggleDark} />
+                    <AnmationsButton animations={animations} toggleAnimations={toggleAnimations} />
+                </div>
+            )}
         </header>
     );
 };

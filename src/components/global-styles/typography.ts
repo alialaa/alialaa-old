@@ -33,6 +33,15 @@ const styles = css`
     h6 {
         font-size: 1.6rem;
     }
+    a {
+        color: var(--links);
+        font-weight: 500;
+        text-decoration: underline;
+    }
+    p {
+        margin: 0;
+        margin-bottom: 1rem;
+    }
     a,
     button {
         &:focus {

@@ -1,8 +1,9 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { Header, Space } from "@components";
+import { Header } from "@components";
 import { Global, css } from "@emotion/core";
-import { useLocation } from "@reach/router";
+import Helmet from "react-helmet";
+import { useTheme } from "@context/theme-context";
 
 import "normalize.css";
 import "./global-styles/font-visby.css";
@@ -19,7 +20,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             }
         }
     `);
-    const { pathname } = useLocation();
+    const { dark, loaded } = useTheme();
     return (
         <>
             <Global
@@ -27,6 +28,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     ${global}
                 `}
             />
+            {loaded && (
+                <Helmet
+                    htmlAttributes={{
+                        "data-dark": dark ? "true" : "false"
+                    }}
+                />
+            )}
             <a className="skip-link" href="#main">
                 Skip to Content
             </a>

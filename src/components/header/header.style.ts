@@ -30,7 +30,7 @@ const styles = css`
         }
     }
     .canvas-wrap {
-        padding-top: 47%;
+        padding-top: 27%;
         position: relative;
         @media screen and (max-width: ${890 / 16}em) {
             padding-top: 0;
