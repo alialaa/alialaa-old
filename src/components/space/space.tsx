@@ -17,7 +17,6 @@ function Camera({
 }) {
     const { camera } = useThree();
     useEffect(() => {
-        console.log(animations);
         if (!animations && mouse.current) {
             camera.position.x = 0;
             camera.position.y = 0;
@@ -67,6 +66,7 @@ function Space({
             onMouseUp={() => set(false)}
             onMouseDown={() => set(true)}
             onMouseMove={onMouseMove}
+            invalidateFrameloop={!animations}
             onCreated={({ gl, camera }) => {
                 camera.lookAt(0, 0, 0);
                 gl.setClearColor(new THREE.Color("#030008"));

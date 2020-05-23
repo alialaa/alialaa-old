@@ -19,6 +19,7 @@
             "@hooks": ["src/hooks"],
             "@context/*": ["src/context/*"],
             "@images/*": ["src/images/*"],
+            "@svgs/*": ["src/svgs/*"],
             "@utils": ["src/utils"]
         }
     }

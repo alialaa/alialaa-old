@@ -7,7 +7,7 @@ const styles = css`
     :root {
         --purple: #2f1264;
         --pink: #ee1d90;
-        --bg: #eae6f1;
+        --bg: #eeeaf3;
         --text: #000;
         --links: var(--purple);
         &[data-dark="true"] {
@@ -34,6 +34,9 @@ const styles = css`
     *:after {
         box-sizing: border-box;
         position: relative;
+    }
+    .gatsby-image-wrapper picture {
+        position: static;
     }
     ${typography}
     ${grid}

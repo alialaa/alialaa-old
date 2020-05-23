@@ -68,7 +68,7 @@ export default function Effects({ down, animations }: EffectsProps) {
     return (
         <effectComposer ref={composer} args={[gl]}>
             <renderPass attachArray="passes" scene={scene} camera={camera} />
-            <unrealBloomPass attachArray="passes" args={[aspect, 0.5, 0.9, 0]} />
+            <unrealBloomPass attachArray="passes" args={[aspect, 0.6, 0.9, 0]} />
             <shaderPass
                 attachArray="passes"
                 args={[VignetteShader]}
@@ -85,7 +85,7 @@ export default function Effects({ down, animations }: EffectsProps) {
             {animations && <glitchPass attachArray="passes" factor={down ? 1 : 0} />}
             {!down && animations && (
                 <>
-                    <shaderPass
+                    {/* <shaderPass
                         ref={badTV}
                         attachArray="passes"
                         args={[BadTVShader]}
@@ -94,7 +94,7 @@ export default function Effects({ down, animations }: EffectsProps) {
                         uniforms-speed-value={0.08}
                         uniforms-rollSpeed-value={0}
                         renderToScreen
-                    />
+                    /> */}
                     <shaderPass
                         ref={staticShader}
                         attachArray="passes"
