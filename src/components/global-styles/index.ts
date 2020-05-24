@@ -7,7 +7,7 @@ const styles = css`
     :root {
         --purple: #2f1264;
         --pink: #ee1d90;
-        --bg: #eeeaf3;
+        --bg: #f9f5fd;
         --text: #000;
         --links: var(--purple);
         &[data-dark="true"] {

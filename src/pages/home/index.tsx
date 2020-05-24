@@ -1,5 +1,5 @@
 import React from "react";
-import { SEO, ButtonLink } from "@components";
+import { SEO, ButtonLink, ButtonAnchor } from "@components";
 import { Link } from "gatsby";
 import styles from "./home.styles";
 import Img from "gatsby-image";
@@ -29,18 +29,20 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                 </div>
             </section>
             <section className="latest-articles-section">
-                <SpaceSVG
-                    fill={dark ? "#ffffff" : "#000000"}
-                    width={100}
-                    aria-hidden
-                    focusable="false"
-                />
                 <div className="container">
                     <div className={`latest-articles ${dark ? "dark" : ""}`}>
+                        <SpaceSVG
+                            fill={dark ? "#ffffff" : "#000000"}
+                            width={100}
+                            aria-hidden
+                            focusable="false"
+                        />
                         <div className="posts">
                             <div className="title">
                                 <h3>Latest Articles</h3>
-                                <ButtonLink to="/">Hello</ButtonLink>
+                                <ButtonLink dark={dark} to="/">
+                                    View All<span className="visually-hidden"> Articles</span>
+                                </ButtonLink>
                             </div>
                             {[1, 2].map(post => {
                                 return (
@@ -54,22 +56,62 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                             alt=""
                                         />
                                         <div className="post-inner">
-                                            <h4>
-                                                <Link to="/blog">
-                                                    {post === 1
-                                                        ? "Managing WordPress Metadata in Gutenberg Using a Sidebar Plugin"
-                                                        : "Gulp for WordPress: Creating the Tasks"}
-                                                </Link>
-                                            </h4>
-                                            <p>
-                                                WordPress released their anticipated over to the
-                                                post editor, nicknamed Gutenberg, which is also
-                                                referred to as the block editor.
-                                            </p>
+                                            <div>
+                                                <header>
+                                                    <div className="info">
+                                                        <time dateTime="2020-04-07T18:47:45+00:00">
+                                                            April 7, 2020
+                                                        </time>{" "}
+                                                        <p>2 min.</p>
+                                                    </div>
+                                                    <h4>
+                                                        <Link to="/blog">
+                                                            {post === 1
+                                                                ? "Managing WordPress Metadata in Gutenberg Using a Sidebar Plugin"
+                                                                : "Gulp for WordPress: Creating the Tasks"}
+                                                        </Link>
+                                                    </h4>
+                                                </header>
+                                                <p>
+                                                    WordPress released their anticipated over to the
+                                                    post editor, nicknamed Gutenberg, which is also
+                                                    referred to as the block editor.
+                                                </p>
+                                            </div>
+                                            <footer>
+                                                <ul className="tags">
+                                                    <li>
+                                                        <Link to="/blog">#Javascript</Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link to="/blog">#ReactJS</Link>
+                                                    </li>
+                                                </ul>
+                                            </footer>
                                         </div>
                                     </article>
                                 );
                             })}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className={`featured-course ${dark ? "dark" : ""}`}>
+                <div className="container">
+                    <div className="course">
+                        <div className="course-image">
+                            <Img fluid={data.courseImage.childImageSharp.fluid} alt="" />
+                        </div>
+                        <div className="course-info">
+                            <h3>Featured Course</h3>
+                            <h4>The Complete GitHub Actions & Workflows Guide</h4>
+                            <p>
+                                Automate Code Testing, Deployment & Versioning using CI/CD
+                                Workflows. Create & Publish GitHub Actions to the Marketplace
+                            </p>
+                            <div className="course-buttons">
+                                <ButtonAnchor href="udemy.com">Buy on Udemy</ButtonAnchor>
+                            </div>
                         </div>
                     </div>
                 </div>

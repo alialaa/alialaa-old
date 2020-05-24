@@ -17,6 +17,13 @@ export const query = graphql`
                 }
             }
         }
+        courseImage: file(relativePath: { eq: "ghactionscover.jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 1000) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
     }
 `;
 export default home;

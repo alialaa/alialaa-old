@@ -10,7 +10,7 @@ const styles = css`
         margin: 0;
         margin-bottom: 1rem;
         font-weight: 500;
-        line-height: 1.2;
+        line-height: 1.3;
     }
     p {
         font-size: 1.6rem;
@@ -45,8 +45,13 @@ const styles = css`
     a,
     button {
         &:focus {
-            outline: 2px solid var(--pink);
+            outline: 3px solid var(--pink);
         }
+    }
+    hr {
+        background: linear-gradient(-90deg, #c30cff 0%, #3597a7 35%, #17408c 70%, #44d4db 100%);
+        border: none;
+        height: 4px;
     }
 `;
 

@@ -1,13 +1,18 @@
 import { Link, GatsbyLinkProps } from "gatsby";
-import React from "react";
+import React, { HTMLProps, PropsWithoutRef } from "react";
 import styles from "./button.style";
 
-interface ButtonLink extends React.PropsWithoutRef<GatsbyLinkProps<any>> {
-    color?: string;
+interface ButtonLinkGatsby extends PropsWithoutRef<GatsbyLinkProps<any>> {
+    dark?: boolean;
+}
+interface ButtonLink extends HTMLProps<HTMLAnchorElement> {
+    dark?: boolean;
 }
 
-const ButtonLink = (props: ButtonLink) => {
-    return <Link {...props} css={styles} />;
+export const ButtonLink = ({ dark, ...props }: ButtonLinkGatsby) => {
+    return <Link className={dark ? "dark" : "dark"} {...props} css={styles} />;
 };
 
-export default ButtonLink;
+export const ButtonAnchor = ({ dark, ...props }: ButtonLink) => {
+    return <a className={dark ? "dark" : "dark"} {...props} css={styles} />;
+};
