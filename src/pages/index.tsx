@@ -24,6 +24,27 @@ export const query = graphql`
                 }
             }
         }
+        featuredCourse: course {
+            id
+            title
+            url
+            published_title
+        }
+        featuredCourseReviews: allCourseReview(
+            filter: {
+                course: { id: { eq: "x015vNbBDIRfbZt9qM09qkwzA==" } }
+                content: { regex: "/^.{10,}$/" }
+            }
+        ) {
+            edges {
+                node {
+                    content
+                    user {
+                        title
+                    }
+                }
+            }
+        }
     }
 `;
 export default home;

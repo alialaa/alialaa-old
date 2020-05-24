@@ -42,7 +42,7 @@ const styles = css`
             opacity: 0.045;
         }
         ${mq.largerThan("small")} {
-            padding: 8rem 0;
+            padding: 8rem 0 6rem;
         }
         h3 {
             font-size: 5.5rem;
@@ -172,7 +172,7 @@ const styles = css`
         }
         &.dark {
             .gatsby-image-wrapper:after {
-                background: radial-gradient(ellipse, rgba(6, 0, 16, 0.61), var(--bg) 72%);
+                background: radial-gradient(ellipse, rgba(6, 0, 16, 0.76), var(--bg) 72%);
             }
         }
         .gatsby-image-wrapper:after {
@@ -198,11 +198,14 @@ const styles = css`
             width: 70%;
             .course-buttons {
                 margin-top: 3rem;
+                a {
+                    margin-right: 2rem;
+                }
             }
             h3 {
                 align-self: flex-start;
                 background: linear-gradient(45deg, #8d43db, #bf1fd5);
-                font-size: calc(1rem + 0.8vw);
+                font-size: calc(1rem + 0.6vw);
                 padding: 5px 12px;
                 font-weight: 600;
                 margin-bottom: 2rem;

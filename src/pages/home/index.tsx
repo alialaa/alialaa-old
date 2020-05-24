@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SEO, ButtonLink, ButtonAnchor } from "@components";
 import { Link } from "gatsby";
 import styles from "./home.styles";
@@ -8,6 +8,7 @@ import SpaceSVG from "@svgs/space";
 
 const Home = ({ data }: { data: { [key: string]: any } }) => {
     const { dark } = useTheme();
+    console.log(data);
     return (
         <div css={styles}>
             <SEO title="Home" />
@@ -110,7 +111,17 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                 Workflows. Create & Publish GitHub Actions to the Marketplace
                             </p>
                             <div className="course-buttons">
-                                <ButtonAnchor href="udemy.com">Buy on Udemy</ButtonAnchor>
+                                <ButtonAnchor dark={dark} filled href="udemy.com">
+                                    Learn More
+                                    <span className="visually-hidden">
+                                        {" "}
+                                        About the course: The Complete GitHub Actions & Workflows
+                                        Guide
+                                    </span>
+                                </ButtonAnchor>
+                                <ButtonAnchor dark={dark} href="udemy.com">
+                                    See More Courses
+                                </ButtonAnchor>
                             </div>
                         </div>
                     </div>
