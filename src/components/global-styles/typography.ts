@@ -45,13 +45,17 @@ const styles = css`
     a,
     button {
         &:focus {
-            outline: 3px solid var(--pink);
+            outline: 3px solid var(--purple2);
         }
     }
     hr {
         background: linear-gradient(-90deg, #c30cff 0%, #3597a7 35%, #17408c 70%, #44d4db 100%);
         border: none;
         height: 4px;
+    }
+    ::selection {
+        background-color: #c11dd4;
+        color: white;
     }
 `;
 

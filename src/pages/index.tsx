@@ -38,6 +38,7 @@ export const query = graphql`
         ) {
             edges {
                 node {
+                    id
                     content
                     user {
                         title

@@ -6,14 +6,15 @@ import utility from "./utility";
 const styles = css`
     :root {
         --purple: #2f1264;
+        --purple2: #c11dd4;
         --pink: #ee1d90;
         --bg: #f9f5fd;
         --text: #000;
-        --links: var(--purple);
+        --links: #000;
         &[data-dark="true"] {
             --bg: #05010f;
             --text: #eef0fd;
-            --links: #bfc5fc;
+            --links: #fff;
         }
     }
     html {

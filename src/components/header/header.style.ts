@@ -85,7 +85,7 @@ const styles = css`
                     }
                     &.active {
                         font-weight: 600;
-                        border-bottom: 2px solid var(--pink);
+                        border-bottom: 2px solid var(--purple2);
                         &:focus {
                             border-bottom: none;
                         }

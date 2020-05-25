@@ -15,7 +15,7 @@ const styles = css`
                 font-size: 2.7rem;
             }
             a {
-                font-weight: 400;
+                font-weight: 500;
             }
         }
     }
@@ -49,8 +49,12 @@ const styles = css`
             font-weight: 700;
             margin-top: 2rem;
             margin-bottom: 3rem;
+            text-shadow: 2px 2px #c85fd4;
         }
         &.dark {
+            h3 {
+                text-shadow: 2px 2px var(--purple2);
+            }
             .posts {
                 .post {
                     background-color: #1a1623;
@@ -59,6 +63,9 @@ const styles = css`
                         a {
                             color: #ffffff;
                         }
+                    }
+                    .tags li a:focus {
+                        outline-color: #fff;
                     }
                 }
             }
@@ -147,6 +154,9 @@ const styles = css`
                             background: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%);
                             color: #fff;
                             padding: 3px 7px;
+                            &:focus {
+                                outline-color: #000;
+                            }
                         }
                     }
                 }
@@ -163,16 +173,21 @@ const styles = css`
     .featured-course {
         padding: 0rem 0;
         svg {
-            position: absolute;
-            z-index: 1;
-            right: -11%;
-            top: -51%;
-            width: 40%;
-            opacity: 0.03;
+            width: 200px;
+            max-width: 100%;
+            .cls-1 {
+                fill: #b825d6;
+            }
+            .cls-2 {
+                fill: #e4e44a;
+            }
         }
         &.dark {
             .gatsby-image-wrapper:after {
                 background: radial-gradient(ellipse, rgba(6, 0, 16, 0.76), var(--bg) 72%);
+            }
+            .course-info h4 {
+                /* text-shadow: 2px 2px var(--purple2); */
             }
         }
         .gatsby-image-wrapper:after {
@@ -215,6 +230,7 @@ const styles = css`
                 /* font-size: 5rem; */
                 font-size: calc(2rem + 2vw);
                 font-weight: 700;
+                /* text-shadow: 2px 2px #c85fd4; */
             }
             p {
                 font-size: calc(1.8rem + 0.2vw);

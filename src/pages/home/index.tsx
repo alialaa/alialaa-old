@@ -5,6 +5,7 @@ import styles from "./home.styles";
 import Img from "gatsby-image";
 import { useTheme } from "@context/theme-context";
 import SpaceSVG from "@svgs/space";
+import FiveStarts from "@svgs/5starts";
 
 const Home = ({ data }: { data: { [key: string]: any } }) => {
     const { dark } = useTheme();
@@ -123,6 +124,26 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                     See More Courses
                                 </ButtonAnchor>
                             </div>
+                        </div>
+                        <div className="course-reviews">
+                            <ul>
+                                {data.featuredCourseReviews.edges.map(
+                                    (review: { [key: string]: any }) => {
+                                        return (
+                                            <li key={review.node.id}>
+                                                <FiveStarts />
+                                                <blockquote cite="https://www.udemy.com/course/github-actions">
+                                                    <p>{review.node.content}</p>
+                                                    <footer>
+                                                        —{review.node.user.title},{" "}
+                                                        <cite>Udemy Student</cite>
+                                                    </footer>
+                                                </blockquote>
+                                            </li>
+                                        );
+                                    }
+                                )}
+                            </ul>
                         </div>
                     </div>
                 </div>

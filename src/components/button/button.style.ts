@@ -1,7 +1,59 @@
 import { css } from "@emotion/core";
 
 const styles = css`
-    color: var(--purple);
+    color: #000;
+    font-size: 1.4rem;
+    text-decoration: none;
+    font-weight: 600;
+    max-width: 100%;
+    min-width: 120px;
+    text-align: center;
+    display: inline-block;
+    padding: 1rem 2rem;
+    z-index: 10;
+    &.dark {
+        color: #ffffff;
+        &:after {
+            background: #1a1624;
+            border: 1px solid #c5b1c8;
+        }
+        &:hover {
+            color: #000;
+            &:after {
+                background: #ffffff;
+                border: 1px solid #441a4a;
+            }
+        }
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%);
+        top: 3px;
+        left: 3px;
+        z-index: -1;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border: 1px solid #441a4a;
+    }
+    &:hover {
+        color: #fff;
+        &:after {
+            background: #1a1624;
+            border: 1px solid #c5b1c8;
+        }
+    }
+    /* color: var(--purple);
     text-decoration: none;
     font-weight: 700;
     max-width: 100%;
@@ -15,6 +67,12 @@ const styles = css`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 1px;
+    &:before {
+        content: "";
+    }
+    &:after {
+        content: "";
+    }
     &:hover,
     &.filled {
         background: linear-gradient(-90deg, #221d28 0%, #000000 100%);
@@ -69,7 +127,7 @@ const styles = css`
             -webkit-background-clip: initial;
             -webkit-text-fill-color: initial;
         }
-    }
+    } */
 `;
 
 export default styles;
