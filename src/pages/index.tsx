@@ -31,9 +31,10 @@ export const query = graphql`
             published_title
         }
         featuredCourseReviews: allCourseReview(
+            limit: 3
             filter: {
                 course: { id: { eq: "x015vNbBDIRfbZt9qM09qkwzA==" } }
-                content: { regex: "/^.{10,}$/" }
+                content: { regex: "/.{10,}$/" }
             }
         ) {
             edges {

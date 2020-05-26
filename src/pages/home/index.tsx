@@ -104,46 +104,48 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                         <div className="course-image">
                             <Img fluid={data.courseImage.childImageSharp.fluid} alt="" />
                         </div>
-                        <div className="course-info">
-                            <h3>Featured Course</h3>
-                            <h4>The Complete GitHub Actions & Workflows Guide</h4>
-                            <p>
-                                Automate Code Testing, Deployment & Versioning using CI/CD
-                                Workflows. Create & Publish GitHub Actions to the Marketplace
-                            </p>
-                            <div className="course-buttons">
-                                <ButtonAnchor dark={dark} filled href="udemy.com">
-                                    Learn More
-                                    <span className="visually-hidden">
-                                        {" "}
-                                        About the course: The Complete GitHub Actions & Workflows
-                                        Guide
-                                    </span>
-                                </ButtonAnchor>
-                                <ButtonAnchor dark={dark} href="udemy.com">
-                                    See More Courses
-                                </ButtonAnchor>
+                        <div className="course-info-wrap">
+                            <div className="course-info">
+                                <h3>Featured Course</h3>
+                                <h4>The Complete GitHub Actions & Workflows Guide</h4>
+                                <p>
+                                    Automate Code Testing, Deployment & Versioning using CI/CD
+                                    Workflows. Create & Publish GitHub Actions to the Marketplace
+                                </p>
+                                <div className="course-buttons">
+                                    <ButtonAnchor dark={dark} filled href="udemy.com">
+                                        Learn More
+                                        <span className="visually-hidden">
+                                            {" "}
+                                            About the course: The Complete GitHub Actions &
+                                            Workflows Guide
+                                        </span>
+                                    </ButtonAnchor>
+                                    <ButtonAnchor dark={dark} href="udemy.com">
+                                        See More Courses
+                                    </ButtonAnchor>
+                                </div>
                             </div>
-                        </div>
-                        <div className="course-reviews">
-                            <ul>
-                                {data.featuredCourseReviews.edges.map(
-                                    (review: { [key: string]: any }) => {
-                                        return (
-                                            <li key={review.node.id}>
-                                                <FiveStarts />
-                                                <blockquote cite="https://www.udemy.com/course/github-actions">
-                                                    <p>{review.node.content}</p>
-                                                    <footer>
-                                                        —{review.node.user.title},{" "}
-                                                        <cite>Udemy Student</cite>
-                                                    </footer>
-                                                </blockquote>
-                                            </li>
-                                        );
-                                    }
-                                )}
-                            </ul>
+                            <div className="course-reviews">
+                                <ul>
+                                    {data.featuredCourseReviews.edges.map(
+                                        (review: { [key: string]: any }) => {
+                                            return (
+                                                <li key={review.node.id}>
+                                                    <FiveStarts />
+                                                    <blockquote cite="https://www.udemy.com/course/github-actions">
+                                                        <p>“{review.node.content}”</p>
+                                                        <footer>
+                                                            —{review.node.user.title},{" "}
+                                                            <cite>Udemy Student</cite>
+                                                        </footer>
+                                                    </blockquote>
+                                                </li>
+                                            );
+                                        }
+                                    )}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

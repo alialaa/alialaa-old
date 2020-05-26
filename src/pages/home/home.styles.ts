@@ -42,7 +42,7 @@ const styles = css`
             opacity: 0.045;
         }
         ${mq.largerThan("small")} {
-            padding: 8rem 0 6rem;
+            padding: 8rem 0 8rem;
         }
         h3 {
             font-size: 5.5rem;
@@ -58,7 +58,10 @@ const styles = css`
             .posts {
                 .post {
                     background-color: #1a1623;
-                    box-shadow: 0 0 12px 6px #00000052;
+                    box-shadow: -1px -1px 0 0 #241e32;
+                    border: 2px solid #241e32;
+                    border-top: none;
+                    border-left: none;
                     h4 {
                         a {
                             color: #ffffff;
@@ -98,7 +101,13 @@ const styles = css`
                 box-shadow: 0 0 12px 6px #0000000f;
                 display: flex;
                 flex-direction: column;
-                &:before {
+                padding: 1.6rem;
+                padding-bottom: 0.6rem;
+                border: 2px solid #f0e6fc;
+                box-shadow: -1px -1px 0 0 #f0e5fb;
+                border-top: none;
+                border-left: none;
+                /* &:before {
                     content: "";
                     position: absolute;
                     width: 100%;
@@ -118,7 +127,7 @@ const styles = css`
                     top: 0;
                     left: 0;
                     opacity: 0.07;
-                }
+                } */
                 h4 {
                     a {
                         font-weight: 600;
@@ -137,18 +146,18 @@ const styles = css`
                     }
                 }
                 p {
-                    margin: 2rem 0 0;
+                    margin: 1.8rem 0 0;
                     font-size: 1.7rem;
                 }
                 .tags {
                     margin: 0;
                     padding: 0;
-                    margin-top: 2rem;
+                    margin-top: 2.4rem;
                     list-style: none;
                     li {
                         display: inline-block;
-                        margin-right: 10px;
-                        margin-bottom: 10px;
+                        margin-right: 1rem;
+                        margin-bottom: 1rem;
                         font-size: 1.4rem;
                         a {
                             background: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%);
@@ -161,7 +170,7 @@ const styles = css`
                     }
                 }
                 .post-inner {
-                    padding: 2rem;
+                    padding: 2rem 0.4rem 0.4rem 0.4rem;
                     display: flex;
                     flex-direction: column;
                     flex: 1;
@@ -171,23 +180,20 @@ const styles = css`
         }
     }
     .featured-course {
-        padding: 0rem 0;
-        svg {
-            width: 200px;
-            max-width: 100%;
-            .cls-1 {
-                fill: #b825d6;
-            }
-            .cls-2 {
-                fill: #e4e44a;
-            }
-        }
+        padding: 4rem 0;
         &.dark {
             .gatsby-image-wrapper:after {
                 background: radial-gradient(ellipse, rgba(6, 0, 16, 0.76), var(--bg) 72%);
             }
             .course-info h4 {
                 /* text-shadow: 2px 2px var(--purple2); */
+            }
+            .course-reviews li {
+                border: 2px solid #2b2439;
+                border-top: none;
+                border-left: none;
+                background: #0f0b199c;
+                box-shadow: -1px -1px 0 0 #2b2439;
             }
         }
         .gatsby-image-wrapper:after {
@@ -205,8 +211,10 @@ const styles = css`
             top: 0;
             left: 0;
         }
-        .course-info {
+        .course-info-wrap {
             min-height: calc(min(100vw - 4rem, 960px) * 844 / 1500);
+        }
+        .course-info {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -234,6 +242,52 @@ const styles = css`
             }
             p {
                 font-size: calc(1.8rem + 0.2vw);
+            }
+        }
+        .course-reviews {
+            margin-top: 6rem;
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 4rem;
+                li {
+                    border: 2px solid #f0e5fb;
+                    padding: 3rem 2rem;
+                    background: #ffffffcf;
+                    text-align: center;
+                    border-top: none;
+                    border-left: none;
+                    box-shadow: -1px -1px 0 0 #f0e5fb;
+                    &:before {
+                        content: "";
+                    }
+                    svg {
+                        width: 150px;
+                        max-width: 100%;
+                        margin-bottom: 1.5rem;
+                        .cls-1 {
+                            fill: #b825d6;
+                        }
+                        .cls-2 {
+                            fill: #e4e44a;
+                        }
+                    }
+                    blockquote {
+                        margin: 0;
+                        p {
+                            font-size: 1.8rem;
+                            font-weight: 500;
+                        }
+                        footer {
+                            font-size: 1.5rem;
+                            font-weight: 400;
+                            opacity: 0.75;
+                        }
+                    }
+                }
             }
         }
     }
