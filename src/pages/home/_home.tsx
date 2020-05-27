@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { SEO, ButtonLink, ButtonAnchor } from "@components";
+import { testimonials } from "@utils";
 import { Link } from "gatsby";
-import styles from "./home.styles";
+import styles from "./_home.styles";
 import Img from "gatsby-image";
 import { useTheme } from "@context/theme-context";
 import SpaceSVG from "@svgs/space";
@@ -146,8 +147,11 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                                     <blockquote cite="https://www.udemy.com/course/github-actions">
                                                         <p>“{review.node.content}”</p>
                                                         <footer>
-                                                            —{review.node.user.title},{" "}
-                                                            <cite>Udemy Student</cite>
+                                                            —{" "}
+                                                            <cite>
+                                                                {review.node.user.title}, Udemy
+                                                                Student
+                                                            </cite>
                                                         </footer>
                                                     </blockquote>
                                                 </li>
@@ -163,6 +167,28 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                     </div>
                 </div>
             </section>
+            {/* <section className={`testimonials ${dark ? "dark" : ""}`}>
+                <div className="container">
+                    <ul>
+                        {testimonials.map(testimonial => {
+                            return (
+                                <li key={testimonial.name}>
+                                    <blockquote>
+                                        <p>“{testimonial.testimonial}”</p>
+                                        <footer>
+                                            —{" "}
+                                            <cite>
+                                                {testimonial.name}, {testimonial.title} at{" "}
+                                                <a href={testimonial.url}>{testimonial.company}</a>
+                                            </cite>
+                                        </footer>
+                                    </blockquote>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            </section> */}
         </div>
     );
 };
