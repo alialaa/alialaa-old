@@ -9,7 +9,6 @@ import FiveStarts from "@svgs/5starts";
 
 const Home = ({ data }: { data: { [key: string]: any } }) => {
     const { dark } = useTheme();
-    console.log(data);
     return (
         <div css={styles}>
             <SEO title="Home" />
@@ -113,16 +112,27 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                     Workflows. Create & Publish GitHub Actions to the Marketplace
                                 </p>
                                 <div className="course-buttons">
-                                    <ButtonAnchor dark={dark} filled href="udemy.com">
+                                    <ButtonLink
+                                        dark={dark}
+                                        filled
+                                        to={`/courses/${data.featuredCourse.published_title}`}
+                                    >
                                         Learn More
                                         <span className="visually-hidden">
                                             {" "}
                                             About the course: The Complete GitHub Actions &
                                             Workflows Guide
                                         </span>
-                                    </ButtonAnchor>
-                                    <ButtonAnchor dark={dark} href="udemy.com">
-                                        See More Courses
+                                    </ButtonLink>
+                                    <ButtonAnchor
+                                        dark={dark}
+                                        href="https://www.udemy.com/course/github-actions/?referralCode=49A5F56B87CD62AEF6D4"
+                                    >
+                                        Buy{" "}
+                                        <span className="visually-hidden">
+                                            The Complete GitHub Actions & Workflows Guide
+                                        </span>{" "}
+                                        on Udemy
                                     </ButtonAnchor>
                                 </div>
                             </div>
@@ -145,6 +155,9 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                         }
                                     )}
                                 </ul>
+                            </div>
+                            <div className="more-courses">
+                                <Link to="/">View All Courses →</Link>
                             </div>
                         </div>
                     </div>

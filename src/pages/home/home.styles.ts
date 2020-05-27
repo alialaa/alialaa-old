@@ -218,11 +218,15 @@ const styles = css`
             display: flex;
             flex-direction: column;
             justify-content: center;
-            width: 70%;
+            width: 100%;
+            ${mq.largerThan("small")} {
+                width: 70%;
+            }
             .course-buttons {
                 margin-top: 3rem;
                 a {
                     margin-right: 2rem;
+                    margin-bottom: 2rem;
                 }
             }
             h3 {
@@ -236,7 +240,8 @@ const styles = css`
             }
             h4 {
                 /* font-size: 5rem; */
-                font-size: calc(2rem + 2vw);
+                /* font-size: calc(2rem + 2vw); */
+                font-size: calc(2.8rem + 1.5vw);
                 font-weight: 700;
                 /* text-shadow: 2px 2px #c85fd4; */
             }
@@ -245,14 +250,25 @@ const styles = css`
             }
         }
         .course-reviews {
-            margin-top: 6rem;
+            margin-top: 4rem;
             ul {
                 margin: 0;
                 padding: 0;
                 list-style: none;
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-gap: 4rem;
+                grid-template-columns: 1fr;
+                grid-gap: 2rem;
+                ${mq.only("medium")} {
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-gap: 3rem;
+                    li:last-child {
+                        grid-area: auto / span 2 / auto / auto;
+                    }
+                }
+                ${mq.largerThan("medium")} {
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-gap: 3rem;
+                }
                 li {
                     border: 2px solid #f0e5fb;
                     padding: 3rem 2rem;
@@ -287,6 +303,32 @@ const styles = css`
                             opacity: 0.75;
                         }
                     }
+                }
+            }
+        }
+        .more-courses {
+            margin-top: 4rem;
+            text-align: right;
+            a {
+                font-weight: 600;
+                font-size: 2rem;
+                text-decoration: none;
+                display: inline-block;
+                line-height: 1;
+                &:focus {
+                    &:before {
+                        display: none;
+                    }
+                }
+                &:before {
+                    content: "";
+                    position: absolute;
+                    height: 2px;
+                    width: 100%;
+                    left: 0;
+                    bottom: -1px;
+                    background: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%);
+                    /* z-index: -1; */
                 }
             }
         }
