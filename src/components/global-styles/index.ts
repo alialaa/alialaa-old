@@ -11,10 +11,12 @@ const styles = css`
         --bg: #f9f5fd;
         --text: #000;
         --links: #000;
+        --text-shadow: #da80e5;
         &[data-dark="true"] {
             --bg: #05010f;
             --text: #eef0fd;
             --links: #fff;
+            --text-shadow: #b531c4;
         }
     }
     html {

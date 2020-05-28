@@ -27,11 +27,17 @@
 @font-face {
     font-weight: 600;
     font-family: Visby;
+    src: url("../../fonts/visby/VisbyCF-DemiBold.woff2") format("woff2"),
+        url("../../fonts/visby/VisbyCF-DemiBold.woff") format("woff");
+}
+@font-face {
+    font-weight: 700;
+    font-family: Visby;
     src: url("../../fonts/visby/VisbyCF-Bold.woff2") format("woff2"),
         url("../../fonts/visby/VisbyCF-Bold.woff") format("woff");
 }
 @font-face {
-    font-weight: 700;
+    font-weight: 800;
     font-family: Visby;
     src: url("../../fonts/visby/VisbyCF-ExtraBold.woff2") format("woff2"),
         url("../../fonts/visby/VisbyCF-ExtraBold.woff") format("woff");

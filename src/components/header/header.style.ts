@@ -26,6 +26,9 @@ const styles = css`
         left: 0;
         @media screen and (max-width: ${890 / 16}em) {
             position: relative;
+            padding: 14rem 1.5rem 6rem;
+        }
+        ${mq.lessThan("small")} {
             padding: 6rem 1.5rem;
         }
     }
@@ -84,7 +87,7 @@ const styles = css`
                         font-size: 1.4rem;
                     }
                     &.active {
-                        font-weight: 600;
+                        font-weight: 700;
                         border-bottom: 2px solid var(--purple2);
                         &:focus {
                             border-bottom: none;

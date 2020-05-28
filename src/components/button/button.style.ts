@@ -4,7 +4,7 @@ const styles = css`
     color: #000;
     font-size: 1.4rem;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     max-width: 100%;
     min-width: 120px;
     text-align: center;

@@ -9,8 +9,8 @@ export type TestimonialType = {
 export const testimonials: TestimonialType[] = [
     {
         testimonial:
-            "I would work with Ali Again. He is a really good developer and has strong technical skills.",
-        title: "CEO",
+            "I would work with Ali again. He is a really good developer and has strong technical skills.",
+        title: "Co-founder & CTO",
         company: "Teeela",
         name: "Ibrahim Al-Khulaifi",
         url: "https://www.teeela.com/en/"
@@ -18,7 +18,7 @@ export const testimonials: TestimonialType[] = [
     {
         testimonial:
             "I would work with Ali Again. He is a really good developer and has strong technical skills.",
-        title: "CEO",
+        title: "Co-founder & CEO",
         company: "Circle",
         name: "Essam Maged",
         url: "https://createmycircle.com/"

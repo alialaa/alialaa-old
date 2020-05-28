@@ -37,6 +37,21 @@ function Light() {
     return <directionalLight intensity={0.6} position={[1, 0.5, 0]} />;
 }
 
+function Fps() {
+    let last = Date.now();
+    let qty = 0;
+    let currentAvg = 0;
+    useFrame(() => {
+        const now = Date.now();
+        const fps = 1 / ((now - last) / 1000);
+        const avg = Math.round((fps - currentAvg) / ++qty);
+        console.log(fps, currentAvg + avg, currentAvg);
+        currentAvg += avg;
+        last = now;
+    });
+    return null;
+}
+
 function Space({
     page,
     night,
@@ -52,6 +67,14 @@ function Space({
     const onMouseMove = useCallback(({ clientX: x, clientY: y }) => {
         mouse.current = [x - window.innerWidth / 2, y - window.innerHeight / 2];
     }, []);
+    const getPixelRatio = () => {
+        const dpr = window.devicePixelRatio;
+        if (dpr <= 1) {
+            return 1.5;
+        } else {
+            return !animations || isSmall ? window.devicePixelRatio : 1.5;
+        }
+    };
     if (typeof window === "undefined") return null; //don't render during SSR
     return (
         <Canvas
@@ -61,18 +84,20 @@ function Space({
                     ? { debounce: { resize: 1000, scroll: 0 } }
                     : undefined
             }
-            pixelRatio={window.devicePixelRatio}
+            pixelRatio={getPixelRatio()}
+            // pixelRatio={window.devicePixelRatio}
             camera={{ position: [0, 0, 2000], near: 0.01, far: 10000, fov: 40 }}
             onMouseUp={() => set(false)}
             onMouseDown={() => set(true)}
             onMouseMove={onMouseMove}
-            invalidateFrameloop={!animations}
+            invalidateFrameloop={!animations || isSmall}
             onCreated={({ gl, camera }) => {
                 camera.lookAt(0, 0, 0);
                 gl.setClearColor(new THREE.Color("#030008"));
             }}
         >
-            <Stars />
+            {/* {animations && !isSmall && <Fps />} */}
+            <Stars size={!animations || isSmall ? 0.5 : 0.65} />
             {!isSmall && (
                 <>
                     <Camera mouse={mouse} animations={animations} />

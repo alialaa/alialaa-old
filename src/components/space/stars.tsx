@@ -2,9 +2,10 @@ import React, { useMemo } from "react";
 
 type StarsProps = {
     count?: number;
+    size?: number;
 };
 
-export default function Stars({ count = 2000 }: StarsProps) {
+export default function Stars({ count = 2000, size = 0.5 }: StarsProps) {
     const positions = useMemo(() => {
         const positions = [];
         for (let i = 0; i < count; i++) {
@@ -32,7 +33,7 @@ export default function Stars({ count = 2000 }: StarsProps) {
             </bufferGeometry>
             <pointsMaterial
                 attach="material"
-                size={0.5}
+                size={size}
                 sizeAttenuation={false}
                 color="white"
                 fog={false}

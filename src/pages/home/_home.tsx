@@ -6,6 +6,7 @@ import styles from "./_home.styles";
 import Img from "gatsby-image";
 import { useTheme } from "@context/theme-context";
 import SpaceSVG from "@svgs/space";
+import SpaceSVG2 from "@svgs/space2";
 import FiveStarts from "@svgs/5starts";
 
 const Home = ({ data }: { data: { [key: string]: any } }) => {
@@ -15,10 +16,11 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
             <SEO title="Home" />
             <section>
                 <div className="container">
-                    <h2 className="visually-hidden">
-                        Hello, I&apos;m Ali Alaa. A Front-end web developer.
-                    </h2>
                     <div className="intro">
+                        <h2>
+                            Hello, I&apos;m Ali Alaa.
+                            <br /> <span>A Front-end web developer.</span>
+                        </h2>
                         <p>
                             I am a freelance front-end developer based in Egypt 🇪🇬. I develop
                             UI&apos;s for the web and hybrid mobile applications. I am currently
@@ -167,8 +169,10 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                     </div>
                 </div>
             </section>
-            {/* <section className={`testimonials ${dark ? "dark" : ""}`}>
+            <section className={`testimonials ${dark ? "dark" : ""}`}>
                 <div className="container">
+                    <SpaceSVG2 fill={dark ? "#ffffff" : "#000000"} aria-hidden focusable="false" />
+                    <h3>Testimonials</h3>
                     <ul>
                         {testimonials.map(testimonial => {
                             return (
@@ -188,7 +192,7 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                         })}
                     </ul>
                 </div>
-            </section> */}
+            </section>
         </div>
     );
 };

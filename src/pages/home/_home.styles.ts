@@ -3,10 +3,41 @@ import { mq } from "@utils";
 
 const styles = css`
     .intro {
-        padding: 8rem 0 5rem;
+        padding: 3rem 0 3rem;
+        ${mq.largerThan("small")} {
+            padding: 8rem 0 5rem;
+        }
+        h2 {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            @media screen and (max-width: ${890 / 16}em) {
+                position: relative;
+                left: auto;
+                width: auto;
+                height: auto;
+                font-size: calc(4rem + 1.2vw);
+                font-weight: 800;
+                margin-top: 2rem;
+                margin-bottom: 3rem;
+                text-shadow: 2px 2px var(--text-shadow);
+                span {
+                    margin-top: 1rem;
+                    display: inline-block;
+                    font-size: 85%;
+                }
+            }
+            ${mq.lessThan("small")} {
+                margin-bottom: 3rem;
+                font-size: 4.2rem;
+            }
+        }
         p {
             margin: 0;
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 400;
             ${mq.largerThan("small")} {
                 font-size: 2.5rem;
@@ -45,19 +76,19 @@ const styles = css`
             padding: 8rem 0 8rem;
         }
         h3 {
-            font-size: 5.5rem;
-            font-weight: 700;
+            font-size: calc(4rem + 1.2vw);
+            font-weight: 800;
             margin-top: 2rem;
             margin-bottom: 3rem;
-            text-shadow: 2px 2px #c85fd4;
+            text-shadow: 2px 2px var(--text-shadow);
         }
         &.dark {
-            h3 {
+            /* h3 {
                 text-shadow: 2px 2px var(--purple2);
-            }
+            } */
             .posts {
                 .post {
-                    background-color: #1a1623;
+                    background-color: #13101d;
                     box-shadow: -1px -1px 0 0 #241e32;
                     border: 2px solid #241e32;
                     border-top: none;
@@ -130,7 +161,7 @@ const styles = css`
                 } */
                 h4 {
                     a {
-                        font-weight: 600;
+                        font-weight: 700;
                         color: #000000;
                     }
                 }
@@ -181,6 +212,7 @@ const styles = css`
     }
     .featured-course {
         padding: 4rem 0;
+        z-index: 10;
         &.dark {
             .gatsby-image-wrapper:after {
                 background: radial-gradient(ellipse, rgba(6, 0, 16, 0.76), var(--bg) 72%);
@@ -234,7 +266,7 @@ const styles = css`
                 background: linear-gradient(45deg, #8d43db, #bf1fd5);
                 font-size: calc(1rem + 0.6vw);
                 padding: 5px 12px;
-                font-weight: 600;
+                font-weight: 800;
                 margin-bottom: 2rem;
                 color: #ffffff;
             }
@@ -242,7 +274,7 @@ const styles = css`
                 /* font-size: 5rem; */
                 /* font-size: calc(2rem + 2vw); */
                 font-size: calc(2.8rem + 1.5vw);
-                font-weight: 700;
+                font-weight: 800;
                 /* text-shadow: 2px 2px #c85fd4; */
             }
             p {
@@ -310,7 +342,7 @@ const styles = css`
             margin-top: 4rem;
             text-align: right;
             a {
-                font-weight: 600;
+                font-weight: 700;
                 font-size: 2rem;
                 text-decoration: none;
                 display: inline-block;
@@ -329,6 +361,93 @@ const styles = css`
                     bottom: -1px;
                     background: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%);
                     /* z-index: -1; */
+                }
+            }
+        }
+    }
+    .testimonials {
+        padding: 6rem 0;
+        &.dark {
+            /* h3 {
+                text-shadow: 2px 2px var(--purple2);
+            } */
+            ul li {
+                background: #13101d;
+                border: 1px solid #c5b1c9;
+            }
+            svg {
+                opacity: 0.05;
+            }
+        }
+        svg {
+            position: absolute;
+            width: 100%;
+            opacity: 0.03;
+            left: 0%;
+            top: -10%;
+            ${mq.largerThan("small")} {
+                width: 100%;
+                left: 0;
+                top: -35%;
+            }
+        }
+        h3 {
+            font-size: calc(4rem + 1.2vw);
+            font-weight: 800;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px var(--text-shadow);
+            margin: 0 0 4rem 0;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            ${mq.largerThan("small")} {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            li {
+                padding: 3rem;
+                background: #fff;
+                border: 1px solid #441a4a;
+                /* border-image: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%) 1; */
+                &:after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%);
+                    top: 4px;
+                    left: 4px;
+                    z-index: -1;
+                }
+                blockquote {
+                    margin: 0;
+                    p {
+                        font-size: 2rem;
+                        font-weight: 500;
+                        ${mq.largerThan("small")} {
+                            font-size: 2.4rem;
+                        }
+                    }
+                    footer {
+                        font-size: 1.6rem;
+                        opacity: 0.75;
+                        ${mq.largerThan("small")} {
+                            font-size: 1.8rem;
+                        }
+                        a {
+                            font-weight: 600;
+                        }
+                    }
+                }
+                &:last-child {
+                    ${mq.largerThan("small")} {
+                        grid-area: auto / span 2 / auto / auto;
+                    }
                 }
             }
         }
