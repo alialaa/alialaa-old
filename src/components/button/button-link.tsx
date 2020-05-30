@@ -4,27 +4,28 @@ import styles from "./button.style";
 
 interface ButtonLinkGatsby extends PropsWithoutRef<GatsbyLinkProps<any>> {
     dark?: boolean;
-    filled?: boolean;
-    color?: undefined | "purple";
 }
-interface ButtonLink extends HTMLProps<HTMLAnchorElement> {
+interface ButtonLink extends React.ComponentProps<"a"> {
     dark?: boolean;
-    filled?: boolean;
-    color?: undefined | "purple";
+}
+interface Button extends React.ComponentProps<"button"> {
+    dark?: boolean;
 }
 
-export const ButtonLink = ({ dark, color, filled, ...props }: ButtonLinkGatsby) => {
+export const ButtonLink = ({ dark, ...props }: ButtonLinkGatsby) => {
     let classes = "";
     if (dark) classes += "dark";
-    if (filled) classes += " filled";
-    if (color) classes += " " + color;
     return <Link className={classes} {...props} css={styles} />;
 };
 
-export const ButtonAnchor = ({ dark, color, filled, ...props }: ButtonLink) => {
+export const ButtonAnchor = ({ dark, ...props }: ButtonLink) => {
     let classes = "";
     if (dark) classes += "dark";
-    if (filled) classes += " filled";
-    if (color) classes += " " + color;
     return <a className={classes} {...props} css={styles} />;
+};
+
+export const Button = ({ dark, ...props }: Button) => {
+    let classes = "";
+    if (dark) classes += "dark";
+    return <button className={classes} {...props} css={styles} />;
 };

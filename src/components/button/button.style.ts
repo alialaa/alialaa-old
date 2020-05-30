@@ -11,10 +11,13 @@ const styles = css`
     display: inline-block;
     padding: 1rem 2rem;
     z-index: 10;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.5px;
     &.dark {
         color: #ffffff;
         &:after {
-            background: #1a1624;
+            background: #130f1e;
             border: 1px solid #c5b1c8;
         }
         &:hover {
@@ -52,6 +55,10 @@ const styles = css`
             background: #1a1624;
             border: 1px solid #c5b1c8;
         }
+    }
+    &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
     }
     /* color: var(--purple);
     text-decoration: none;

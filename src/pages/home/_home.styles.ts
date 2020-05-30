@@ -397,7 +397,8 @@ const styles = css`
             margin-top: 2rem;
             margin-bottom: 3rem;
             text-shadow: 2px 2px var(--text-shadow);
-            margin: 0 0 4rem 0;
+            margin: 0 0 5rem 0;
+            text-align: center;
         }
         ul {
             list-style: none;

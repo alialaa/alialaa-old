@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { Header } from "@components";
+import { Header, Footer } from "@components";
 import { Global, css } from "@emotion/core";
 import Helmet from "react-helmet";
 import { useTheme } from "@context/theme-context";
@@ -41,11 +41,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <Header siteTitle={data.site.siteMetadata.title} />
             <div id="main">
                 <main>{children}</main>
-                <footer>
-                    © {new Date().getFullYear()}, Built with
-                    {` `}
-                    <a href="https://www.gatsbyjs.org">Gatsby</a>
-                </footer>
+                <Footer />
             </div>
         </>
     );

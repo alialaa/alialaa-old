@@ -117,7 +117,6 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                 <div className="course-buttons">
                                     <ButtonLink
                                         dark={dark}
-                                        filled
                                         to={`/courses/${data.featuredCourse.published_title}`}
                                     >
                                         Learn More
