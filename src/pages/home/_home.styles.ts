@@ -332,7 +332,7 @@ const styles = css`
                         footer {
                             font-size: 1.5rem;
                             font-weight: 400;
-                            opacity: 0.75;
+                            color: #b5b6c2;
                         }
                     }
                 }
@@ -436,7 +436,7 @@ const styles = css`
                     }
                     footer {
                         font-size: 1.6rem;
-                        opacity: 0.75;
+                        color: #b5b6c2;
                         ${mq.largerThan("small")} {
                             font-size: 1.8rem;
                         }

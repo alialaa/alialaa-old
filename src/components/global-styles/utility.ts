@@ -11,7 +11,7 @@ const styles = css`
         overflow: hidden;
     }
     .skip-link:focus {
-        background: var(--purple);
+        background: #05010e;
         display: inline-block;
         left: 2rem;
         top: 2rem;
