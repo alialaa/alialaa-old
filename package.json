@@ -8,6 +8,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@juggle/resize-observer": "^3.1.3",
+    "focus-visible": "^5.1.0",
     "gatsby": "^2.20.12",
     "gatsby-image": "^2.3.1",
     "gatsby-plugin-emotion": "^4.3.1",
@@ -81,9 +82,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsc && lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "pre-commit": "tsc && lint-staged"
     }
   },
   "repository": {

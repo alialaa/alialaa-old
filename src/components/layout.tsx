@@ -4,7 +4,7 @@ import { Header, Footer } from "@components";
 import { Global, css } from "@emotion/core";
 import Helmet from "react-helmet";
 import { useTheme } from "@context/theme-context";
-
+import "focus-visible";
 import "normalize.css";
 import "./global-styles/font-visby.css";
 import "./global-styles/font-dank.css";

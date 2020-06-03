@@ -42,12 +42,7 @@ const styles = css`
         margin: 0;
         margin-bottom: 1rem;
     }
-    a,
-    button {
-        &:focus {
-            outline: 3px solid var(--purple2);
-        }
-    }
+
     hr {
         background: linear-gradient(-90deg, #c30cff 0%, #3597a7 35%, #17408c 70%, #44d4db 100%);
         border: none;
@@ -56,6 +51,20 @@ const styles = css`
     ::selection {
         background-color: #c11dd4;
         color: white;
+    }
+    [data-js-focus-visible] {
+        a,
+        button {
+            &:focus:not([data-focus-visible-added]) {
+                outline: none;
+            }
+        }
+        a,
+        button {
+            &[data-focus-visible-added] {
+                outline: 3px solid var(--purple2);
+            }
+        }
     }
 `;
 

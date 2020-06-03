@@ -226,6 +226,11 @@ const styles = css`
                 border-left: none;
                 background: #0f0b199c;
                 box-shadow: -1px -1px 0 0 #2b2439;
+                blockquote {
+                    footer {
+                        color: #b5b6c2;
+                    }
+                }
             }
         }
         .gatsby-image-wrapper:after {
@@ -332,7 +337,7 @@ const styles = css`
                         footer {
                             font-size: 1.5rem;
                             font-weight: 400;
-                            color: #b5b6c2;
+                            color: #757681;
                         }
                     }
                 }
@@ -347,7 +352,7 @@ const styles = css`
                 text-decoration: none;
                 display: inline-block;
                 line-height: 1;
-                &:focus {
+                &[data-focus-visible-added] {
                     &:before {
                         display: none;
                     }
@@ -374,6 +379,11 @@ const styles = css`
             ul li {
                 background: #13101d;
                 border: 1px solid #c5b1c9;
+                blockquote {
+                    footer {
+                        color: #b5b6c2;
+                    }
+                }
             }
             svg {
                 opacity: 0.05;
@@ -436,7 +446,7 @@ const styles = css`
                     }
                     footer {
                         font-size: 1.6rem;
-                        color: #b5b6c2;
+                        color: #757681;
                         ${mq.largerThan("small")} {
                             font-size: 1.8rem;
                         }

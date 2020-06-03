@@ -89,7 +89,7 @@ const styles = css`
                     &.active {
                         font-weight: 700;
                         border-bottom: 2px solid var(--purple2);
-                        &:focus {
+                        &[data-focus-visible-added] {
                             border-bottom: none;
                         }
                     }
@@ -133,7 +133,7 @@ const styles = css`
         cursor: pointer;
         padding: 8px;
         margin: 0 5px;
-        &:focus {
+        &[data-focus-visible-added] {
             outline: none;
             background-color: rgba(255, 255, 255, 0.2);
         }
