@@ -76,6 +76,7 @@ const styles = css`
             padding: 8rem 0 8rem;
         }
         h3 {
+            line-height: 1.1;
             font-size: calc(4rem + 1.2vw);
             font-weight: 800;
             margin-top: 2rem;
@@ -89,10 +90,14 @@ const styles = css`
             .posts {
                 .post {
                     background-color: #13101d;
-                    box-shadow: -1px -1px 0 0 #241e32;
-                    border: 2px solid #241e32;
-                    border-top: none;
-                    border-left: none;
+                    /* box-shadow: -1px -1px 0 0 #241e32; */
+                    /* border: 2px solid #241e32; */
+                    /* border-top: none;
+                    border-left: none; */
+                    border: 1px solid #c5b1c9;
+                    &:after {
+                        background: linear-gradient(-161deg, #943eda 0%, #c11ed5 50%, #c5b1ca 100%);
+                    }
                     h4 {
                         a {
                             color: #ffffff;
@@ -129,15 +134,29 @@ const styles = css`
             gap: 30px;
             .post {
                 background-color: #ffffff;
-                box-shadow: 0 0 12px 6px #0000000f;
                 display: flex;
                 flex-direction: column;
                 padding: 1.6rem;
                 padding-bottom: 0.6rem;
-                border: 2px solid #f0e6fc;
-                box-shadow: -1px -1px 0 0 #f0e5fb;
-                border-top: none;
-                border-left: none;
+                border: 1px solid #441a4a;
+                /* box-shadow: 1px 1px 0 0 #441a4a; */
+                /* border: 2px solid #f0e6fc; */
+                /* box-shadow: -1px -1px 0 0 #f0e5fb; */
+                /* border-top: none;
+                border-left: none; */
+                &:after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    /* background: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%); */
+                    /* background: linear-gradient(-90deg, #986fda 0%, #3881bf 50%, #2bcdbe 100%); */
+                    background: linear-gradient(-161deg, #943eda 0%, #c11ed5 50%, #441a4a 100%);
+                    /* background: linear-gradient(-161deg, #943eda 0%, #c11ed5 50%, var(--bg) 100%); */
+                    top: 3px;
+                    left: 3px;
+                    z-index: -1;
+                }
                 /* &:before {
                     content: "";
                     position: absolute;
@@ -217,18 +236,23 @@ const styles = css`
             .gatsby-image-wrapper:after {
                 background: radial-gradient(ellipse, rgba(6, 0, 16, 0.76), var(--bg) 72%);
             }
-            .course-info h4 {
-                /* text-shadow: 2px 2px var(--purple2); */
+            .course-info h3 {
+                box-shadow: 2px 2px 0 #c5b1c9;
             }
             .course-reviews li {
-                border: 2px solid #2b2439;
-                border-top: none;
-                border-left: none;
-                background: #0f0b199c;
-                box-shadow: -1px -1px 0 0 #2b2439;
+                /* border: 2px solid #2b2439; */
+                /* border-top: none; */
+                /* border-left: none; */
+                /* background: #0f0b199c; */
+                /* box-shadow: -1px -1px 0 0 #2b2439; */
+                border: 1px solid #c5b1c9;
+                background: #130f1e;
+                &:after {
+                    background: linear-gradient(-161deg, #943eda 0%, #c11ed5 50%, #c5b1ca 100%);
+                }
                 blockquote {
                     footer {
-                        color: #b5b6c2;
+                        color: #dedfe6;
                     }
                 }
             }
@@ -240,7 +264,7 @@ const styles = css`
             position: absolute;
             top: 0;
             left: 0;
-            background: radial-gradient(ellipse, rgba(249, 245, 253, 0.71), var(--bg) 72%);
+            background: radial-gradient(ellipse, rgba(249, 245, 253, 0.88), var(--bg) 72%);
         }
         .course-image {
             position: absolute;
@@ -250,6 +274,7 @@ const styles = css`
         }
         .course-info-wrap {
             min-height: calc(min(100vw - 4rem, 960px) * 844 / 1500);
+            z-index: 1;
         }
         .course-info {
             display: flex;
@@ -260,13 +285,14 @@ const styles = css`
                 width: 70%;
             }
             .course-buttons {
-                margin-top: 3rem;
+                margin-top: 2rem;
                 a {
                     margin-right: 2rem;
                     margin-bottom: 2rem;
                 }
             }
             h3 {
+                box-shadow: 2px 2px 0 #441a4a;
                 align-self: flex-start;
                 background: linear-gradient(45deg, #8d43db, #bf1fd5);
                 font-size: calc(1rem + 0.6vw);
@@ -278,12 +304,12 @@ const styles = css`
             h4 {
                 /* font-size: 5rem; */
                 /* font-size: calc(2rem + 2vw); */
+                /* text-shadow: 2px 2px var(--text-shadow); */
                 font-size: calc(2.8rem + 1.5vw);
                 font-weight: 800;
-                /* text-shadow: 2px 2px #c85fd4; */
             }
             p {
-                font-size: calc(1.8rem + 0.2vw);
+                font-size: calc(1.8rem + 0.4vw);
             }
         }
         .course-reviews {
@@ -307,18 +333,27 @@ const styles = css`
                     grid-gap: 3rem;
                 }
                 li {
-                    border: 2px solid #f0e5fb;
-                    padding: 3rem 2rem;
-                    background: #ffffffcf;
+                    border: 1px solid #441a4a;
+                    padding: 4rem 2rem;
+                    background: #ffffff;
                     text-align: center;
-                    border-top: none;
-                    border-left: none;
-                    box-shadow: -1px -1px 0 0 #f0e5fb;
-                    &:before {
+                    /* border-top: none;
+                    border-left: none; */
+                    /* box-shadow: 1px 1px 0 0 #441a4a; */
+                    &:after {
                         content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        /* background: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%); */
+                        /* background: linear-gradient(-90deg, #986fda 0%, #3881bf 50%, #2bcdbe 100%); */
+                        background: linear-gradient(-161deg, #943eda 0%, #c11ed5 50%, #441a4a 100%);
+                        top: 3px;
+                        left: 3px;
+                        z-index: -1;
                     }
                     svg {
-                        width: 150px;
+                        width: 155px;
                         max-width: 100%;
                         margin-bottom: 1.5rem;
                         .cls-1 {
@@ -332,12 +367,13 @@ const styles = css`
                         margin: 0;
                         p {
                             font-size: 1.8rem;
-                            font-weight: 500;
+                            font-weight: 600;
+                            margin-bottom: 2rem;
                         }
                         footer {
                             font-size: 1.5rem;
-                            font-weight: 400;
-                            color: #757681;
+                            font-weight: 500;
+                            color: #3d3e48;
                         }
                     }
                 }
@@ -348,7 +384,7 @@ const styles = css`
             text-align: right;
             a {
                 font-weight: 700;
-                font-size: 2rem;
+                font-size: 2.5rem;
                 text-decoration: none;
                 display: inline-block;
                 line-height: 1;
@@ -360,7 +396,7 @@ const styles = css`
                 &:before {
                     content: "";
                     position: absolute;
-                    height: 2px;
+                    height: 3px;
                     width: 100%;
                     left: 0;
                     bottom: -1px;
@@ -371,7 +407,7 @@ const styles = css`
         }
     }
     .testimonials {
-        padding: 6rem 0;
+        padding: 6rem 0 10rem;
         &.dark {
             /* h3 {
                 text-shadow: 2px 2px var(--purple2);
@@ -381,7 +417,7 @@ const styles = css`
                 border: 1px solid #c5b1c9;
                 blockquote {
                     footer {
-                        color: #b5b6c2;
+                        color: #dedfe6;
                     }
                 }
             }
@@ -421,7 +457,7 @@ const styles = css`
                 grid-template-columns: repeat(2, 1fr);
             }
             li {
-                padding: 3rem;
+                padding: 4rem 3.5rem;
                 background: #fff;
                 border: 1px solid #441a4a;
                 /* border-image: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%) 1; */
@@ -440,13 +476,14 @@ const styles = css`
                     p {
                         font-size: 2rem;
                         font-weight: 500;
+                        margin-bottom: 2rem;
                         ${mq.largerThan("small")} {
                             font-size: 2.4rem;
                         }
                     }
                     footer {
                         font-size: 1.6rem;
-                        color: #757681;
+                        color: #3d3e48;
                         ${mq.largerThan("small")} {
                             font-size: 1.8rem;
                         }

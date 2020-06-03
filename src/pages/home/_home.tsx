@@ -112,7 +112,7 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                 <h4>The Complete GitHub Actions & Workflows Guide</h4>
                                 <p>
                                     Automate Code Testing, Deployment & Versioning using CI/CD
-                                    Workflows. Create & Publish GitHub Actions to the Marketplace
+                                    Workflows. Create & Publish GitHub Actions to the Marketplace.
                                 </p>
                                 <div className="course-buttons">
                                     <ButtonLink

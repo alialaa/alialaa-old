@@ -20,7 +20,7 @@ const styles = css`
         align-items: center;
         justify-content: center;
         width: 100%;
-        padding: 4rem 1.5rem;
+        padding: 5rem 1.5rem;
         pointer-events: none;
         top: 0;
         left: 0;
@@ -60,7 +60,7 @@ const styles = css`
         }
     }
     .navigation {
-        margin-top: 2rem;
+        margin-top: 1rem;
         ${mq.lessThan("medium")} {
             margin-top: 1rem;
         }

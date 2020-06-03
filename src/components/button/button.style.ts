@@ -34,8 +34,8 @@ const styles = css`
         width: 100%;
         height: 100%;
         background: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%);
-        top: 3px;
-        left: 3px;
+        top: 2px;
+        left: 2px;
         z-index: -1;
     }
     &:after {
