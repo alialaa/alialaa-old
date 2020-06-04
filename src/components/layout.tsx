@@ -1,9 +1,11 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Header, Footer } from "@components";
+import { useLocation } from "@reach/router";
 import { Global, css } from "@emotion/core";
 import Helmet from "react-helmet";
 import { useTheme } from "@context/theme-context";
+import { getPageInfo } from "@utils";
 import "focus-visible";
 import "normalize.css";
 import "./global-styles/font-visby.css";
@@ -21,6 +23,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         }
     `);
     const { dark, loaded } = useTheme();
+    const { pathname } = useLocation();
     return (
         <>
             <Global
@@ -39,10 +42,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 Skip to Content
             </a>
             <Header siteTitle={data.site.siteMetadata.title} />
-            <div id="main">
-                <main>{children}</main>
-                <Footer />
+            <div
+                className={getPageInfo(pathname)
+                    ?.title.replace(/ /g, "-")
+                    .toLocaleLowerCase()}
+                id="main"
+            >
+                {children}
             </div>
+            <Footer />
         </>
     );
 };

@@ -108,24 +108,34 @@ function Space({
                         position={[400, 400, -1000]}
                         color={new THREE.Color("#270a57")}
                     />
-                    <mesh scale={[40, 40, 40]} position={[1500, 800, -1000]}>
-                        <sphereBufferGeometry attach="geometry" args={[4, 32, 32]} />
-                        <meshBasicMaterial attach="material" color="#FFFF99" fog={false} />
-                    </mesh>
+                    {page && page.to === "/" && (
+                        <mesh scale={[40, 40, 40]} position={[1500, 800, -1000]}>
+                            <sphereBufferGeometry attach="geometry" args={[4, 32, 32]} />
+                            <meshBasicMaterial attach="material" color="#FFFF99" fog={false} />
+                        </mesh>
+                    )}
                     {page && page.to === "/" && (
                         <Suspense fallback={null}>
                             <Earth animations={animations} night={night} />
                         </Suspense>
                     )}
                     <Suspense fallback={null}>
-                        <group position={[350, -100, -350]}>
-                            <Text size={30} position={[0, 0, 0]}>
-                                {"Hello, I'm Ali Alaa"}
-                            </Text>
-                            <Text size={20} position={[0, -200, 0]}>
-                                A Front-end Web Developer
-                            </Text>
-                        </group>
+                        {page && page.to === "/" ? (
+                            <group position={[350, -100, -350]}>
+                                <Text size={30} position={[0, 0, 0]}>
+                                    {"Hello, I'm Ali Alaa"}
+                                </Text>
+                                <Text size={20} position={[0, -200, 0]}>
+                                    A Front-end Web Developer
+                                </Text>
+                            </group>
+                        ) : page ? (
+                            <group position={[0, 100, -350]}>
+                                <Text hAlign="center" size={30} position={[0, 0, 0]}>
+                                    {page.pageTitle || page.title}
+                                </Text>
+                            </group>
+                        ) : null}
                     </Suspense>
                     <Effects down={down} animations={animations} />
                 </>

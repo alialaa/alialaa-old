@@ -162,7 +162,7 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                 </ul>
                             </div>
                             <div className="more-courses">
-                                <Link to="/">View All Courses →</Link>
+                                <Link to="/courses">View All Courses →</Link>
                             </div>
                         </div>
                     </div>

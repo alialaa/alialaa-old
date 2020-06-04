@@ -1,5 +1,6 @@
 export type NavigationItemType = {
     title: string;
+    pageTitle?: string;
     to: string;
 };
 
@@ -10,6 +11,7 @@ export const navigation: NavigationItemType[] = [
     },
     {
         title: "Blog",
+        pageTitle: "The Blog",
         to: "/blog"
     },
     {

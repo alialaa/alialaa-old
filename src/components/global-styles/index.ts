@@ -19,6 +19,12 @@ const styles = css`
             --text-shadow: #b531c4;
         }
     }
+    #main {
+        &.blog, &.courses {
+            background-color: var(--bg);
+            margin-top: -15%;
+        }
+    }
     html {
         font-size: 62.5%;
     }
