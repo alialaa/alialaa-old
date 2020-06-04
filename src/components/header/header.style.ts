@@ -89,6 +89,7 @@ const styles = css`
                     &.active {
                         font-weight: 700;
                         border-bottom: 2px solid var(--purple2);
+                        border-image: linear-gradient(90deg, #c11dd4 0%, #8c44db 100%) 1;
                         &[data-focus-visible-added] {
                             border-bottom: none;
                         }

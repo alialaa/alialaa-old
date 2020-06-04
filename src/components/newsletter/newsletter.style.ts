@@ -11,7 +11,7 @@ const styles = css`
     h3 {
         font-weight: 800;
         text-shadow: 2px 2px 0 #130f1e;
-        font-size: 4rem;
+        font-size: calc(3rem + 0.9vw);
         color: #fff;
     }
     p {

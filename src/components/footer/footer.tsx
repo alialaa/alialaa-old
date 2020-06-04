@@ -3,6 +3,10 @@ import React, { useState, useEffect } from "react";
 import styles from "./footer.style";
 import { Newsletter } from "@components";
 import { navigation } from "@utils";
+import Youtube from "@svgs/youtube";
+import Twitter from "@svgs/twitter";
+import Github from "@svgs/github";
+import Instagram from "@svgs/instagram";
 
 const Footer = () => {
     return (
@@ -52,15 +56,11 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <a href="https://alialaa.github.io/css-grid-cheat-sheet/">
-                                        <img src="" alt="" />
                                         CSS Grid Cheat Sheet
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
-                                        <img src="" alt="" />
-                                        Articles RSS Feed
-                                    </a>
+                                    <a href="">Articles RSS Feed</a>
                                 </li>
                             </ul>
                         </div>
@@ -70,24 +70,40 @@ const Footer = () => {
                             <ul>
                                 <li>
                                     <a href="https://twitter.com/alialaa">
-                                        <img src="" alt="" /> Twitter
+                                        <Twitter focusable="false" aria-hidden />
+                                        <span>
+                                            <span className="visually-hidden">Follow me on </span>
+                                            Twitter
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.instagram.com/alialaa17/">
-                                        <img src="" alt="" /> Instagram
+                                        <Instagram focusable="false" aria-hidden />
+                                        <span>
+                                            <span className="visually-hidden">Follow me on </span>
+                                            Instagram
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.youtube.com/channel/UCa-VVCGLQZv6IQWTKyVlnjg">
-                                        <img src="" alt="" />
-                                        YouTube
+                                        <Youtube focusable="false" aria-hidden />
+                                        <span>
+                                            <span className="visually-hidden">
+                                                Subscribe to my{" "}
+                                            </span>
+                                            YouTube<span className="visually-hidden"> channel</span>
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://github.com/alialaa/">
-                                        <img src="" alt="" />
-                                        GitHub
+                                        <Github focusable="false" aria-hidden />
+                                        <span>
+                                            <span className="visually-hidden">Follow me on </span>
+                                            GitHub
+                                        </span>
                                     </a>
                                 </li>
                             </ul>
