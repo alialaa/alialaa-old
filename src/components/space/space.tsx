@@ -27,7 +27,7 @@ function Camera({
         if (!animations) return;
         if (!mouse.current) return;
         camera.position.x += 0.15 * ((1 - mouse.current[0]) * 0.2 - camera.position.x);
-        camera.position.y += 0.15 * (mouse.current[1] * 0.6 - camera.position.y);
+        camera.position.y += 0.15 * (mouse.current[1] * 0.3 - camera.position.y);
         camera.lookAt(0, 0, 0);
     });
     return null;
@@ -42,8 +42,8 @@ function Title({ page }: { page: NavigationItemType | undefined }) {
     const { size, viewport } = useThree();
     console.log(size, viewport);
     return (
-        <group position={[0, -viewport.height / 2 + (size.width >= 1280 ? 850 : 700), -350]}>
-            <Text hAlign="center" size={30} position={[0, 0, 0]}>
+        <group position={[0, -viewport.height / 2 + (size.width >= 1280 ? 750 : 550), -350]}>
+            <Text hAlign="center" size={size.width >= 1280 ? 30 : 35} position={[0, 0, 0]}>
                 {page.pageTitle || page.title}
             </Text>
         </group>

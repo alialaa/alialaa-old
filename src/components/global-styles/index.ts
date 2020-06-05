@@ -21,13 +21,13 @@ const styles = css`
         }
     }
     #main {
-        &.blog, &.courses {
+        &.blog, &.courses, &.about, &.contact, &.uses {
             @media screen and (min-width: ${890 / 16}em) {
                 background-color: var(--bg);
-                margin-top: -19%;
+                margin-top: -14%;
             }
             @media screen and (min-width: ${890 / 16}em) and (max-width: ${1280 / 16}em) { 
-                margin-top: -16%;
+                margin-top: -8%;
             }
         }
         .page-intro {

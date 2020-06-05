@@ -91,7 +91,7 @@ const styles = css`
                     color: #ffffff;
                     text-decoration: none;
                     ${mq.lessThan("medium")} {
-                        font-size: 1.4rem;
+                        font-size: 1.5rem;
                     }
                     &.active {
                         font-weight: 700;
