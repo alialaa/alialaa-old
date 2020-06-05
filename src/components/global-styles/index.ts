@@ -1,4 +1,5 @@
 import { css } from "@emotion/core";
+import { mq } from "@utils";
 import typography from "./typography";
 import grid from "./grid";
 import utility from "./utility";
@@ -21,8 +22,51 @@ const styles = css`
     }
     #main {
         &.blog, &.courses {
-            background-color: var(--bg);
-            margin-top: -15%;
+            @media screen and (min-width: ${890 / 16}em) {
+                background-color: var(--bg);
+                margin-top: -19%;
+            }
+            @media screen and (min-width: ${890 / 16}em) and (max-width: ${1280 / 16}em) { 
+                margin-top: -16%;
+            }
+        }
+        .page-intro {
+            font-size: 2.2rem;
+            margin-bottom: 6rem;
+            /* max-width: max(80%,750px); */
+            br {
+                content: '';
+                display: block;
+                margin-bottom: 1rem
+            }
+        }
+        .page-title {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            @media screen and (max-width: ${890 / 16}em) {
+                position: relative;
+                left: auto;
+                width: auto;
+                height: auto;
+                font-size: calc(4rem + 1.2vw);
+                font-weight: 800;
+                margin-top: 2rem;
+                margin-bottom: 3rem;
+                text-shadow: 2px 2px var(--text-shadow);
+                span {
+                    margin-top: 1rem;
+                    display: inline-block;
+                    font-size: 85%;
+                }
+            }
+            ${mq.lessThan("small")} {
+                margin-bottom: 3rem;
+                font-size: 4.2rem;
+            }
         }
     }
     html {

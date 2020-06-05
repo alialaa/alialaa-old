@@ -24,12 +24,6 @@ export const query = graphql`
                 }
             }
         }
-        featuredCourse: course {
-            id
-            title
-            url
-            published_title
-        }
         featuredCourseReviews: allCourseReview(
             limit: 3
             filter: {

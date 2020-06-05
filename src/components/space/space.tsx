@@ -37,20 +37,33 @@ function Light() {
     return <directionalLight intensity={0.6} position={[1, 0.5, 0]} />;
 }
 
-function Fps() {
-    let last = Date.now();
-    let qty = 0;
-    let currentAvg = 0;
-    useFrame(() => {
-        const now = Date.now();
-        const fps = 1 / ((now - last) / 1000);
-        const avg = Math.round((fps - currentAvg) / ++qty);
-        console.log(fps, currentAvg + avg, currentAvg);
-        currentAvg += avg;
-        last = now;
-    });
-    return null;
+function Title({ page }: { page: NavigationItemType | undefined }) {
+    if (!page) return null;
+    const { size, viewport } = useThree();
+    console.log(size, viewport);
+    return (
+        <group position={[0, -viewport.height / 2 + (size.width >= 1280 ? 850 : 700), -350]}>
+            <Text hAlign="center" size={30} position={[0, 0, 0]}>
+                {page.pageTitle || page.title}
+            </Text>
+        </group>
+    );
 }
+
+// function Fps() {
+//     let last = Date.now();
+//     let qty = 0;
+//     let currentAvg = 0;
+//     useFrame(() => {
+//         const now = Date.now();
+//         const fps = 1 / ((now - last) / 1000);
+//         const avg = Math.round((fps - currentAvg) / ++qty);
+//         console.log(fps, currentAvg + avg, currentAvg);
+//         currentAvg += avg;
+//         last = now;
+//     });
+//     return null;
+// }
 
 function Space({
     page,
@@ -130,11 +143,7 @@ function Space({
                                 </Text>
                             </group>
                         ) : page ? (
-                            <group position={[0, 100, -350]}>
-                                <Text hAlign="center" size={30} position={[0, 0, 0]}>
-                                    {page.pageTitle || page.title}
-                                </Text>
-                            </group>
+                            <Title page={page} />
                         ) : null}
                     </Suspense>
                     <Effects down={down} animations={animations} />

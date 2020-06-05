@@ -1,20 +1,33 @@
 const axios = require("axios");
 const path = require("path");
+const fs = require("fs");
+const yaml = require("js-yaml");
 
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
-    const courses = await axios.get(
-        "https://www.udemy.com/instructor-api/v1/taught-courses/courses?fields[course]=@default,description",
-        {
-            headers: {
-                Authorization: `Bearer ${process.env.UDEMY_API_TOKEN}`
+    const ymlDoc = yaml.safeLoad(fs.readFileSync("./content/courses.yml", "utf-8"));
+    ymlDoc.forEach(course => {
+        const { name, ext } = path.parse(course.image);
+        const absolutePath = path.resolve(__dirname, "./src/images/", course.image);
+        const imageData = {
+            name,
+            ext,
+            absolutePath,
+            extension: ext.substring(1)
+        };
+        const imageNode = {
+            ...imageData,
+            id: createNodeId(`course-image-${course.udemyID}`),
+            internal: {
+                type: "CourseImage",
+                contentDigest: createContentDigest(imageData)
             }
-        }
-    );
-    courses.data.results.forEach(course => {
+        };
+        actions.createNode(imageNode);
+
         const node = {
             ...course,
-            course_id: course.id,
-            id: createNodeId(`Course-${course.id}`),
+            id: createNodeId(`Course-${course.udemyID}`),
+            image: imageNode,
             internal: {
                 type: "Course",
                 contentDigest: createContentDigest(course)
@@ -45,32 +58,17 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
     });
 };
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ actions }) => {
     const { createPage } = actions;
-    const courses = await graphql(`
-        query {
-            allCourse {
-                edges {
-                    node {
-                        id
-                        description
-                        published_title
-                        title
-                        url
-                    }
-                }
-            }
-        }
-    `);
-    if (courses.errors) {
-        reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
-    }
-    const posts = courses.data.allCourse.edges;
-    posts.forEach(({ node }) => {
+    const ymlDoc = yaml.safeLoad(fs.readFileSync("./content/courses.yml", "utf-8"));
+    ymlDoc.forEach(element => {
         createPage({
-            path: `courses/${node.published_title}`,
-            component: path.resolve(`./src/components/image.tsx`),
-            context: { id: node.id }
+            path: `/courses/${element.url}`,
+            component: require.resolve("./src/templates/course.tsx"),
+            context: {
+                title: element.title,
+                udemyID: element.udemyID
+            }
         });
     });
 };

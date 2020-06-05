@@ -1,0 +1,12 @@
+- title: The Complete Guide to Building Premium WordPress Themes
+  udemyID: 0987af82-ce24-5793-8796-abbb872e48ab
+  url: wordpress
+  image: wordpress.jpg
+- title: Gutenberg Blocks for WordPress and React Developers
+  udemyID: 077dc0ec-9118-5ad2-a0bc-21c82b0f0ed9
+  url: gutenberg
+  image: gutenberg.jpg
+- title: The Complete GitHub Actions & Workflows Guide
+  udemyID: e82d5f76-8a64-511a-82a0-6e03393847cd
+  url: github-actions
+  image: ghactionscover.jpg

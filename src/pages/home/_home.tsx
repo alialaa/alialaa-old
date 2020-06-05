@@ -115,10 +115,7 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                     Workflows. Create & Publish GitHub Actions to the Marketplace.
                                 </p>
                                 <div className="course-buttons">
-                                    <ButtonLink
-                                        dark={dark}
-                                        to={`/courses/${data.featuredCourse.published_title}`}
-                                    >
+                                    <ButtonLink dark={dark} to={`/courses/github-actions`}>
                                         Learn More
                                         <span className="visually-hidden">
                                             {" "}

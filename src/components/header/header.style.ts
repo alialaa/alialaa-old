@@ -12,6 +12,13 @@ const rayPos = "15%";
 const styles = css`
     position: relative;
     overflow: hidden;
+    &.courses,
+    &.blog {
+        .canvas-wrap {
+            /* height: 300px; */
+            /* padding: 0; */
+        }
+    }
     .content {
         position: absolute;
         z-index: 100;
