@@ -11,13 +11,15 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 export interface SEOProps {
-    description: string;
-    lang: string;
-    meta: [];
+    description?: string;
+    lang?: string;
+    meta?: [];
     title: string;
+    pathname?: string;
+    image?: string;
 }
-function SEO({ description, lang, meta, title }: SEOProps) {
-    const { site } = useStaticQuery(
+function SEO({ description, lang, meta = [], title, pathname, image }: SEOProps) {
+    const { site, defaultImage } = useStaticQuery(
         graphql`
             query {
                 site {
@@ -25,6 +27,14 @@ function SEO({ description, lang, meta, title }: SEOProps) {
                         title
                         description
                         author
+                        siteUrl
+                    }
+                }
+                defaultImage: file(relativePath: { eq: "icon.png" }) {
+                    childImageSharp {
+                        original {
+                            src
+                        }
                     }
                 }
             }
@@ -32,7 +42,9 @@ function SEO({ description, lang, meta, title }: SEOProps) {
     );
 
     const metaDescription = description || site.siteMetadata.description;
-
+    const cover = `${site.siteMetadata.siteUrl}${image ||
+        defaultImage.childImageSharp.original.src}`;
+    const url = `${site.siteMetadata.siteUrl}${pathname || ""}`;
     return (
         <Helmet
             htmlAttributes={{
@@ -48,6 +60,14 @@ function SEO({ description, lang, meta, title }: SEOProps) {
                 {
                     property: `og:title`,
                     content: title
+                },
+                {
+                    property: `og:url`,
+                    content: url
+                },
+                {
+                    property: `og:image`,
+                    content: cover
                 },
                 {
                     property: `og:description`,
@@ -72,23 +92,18 @@ function SEO({ description, lang, meta, title }: SEOProps) {
                 {
                     name: `twitter:description`,
                     content: metaDescription
+                },
+                {
+                    name: `twitter:image`,
+                    content: cover
+                },
+                {
+                    name: `twitter:description`,
+                    content: metaDescription
                 }
             ].concat(meta)}
         />
     );
 }
-
-SEO.defaultProps = {
-    lang: `en`,
-    meta: [],
-    description: ``
-};
-
-SEO.propTypes = {
-    description: PropTypes.string,
-    lang: PropTypes.string,
-    meta: PropTypes.arrayOf(PropTypes.object),
-    title: PropTypes.string.isRequired
-};
 
 export default SEO;

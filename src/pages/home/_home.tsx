@@ -1,5 +1,6 @@
 import React from "react";
 import { SEO, ButtonLink, ButtonAnchor } from "@components";
+import { useLocation } from "@reach/router";
 import { testimonials } from "@utils";
 import { Link } from "gatsby";
 import styles from "./_home.styles";
@@ -11,9 +12,10 @@ import FiveStarts from "@svgs/5starts";
 
 const Home = ({ data }: { data: { [key: string]: any } }) => {
     const { dark } = useTheme();
+    const { pathname } = useLocation();
     return (
         <div css={styles}>
-            <SEO title="Home" />
+            <SEO title="Home" pathname={pathname} />
             <section>
                 <div className="container">
                     <div className="intro">

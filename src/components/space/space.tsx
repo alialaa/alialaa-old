@@ -40,7 +40,6 @@ function Light() {
 function Title({ page }: { page: NavigationItemType | undefined }) {
     if (!page) return null;
     const { size, viewport } = useThree();
-    console.log(size, viewport);
     return (
         <group position={[0, -viewport.height / 2 + (size.width >= 1280 ? 750 : 550), -350]}>
             <Text hAlign="center" size={size.width >= 1280 ? 30 : 35} position={[0, 0, 0]}>

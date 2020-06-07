@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "gatsby";
+import { useLocation } from "@reach/router";
 import { SEO } from "@components";
 import styles from "./_courses.styles";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 
 const Courses = ({ data }: any) => {
-    console.log(data);
+    const { pathname } = useLocation();
     return (
         <div css={styles}>
-            <SEO title="Courses" />
+            <SEO title="Courses" pathname={pathname} />
             <div className="container">
                 <h1 className="page-title">Courses</h1>
                 <p className="page-intro">

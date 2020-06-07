@@ -3,10 +3,16 @@ module.exports = {
         title: `Ali Alaa's Personal Website`,
         description: `A freelance front-end web developer from Egypt. Here you can find my latest articles, courses, tutorials and more.`,
         author: `@alialaa`,
-        siteUrl: `https://www.alialaa.com`
+        siteUrl: `https://www.alialaa.dev`
     },
     plugins: [
         `gatsby-plugin-sitemap`,
+        {
+            resolve: `gatsby-plugin-nprogress`,
+            options: {
+                showSpinner: false
+            }
+        },
         {
             resolve: `gatsby-plugin-layout`,
             options: {

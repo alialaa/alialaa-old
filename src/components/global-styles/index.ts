@@ -20,6 +20,13 @@ const styles = css`
             --text-shadow: #b531c4;
         }
     }
+    #nprogress .bar {
+        background: linear-gradient(90deg,#c11dd4 0%,#8c44db 100%);
+        height: 4px;
+    }
+    #nprogress .peg {
+        box-shadow: none;
+    }
     #main {
         &.blog, &.courses, &.about, &.contact, &.uses {
             @media screen and (min-width: ${890 / 16}em) {

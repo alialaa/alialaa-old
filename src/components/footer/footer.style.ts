@@ -66,11 +66,11 @@ const styles = css`
                         a {
                             span {
                                 /* display: none; */
-                                margin-left: 15px;
                             }
                             svg {
                                 width: 25px;
                                 vertical-align: middle;
+                                margin-right: 15px;
                                 path,
                                 circle {
                                     fill: #eef0fd;
