@@ -44,7 +44,10 @@ function SEO({ description, lang, meta = [], title, pathname, image }: SEOProps)
     const metaDescription = description || site.siteMetadata.description;
     const cover = `${site.siteMetadata.siteUrl}${image ||
         defaultImage.childImageSharp.original.src}`;
-    const url = `${site.siteMetadata.siteUrl}${pathname || ""}`;
+    const url = `${site.siteMetadata.siteUrl}${
+        pathname ? (pathname[pathname.length - 1] === "/" ? pathname : pathname + "/") : "/"
+    }`;
+    const finalTitle = `${title} | ${site.siteMetadata.title}`;
     return (
         <Helmet
             htmlAttributes={{
@@ -59,7 +62,7 @@ function SEO({ description, lang, meta = [], title, pathname, image }: SEOProps)
                 },
                 {
                     property: `og:title`,
-                    content: title
+                    content: finalTitle
                 },
                 {
                     property: `og:url`,
@@ -87,7 +90,7 @@ function SEO({ description, lang, meta = [], title, pathname, image }: SEOProps)
                 },
                 {
                     name: `twitter:title`,
-                    content: title
+                    content: finalTitle
                 },
                 {
                     name: `twitter:description`,
