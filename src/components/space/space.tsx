@@ -3,8 +3,8 @@ import { Canvas, useFrame, useThree } from "react-three-fiber";
 import * as THREE from "three";
 import Effects from "./effects";
 import Stars from "./stars";
-import Earth from "./Earth";
-import Text from "./Text";
+import Earth from "./earth";
+import Text from "./text";
 import { NavigationItemType } from "@utils";
 import { useMedia } from "@hooks";
 
