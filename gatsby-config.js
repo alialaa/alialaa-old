@@ -1,10 +1,12 @@
 module.exports = {
     siteMetadata: {
         title: `Ali Alaa's Personal Website`,
-        description: ``,
-        author: `@alialaa`
+        description: `A freelance front-end web developer from Egypt. Here you can find my latest articles, courses, tutorials and more.`,
+        author: `@alialaa`,
+        siteUrl: `https://www.alialaa.com`
     },
     plugins: [
+        `gatsby-plugin-sitemap`,
         {
             resolve: `gatsby-plugin-layout`,
             options: {
