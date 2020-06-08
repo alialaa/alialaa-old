@@ -6,18 +6,27 @@ import utility from "./utility";
 
 const styles = css`
     :root {
-        --purple: #2f1264;
+        --purple: #8c44db;
         --purple2: #c11dd4;
         --pink: #ee1d90;
         --bg: #f9f5fd;
         --text: #000;
         --links: #000;
         --text-shadow: #da80e5;
+        --card: #ffffff;
+        --card-border: #441a4a;
         &[data-dark="true"] {
             --bg: #05010f;
             --text: #eef0fd;
             --links: #fff;
             --text-shadow: #b531c4;
+            --card: #13101d;
+            --card-border: #c5b1c9;
+            #main {
+                @media screen and (min-width: ${890 / 16}em) {
+                    background: linear-gradient(0deg, #070014 0%, #070014 50%, transparent 100%);
+                }
+            }
         }
     }
     #nprogress .bar {
@@ -72,7 +81,7 @@ const styles = css`
             }
             ${mq.lessThan("small")} {
                 margin-bottom: 3rem;
-                font-size: 4.2rem;
+                font-size: 4.6rem;
             }
         }
     }

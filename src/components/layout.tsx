@@ -22,7 +22,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             }
         }
     `);
-    const { dark, loaded } = useTheme();
+    const { dark, animations, loaded } = useTheme();
     const { pathname } = useLocation();
     return (
         <>
@@ -34,7 +34,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             {loaded && (
                 <Helmet
                     htmlAttributes={{
-                        "data-dark": dark ? "true" : "false"
+                        "data-dark": dark ? "true" : "false",
+                        "data-animations": animations ? "true" : "false"
                     }}
                 />
             )}

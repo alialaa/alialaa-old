@@ -1,12 +1,18 @@
 - title: The Complete Guide to Building Premium WordPress Themes
+  summary: Create premium wordpress themes from scratch. Learn all the best practices that will get your theme approved on marketplaces like themeforest.
   udemyID: 0987af82-ce24-5793-8796-abbb872e48ab
+  udemyUrl: https://www.udemy.com/course/the-complete-guide-to-building-premium-wordpress-themes/?referralCode=A1E38F238B8F5A8D2B82
   url: wordpress
   image: wordpress.jpg
 - title: Gutenberg Blocks for WordPress and React Developers
+  summary: Use your ReactJS and Redux knowledge to create complex WordPress editor (Gutenberg) blocks and plugins from scratch.
   udemyID: 077dc0ec-9118-5ad2-a0bc-21c82b0f0ed9
+  udemyUrl: https://www.udemy.com/course/gutenberg/?referralCode=C4656BA80E6D4EE8B654
   url: gutenberg
   image: gutenberg.jpg
 - title: The Complete GitHub Actions & Workflows Guide
+  summary: Automate code testing, deployment & versioning using CI/CD workflows. Create & publish re-usable GitHub actions to the GitHub Marketplace.
   udemyID: e82d5f76-8a64-511a-82a0-6e03393847cd
+  udemyUrl: https://www.udemy.com/course/github-actions/?referralCode=49A5F56B87CD62AEF6D4
   url: github-actions
   image: ghactionscover.jpg

@@ -5,6 +5,7 @@ const styles = css`
         max-width: max(60vw, 1000px);
         padding: 0 2rem;
         margin: 0 auto;
+        z-index: 10;
     }
 `;
 

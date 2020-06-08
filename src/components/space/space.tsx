@@ -76,6 +76,14 @@ function Space({
     const [down, set] = useState<boolean>(false);
     const mouse = useRef<[number, number]>([0, 0]);
     const isSmall = useMedia(`screen and (max-width: ${890 / 16}em)`);
+    console.log(page);
+    useEffect(() => {
+        set(true);
+        setTimeout(() => {
+            set(false);
+        }, 250);
+    }, [page]);
+
     const onMouseMove = useCallback(({ clientX: x, clientY: y }) => {
         mouse.current = [x - window.innerWidth / 2, y - window.innerHeight / 2];
     }, []);

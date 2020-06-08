@@ -10,8 +10,8 @@ import { BloomPass } from "three/examples/jsm/postprocessing/BloomPass.js";
 import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass";
 import { VignetteShader } from "three/examples/jsm/shaders/VignetteShader";
 import { RGBShiftShader } from "three/examples/jsm/shaders/RGBShiftShader";
-import { BadTVShader } from "./post/bad-tv-shader";
-import { StaticShader } from "./post/static-shader";
+// import { BadTVShader } from "./post/bad-tv-shader";
+// import { StaticShader } from "./post/static-shader";
 import { GlitchPass } from "./post/glitch-pass";
 
 extend({
@@ -46,8 +46,8 @@ type EffectsProps = {
 
 export default function Effects({ down, animations }: EffectsProps) {
     const composer = useRef<EffectComposer>(null);
-    const badTV = useRef<ShaderPass>();
-    const staticShader = useRef<ShaderPass>();
+    // const badTV = useRef<ShaderPass>();
+    // const staticShader = useRef<ShaderPass>();
     const { scene, gl, size, camera } = useThree();
     const [aspect] = useState(() => new THREE.Vector2(size.width, size.height));
     // const aspect = useMemo(() => new THREE.Vector2(size.width, size.height), [size]);
@@ -55,14 +55,14 @@ export default function Effects({ down, animations }: EffectsProps) {
         void composer?.current?.setSize(size.width, size.height);
     }, [size]);
     useFrame(() => {
-        if (badTV.current) {
-            // @ts-ignore
-            badTV.current.uniforms["time"].value += 0.1;
-        }
-        if (staticShader.current) {
-            // @ts-ignore
-            staticShader.current.uniforms["time"].value += 0.1;
-        }
+        // if (badTV.current) {
+        //     // @ts-ignore
+        //     badTV.current.uniforms["time"].value += 0.1;
+        // }
+        // if (staticShader.current) {
+        //     // @ts-ignore
+        //     staticShader.current.uniforms["time"].value += 0.1;
+        // }
         composer?.current?.render();
     }, 2);
     return (
@@ -76,12 +76,12 @@ export default function Effects({ down, animations }: EffectsProps) {
                 uniforms-darkness-value={1}
                 renderToScreen
             />
-            {animations && (
+            {/* {animations && (
                 <filmPass
                     attachArray="passes"
                     args={down ? [0.6, 0.3, 658, 0] : [0.12, 0.17, 550, 0]}
                 />
-            )}
+            )} */}
             {animations && <glitchPass attachArray="passes" factor={down ? 1 : 0} />}
             {!down && animations && (
                 <>
@@ -95,19 +95,19 @@ export default function Effects({ down, animations }: EffectsProps) {
                         uniforms-rollSpeed-value={0}
                         renderToScreen
                     /> */}
-                    <shaderPass
+                    {/* <shaderPass
                         ref={staticShader}
                         attachArray="passes"
                         args={[StaticShader]}
                         uniforms-amount-size={0.03}
                         uniforms-amount-value={0.03}
                         renderToScreen
-                    />
+                    /> */}
                 </>
             )}
             {down && animations && (
                 <>
-                    <shaderPass
+                    {/* <shaderPass
                         ref={badTV}
                         attachArray="passes"
                         args={[BadTVShader]}
@@ -116,7 +116,7 @@ export default function Effects({ down, animations }: EffectsProps) {
                         uniforms-speed-value={0.4}
                         uniforms-rollSpeed-value={down ? 0.7 : 0}
                         renderToScreen
-                    />
+                    /> */}
 
                     <shaderPass
                         attachArray="passes"
@@ -124,14 +124,14 @@ export default function Effects({ down, animations }: EffectsProps) {
                         uniforms-amount-value={down ? 0.01 : 0}
                         renderToScreen
                     />
-                    <shaderPass
+                    {/* <shaderPass
                         ref={staticShader}
                         attachArray="passes"
                         args={[StaticShader]}
                         uniforms-amount-size={down ? 0.2 : 0.05}
                         uniforms-amount-value={down ? 0.1 : 0.04}
                         renderToScreen
-                    />
+                    /> */}
                 </>
             )}
         </effectComposer>
