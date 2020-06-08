@@ -230,7 +230,7 @@ const styles = css`
         }
     }
     .featured-course {
-        padding: 4rem 0;
+        padding: 8rem 0 6rem;
         z-index: 10;
         &.dark {
             .gatsby-image-wrapper:after {
@@ -407,7 +407,7 @@ const styles = css`
         }
     }
     .testimonials {
-        padding: 6rem 0 10rem;
+        padding: 8rem 0 10rem;
         &.dark {
             /* h3 {
                 text-shadow: 2px 2px var(--purple2);

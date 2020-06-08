@@ -76,7 +76,6 @@ function Space({
     const [down, set] = useState<boolean>(false);
     const mouse = useRef<[number, number]>([0, 0]);
     const isSmall = useMedia(`screen and (max-width: ${890 / 16}em)`);
-    console.log(page);
     useEffect(() => {
         set(true);
         setTimeout(() => {
@@ -117,7 +116,7 @@ function Space({
             }}
         >
             {/* {animations && !isSmall && <Fps />} */}
-            <Stars size={!animations || isSmall ? 0.5 : 0.65} />
+            <Stars size={!animations || isSmall ? 0.5 : 0.8} />
             {!isSmall && (
                 <>
                     <Camera mouse={mouse} animations={animations} />

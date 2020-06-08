@@ -23,6 +23,7 @@ const styles = css`
         h2 {
             font-size: 2.8rem;
             margin-top: 2rem;
+            margin-bottom: 1.6rem;
             a {
                 font-weight: 700;
             }

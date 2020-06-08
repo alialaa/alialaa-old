@@ -1,12 +1,4 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react";
-import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
@@ -40,7 +32,6 @@ function SEO({ description, lang, meta = [], title, pathname, image }: SEOProps)
             }
         `
     );
-
     const metaDescription = description || site.siteMetadata.description;
     const cover = `${site.siteMetadata.siteUrl}${image ||
         defaultImage.childImageSharp.original.src}`;
@@ -48,6 +39,73 @@ function SEO({ description, lang, meta = [], title, pathname, image }: SEOProps)
         pathname ? (pathname[pathname.length - 1] === "/" ? pathname : pathname + "/") : "/"
     }`;
     const finalTitle = `${title} | ${site.siteMetadata.title}`;
+
+    const webpage = {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        url: site.siteMetadata.siteUrl,
+        description: site.siteMetadata.description,
+        name: site.siteMetadata.title,
+        author: {
+            "@type": "Person",
+            name: "Ali Alaa"
+        },
+        copyrightHolder: {
+            "@type": "Person",
+            name: "Ali Alaa"
+        },
+        copyrightYear: "2020",
+        creator: {
+            "@type": "Person",
+            name: "Ali Alaa"
+        },
+        publisher: {
+            "@type": "Person",
+            name: "Ali Alaa"
+        },
+        image: {
+            "@type": "ImageObject",
+            url: cover
+        }
+    };
+
+    const breadcrumbs = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: site.siteMetadata.siteUrl
+            }
+        ]
+    };
+    if (pathname !== "/") {
+        if (pathname?.includes("courses")) {
+            breadcrumbs.itemListElement.push({
+                "@type": "ListItem",
+                position: 2,
+                name: "Courses",
+                item: `${site.siteMetadata.siteUrl}/courses`
+            });
+            if (title !== "Courses") {
+                breadcrumbs.itemListElement.push({
+                    "@type": "ListItem",
+                    position: 3,
+                    name: title,
+                    item: url
+                });
+            }
+        } else {
+            breadcrumbs.itemListElement.push({
+                "@type": "ListItem",
+                position: 2,
+                name: title,
+                item: url
+            });
+        }
+    }
     return (
         <Helmet
             htmlAttributes={{
@@ -105,7 +163,10 @@ function SEO({ description, lang, meta = [], title, pathname, image }: SEOProps)
                     content: metaDescription
                 }
             ].concat(meta)}
-        />
+        >
+            <script type="application/ld+json">{JSON.stringify(webpage)}</script>
+            <script type="application/ld+json">{JSON.stringify(breadcrumbs)}</script>
+        </Helmet>
     );
 }
 
