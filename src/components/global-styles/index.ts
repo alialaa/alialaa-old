@@ -30,11 +30,11 @@ const styles = css`
         }
     }
     #nprogress .bar {
-        background: linear-gradient(90deg,#c11dd4 0%,#8c44db 100%);
-        height: 4px;
+        background: linear-gradient(90deg,#c11dd4 0%,#8c44db 100%) !important;
+        height: 4px !important;
     }
     #nprogress .peg {
-        box-shadow: none;
+        box-shadow: none !important;
     }
     #main {
         &.blog, &.courses, &.about, &.contact, &.uses {
