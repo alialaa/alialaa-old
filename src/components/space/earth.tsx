@@ -4,7 +4,7 @@ import { useLoader } from "react-three-fiber";
 import earthImg from "@images/2k_earth_daymap.jpg";
 import moonImg from "@images/2k_moon.jpg";
 //@ts-ignore because react-spring/three has no type declerations
-// import { animated, useSpring } from "react-spring/three";
+import { animated, useSpring } from "react-spring/three";
 
 type EarthProps = {
     animations: boolean;
@@ -13,16 +13,16 @@ type EarthProps = {
 export default function Earth({ animations, night }: EarthProps) {
     const ref = useRef();
     const moonRef = useRef();
-    // const { rotation } = useSpring({
-    //     rotation: night ? [0, Math.PI * 0.3, 0] : [0, -Math.PI * 0.5, 0],
-    //     immediate: !animations
-    // });
+    const { rotation } = useSpring({
+        rotation: night ? [0, Math.PI * 0.3, 0] : [0, -Math.PI * 0.5, 0],
+        immediate: !animations
+    });
     const [earth, moon] = useLoader<any>(TextureLoader, [earthImg, moonImg]);
     return (
-        <group
+        <animated.group
             ref={ref}
             scale={[100, 100, 100]}
-            rotation={[0, Math.PI * 0.3, 0]}
+            rotation={rotation}
             position={[-1400, -400, -1000]}
         >
             <mesh>
@@ -39,6 +39,6 @@ export default function Earth({ animations, night }: EarthProps) {
                 <sphereBufferGeometry attach="geometry" args={[0.75, 32, 32]} />
                 <meshStandardMaterial attach="material" roughness={1} map={moon} fog={false} />
             </mesh>
-        </group>
+        </animated.group>
     );
 }
