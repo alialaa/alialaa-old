@@ -6,6 +6,7 @@ module.exports = {
         siteUrl: `https://www.alialaa.dev`
     },
     plugins: [
+        "gatsby-plugin-webpack-bundle-analyser-v2",
         `gatsby-plugin-sitemap`,
         {
             resolve: `gatsby-plugin-nprogress`,
