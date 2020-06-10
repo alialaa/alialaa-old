@@ -1,12 +1,17 @@
 import React, { useRef, useState, useCallback, Suspense, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "react-three-fiber";
 import { Color } from "three";
-import Effects from "./effects";
-import Stars from "./stars";
-import Earth from "./earth";
-import Text from "./text";
+// import Effects from "./effects";
+// import Stars from "./stars";
+// import Earth from "./earth";
+// import Text from "./text";
 import { NavigationItemType } from "@utils";
 import { useMedia } from "@hooks";
+
+const Effects = React.lazy(() => import("./effects"));
+const Earth = React.lazy(() => import("./earth"));
+const Text = React.lazy(() => import("./text"));
+const Stars = React.lazy(() => import("./stars"));
 
 function Camera({
     mouse,
@@ -116,7 +121,9 @@ function Space({
             }}
         >
             {/* {animations && !isSmall && <Fps />} */}
-            <Stars size={!animations || isSmall ? 0.5 : 0.8} />
+            <Suspense fallback={null}>
+                <Stars size={!animations || isSmall ? 0.5 : 0.8} />
+            </Suspense>
             {!isSmall && (
                 <>
                     <Camera mouse={mouse} animations={animations} />
@@ -152,7 +159,9 @@ function Space({
                             <Title page={page} />
                         ) : null}
                     </Suspense>
-                    <Effects down={down} animations={animations} />
+                    <Suspense fallback={null}>
+                        <Effects down={down} animations={animations} />
+                    </Suspense>
                 </>
             )}
         </Canvas>
