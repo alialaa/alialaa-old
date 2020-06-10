@@ -1,8 +1,8 @@
-import * as THREE from "three";
+import { FontLoader, Group, Vector3 } from "three";
 import React, { useMemo } from "react";
 import { useLoader, useUpdate, ReactThreeFiber } from "react-three-fiber";
 
-interface TextProps extends ReactThreeFiber.Object3DNode<THREE.Group, typeof THREE.Group> {
+interface TextProps extends ReactThreeFiber.Object3DNode<Group, typeof Group> {
     children: string;
     vAlign?: string;
     hAlign?: string;
@@ -15,7 +15,7 @@ export default function Text({
     size = 1,
     ...props
 }: TextProps) {
-    const font = useLoader(THREE.FontLoader, "/visby.json");
+    const font = useLoader(FontLoader, "/visby.json");
     const config = useMemo(
         () => ({
             font,
@@ -32,7 +32,7 @@ export default function Text({
     );
     const mesh = useUpdate(
         (self: { [key: string]: any }) => {
-            const size = new THREE.Vector3();
+            const size = new Vector3();
             self.geometry.computeBoundingBox();
             self.geometry.boundingBox.getSize(size);
             self.position.x = hAlign === "center" ? -size.x / 2 : hAlign === "right" ? 0 : -size.x;

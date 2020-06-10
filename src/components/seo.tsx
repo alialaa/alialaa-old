@@ -10,7 +10,7 @@ export interface SEOProps {
     pathname?: string;
     image?: string;
 }
-function SEO({ description, lang, meta = [], title, pathname, image }: SEOProps) {
+function SEO({ description, lang = "en", meta = [], title, pathname, image }: SEOProps) {
     const { site, defaultImage } = useStaticQuery(
         graphql`
             query {

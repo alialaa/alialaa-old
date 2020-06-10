@@ -1,6 +1,6 @@
 import React, { useRef, useState, useCallback, Suspense, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "react-three-fiber";
-import * as THREE from "three";
+import { Color } from "three";
 import Effects from "./effects";
 import Stars from "./stars";
 import Earth from "./earth";
@@ -112,7 +112,7 @@ function Space({
             invalidateFrameloop={!animations || isSmall}
             onCreated={({ gl, camera }) => {
                 camera.lookAt(0, 0, 0);
-                gl.setClearColor(new THREE.Color("#030008"));
+                gl.setClearColor(new Color("#030008"));
             }}
         >
             {/* {animations && !isSmall && <Fps />} */}
@@ -125,7 +125,7 @@ function Space({
                     <pointLight
                         intensity={0.9}
                         position={[400, 400, -1000]}
-                        color={new THREE.Color("#270a57")}
+                        color={new Color("#270a57")}
                     />
                     {page && page.to === "/" && (
                         <mesh scale={[40, 40, 40]} position={[1500, 800, -1000]}>

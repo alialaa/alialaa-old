@@ -69,7 +69,7 @@ const styles = css`
     .navigation {
         margin-top: 1rem;
         ${mq.lessThan("medium")} {
-            margin-top: 1rem;
+            margin-top: 0;
         }
         ul {
             margin: 0;
@@ -83,6 +83,9 @@ const styles = css`
                     content: "/";
                     color: #fff;
                     margin: 0 0.5rem;
+                    ${mq.lessThan("small")} {
+                        content: none;
+                    }
                 }
                 &:last-child:after {
                     content: none;
@@ -90,8 +93,12 @@ const styles = css`
                 a {
                     color: #ffffff;
                     text-decoration: none;
-                    ${mq.lessThan("medium")} {
+                    ${mq.lessThan("small")} {
                         font-size: 1.5rem;
+                    }
+                    ${mq.lessThan("small")} {
+                        padding: 15px 10px;
+                        display: inline-block;
                     }
                     &.active {
                         font-weight: 700;
@@ -103,6 +110,11 @@ const styles = css`
                             bottom: -2px;
                             left: 0;
                             background: linear-gradient(90deg, #c11dd4 0%, #8c44db 100%);
+                            ${mq.lessThan("small")} {
+                                width: calc(100% - 20px);
+                                left: 10px;
+                                bottom: 17px;
+                            }
                         }
                         &[data-focus-visible-added] {
                             &:after {

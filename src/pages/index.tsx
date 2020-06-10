@@ -5,21 +5,21 @@ export const query = graphql`
     query HomeQuery {
         blogImage: file(relativePath: { eq: "gutenberg-editor-wires.jpeg" }) {
             childImageSharp {
-                fluid(maxWidth: 800) {
+                fluid(maxWidth: 550) {
                     ...GatsbyImageSharpFluid
                 }
             }
         }
         blogImage2: file(relativePath: { eq: "spilled-milk-wordpress.jpeg" }) {
             childImageSharp {
-                fluid(maxWidth: 800) {
+                fluid(maxWidth: 550) {
                     ...GatsbyImageSharpFluid
                 }
             }
         }
         courseImage: file(relativePath: { eq: "ghactionscover.jpg" }) {
             childImageSharp {
-                fluid(maxWidth: 1200) {
+                fluid(maxWidth: 900) {
                     ...GatsbyImageSharpFluid
                 }
             }

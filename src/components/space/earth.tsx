@@ -1,11 +1,11 @@
-import * as THREE from "three";
+import { TextureLoader } from "three";
 import React, { useRef } from "react";
 import { useLoader } from "react-three-fiber";
 import earthImg from "@images/2k_earth_daymap.jpg";
 import moonImg from "@images/2k_moon.jpg";
 //@ts-ignore because react-spring/three has no type declerations
 import { animated, useSpring } from "react-spring/three";
-console.log(earthImg);
+
 type EarthProps = {
     animations: boolean;
     night: boolean;
@@ -17,7 +17,7 @@ export default function Earth({ animations, night }: EarthProps) {
         rotation: night ? [0, Math.PI * 0.3, 0] : [0, -Math.PI * 0.5, 0],
         immediate: !animations
     });
-    const [earth, moon] = useLoader<any>(THREE.TextureLoader, [earthImg, moonImg]);
+    const [earth, moon] = useLoader<any>(TextureLoader, [earthImg, moonImg]);
     return (
         <animated.group
             ref={ref}

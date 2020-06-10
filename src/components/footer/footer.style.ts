@@ -34,6 +34,9 @@ const styles = css`
                 font-weight: 800;
                 font-size: 2.4rem;
                 color: #fff;
+                ${mq.lessThan("small")} {
+                    font-size: 2.8rem;
+                }
             }
             ul {
                 padding: 0;
@@ -43,10 +46,18 @@ const styles = css`
                     /* display: inline-block; */
                     /* margin-right: 2rem; */
                     margin-bottom: 3px;
+                    ${mq.lessThan("small")} {
+                        margin-bottom: 0;
+                    }
                     a {
                         font-weight: 500;
                         font-size: 1.6rem;
                         color: #eef0fd;
+                        ${mq.lessThan("small")} {
+                            min-height: 48px;
+                            display: inline-flex;
+                            align-items: center;
+                        }
                     }
                 }
             }
