@@ -1,11 +1,12 @@
 import { Link } from "gatsby";
 import { useLocation } from "@reach/router";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import styles from "./header.style";
 import { useInterval } from "@hooks";
 import { navigation, getPageInfo } from "@utils";
-// import { Space } from "@components";
 import { useTheme } from "@context/theme-context";
+
+const Space = React.lazy(() => import("../space/space"));
 
 const Logo = ({ siteTitle, animations }: { siteTitle: string; animations: boolean }) => {
     const [animate, setAnimate] = useState<boolean>(animations);
@@ -161,7 +162,9 @@ const Header = ({ siteTitle }: HeaderProps) => {
         >
             <div className="canvas-wrap">
                 <div className="canvas">
-                    {/* <Space night={dark} page={getPageInfo(pathname)} animations={animations} /> */}
+                    <Suspense fallback={null}>
+                        <Space night={dark} page={getPageInfo(pathname)} animations={animations} />
+                    </Suspense>
                 </div>
             </div>
             <div className="content">
