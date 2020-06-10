@@ -8,7 +8,7 @@ import { useTheme } from "@context/theme-context";
 import { getPageInfo } from "@utils";
 import "focus-visible";
 import "normalize.css";
-// import "./global-styles/font-visby.css";
+import "./global-styles/font-visby.css";
 // import "./global-styles/font-dank.css";
 import global from "./global-styles";
 
@@ -37,7 +37,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                         "data-dark": dark ? "true" : "false",
                         "data-animations": animations ? "true" : "false"
                     }}
-                />
+                ></Helmet>
             )}
             <a className="skip-link" href="#main">
                 Skip to Content

@@ -1,6 +1,12 @@
 import React from "react";
 
-export const onRenderBody = ({ setPreBodyComponents }) => {
+export const onRenderBody = ({ setPreBodyComponents, setHeadComponents }) => {
+    // setHeadComponents([
+    //     React.createElement("link", {
+    //         rel: "stylesheet",
+    //         href: "fonts.css"
+    //     })
+    // ]);
     setPreBodyComponents([
         React.createElement("script", {
             dangerouslySetInnerHTML: {
