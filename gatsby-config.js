@@ -43,6 +43,8 @@ module.exports = {
                     "@images": "./images",
                     "@hooks": "./hooks",
                     "@svgs": "./svgs",
+                    three$: "./three",
+                    "../../../build/three.module.js": "./three",
                     static: {
                         root: "./public", // <- will used as this alias' root dir
                         alias: "./static" // <- will become ./public/static

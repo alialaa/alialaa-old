@@ -20,7 +20,8 @@
             "@context/*": ["src/context/*"],
             "@images/*": ["src/images/*"],
             "@svgs/*": ["src/svgs/*"],
-            "@utils": ["src/utils"]
+            "@utils": ["src/utils"],
+            "@three": ["src/three"]
         }
     }
 }
