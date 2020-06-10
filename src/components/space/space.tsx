@@ -1,17 +1,17 @@
 import React, { useRef, useState, useCallback, Suspense, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "react-three-fiber";
 import { Color } from "three";
-// import Effects from "./effects";
-// import Stars from "./stars";
-// import Earth from "./earth";
-// import Text from "./text";
+import Effects from "./effects";
+import Stars from "./stars";
+import Earth from "./earth";
+import Text from "./text";
 import { NavigationItemType } from "@utils";
 import { useMedia } from "@hooks";
 
-const Effects = React.lazy(() => import("./effects"));
-const Earth = React.lazy(() => import("./earth"));
-const Text = React.lazy(() => import("./text"));
-const Stars = React.lazy(() => import("./stars"));
+// const Effects = React.lazy(() => import("./effects"));
+// const Earth = React.lazy(() => import("./earth"));
+// const Text = React.lazy(() => import("./text"));
+// const Stars = React.lazy(() => import("./stars"));
 
 function Camera({
     mouse,
