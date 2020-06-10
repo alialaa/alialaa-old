@@ -162,9 +162,15 @@ const Header = ({ siteTitle }: HeaderProps) => {
         >
             <div className="canvas-wrap">
                 <div className="canvas">
-                    <Suspense fallback={null}>
-                        <Space night={dark} page={getPageInfo(pathname)} animations={animations} />
-                    </Suspense>
+                    {typeof window !== "undefined" && (
+                        <Suspense fallback={null}>
+                            <Space
+                                night={dark}
+                                page={getPageInfo(pathname)}
+                                animations={animations}
+                            />
+                        </Suspense>
+                    )}
                 </div>
             </div>
             <div className="content">
