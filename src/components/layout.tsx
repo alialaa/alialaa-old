@@ -43,12 +43,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 Skip to Content
             </a>
             <Header siteTitle={data.site.siteMetadata.title} />
-            <div
-                className={getPageInfo(pathname)
-                    ?.title.replace(/ /g, "-")
-                    .toLocaleLowerCase()}
-                id="main"
-            >
+            <div className={pathname.replace(/\//g, " ").toLocaleLowerCase()} id="main">
                 {children}
             </div>
             <Footer />

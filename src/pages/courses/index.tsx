@@ -8,7 +8,6 @@ import Img from "gatsby-image";
 
 const Courses = ({ data }: any) => {
     const { pathname } = useLocation();
-    console.log(data);
     return (
         <div css={styles}>
             <SEO

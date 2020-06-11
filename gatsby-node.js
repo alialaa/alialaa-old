@@ -37,7 +37,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
     });
 
     const reviews = await axios.get(
-        "https://www.udemy.com/instructor-api/v1/taught-courses/reviews?fields[course]=id,title,published_title&fields[course_review]=content,rating,course,user&star=5&page_size=500",
+        "https://www.udemy.com/instructor-api/v1/taught-courses/reviews?fields[course]=id,title,published_title&fields[course_review]=content,rating,course,user&star=5&page_size=100&status=commented",
         {
             headers: {
                 Authorization: `Bearer ${process.env.UDEMY_API_TOKEN}`
@@ -58,17 +58,27 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
     });
 };
 
-exports.createPages = async ({ actions }) => {
-    const { createPage } = actions;
-    const ymlDoc = yaml.safeLoad(fs.readFileSync("./content/courses.yml", "utf-8"));
-    ymlDoc.forEach(element => {
-        createPage({
-            path: `/courses/${element.url}`,
-            component: require.resolve("./src/templates/course.tsx"),
-            context: {
-                title: element.title,
-                udemyID: element.udemyID
+exports.createPages = async ({ actions, graphql }) => {
+    const { data } = await graphql(`
+        query {
+            allCourse {
+                edges {
+                    node {
+                        url
+                        udemyID
+                    }
+                }
             }
+        }
+    `);
+    data.allCourse.edges.forEach(edge => {
+        const url = edge.node.url;
+        const udemyID = edge.node.udemyID;
+        console.log(udemyID);
+        actions.createPage({
+            path: `/courses/${url}`,
+            component: require.resolve("./src/templates/course.tsx"),
+            context: { url: url, udemyID: udemyID }
         });
     });
 };

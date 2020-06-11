@@ -154,12 +154,7 @@ const Header = ({ siteTitle }: HeaderProps) => {
     const { toggleAnimations, toggleDark, animations, dark, loaded: settingstLoaded } = useTheme();
 
     return (
-        <header
-            className={getPageInfo(pathname)
-                ?.title.replace(/ /g, "-")
-                .toLocaleLowerCase()}
-            css={styles}
-        >
+        <header className={pathname.replace(/\//g, " ").toLocaleLowerCase()} css={styles}>
             <div className="canvas-wrap">
                 <div className="canvas">
                     {typeof window !== "undefined" && (

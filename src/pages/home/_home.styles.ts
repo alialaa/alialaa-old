@@ -423,6 +423,7 @@ const styles = css`
             }
             svg {
                 opacity: 0.05;
+                pointer-events: none;
             }
         }
         svg {
