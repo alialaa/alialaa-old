@@ -3,8 +3,10 @@ import { useLocation } from "@reach/router";
 import React, { useState, useEffect, Suspense } from "react";
 import styles from "./header.style";
 import { useInterval } from "@hooks";
-import { navigation, getPageInfo } from "@utils";
+import { navigation, getPageInfo, pageClassName } from "@utils";
 import { useTheme } from "@context/theme-context";
+import { HeaderProvider, useHeader } from "@context/header-context";
+import { css } from "@emotion/core";
 
 const Space = React.lazy(() => import("../space/space"));
 
@@ -151,11 +153,16 @@ type HeaderProps = {
 };
 const Header = ({ siteTitle }: HeaderProps) => {
     const { pathname } = useLocation();
+    const { header, headerStyles } = useHeader();
     const { toggleAnimations, toggleDark, animations, dark, loaded: settingstLoaded } = useTheme();
 
     return (
-        <header className={pathname.replace(/\//g, " ").toLocaleLowerCase()} css={styles}>
-            <div className="canvas-wrap">
+        <header
+            className={pathname.replace(/\//g, " ").toLocaleLowerCase()}
+            css={[styles, headerStyles]}
+        >
+            {header}
+            <div className={`canvas-wrap ${header ? "hidden" : ""}`}>
                 <div className="canvas">
                     {typeof window !== "undefined" && (
                         <Suspense fallback={null}>

@@ -54,13 +54,15 @@ const styles = css`
     }
     [data-js-focus-visible] {
         a,
-        button {
+        button,
+        video {
             &:focus:not([data-focus-visible-added]) {
                 outline: none;
             }
         }
         a,
-        button {
+        button,
+        video {
             &[data-focus-visible-added] {
                 outline: 3px solid var(--purple2);
             }

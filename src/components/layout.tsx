@@ -5,7 +5,7 @@ import { useLocation } from "@reach/router";
 import { Global, css } from "@emotion/core";
 import Helmet from "react-helmet";
 import { useTheme } from "@context/theme-context";
-import { getPageInfo } from "@utils";
+import { pageClassName } from "@utils";
 import "focus-visible";
 import "normalize.css";
 import "./global-styles/font-visby.css";
@@ -43,7 +43,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 Skip to Content
             </a>
             <Header siteTitle={data.site.siteMetadata.title} />
-            <div className={pathname.replace(/\//g, " ").toLocaleLowerCase()} id="main">
+            <div className={pageClassName(pathname)} id="main">
                 {children}
             </div>
             <Footer />

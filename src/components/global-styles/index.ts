@@ -46,6 +46,9 @@ const styles = css`
                 margin-top: -8%;
             }
         }
+        &.courses.single-course {
+            margin-top: 0;
+        }
         .page-intro {
             font-size: 2.2rem;
             margin-bottom: 6rem;
@@ -87,6 +90,9 @@ const styles = css`
     }
     html {
         font-size: 62.5%;
+    }
+    video {
+        max-width: 100%;
     }
     body {
         background-color: var(--bg);

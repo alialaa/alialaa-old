@@ -42,6 +42,10 @@ const styles = css`
     .canvas-wrap {
         padding-top: 47%;
         position: relative;
+        &.hidden {
+            padding-top: 0;
+            height: 0;
+        }
         @media screen and (max-width: ${890 / 16}em) {
             padding-top: 0;
             height: 100%;

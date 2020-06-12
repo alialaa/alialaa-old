@@ -74,11 +74,15 @@ exports.createPages = async ({ actions, graphql }) => {
     data.allCourse.edges.forEach(edge => {
         const url = edge.node.url;
         const udemyID = edge.node.udemyID;
-        console.log(udemyID);
         actions.createPage({
             path: `/courses/${url}`,
-            component: require.resolve("./src/templates/course.tsx"),
-            context: { url: url, udemyID: udemyID }
+            component: require.resolve("./src/templates/course/course.tsx"),
+            context: {
+                url: url,
+                udemyID: udemyID,
+                lengthRegex:
+                    udemyID === "x015vNbBDIRfbZt9qM09qkwzA==" ? "/^.{10,700}$/" : "/^.{80,400}$/" //due to lack of reviews lollzzz
+            }
         });
     });
 };
