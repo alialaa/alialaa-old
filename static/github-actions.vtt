@@ -1,0 +1,213 @@
+WEBVTT
+
+0
+00:05.440 --> 00:10.420
+Welcome to The Complete Guide for GitHub actions and workflows where you will learn everything that
+
+1
+00:10.420 --> 00:11.840
+you need to know about GitHub's
+
+2
+00:11.850 --> 00:14.260
+new CI service.
+
+3
+00:14.260 --> 00:15.140
+My name is Ali.
+
+4
+00:15.140 --> 00:18.210
+And I will be instructing you throughout this course.
+
+5
+00:18.310 --> 00:24.520
+I've been working as a front-end web developer for years and during these years I have used multiple
+
+6
+00:24.520 --> 00:29.380
+CI services to test and deploy mobile and web applications.
+
+7
+00:29.380 --> 00:36.640
+Recently I've been using GitHub's CI service known as GitHub Actions. GitHub Actions has some advantages
+
+8
+00:36.670 --> 00:43.930
+over other CI services I have used. First it's natively integrated with your GitHub repositories and
+
+9
+00:43.930 --> 00:49.510
+in addition to that and thanks to GitHub's popularity you would easily find a large amount of resources
+
+10
+00:49.780 --> 00:56.050
+like pre-made workflows and actions which are reusable pieces of code that you can use in your workflows
+
+11
+00:56.050 --> 01:05.000
+to perform tasks like deploying code, interacting with API's,  sending sms's and so on. At the end
+
+12
+01:05.000 --> 01:11.900
+of this course you should be able to write CI/CD workflows to automate tasks like testing, building, deploying
+
+13
+01:11.900 --> 01:13.540
+your code and more.
+
+14
+01:14.000 --> 01:21.030
+You will also be able to write your own actions and publish them and the actions marketplace.
+
+15
+01:21.030 --> 01:23.070
+So let's briefly see how this course is structured.
+
+16
+01:24.640 --> 01:32.080
+In Section 1 we will have a quick conceptual introduction to what workflows, actions, jobs, steps and other
+
+17
+01:32.080 --> 01:38.500
+terms that we will see are. And we will also learn about the YAML format which is used to write workflows
+
+18
+01:38.530 --> 01:39.630
+in Github.
+
+19
+01:39.760 --> 01:45.640
+Then we will start writing our first workflow and we will take a look at the basic things that we can do in a workflow.
+
+20
+01:45.640 --> 01:52.840
+In Section 2 we will get a bit deeper and learn about the different ways that we can
+
+21
+01:52.840 --> 01:56.010
+use in order to trigger a workflow to run.
+
+22
+01:56.020 --> 02:03.090
+This includes GitHub events like push and pull request, CRON schedules and also external events.
+
+23
+02:03.100 --> 02:10.870
+We will also see how to make a workflow run only for certain branches, tags or paths. In Section 3
+
+24
+02:10.870 --> 02:14.790
+we will see how can we use default and custom environment variables.
+
+25
+02:14.800 --> 02:21.310
+We will also see how to encrypt environment variables that hold sensitive information and also how to
+
+26
+02:21.310 --> 02:27.100
+encrypt and decrypt sensitive files that we do not want to push to our repository.
+
+27
+02:27.100 --> 02:32.770
+We will also take a look at the context information that we can access in our workflows.
+
+28
+02:32.770 --> 02:39.430
+And finally we will take a look at different functions that are available to use in our workflows.
+
+29
+02:39.430 --> 02:45.640
+In section 4 we will see how can we set up matrices and a matrix is a way to run a job multiple times
+
+30
+02:45.640 --> 02:47.990
+but under different environments.
+
+31
+02:48.490 --> 02:54.520
+We will also learn how to use Docker in our jobs and steps and how to run multiple Docker services in
+
+32
+02:54.520 --> 02:56.110
+our job.
+
+33
+02:56.110 --> 03:00.940
+So this section might require some basic Docker knowledge.
+
+34
+03:00.940 --> 03:06.780
+In Section 5 we will finally use our knowledge that we learned in the previous sections to create a real world
+
+35
+03:06.820 --> 03:14.020
+CI/CD example. We will set up our repository to have different branches for development and production
+
+36
+03:14.530 --> 03:19.960
+and to be based on submitting pull requests and then we will write different workflows for pushing into
+
+37
+03:19.960 --> 03:27.750
+different branches. And also workflows for when somebody opens a pull request. The tasks that we will perform
+
+38
+03:27.750 --> 03:35.190
+in our workflow includes: installing and caching dependencies, testing the code, checking code format, uploading
+
+39
+03:35.220 --> 03:41.850
+artifacts, automatically generating a semantic version, deploying to a production or a staging server,
+
+40
+03:42.780 --> 03:50.890
+creating releases, opening issues, sending slack notifications and more. During the course we will use
+
+41
+03:50.890 --> 03:56.650
+some actions that are available in the marketplace but in this last section we will learn how to create
+
+42
+03:56.710 --> 04:04.330
+our own actions which can be created using either JavaScript or using Docker. In this section we are
+
+43
+04:04.330 --> 04:11.110
+going to learn both ways for writing actions and then we will create a javascript action that opens
+
+44
+04:11.110 --> 04:17.770
+GitHub issues. And then using Docker we can write actions in any language we like, so we will create a
+
+45
+04:17.770 --> 04:25.250
+Docker action that sends a slack message and we will write it using PHP. In order to be comfortable while
+
+46
+04:25.250 --> 04:31.520
+watching this course you will have to have some basic GitHub knowledge. Some lectures will also require
+
+47
+04:31.550 --> 04:33.560
+some basic Docker knowledge.
+
+48
+04:33.560 --> 04:39.730
+However they are not necessary to create workflows and actions and you can skip them if you like.
+
+49
+04:40.430 --> 04:44.930
+And finally creating actions will require either JavaScript or Docker knowledge.
+
+50
+04:45.680 --> 04:52.200
+So if you are interested in creating actions you will have to have some knowledge in one of them.
+
+51
+04:52.580 --> 04:58.010
+So make sure to check the course description and also the free preview videos and I look forward to
+
+52
+04:58.010 --> 04:59.090
+seeing you inside.

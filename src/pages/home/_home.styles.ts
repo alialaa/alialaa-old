@@ -231,7 +231,7 @@ const styles = css`
     }
     .featured-course {
         padding: 8rem 0 6rem;
-        z-index: 10;
+        z-index: 20;
         &.dark {
             .gatsby-image-wrapper:after {
                 background: radial-gradient(ellipse, rgba(6, 0, 16, 0.76), var(--bg) 72%);

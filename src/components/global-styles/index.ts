@@ -93,6 +93,7 @@ const styles = css`
     }
     video {
         max-width: 100%;
+        vertical-align: middle;
     }
     body {
         background-color: var(--bg);

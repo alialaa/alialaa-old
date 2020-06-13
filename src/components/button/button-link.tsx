@@ -13,19 +13,19 @@ interface Button extends React.ComponentProps<"button"> {
 }
 
 export const ButtonLink = ({ dark, ...props }: ButtonLinkGatsby) => {
-    let classes = "";
+    let classes = props.className ? props.className + " " : "";
     if (dark) classes += "dark";
-    return <Link className={classes} {...props} css={styles} />;
+    return <Link {...props} className={classes} css={styles} />;
 };
 
 export const ButtonAnchor = ({ dark, ...props }: ButtonLink) => {
-    let classes = "";
+    let classes = props.className ? props.className + " " : "";
     if (dark) classes += "dark";
-    return <a className={classes} {...props} css={styles} />;
+    return <a {...props} className={classes} css={styles} />;
 };
 
 export const Button = ({ dark, ...props }: Button) => {
-    let classes = "";
+    let classes = props.className ? props.className + " " : "";
     if (dark) classes += "dark";
-    return <button className={classes} {...props} css={styles} />;
+    return <button {...props} className={classes} css={styles} />;
 };

@@ -1,0 +1,161 @@
+WEBVTT
+
+0
+00:04.690 --> 00:10.630
+Welcome to Gutenberg blocks for WordPress and ReactJS developers. In this course you'll learn everything
+
+1
+00:10.630 --> 00:15.660
+you need to know to create complex Gutenberg blocks and plugins from scratch.
+
+2
+00:16.000 --> 00:19.910
+My name is Ali and I will be instructing you throughout this course.
+
+3
+00:20.020 --> 00:26.290
+I've been working as a front-end web developer for years. Creating WordPress themes and plugins and also JavaScript
+
+4
+00:26.380 --> 00:29.680
+and ReactJS Web applications.
+
+5
+00:29.680 --> 00:36.310
+This course is designed for WordPress developers who are familiar with ReactJS and Redux and need
+
+6
+00:36.310 --> 00:40.660
+to learn everything about the new Gutenberg editor in WordPress.
+
+7
+00:40.660 --> 00:45.640
+At the end of this course you should be able to use React and Redux in order to create complex
+
+8
+00:45.640 --> 00:52.240
+Gutenberg blocks from scratch and also add features to the existing Gutenberg UI.
+
+9
+00:52.240 --> 00:52.990
+Before creating any blocks
+
+10
+00:52.990 --> 00:57.310
+we will discuss some design guidelines that you should follow when designing a block.
+
+11
+00:57.940 --> 01:02.770
+We will also take a look at how Gutenberg works behind the scenes and how your post is saved in the
+
+12
+01:02.770 --> 01:05.020
+database and so on.
+
+13
+01:05.470 --> 01:11.600
+Then we will have a webpack tutorial and that will help us compile and bundle our JavaScript and CSS
+
+14
+01:11.620 --> 01:14.590
+files in our Gutenberg plugin.
+
+15
+01:14.590 --> 01:20.830
+Next we will create our Gutenberg WordPress plugin where we will start by creating simple block.
+
+16
+01:21.130 --> 01:25.300
+And then as we build up some knowledge, we will start creating more complex blocks.
+
+17
+01:25.900 --> 01:32.920
+So from a very simple text block to a nested team members block where you can add team member blocks
+
+18
+01:33.460 --> 01:40.800
+and each block will have an image some text and social media links where you can drag and drop to re-order.
+
+19
+01:40.810 --> 01:47.890
+We will also create a dynamic block which is a block that generates dynamic content and not just some
+
+20
+01:47.890 --> 01:49.890
+static HTML.
+
+21
+01:50.470 --> 01:52.710
+We will explore Redux in Gutenberg.
+
+22
+01:52.780 --> 01:58.780
+How to use existing Redux stores and also how to create our own stores if we need to share some state
+
+23
+01:58.810 --> 02:00.100
+between multiple blocks.
+
+24
+02:01.120 --> 02:07.410
+Finally we will learn different ways that we can use in order to manage metadata in Gutenberg.
+
+25
+02:07.480 --> 02:14.200
+We will learn how to extend Gutenberg's UI and add some options in the sidebar to manage our metadata.
+
+26
+02:15.190 --> 02:15.790
+During the course
+
+27
+02:15.790 --> 02:24.280
+we will also integrate ESLint, Prettier and Husky in order to have an improved workflow.
+
+28
+02:24.280 --> 02:26.530
+In order to get the most out of this course,
+
+29
+02:26.710 --> 02:33.970
+you need to have some WordPress development experience. JavaScript, preferably ES6 and later versions 
+
+30
+02:34.560 --> 02:35.560
+is also required.
+
+31
+02:36.850 --> 02:43.690
+You should also be familiar with the ReactJS. So concepts like components, state, lifecycle methods and
+
+32
+02:43.690 --> 02:47.630
+other basic React concepts should not be new to you.
+
+33
+02:48.200 --> 02:48.730
+Redux knowledge
+
+34
+02:48.730 --> 02:50.680
+is also ideal.
+
+35
+02:50.680 --> 02:53.310
+Not all blocks will require using Redux.
+
+36
+02:53.440 --> 02:58.150
+However in some blocks we will use Redux heavily. So it would be ideal
+
+37
+02:58.330 --> 03:04.800
+if you are familiar with Redux concepts like stores, actions, action creators and reducers.
+
+38
+03:05.500 --> 03:12.130
+So make sure to take a look at the course description and also the free preview videos and I look forward
+
+39
+03:12.130 --> 03:13.360
+to seeing you inside.

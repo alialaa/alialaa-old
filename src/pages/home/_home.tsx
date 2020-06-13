@@ -143,7 +143,7 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                         (review: { [key: string]: any }) => {
                                             return (
                                                 <li key={review.node.id}>
-                                                    <FiveStarts />
+                                                    <FiveStarts aria-hidden focusable="false" />
                                                     <blockquote cite="https://www.udemy.com/course/github-actions">
                                                         <p>“{review.node.content}”</p>
                                                         <footer>
@@ -161,7 +161,9 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                 </ul>
                             </div>
                             <div className="more-courses">
-                                <Link to="/courses">View All Courses →</Link>
+                                <Link to="/courses">
+                                    View All Courses <span aria-hidden>→</span>
+                                </Link>
                             </div>
                         </div>
                     </div>

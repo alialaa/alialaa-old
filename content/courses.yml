@@ -1,17 +1,3 @@
-- title: The Complete Guide to Building Premium WordPress Themes
-  summary: Create premium wordpress themes from scratch. Learn all the best practices that will get your theme approved on marketplaces like themeforest.
-  udemyID: x01mYHnrkrB1UnCkvDk2IuEFw==
-  udemyUrl: https://www.udemy.com/course/the-complete-guide-to-building-premium-wordpress-themes/?referralCode=A1E38F238B8F5A8D2B82
-  url: wordpress
-  image: wordpress.jpg
-  duration: 17.5
-- title: Gutenberg Blocks for WordPress and React Developers
-  summary: Use your ReactJS and Redux knowledge to create complex WordPress editor (Gutenberg) blocks and plugins from scratch.
-  udemyID: x01wnWjnHsnoEivUNcc52Z9HA==
-  udemyUrl: https://www.udemy.com/course/gutenberg/?referralCode=C4656BA80E6D4EE8B654
-  url: gutenberg
-  image: gutenberg.jpg
-  duration: 8
 - title: The Complete GitHub Actions & Workflows Guide
   summary: Automate code testing, deployment & versioning using CI/CD workflows. Create & publish re-usable GitHub actions to the GitHub Marketplace.
   udemyID: x015vNbBDIRfbZt9qM09qkwzA==
@@ -19,3 +5,68 @@
   url: github-actions
   image: ghactionscover.jpg
   duration: 11
+  promo: https://d3imz9xia0py4c.cloudfront.net/github-actions.mp4
+  objectives:
+    - Learn about writing serialized data in the YAML format.
+    - Discover conceptually what workflows and GitHub actions are.
+    - Learn what terms like action, step, job, event, workflow, etc.. mean.
+    - Discover everything you can do in a github workflow (events, schedules, filtering, environment variables, context, - encryption, matrix and more).
+    - Learn how docker can be used in a github workflow.
+    - Create a real-life CI/CD workflow for code testing, formatting, versioning and more.
+    - Learn how to use semantic versioning to automatically version your code in your workflow.
+    - Upload code testing coverage reports in your workflows using codecov.
+    - Use caching in workflows for faster performace.
+    - Learn about uploading artifacts in workflows.
+    - Learn about how to create your own custom GitHub Actions using Javascript or Docker.
+    - Create an action for opening GitHub issues using JavaScript.
+    - Create an action for sending slack messages using PHP.
+    - Learn how to publish GitHub actions in the GitHub marketplace.
+- title: The Complete Guide to Building Premium WordPress Themes
+  summary: Create premium wordpress themes from scratch. Learn all the best practices that will get your theme approved on marketplaces like themeforest.
+  udemyID: x01mYHnrkrB1UnCkvDk2IuEFw==
+  udemyUrl: https://www.udemy.com/course/the-complete-guide-to-building-premium-wordpress-themes/?referralCode=A1E38F238B8F5A8D2B82
+  url: wordpress
+  image: wordpress.jpg
+  duration: 17.5
+  promo: https://d3imz9xia0py4c.cloudfront.net/wordpress.mp4
+  objectives:
+    - Learn how to code and create premium WordPress themes that pass the themeforest review.
+    - Use NPM/Yarn and Gulp to create a workflow for an efficient and a reusable Wordpress theme.
+    - Discover all core aspects for creating a WordPress theme.
+    - Learn how to create a secure and translation ready WordPress theme.
+    - Learn How to make your theme customizable with WordPress's Customizer API.
+    - Write Javascript using the latest ES6+ versions.
+    - Create custom WordPress widgets and integrate them with Customizer.
+    - Create custom post types and custom taxonomies.
+    - Learn about shortcodes and how to create them.
+    - Learn how your WordPress website can be more accessible.
+    - Create basic plugins and learn how to properly include them in your theme.
+    - Make your theme modifiable with child themes.
+    - Understand how things work in WordPress in a deeper way by digging into the source code.
+    - Create themes that are compatible with the
+- title: Gutenberg Blocks for WordPress and React Developers
+  summary: Use your ReactJS and Redux knowledge to create complex WordPress editor (Gutenberg) blocks and plugins from scratch.
+  udemyID: x01wnWjnHsnoEivUNcc52Z9HA==
+  udemyUrl: https://www.udemy.com/course/gutenberg/?referralCode=C4656BA80E6D4EE8B654
+  url: gutenberg
+  image: gutenberg.jpg
+  duration: 8
+  promo: https://d3imz9xia0py4c.cloudfront.net/gutenberg.mp4
+  objectives:
+    - Learn about Gutenberg blocks design guidelines.
+    - Discover how Gutenberg saves your post in the database and how the editor UI is constructed.
+    - Learn how to use webpack to transpile ES6 and JSX, compile SASS to CSS, bundle and minify your JS and CSS files and - more.
+    - Integrating ESLint, Prettier and husky in your project to improve your workflow.
+    - Create a new custom Gutenberg block from scratch.
+    - Customize Gutenberg features in your WordPress theme.
+    - Discover every aspect you need to know to create a complex Gutenberg block.
+    - Create a nested block (a block that accepts other blocks inside of it).
+    - Use third party react libraries to create complex features.
+    - Learn about handling deprecated blocks.
+    - Learn how to transform your custom block into another block.
+    - Create a dynamic block.
+    - Explore how to use existing redux stores in your blocks.
+    - Learn how to create your own redux stores in order to share data between blocks.
+    - Learn different ways to manage meta fields in the gutenberg editor.
+    - Learn how to create a custom sidebar in Gutenberg and manage your meta fields inside of it.
+    - Learn how to extend the existing Gutenberg sidebar.
