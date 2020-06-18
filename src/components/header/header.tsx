@@ -5,8 +5,7 @@ import styles from "./header.style";
 import { useInterval } from "@hooks";
 import { navigation, getPageInfo, pageClassName } from "@utils";
 import { useTheme } from "@context/theme-context";
-import { HeaderProvider, useHeader } from "@context/header-context";
-import { css } from "@emotion/core";
+import { useHeader } from "@context/header-context";
 
 const Space = React.lazy(() => import("../space/space"));
 
@@ -153,12 +152,11 @@ type HeaderProps = {
 };
 const Header = ({ siteTitle }: HeaderProps) => {
     const { pathname } = useLocation();
-    const { header, headerStyles } = useHeader();
+    const { header, headerStyles, is404 } = useHeader();
     const { toggleAnimations, toggleDark, animations, dark, loaded: settingstLoaded } = useTheme();
-    console.log(pathname);
     return (
         <header
-            className={pathname.replace(/\//g, " ").toLocaleLowerCase()}
+            className={`${pathname.replace(/\//g, " ").toLocaleLowerCase()} ${is404 ? "fof" : ""} `}
             css={[styles, headerStyles]}
         >
             {header}
@@ -167,6 +165,7 @@ const Header = ({ siteTitle }: HeaderProps) => {
                     {typeof window !== "undefined" && (
                         <Suspense fallback={null}>
                             <Space
+                                mars={is404}
                                 night={dark}
                                 page={getPageInfo(pathname)}
                                 animations={animations}

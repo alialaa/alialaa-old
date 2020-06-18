@@ -19,6 +19,11 @@ const styles = css`
             /* padding: 0; */
         }
     }
+    &.fof {
+        /* .canvas-wrap {
+            padding-top: 55%;
+        } */
+    }
     .content {
         position: absolute;
         z-index: 100;

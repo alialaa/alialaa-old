@@ -4,6 +4,7 @@ import { Color } from "three";
 import Effects from "./effects";
 import Stars from "./stars";
 import Earth from "./earth";
+import Mars from "./mars";
 import Text from "./text";
 import { NavigationItemType } from "@utils";
 import { useMedia } from "@hooks";
@@ -38,8 +39,13 @@ function Camera({
     return null;
 }
 
-function Light() {
-    return <directionalLight intensity={0.6} position={[1, 0.5, 0]} />;
+function Light({ mars }: { mars: boolean }) {
+    return (
+        <>
+            {!mars && <directionalLight intensity={0.6} position={[1, 0.5, 0]} />}
+            {mars && <directionalLight intensity={0.4} position={[0.7, 0.5, 0.5]} />}
+        </>
+    );
 }
 
 function Title({ page }: { page: NavigationItemType | undefined }) {
@@ -72,11 +78,13 @@ function Title({ page }: { page: NavigationItemType | undefined }) {
 function Space({
     page,
     night,
-    animations
+    animations,
+    mars
 }: {
     page: NavigationItemType | undefined;
     night: boolean;
     animations: boolean;
+    mars: boolean;
 }) {
     const [down, set] = useState<boolean>(false);
     const mouse = useRef<[number, number]>([0, 0]);
@@ -87,8 +95,6 @@ function Space({
             set(false);
         }, 250);
     }, [page]);
-
-    console.log(page);
 
     const onMouseMove = useCallback(({ clientX: x, clientY: y }) => {
         mouse.current = [x - window.innerWidth / 2, y - window.innerHeight / 2];
@@ -130,7 +136,7 @@ function Space({
                 <>
                     <Camera mouse={mouse} animations={animations} />
                     <ambientLight intensity={0.03} />
-                    <Light />
+                    <Light mars={mars} />
                     <pointLight
                         intensity={0.9}
                         position={[400, 400, -1000]}
@@ -145,6 +151,11 @@ function Space({
                     {page && page.to === "/" && (
                         <Suspense fallback={null}>
                             <Earth animations={animations} night={night} />
+                        </Suspense>
+                    )}
+                    {mars && (
+                        <Suspense fallback={null}>
+                            <Mars />
                         </Suspense>
                     )}
                     <Suspense fallback={null}>

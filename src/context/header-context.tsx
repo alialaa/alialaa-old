@@ -3,9 +3,11 @@ import { SerializedStyles } from "@emotion/serialize";
 
 type HeaderContextType = {
     header: React.ReactNode | null;
+    is404: boolean;
     headerStyles: SerializedStyles | null;
     setHeader: (header: React.ReactNode) => void;
     setHeaderStyles: (styles: SerializedStyles | null) => void;
+    setIs404: (val: boolean) => void;
 };
 
 type HeaderProviderType = {
@@ -16,10 +18,13 @@ type HeaderProviderType = {
 const HeaderContext = createContext<HeaderContextType>({
     header: null,
     headerStyles: null,
+    is404: false,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     setHeader: () => {},
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    setHeaderStyles: () => {}
+    setHeaderStyles: () => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    setIs404: () => {}
 });
 
 function useHeader() {
@@ -33,6 +38,7 @@ function useHeader() {
 function HeaderProvider({ children }: HeaderProviderType) {
     const [header, setLocalHeader] = useState<React.ReactNode | null>(null);
     const [headerStyles, setLocalHeaderStyles] = useState<SerializedStyles | null>(null);
+    const [is404, setLocalIs404] = useState<boolean>(false);
 
     // useEffect(() => {}, []);
 
@@ -48,14 +54,22 @@ function HeaderProvider({ children }: HeaderProviderType) {
         },
         [headerStyles]
     );
+    const setIs404 = useCallback(
+        (val: boolean) => {
+            setLocalIs404(val);
+        },
+        [is404]
+    );
 
     return (
         <HeaderContext.Provider
             value={{
                 header,
                 headerStyles,
+                is404,
                 setHeader,
-                setHeaderStyles
+                setHeaderStyles,
+                setIs404
             }}
         >
             {children}
