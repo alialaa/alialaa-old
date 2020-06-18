@@ -155,7 +155,7 @@ const Header = ({ siteTitle }: HeaderProps) => {
     const { pathname } = useLocation();
     const { header, headerStyles } = useHeader();
     const { toggleAnimations, toggleDark, animations, dark, loaded: settingstLoaded } = useTheme();
-
+    console.log(pathname);
     return (
         <header
             className={pathname.replace(/\//g, " ").toLocaleLowerCase()}

@@ -88,6 +88,8 @@ function Space({
         }, 250);
     }, [page]);
 
+    console.log(page);
+
     const onMouseMove = useCallback(({ clientX: x, clientY: y }) => {
         mouse.current = [x - window.innerWidth / 2, y - window.innerHeight / 2];
     }, []);
