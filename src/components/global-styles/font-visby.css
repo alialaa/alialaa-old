@@ -1,51 +1,53 @@
 @font-face {
     font-weight: 300;
     font-family: Visby;
-    src: url("../../fonts/visby/VisbyCF-Light.woff2") format("woff2"),
-        url("../../fonts/visby/VisbyCF-Light.woff") format("woff");
+    src: url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-Light.woff2") format("woff2"),
+        url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-Light.woff") format("woff");
     font-display: swap;
 }
 @font-face {
     font-weight: 400;
     font-style: normal;
     font-family: Visby;
-    src: url("../../fonts/visby/VisbyCF-Regular.woff2") format("woff2"),
-        url("../../fonts/visby/VisbyCF-Regular.woff") format("woff");
+    src: url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-Regular.woff2") format("woff2"),
+        url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-Regular.woff") format("woff");
     font-display: swap;
 }
 @font-face {
     font-weight: 400;
     font-style: italic;
     font-family: Visby;
-    src: url("../../fonts/visby/VisbyCF-RegularOblique.woff2") format("woff2"),
-        url("../../fonts/visby/VisbyCF-RegularOblique.woff") format("woff");
+    src: url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-RegularOblique.woff2")
+            format("woff2"),
+        url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-RegularOblique.woff")
+            format("woff");
     font-display: swap;
 }
 @font-face {
     font-weight: 500;
     font-family: Visby;
-    src: url("../../fonts/visby/VisbyCF-Medium.woff2") format("woff2"),
-        url("../../fonts/visby/VisbyCF-Medium.woff") format("woff");
+    src: url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-Medium.woff2") format("woff2"),
+        url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-Medium.woff") format("woff");
     font-display: swap;
 }
 @font-face {
     font-weight: 600;
     font-family: Visby;
-    src: url("../../fonts/visby/VisbyCF-DemiBold.woff2") format("woff2"),
-        url("../../fonts/visby/VisbyCF-DemiBold.woff") format("woff");
+    src: url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-DemiBold.woff2") format("woff2"),
+        url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-DemiBold.woff") format("woff");
     font-display: swap;
 }
 @font-face {
     font-weight: 700;
     font-family: Visby;
-    src: url("../../fonts/visby/VisbyCF-Bold.woff2") format("woff2"),
-        url("../../fonts/visby/VisbyCF-Bold.woff") format("woff");
+    src: url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-Bold.woff2") format("woff2"),
+        url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-Bold.woff") format("woff");
     font-display: swap;
 }
 @font-face {
     font-weight: 800;
     font-family: Visby;
-    src: url("../../fonts/visby/VisbyCF-ExtraBold.woff2") format("woff2"),
-        url("../../fonts/visby/VisbyCF-ExtraBold.woff") format("woff");
+    src: url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-ExtraBold.woff2") format("woff2"),
+        url("https://d3imz9xia0py4c.cloudfront.net/visby/VisbyCF-ExtraBold.woff") format("woff");
     font-display: swap;
 }
