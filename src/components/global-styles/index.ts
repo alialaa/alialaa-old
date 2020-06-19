@@ -88,6 +88,25 @@ const styles = css`
             }
         }
     }
+    .shadow {
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        &:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                -161deg,
+                var(--purple) 0%,
+                var(--purple2) 100%
+                /* var(--card-border) 100% */
+            );
+            top: 4px;
+            left: 4px;
+            z-index: -1;
+        }
+    }
     html {
         font-size: 62.5%;
     }
@@ -95,13 +114,20 @@ const styles = css`
         max-width: 100%;
         vertical-align: middle;
     }
+    figure {
+        margin: 0;
+        margin-bottom: 2rem;
+    }
+    figcaption {
+        margin-top: 1rem;
+    }
     body {
         background-color: var(--bg);
         font-family: "Visby", Arial, Helvetica, sans-serif;
         letter-spacing: 0.5px;
         font-size: 1.6rem;
         font-weight: 400;
-        line-height: 1.6;
+        line-height: 1.8;
         color: var(--text);
         text-align: left;
     }

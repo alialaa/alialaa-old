@@ -40,6 +40,7 @@ const styles = css`
     }
     p {
         margin: 0;
+        font-size: 1.8rem;
         margin-bottom: 1rem;
     }
 

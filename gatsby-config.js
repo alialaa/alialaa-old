@@ -6,6 +6,12 @@ module.exports = {
         siteUrl: `https://www.alialaa.dev`
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: "UA-170033469-1"
+            }
+        },
         "gatsby-plugin-webpack-bundle-analyser-v2",
         `gatsby-plugin-sitemap`,
         {
