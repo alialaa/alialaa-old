@@ -5,7 +5,7 @@ import { css } from "@emotion/core";
 import Link from "gatsby-link";
 
 const styles = css`
-    padding: 8rem 0;
+    padding: 10rem 0 10rem;
     text-align: center;
     h1 {
         font-weight: 800;

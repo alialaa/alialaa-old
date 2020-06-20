@@ -22,13 +22,13 @@ const styles = css`
             --text-shadow: #b531c4;
             --card: #13101d;
             --card-border: #c5b1c9;
-            #main {
-                @media screen and (min-width: ${890 / 16}em) {
-                    background: linear-gradient(0deg, #070014 0%, #070014 50%, transparent 100%);
-                }
-            }
         }
     }
+    /* #main {
+        @media screen and (min-width: ${890 / 16}em) {
+            background: linear-gradient(0deg, #070014 0%, #070014 50%, transparent 100%);
+        }
+    } */
     #nprogress .bar {
         background: linear-gradient(90deg,#c11dd4 0%,#8c44db 100%) !important;
         height: 4px !important;
@@ -127,7 +127,7 @@ const styles = css`
         letter-spacing: 0.5px;
         font-size: 1.6rem;
         font-weight: 400;
-        line-height: 1.8;
+        line-height: 1.7;
         color: var(--text);
         text-align: left;
     }
