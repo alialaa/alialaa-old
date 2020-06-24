@@ -6,6 +6,7 @@ module.exports = {
         siteUrl: `https://www.alialaa.dev`
     },
     plugins: [
+        `gatsby-plugin-twitter`,
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {

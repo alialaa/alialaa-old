@@ -40,10 +40,16 @@ const styles = css`
     }
     p {
         margin: 0;
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
+        font-size: 1.9rem;
+        margin-bottom: 1.4rem;
+        &.lead {
+            font-size: 2.1rem;
+        }
     }
-
+    b,
+    strong {
+        font-weight: 600;
+    }
     hr {
         background: linear-gradient(-90deg, #c30cff 0%, #3597a7 35%, #17408c 70%, #44d4db 100%);
         border: none;

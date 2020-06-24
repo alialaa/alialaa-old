@@ -102,7 +102,7 @@ function Space({
     const getPixelRatio = () => {
         const dpr = window.devicePixelRatio;
         if (dpr <= 1) {
-            return 1.5;
+            return 1;
         } else {
             return !animations || isSmall ? window.devicePixelRatio : 1.5;
         }

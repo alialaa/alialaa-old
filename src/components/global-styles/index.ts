@@ -73,7 +73,7 @@ const styles = css`
                 height: auto;
                 font-size: calc(4rem + 1.2vw);
                 font-weight: 800;
-                margin-top: 2rem;
+                /* margin-top: 2rem; */
                 margin-bottom: 3rem;
                 text-shadow: 2px 2px var(--text-shadow);
                 span {
