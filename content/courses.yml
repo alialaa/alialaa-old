@@ -43,7 +43,7 @@
     - Create basic plugins and learn how to properly include them in your theme.
     - Make your theme modifiable with child themes.
     - Understand how things work in WordPress in a deeper way by digging into the source code.
-    - Create themes that are compatible with the
+    - Create themes that are compatible with the new editor 'Gutenberg'.
 - title: Gutenberg Blocks for WordPress and React Developers
   summary: Use your ReactJS and Redux knowledge to create complex WordPress editor (Gutenberg) blocks and plugins from scratch.
   udemyID: x01wnWjnHsnoEivUNcc52Z9HA==

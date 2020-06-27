@@ -120,6 +120,8 @@ const styles = css`
     }
     figcaption {
         margin-top: 1rem;
+        padding: 0.5rem;
+        font-size: 1.5rem;
     }
     body {
         background-color: var(--bg);

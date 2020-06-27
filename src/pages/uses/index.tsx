@@ -191,7 +191,7 @@ const Uses = ({ data }: any) => {
 
 export const query = graphql`
     query UsesQuery {
-        deskImage: file(relativePath: { eq: "desk.jpg" }) {
+        deskImage: file(relativePath: { eq: "desk2.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 800) {
                     ...GatsbyImageSharpFluid

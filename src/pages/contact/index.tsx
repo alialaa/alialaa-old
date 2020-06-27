@@ -20,8 +20,10 @@ const Contact = ({ data }: any) => {
                         <br />
                         <p className="lead">
                             <strong>
-                                If you would like to hire me for a job, please understand what I can
-                                do for you first:
+                                I am currently focusing more on creating online content. But
+                                nevertheless I also do freelance work from time to time. If you
+                                would like to hire me for a job, please understand what I can do for
+                                you first:
                             </strong>
                         </p>
                         <ul>

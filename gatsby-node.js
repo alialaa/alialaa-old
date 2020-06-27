@@ -22,6 +22,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
                 contentDigest: createContentDigest(imageData)
             }
         };
+        console.log(imageNode);
         actions.createNode(imageNode);
 
         const node = {
