@@ -72,7 +72,12 @@ const Course = (props: any) => {
                 </div>
             </div>
 
-            <SEO title={title} description={summary} pathname={pathname} />
+            <SEO
+                image={image.childImageSharp.original.src}
+                title={title}
+                description={summary}
+                pathname={pathname}
+            />
             <Helmet>
                 <script type="application/ld+json">
                     {JSON.stringify({
@@ -198,6 +203,9 @@ export const query = graphql`
                     childImageSharp {
                         fluid(maxWidth: 1200) {
                             ...GatsbyImageSharpFluid
+                        }
+                        original {
+                            src
                         }
                     }
                 }
