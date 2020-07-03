@@ -1,6 +1,7 @@
 //Max width of each breakpoint in px
 const breakpoints = {
     small: 640,
+    mediumSmall: 890,
     medium: 1024,
     large: 1200,
     xlarge: 1440

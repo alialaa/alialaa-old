@@ -4,10 +4,12 @@ import { mq } from "@utils";
 const styles = css`
     padding: 8rem 0;
     .content {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 4rem;
-        align-items: center;
+        @media screen and (min-width: ${890 / 16}em) {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 4rem;
+            align-items: center;
+        }
         h2 {
             font-weight: 800;
             font-size: calc(3rem + 1.5vw);
@@ -21,6 +23,12 @@ const styles = css`
             line-height: 1.2;
             margin-bottom: 2.6rem;
             text-shadow: 2px 2px var(--text-shadow);
+        }
+        .grid-item {
+            margin-bottom: 4rem;
+            ${mq.largerThan("mediumSmall")} {
+                margin-bottom: 0;
+            }
         }
         .portrait-image {
             grid-column: 8 / span 5;
@@ -61,6 +69,8 @@ const styles = css`
         .job-testimonial {
             grid-column: 8 / span 5;
             grid-row: 9;
+        }
+        .testimonial {
             .shadow {
                 padding: 3rem;
                 font-weight: 500;
@@ -72,6 +82,65 @@ const styles = css`
                     margin: 0;
                 }
             }
+        }
+        .freelancing-text {
+            grid-column: 1 / span 6;
+            grid-row: 12;
+        }
+        .freelancing-testimonial {
+            grid-column: 8 / span 5;
+            grid-row: 12;
+        }
+        .freelancing-tweet-1 {
+            grid-column: 1 / span 6;
+            grid-row: 14;
+        }
+        .freelancing-tweet-2 {
+            grid-column: 8 / span 5;
+            grid-row: 14;
+        }
+        .courses-text {
+            grid-column: 7 / span 6;
+            grid-row: 14;
+        }
+        .desk-image {
+            grid-column: 1 / span 5;
+            grid-row: 14;
+        }
+        .course-testimonials {
+            grid-column: 1 / span 12;
+            grid-row: 15;
+            figcaption {
+                margin-top: 1.6rem;
+                text-align: center;
+            }
+            .course-testimonials-items {
+                ${mq.largerThan("mediumSmall")} {
+                    display: grid;
+                    grid-template-columns: repeat(12, 1fr);
+                    gap: 4rem;
+                }
+                .shadow {
+                    grid-column-end: span 4;
+                    margin-top: 2rem;
+                    align-items: center;
+                    display: flex;
+                    blockquote {
+                        p {
+                            font-size: 2rem;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        .more-text {
+            grid-column: 1 / span 6;
+            grid-row: 17;
+        }
+        .more-image {
+            grid-column: 8 / span 5;
+            grid-row: 17;
         }
     }
 `;
