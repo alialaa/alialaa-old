@@ -59,7 +59,9 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
     });
 };
 
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
+    const { createPage } = actions;
+    // COURSE PAGES ######################################
     const { data } = await graphql(`
         query {
             allCourse {
@@ -75,7 +77,7 @@ exports.createPages = async ({ actions, graphql }) => {
     data.allCourse.edges.forEach(edge => {
         const url = edge.node.url;
         const udemyID = edge.node.udemyID;
-        actions.createPage({
+        createPage({
             path: `/courses/${url}`,
             component: require.resolve("./src/templates/course/course.tsx"),
             context: {
@@ -84,6 +86,48 @@ exports.createPages = async ({ actions, graphql }) => {
                 lengthRegex:
                     udemyID === "x015vNbBDIRfbZt9qM09qkwzA==" ? "/^.{10,700}$/" : "/^.{80,400}$/" //due to lack of reviews lollzzz
             }
+        });
+    });
+
+    // POST PAGES ######################################
+    const postsResult = await graphql(`
+        query {
+            allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+                edges {
+                    node {
+                        id
+                        frontmatter {
+                            slug
+                        }
+                    }
+                }
+            }
+        }
+    `);
+    if (postsResult.errors) {
+        reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+    }
+    const posts = postsResult.data.allMdx.edges;
+    const postsPerPage = 1;
+    const numPages = Math.ceil(posts.length / postsPerPage);
+    Array.from({ length: numPages }).forEach((_, i) => {
+        createPage({
+            path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
+            component: path.resolve("./src/templates/blog/blog.tsx"),
+            context: {
+                limit: postsPerPage,
+                skip: i * postsPerPage,
+                numPages,
+                currentPage: i + 1
+            }
+        });
+    });
+
+    posts.forEach(({ node }) => {
+        createPage({
+            path: `/blog/${node.frontmatter.slug}`,
+            component: path.resolve(`./src/templates/post/post.tsx`),
+            context: { id: node.id }
         });
     });
 };

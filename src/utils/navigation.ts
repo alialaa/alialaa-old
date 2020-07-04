@@ -33,7 +33,8 @@ export const navigation: NavigationItemType[] = [
 ];
 
 export function getPageInfo(pathname: string) {
-    // if (pathname === "/")
-    return navigation.find(i => i.to === pathname);
-    // return navigation.find(i => i.to !== "/" && pathname.includes(i.to));
+    if (pathname === "/") {
+        return navigation.find(i => i.to === pathname);
+    }
+    return navigation.find(i => i.to !== "/" && pathname.includes(i.to));
 }
