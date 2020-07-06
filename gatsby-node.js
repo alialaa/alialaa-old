@@ -2,6 +2,7 @@ const axios = require("axios");
 const path = require("path");
 const fs = require("fs");
 const yaml = require("js-yaml");
+const _ = require("lodash");
 
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
     const ymlDoc = yaml.safeLoad(fs.readFileSync("./content/courses.yml", "utf-8"));
@@ -102,6 +103,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                     }
                 }
             }
+            tagsGroup: allMdx(limit: 2000) {
+                group(field: frontmatter___tags) {
+                    fieldValue
+                    totalCount
+                }
+            }
         }
     `);
     if (postsResult.errors) {
@@ -120,6 +127,28 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 numPages,
                 currentPage: i + 1
             }
+        });
+    });
+
+    const tags = postsResult.data.tagsGroup.group;
+    tags.forEach(tag => {
+        const numPages = Math.ceil(tag.totalCount / postsPerPage);
+        Array.from({ length: numPages }).forEach((x, i) => {
+            createPage({
+                path:
+                    i === 0
+                        ? `/tags/${_.kebabCase(tag.fieldValue)}`
+                        : `/tags/${_.kebabCase(tag.fieldValue)}/page/${i + 1}`,
+                component: path.resolve("./src/templates/tag/tag.tsx"),
+                context: {
+                    limit: postsPerPage,
+                    skip: i * postsPerPage,
+                    numPages,
+                    currentPage: i + 1,
+                    tag: tag.fieldValue,
+                    tagSlug: _.kebabCase(tag.fieldValue)
+                }
+            });
         });
     });
 

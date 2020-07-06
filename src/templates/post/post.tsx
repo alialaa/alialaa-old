@@ -21,7 +21,8 @@ const Post = (props: any) => {
     const { setHeader, setHeaderStyles } = useHeader();
     const { dark } = useTheme();
     const { data } = props;
-    const { mdx } = data;
+    const { mdx, site } = data;
+    console.log(mdx);
     // useEffect(() => {
     //     setHeader(<div style={{ height: 0 }}></div>);
     //     setHeaderStyles(courseHeaderOverrides);
@@ -33,28 +34,45 @@ const Post = (props: any) => {
 
     return (
         <div css={styles}>
-            {/* <SEO
-                image={image.childImageSharp.original.src}
-                title={title}
-                description={summary}
+            <SEO
+                image={
+                    mdx.frontmatter.featuredImage
+                        ? mdx.frontmatter.featuredImage.childImageSharp.original.src
+                        : undefined
+                }
+                title={mdx.frontmatter.title}
+                description={mdx.excerpt}
                 pathname={pathname}
-            /> */}
+            />
             <Helmet>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "Course",
-                        // name: title,
-                        // description: summary,
-                        provider: {
-                            "@type": "Organization",
-                            name: "Udemy",
-                            sameAs: "https://www.udemy.com/"
+                        "@type": "NewsArticle",
+                        mainEntityOfPage: {
+                            "@type": "WebPage",
+                            "@id": `${site.siteMetadata.siteUrl}${pathname}`
+                        },
+                        headline: mdx.frontmatter.title,
+                        image: mdx.frontmatter.featuredImage
+                            ? [
+                                  site.siteMetadata.siteUrl +
+                                      mdx.frontmatter.featuredImage.childImageSharp.original.src
+                              ]
+                            : undefined,
+                        datePublished: mdx.frontmatter.date,
+                        dateModified: mdx.frontmatter.date,
+                        author: {
+                            "@type": "Person",
+                            name: "Ali Alaa"
                         }
                     })}
                 </script>
             </Helmet>
             <MDXProvider components={shortcodes}>
+                {mdx.frontmatter.featuredImage && (
+                    <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid} />
+                )}
                 <MDXRenderer>{mdx.body}</MDXRenderer>
             </MDXProvider>
         </div>
@@ -64,11 +82,28 @@ export default Post;
 
 export const query = graphql`
     query BlogPostQuery($id: String) {
+        site {
+            siteMetadata {
+                siteUrl
+            }
+        }
         mdx(id: { eq: $id }) {
             id
             body
+            excerpt
             frontmatter {
                 title
+                date
+                featuredImage {
+                    childImageSharp {
+                        fluid(maxWidth: 800) {
+                            ...GatsbyImageSharpFluid
+                        }
+                        original {
+                            src
+                        }
+                    }
+                }
             }
         }
     }

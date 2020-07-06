@@ -82,7 +82,22 @@ function SEO({ description, lang = "en", meta = [], title, pathname, image }: SE
         ]
     };
     if (pathname !== "/") {
-        if (pathname?.includes("courses")) {
+        if (pathname?.includes("blog")) {
+            breadcrumbs.itemListElement.push({
+                "@type": "ListItem",
+                position: 2,
+                name: "The Blog",
+                item: `${site.siteMetadata.siteUrl}/blog`
+            });
+            if (title !== "The Blog") {
+                breadcrumbs.itemListElement.push({
+                    "@type": "ListItem",
+                    position: 3,
+                    name: title,
+                    item: url
+                });
+            }
+        } else if (pathname?.includes("courses")) {
             breadcrumbs.itemListElement.push({
                 "@type": "ListItem",
                 position: 2,

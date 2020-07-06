@@ -47,6 +47,23 @@ module.exports = {
         },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
+        `gatsby-remark-images`,
+        {
+            resolve: `gatsby-plugin-mdx`,
+            options: {
+                remarkPlugins: [require("remark-unwrap-images")],
+                gatsbyRemarkPlugins: [
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 1200,
+                            showCaptions: ["title"]
+                            // markdownCaptions: true
+                        }
+                    }
+                ]
+            }
+        },
         `gatsby-plugin-emotion`,
         {
             resolve: "gatsby-plugin-module-resolver",
