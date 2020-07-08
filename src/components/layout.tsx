@@ -18,6 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             site {
                 siteMetadata {
                     title
+                    siteUrl
                 }
             }
         }
@@ -46,7 +47,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div className={pageClassName(pathname)} id="main">
                 {children}
             </div>
-            <Footer />
+            <Footer siteUrl={data.site.siteMetadata.siteUrl} />
         </>
     );
 };

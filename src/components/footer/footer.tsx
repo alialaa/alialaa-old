@@ -8,7 +8,7 @@ import Twitter from "@svgs/twitter";
 import Github from "@svgs/github";
 import Instagram from "@svgs/instagram";
 
-const Footer = () => {
+const Footer = ({ siteUrl }: { siteUrl: string }) => {
     return (
         <footer css={styles}>
             <div className="container">
@@ -60,7 +60,7 @@ const Footer = () => {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">Articles RSS Feed</a>
+                                    <a href={`${siteUrl}/rss.xml`}>Articles RSS Feed</a>
                                 </li>
                             </ul>
                         </div>
