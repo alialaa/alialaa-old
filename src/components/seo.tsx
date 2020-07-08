@@ -151,7 +151,8 @@ function SEO({ description, lang = "en", meta = [], title, pathname, image }: SE
                 },
                 {
                     property: `og:type`,
-                    content: `website`
+                    content:
+                        pathname?.includes("blog") && title !== "The Blog" ? `article` : `website`
                 },
                 {
                     name: `twitter:card`,

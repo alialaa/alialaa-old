@@ -6,6 +6,62 @@ module.exports = {
         siteUrl: `https://www.alialaa.dev`
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-feed`,
+            options: {
+                query: `
+                {
+                  site {
+                    siteMetadata {
+                      title
+                      description
+                      siteUrl
+                      site_url: siteUrl
+                    }
+                  }
+                }
+              `,
+                feeds: [
+                    {
+                        serialize: ({ query: { site, allMdx } }) => {
+                            return allMdx.edges.map(edge => {
+                                return Object.assign({}, edge.node.frontmatter, {
+                                    description: edge.node.excerpt,
+                                    date: edge.node.frontmatter.date,
+                                    url: `${site.siteMetadata.siteUrl}/${edge.node.frontmatter.slug}`,
+                                    guid: `${site.siteMetadata.siteUrl}/${edge.node.frontmatter.slug}`,
+                                    custom_elements: [{ "content:encoded": edge.node.html }]
+                                });
+                            });
+                        },
+                        query: `
+                    {
+                      allMdx(
+                        sort: { fields: [frontmatter___date], order: DESC }, 
+                        limit: 1000
+                      ) {
+                        edges {
+                          node {
+                            excerpt
+                            html
+                            frontmatter {
+                              title
+                              date
+                              slug
+                            }
+                          }
+                        }
+                      }
+                    }
+                  `,
+                        output: "/rss.xml",
+                        title: "Ali Alaa's Blog",
+                        description: `Latest Articles from alialaa.dev`,
+                        match: "^/blog/"
+                    }
+                ]
+            }
+        },
         `gatsby-plugin-twitter`,
         {
             resolve: `gatsby-plugin-google-analytics`,

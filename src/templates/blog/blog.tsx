@@ -23,6 +23,7 @@ const Blog = ({ data, pageContext }: any) => {
                                 <Link to={`/blog/${post.frontmatter.slug}`}>
                                     <h2>{post.frontmatter.title}</h2>
                                 </Link>
+                                <p>{post.timeToRead}</p>
                                 <p>{post.excerpt}</p>
                                 <p>{post.frontmatter.date}</p>
                             </li>
@@ -103,6 +104,7 @@ export const BLOGQuery = graphql`
                 node {
                     id
                     excerpt
+                    timeToRead
                     frontmatter {
                         title
                         slug

@@ -101,6 +101,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                             slug
                         }
                     }
+                    next {
+                        frontmatter {
+                            slug
+                            title
+                        }
+                    }
+                    previous {
+                        frontmatter {
+                            slug
+                            title
+                        }
+                    }
                 }
             }
             tagsGroup: allMdx(limit: 2000) {
@@ -152,11 +164,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         });
     });
 
-    posts.forEach(({ node }) => {
+    posts.forEach(({ node, next, previous }) => {
         createPage({
             path: `/blog/${node.frontmatter.slug}`,
             component: path.resolve(`./src/templates/post/post.tsx`),
-            context: { id: node.id }
+            context: { id: node.id, next, previous }
         });
     });
 };

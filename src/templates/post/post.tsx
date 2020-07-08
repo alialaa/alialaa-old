@@ -20,9 +20,9 @@ const Post = (props: any) => {
     const { pathname } = useLocation();
     const { setHeader, setHeaderStyles } = useHeader();
     const { dark } = useTheme();
-    const { data } = props;
+    const { data, pageContext } = props;
     const { mdx, site } = data;
-    console.log(mdx);
+    const { next, previous } = pageContext;
     // useEffect(() => {
     //     setHeader(<div style={{ height: 0 }}></div>);
     //     setHeaderStyles(courseHeaderOverrides);
@@ -49,10 +49,10 @@ const Post = (props: any) => {
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "NewsArticle",
-                        mainEntityOfPage: {
-                            "@type": "WebPage",
-                            "@id": `${site.siteMetadata.siteUrl}${pathname}`
-                        },
+                        // mainEntityOfPage: {
+                        //     "@type": "WebPage",
+                        //     "@id": `${site.siteMetadata.siteUrl}${pathname}`
+                        // },
                         headline: mdx.frontmatter.title,
                         image: mdx.frontmatter.featuredImage
                             ? [
@@ -61,19 +61,42 @@ const Post = (props: any) => {
                               ]
                             : undefined,
                         datePublished: mdx.frontmatter.date,
-                        dateModified: mdx.frontmatter.date,
-                        author: {
-                            "@type": "Person",
-                            name: "Ali Alaa"
-                        }
+                        dateModified: mdx.frontmatter.date
+                        // author: {
+                        //     "@type": "Person",
+                        //     name: "Ali Alaa"
+                        // }
                     })}
                 </script>
             </Helmet>
             <MDXProvider components={shortcodes}>
-                {mdx.frontmatter.featuredImage && (
-                    <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid} />
-                )}
-                <MDXRenderer>{mdx.body}</MDXRenderer>
+                <article>
+                    {mdx.frontmatter.featuredImage && (
+                        <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid} />
+                    )}
+                    <MDXRenderer>{mdx.body}</MDXRenderer>
+                    <footer>
+                        {mdx.frontmatter.tags}
+                        <nav role="navigation" aria-label="Posts Navigation">
+                            <ul>
+                                {previous && (
+                                    <li>
+                                        <Link to={`/blog/${previous.frontmatter.slug}`}>
+                                            {previous.frontmatter.title}
+                                        </Link>
+                                    </li>
+                                )}
+                                {next && (
+                                    <li>
+                                        <Link to={`/blog/${next.frontmatter.slug}`}>
+                                            {next.frontmatter.title}
+                                        </Link>
+                                    </li>
+                                )}
+                            </ul>
+                        </nav>
+                    </footer>
+                </article>
             </MDXProvider>
         </div>
     );
@@ -94,6 +117,7 @@ export const query = graphql`
             frontmatter {
                 title
                 date
+                tags
                 featuredImage {
                     childImageSharp {
                         fluid(maxWidth: 800) {
