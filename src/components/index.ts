@@ -7,3 +7,5 @@ export { default as Newsletter } from "./newsletter/newsletter";
 export { ButtonAnchor } from "./button/button-link";
 export { ButtonLink } from "./button/button-link";
 export { Button } from "./button/button-link";
+export { default as Post } from "./post/post";
+export { default as Pagination } from "./pagination/pagination";

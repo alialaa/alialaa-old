@@ -3,17 +3,25 @@ import { graphql } from "gatsby";
 
 export const query = graphql`
     query HomeQuery {
-        blogImage: file(relativePath: { eq: "gutenberg-editor-wires.jpeg" }) {
-            childImageSharp {
-                fluid(maxWidth: 550) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        blogImage2: file(relativePath: { eq: "spilled-milk-wordpress.jpeg" }) {
-            childImageSharp {
-                fluid(maxWidth: 550) {
-                    ...GatsbyImageSharpFluid
+        posts: allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 2) {
+            edges {
+                node {
+                    id
+                    excerpt
+                    timeToRead
+                    frontmatter {
+                        title
+                        slug
+                        date
+                        tags
+                        featuredImage {
+                            childImageSharp {
+                                fluid(maxWidth: 550) {
+                                    ...GatsbyImageSharpFluid
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

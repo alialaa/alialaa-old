@@ -1,13 +1,14 @@
 import React from "react";
 import { useLocation } from "@reach/router";
 import { Link } from "gatsby";
-import { SEO } from "@components";
+import { SEO, Post, Pagination } from "@components";
 import styles from "./blog.styles";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import { useTheme } from "@context/theme-context";
 
 const Blog = ({ data, pageContext }: any) => {
     const { pathname } = useLocation();
+    const { dark } = useTheme();
     const { edges: posts } = data.posts;
     const { group: tags } = data.tags;
     const { numPages, currentPage } = pageContext;
@@ -16,78 +17,44 @@ const Blog = ({ data, pageContext }: any) => {
             <SEO title="The Blog" pathname={pathname} />
             <div className="container">
                 <h1 className="page-title">The Blog</h1>
-                <section>
-                    <ul>
-                        {posts.map(({ node: post }: { node: any }) => (
-                            <li key={post.id}>
-                                <Link to={`/blog/${post.frontmatter.slug}`}>
-                                    <h2>{post.frontmatter.title}</h2>
-                                </Link>
-                                <p>{post.timeToRead}</p>
-                                <p>{post.excerpt}</p>
-                                <p>{post.frontmatter.date}</p>
-                            </li>
-                        ))}
-                    </ul>
-                    {numPages > 1 && (
-                        <nav role="navigation" aria-label="Posts Pagination">
-                            <ul>
-                                <li>
-                                    <Link
-                                        to={`/blog/page/${currentPage - 1}`}
-                                        aria-disabled={currentPage === 1}
-                                    >
-                                        Previous <div className="visually-hidden">Page</div>
-                                    </Link>
-                                </li>
-                                {Array(numPages)
-                                    .fill(null)
-                                    .map((v, i) => {
-                                        return (
-                                            <li key={`page-${i}`}>
-                                                <Link
-                                                    {...(i + 1 === currentPage
-                                                        ? { "aria-current": "page" }
-                                                        : {})}
-                                                    to={i === 0 ? `/blog` : `/blog/page/${i + 1}`}
-                                                >
-                                                    <div className="visually-hidden">Page</div>{" "}
-                                                    {i + 1}
-                                                </Link>
-                                            </li>
-                                        );
-                                    })}
-                                <li>
-                                    <Link
-                                        to={`/blog/page/${currentPage + 1}`}
-                                        aria-disabled={currentPage === numPages}
-                                    >
-                                        Next <div className="visually-hidden">Page</div>
-                                    </Link>
-                                </li>
-                            </ul>
-                        </nav>
-                    )}
-                </section>
-                <aside>
-                    <h3>Tags</h3>
-                    <ul>
-                        {tags.map((tag: any) => {
-                            return (
-                                <li key={tag.tag}>
-                                    <Link
-                                        to={`/tags/${tag.tag
-                                            .split(" ")
-                                            .join("-")
-                                            .toLowerCase()}`}
-                                    >
-                                        #{tag.tag} ({tag.totalCount})
-                                    </Link>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </aside>
+                <div className="content">
+                    <section>
+                        <ul className="posts-list">
+                            {posts.map(({ node: _post }: { node: any }) => {
+                                const post = {
+                                    title: _post.frontmatter.title,
+                                    slug: _post.frontmatter.slug,
+                                    timeToRead: _post.timeToRead,
+                                    excerpt: _post.excerpt,
+                                    date: _post.frontmatter.date,
+                                    featuredImage: _post.frontmatter.featuredImage,
+                                    tags: _post.frontmatter.tags
+                                };
+                                return <Post key={_post.id} post={post} />;
+                            })}
+                        </ul>
+                        <Pagination numPages={numPages} currentPage={currentPage} />
+                    </section>
+                    <aside className="sidebar">
+                        <h3>Tags</h3>
+                        <ul className={`tags-list ${dark ? "dark" : ""}`}>
+                            {tags.map((tag: any) => {
+                                return (
+                                    <li key={tag.tag}>
+                                        <Link
+                                            to={`/tags/${tag.tag
+                                                .split(" ")
+                                                .join("-")
+                                                .toLowerCase()}`}
+                                        >
+                                            #{tag.tag} ({tag.totalCount})
+                                        </Link>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </aside>
+                </div>
             </div>
         </div>
     );
@@ -103,12 +70,20 @@ export const BLOGQuery = graphql`
             edges {
                 node {
                     id
-                    excerpt
+                    excerpt(pruneLength: 200)
                     timeToRead
                     frontmatter {
                         title
                         slug
                         date
+                        tags
+                        featuredImage {
+                            childImageSharp {
+                                fluid(maxWidth: 800) {
+                                    ...GatsbyImageSharpFluid
+                                }
+                            }
+                        }
                     }
                 }
             }

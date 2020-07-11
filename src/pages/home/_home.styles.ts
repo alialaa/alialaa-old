@@ -193,6 +193,10 @@ const styles = css`
                         margin: 0;
                         font-size: inherit;
                         display: inline-block;
+                        &:before {
+                            content: "|";
+                            margin: 0 0.7rem;
+                        }
                     }
                 }
                 p {
@@ -219,8 +223,11 @@ const styles = css`
                         }
                     }
                 }
+                .gatsby-image-wrapper {
+                    margin-bottom: 2rem;
+                }
                 .post-inner {
-                    padding: 2rem 0.4rem 0.4rem 0.4rem;
+                    padding: 0rem 0.4rem 0.4rem 0.4rem;
                     display: flex;
                     flex-direction: column;
                     flex: 1;

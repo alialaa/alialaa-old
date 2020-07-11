@@ -13,6 +13,7 @@ import FiveStarts from "@svgs/5starts";
 const Home = ({ data }: { data: { [key: string]: any } }) => {
     const { dark } = useTheme();
     const { pathname } = useLocation();
+    const post = data.posts.edges;
     return (
         <div css={styles}>
             <SEO title="Home" pathname={pathname} />
@@ -46,54 +47,73 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                         <div className="posts">
                             <div className="title">
                                 <h3>Latest Articles</h3>
-                                <ButtonLink dark={dark} to="/">
+                                <ButtonLink dark={dark} to="/blog">
                                     View All<span className="visually-hidden"> Articles</span>
                                 </ButtonLink>
                             </div>
-                            {[1, 2].map(post => {
+                            {post.map((item: any) => {
+                                const post = item.node;
+                                const date = new Date(post.frontmatter.date);
+                                const options = {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric"
+                                };
+                                const dateString = date.toLocaleDateString("en-GB", options);
                                 return (
-                                    <article key={post} className="post">
-                                        <Img
-                                            fluid={
-                                                post === 1
-                                                    ? data.blogImage.childImageSharp.fluid
-                                                    : data.blogImage2.childImageSharp.fluid
-                                            }
-                                            alt=""
-                                        />
+                                    <article key={post.id} className="post">
+                                        {post.frontmatter.featuredImage && (
+                                            <Img
+                                                fluid={
+                                                    post.frontmatter.featuredImage.childImageSharp
+                                                        .fluid
+                                                }
+                                                alt=""
+                                            />
+                                        )}
                                         <div className="post-inner">
                                             <div>
                                                 <header>
                                                     <div className="info">
-                                                        <time dateTime="2020-04-07T18:47:45+00:00">
-                                                            April 7, 2020
-                                                        </time>{" "}
-                                                        <p>2 min.</p>
+                                                        <time dateTime={post.frontmatter.date}>
+                                                            {dateString}
+                                                        </time>
+                                                        <p>
+                                                            {post.timeToRead} min
+                                                            {post.timeToRead > 1 && "s"} read
+                                                        </p>
                                                     </div>
                                                     <h4>
                                                         <Link to="/blog">
-                                                            {post === 1
-                                                                ? "Managing WordPress Metadata in Gutenberg Using a Sidebar Plugin"
-                                                                : "Gulp for WordPress: Creating the Tasks"}
+                                                            {post.frontmatter.title}
                                                         </Link>
                                                     </h4>
                                                 </header>
-                                                <p>
-                                                    WordPress released their anticipated over to the
-                                                    post editor, nicknamed Gutenberg, which is also
-                                                    referred to as the block editor.
-                                                </p>
+                                                <p>{post.excerpt}</p>
                                             </div>
-                                            <footer>
-                                                <ul className="tags">
-                                                    <li>
-                                                        <Link to="/blog">#Javascript</Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link to="/blog">#ReactJS</Link>
-                                                    </li>
-                                                </ul>
-                                            </footer>
+                                            {post.frontmatter.tags &&
+                                                post.frontmatter.tags.length > 0 && (
+                                                    <footer>
+                                                        <ul className="tags">
+                                                            {post.frontmatter.tags.map(
+                                                                (tag: any) => {
+                                                                    return (
+                                                                        <li key={tag}>
+                                                                            <Link
+                                                                                to={`/tags/${tag
+                                                                                    .split(" ")
+                                                                                    .join("-")
+                                                                                    .toLowerCase()}`}
+                                                                            >
+                                                                                #{tag}
+                                                                            </Link>
+                                                                        </li>
+                                                                    );
+                                                                }
+                                                            )}
+                                                        </ul>
+                                                    </footer>
+                                                )}
                                         </div>
                                     </article>
                                 );

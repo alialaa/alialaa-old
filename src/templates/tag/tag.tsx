@@ -1,73 +1,61 @@
 import React from "react";
-import { Link } from "gatsby";
 import { useLocation } from "@reach/router";
-import { SEO } from "@components";
-import styles from "./tag.styles";
+import { SEO, Pagination, Post } from "@components";
+import styles from "../blog/blog.styles";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import { Link } from "gatsby";
+import { useTheme } from "@context/theme-context";
 
 const Tag = ({ data, pageContext }: any) => {
     const { pathname } = useLocation();
     const { edges: posts } = data.posts;
-    const { limit, skip, numPages, currentPage, tag, tagSlug } = pageContext;
+    const { group: tags } = data.tags;
+    const { dark } = useTheme();
+    const { numPages, currentPage, tag, tagSlug } = pageContext;
     return (
         <div css={styles}>
             <SEO title={`Articles tagged #${tag}`} pathname={pathname} />
             <div className="container">
-                <h1 className="page-title">The Blog</h1>
-                <ul>
-                    {posts.map(({ node: post }: { node: any }) => (
-                        <li key={post.id}>
-                            <Link to={`/blog/${post.frontmatter.slug}`}>
-                                <h2>{post.frontmatter.title}</h2>
-                            </Link>
-                            <p>{post.excerpt}</p>
-                            <p>{post.frontmatter.date}</p>
-                        </li>
-                    ))}
-                </ul>
-                {numPages > 1 && (
-                    <nav role="navigation" aria-label="Posts Pagination">
-                        <ul>
-                            <li>
-                                <Link
-                                    to={`/tags/${tagSlug}/${currentPage - 1}`}
-                                    aria-disabled={currentPage === 1}
-                                >
-                                    Previous <div className="visually-hidden">Page</div>
-                                </Link>
-                            </li>
-                            {Array(numPages)
-                                .fill(null)
-                                .map((v, i) => {
-                                    return (
-                                        <li key={`page-${i}`}>
-                                            <Link
-                                                {...(i + 1 === currentPage
-                                                    ? { "aria-current": "page" }
-                                                    : {})}
-                                                to={
-                                                    i === 0
-                                                        ? `/tags/${tagSlug}`
-                                                        : `/tags/${tagSlug}/page/${i + 1}`
-                                                }
-                                            >
-                                                <div className="visually-hidden">Page</div> {i + 1}
-                                            </Link>
-                                        </li>
-                                    );
-                                })}
-                            <li>
-                                <Link
-                                    to={`/tags/${tagSlug}/page/${currentPage + 1}`}
-                                    aria-disabled={currentPage === numPages}
-                                >
-                                    Next <div className="visually-hidden">Page</div>
-                                </Link>
-                            </li>
+                <h1 className="page-title">#{tag}</h1>
+                <div className="content">
+                    <section>
+                        <ul className="posts-list">
+                            {posts.map(({ node: _post }: { node: any }) => {
+                                const post = {
+                                    title: _post.frontmatter.title,
+                                    slug: _post.frontmatter.slug,
+                                    timeToRead: _post.timeToRead,
+                                    excerpt: _post.excerpt,
+                                    date: _post.frontmatter.date,
+                                    featuredImage: _post.frontmatter.featuredImage,
+                                    tags: _post.frontmatter.tags
+                                };
+                                return <Post key={_post.id} post={post} />;
+                            })}
                         </ul>
-                    </nav>
-                )}
+                        <Pagination tag={tagSlug} numPages={numPages} currentPage={currentPage} />
+                    </section>
+                    <aside className="sidebar">
+                        <h3>More Tags</h3>
+                        <ul className={`tags-list ${dark ? "dark" : ""}`}>
+                            {tags.map((_tag: any) => {
+                                if (_tag.tag === tag) return null;
+                                return (
+                                    <li key={_tag.tag}>
+                                        <Link
+                                            to={`/tags/${_tag.tag
+                                                .split(" ")
+                                                .join("-")
+                                                .toLowerCase()}`}
+                                        >
+                                            #{_tag.tag} ({_tag.totalCount})
+                                        </Link>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </aside>
+                </div>
             </div>
         </div>
     );
@@ -85,13 +73,28 @@ export const TagQuery = graphql`
             edges {
                 node {
                     id
-                    excerpt
+                    excerpt(pruneLength: 200)
+                    timeToRead
                     frontmatter {
                         title
                         slug
                         date
+                        tags
+                        featuredImage {
+                            childImageSharp {
+                                fluid(maxWidth: 800) {
+                                    ...GatsbyImageSharpFluid
+                                }
+                            }
+                        }
                     }
                 }
+            }
+        }
+        tags: allMdx {
+            group(field: frontmatter___tags) {
+                tag: fieldValue
+                totalCount
             }
         }
     }

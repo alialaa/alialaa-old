@@ -12,6 +12,7 @@ const styles = css`
         --bg: #f9f5fd;
         --text: #000;
         --links: #000;
+        --titles: #000;
         --text-shadow: #da80e5;
         --card: #ffffff;
         --card-border: #441a4a;
@@ -19,6 +20,7 @@ const styles = css`
             --bg: #05010f;
             --text: #eef0fd;
             --links: #fff;
+            --titles: #fff;
             --text-shadow: #b531c4;
             --card: #13101d;
             --card-border: #c5b1c9;
@@ -37,7 +39,7 @@ const styles = css`
         box-shadow: none !important;
     }
     #main {
-        &.blog, &.courses, &.about, &.contact, &.uses {
+        &.blog, &.courses, &.about, &.contact, &.uses, &.tags {
             @media screen and (min-width: ${890 / 16}em) {
                 background-color: var(--bg);
                 margin-top: -14%;
@@ -88,7 +90,7 @@ const styles = css`
             }
         }
     }
-    .shadow {
+    .shadow, .shadow-2 {
         background: var(--card);
         border: 1px solid var(--card-border);
         &:after {
@@ -105,6 +107,16 @@ const styles = css`
             top: 4px;
             left: 4px;
             z-index: -1;
+        }
+    }
+    .shadow-2 {
+        &:after {
+            background: linear-gradient(
+                -161deg,
+                var(--purple) 0%,
+                var(--purple2) 50%,
+                var(--card-border) 100%
+            );
         }
     }
     html {
