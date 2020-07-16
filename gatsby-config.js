@@ -116,7 +116,8 @@ module.exports = {
                             showCaptions: ["title"]
                             // markdownCaptions: true
                         }
-                    }
+                    },
+                    `gatsby-remark-autolink-headers`
                 ]
             }
         },

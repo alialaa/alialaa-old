@@ -127,7 +127,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
     }
     const posts = postsResult.data.allMdx.edges;
-    const postsPerPage = 1;
+    const postsPerPage = 10;
     const numPages = Math.ceil(posts.length / postsPerPage);
     Array.from({ length: numPages }).forEach((_, i) => {
         createPage({

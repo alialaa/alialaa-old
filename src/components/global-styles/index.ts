@@ -16,6 +16,8 @@ const styles = css`
         --text-shadow: #da80e5;
         --card: #ffffff;
         --card-border: #441a4a;
+        --op-card: #13101d;
+        --op-card-border: #c5b1c9;
         &[data-dark="true"] {
             --bg: #05010f;
             --text: #eef0fd;
@@ -24,6 +26,8 @@ const styles = css`
             --text-shadow: #b531c4;
             --card: #13101d;
             --card-border: #c5b1c9;
+            --op-card: #ffffff;
+            --op-card-border: #441a4a;
         }
     }
     /* #main {
@@ -48,7 +52,7 @@ const styles = css`
                 margin-top: -8%;
             }
         }
-        &.courses.single-course {
+        &.courses.single-course, &.blog.single-post {
             margin-top: 0;
         }
         .page-intro {

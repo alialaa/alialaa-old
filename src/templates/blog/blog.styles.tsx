@@ -38,7 +38,7 @@ const styles = css`
             margin: 0;
             padding: 0;
             list-style: none;
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             &.dark {
                 li a {
                     &:focus {

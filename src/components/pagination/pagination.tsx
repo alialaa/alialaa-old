@@ -15,15 +15,17 @@ const Pagination = ({ numPages, currentPage, tag }: PaginationProps) => {
     const path = tag ? `/tags/${tag}` : `/blog`;
     return (
         <nav role="navigation" aria-label="Posts Pagination">
-            <ul>
-                <li>
-                    <Link
-                        to={currentPage === 2 ? path : `${path}/page/${currentPage - 1}`}
-                        aria-disabled={currentPage === 1}
-                    >
-                        Previous <div className="visually-hidden">Page</div>
-                    </Link>
-                </li>
+            <ul css={styles}>
+                {currentPage !== 1 && (
+                    <li className={currentPage === 1 ? "disabled" : ""}>
+                        <Link
+                            to={currentPage === 2 ? path : `${path}/page/${currentPage - 1}`}
+                            aria-disabled={currentPage === 1}
+                        >
+                            Previous <div className="visually-hidden">Page</div>
+                        </Link>
+                    </li>
+                )}
                 {Array(numPages)
                     .fill(null)
                     .map((v, i) => {
@@ -38,14 +40,16 @@ const Pagination = ({ numPages, currentPage, tag }: PaginationProps) => {
                             </li>
                         );
                     })}
-                <li>
-                    <Link
-                        to={`${path}/page/${currentPage + 1}`}
-                        aria-disabled={currentPage === numPages}
-                    >
-                        Next <div className="visually-hidden">Page</div>
-                    </Link>
-                </li>
+                {currentPage !== numPages && (
+                    <li className={currentPage === numPages ? "disabled" : ""}>
+                        <Link
+                            to={`${path}/page/${currentPage + 1}`}
+                            aria-disabled={currentPage === numPages}
+                        >
+                            Next <div className="visually-hidden">Page</div>
+                        </Link>
+                    </li>
+                )}
             </ul>
         </nav>
     );

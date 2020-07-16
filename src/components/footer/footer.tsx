@@ -10,7 +10,7 @@ import Instagram from "@svgs/instagram";
 
 const Footer = ({ siteUrl }: { siteUrl: string }) => {
     return (
-        <footer css={styles}>
+        <footer id="footer" css={styles}>
             <div className="container">
                 <div className="footer-row">
                     <div className="footer-column">

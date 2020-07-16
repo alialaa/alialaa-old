@@ -7,6 +7,9 @@ const pageClassName = (pathname: string) => {
     if (pathArr.length > 1 && pathArr[0] === "courses") {
         classes += " single-course";
     }
+    if (pathArr.length > 1 && pathArr[0] === "blog") {
+        classes += " single-post";
+    }
     return classes;
 };
 

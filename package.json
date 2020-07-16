@@ -28,6 +28,7 @@
     "gatsby-plugin-sitemap": "^2.4.4",
     "gatsby-plugin-twitter": "^2.3.4",
     "gatsby-plugin-typescript": "^2.4.0",
+    "gatsby-remark-autolink-headers": "^2.3.11",
     "gatsby-remark-images": "^3.3.17",
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-sharp": "^2.4.3",

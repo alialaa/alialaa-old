@@ -34,12 +34,12 @@ const styles = css`
             width: 100%;
             height: 4px;
         }
-        h1 {
+        /* h1 {
             color: #eef0fd;
         }
         p {
             color: #eef0fd;
-        }
+        } */
         .header-bg {
             position: absolute;
             width: 100%;
