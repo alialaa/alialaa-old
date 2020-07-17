@@ -138,6 +138,93 @@ const styles = css`
             }
         }
     }
+    #post-footer {
+        padding: 0 0 8rem 0;
+        .tags-edit {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.8rem;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            ${mq.largerThan("small")} {
+                flex-direction: row;
+            }
+            .tags-wrap {
+                font-weight: 600;
+                margin-bottom: 2rem;
+                ul.tags {
+                    li {
+                        font-size: 1.9rem;
+                        a {
+                            &:focus {
+                                outline-color: var(--links);
+                            }
+                        }
+                    }
+                }
+            }
+            .edit-link {
+                font-weight: 600;
+                svg {
+                    width: 20px;
+                    margin-right: 5px;
+                    vertical-align: middle;
+                    path {
+                        fill: var(--text);
+                    }
+                }
+            }
+        }
+        .posts-navigation {
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                ${mq.largerThan("small")} {
+                    flex-direction: row;
+                }
+                li {
+                    width: 100%;
+                    margin-bottom: 2rem;
+                    ${mq.largerThan("small")} {
+                        width: 48%;
+                    }
+                    a {
+                        width: 100%;
+                        height: 100%;
+                        padding: 2rem;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        text-decoration: none;
+                        span.post-nav-subtitle {
+                            font-size: 1.6rem;
+                            font-weight: 600;
+                            opacity: 0.7;
+                        }
+                        span.post-nav-title {
+                            font-size: 1.4rem;
+                            text-decoration: underline;
+                            font-size: 2.2rem;
+                            font-weight: 800;
+                        }
+                    }
+                    &.post-nav-prev {
+                    }
+                    &.post-nav-next {
+                        text-align: right;
+                        a {
+                            align-items: flex-end;
+                        }
+                    }
+                }
+            }
+        }
+    }
 `;
 
 export default styles;

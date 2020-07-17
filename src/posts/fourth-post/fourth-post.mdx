@@ -6,6 +6,84 @@ tags: ["fourth", "first", "Lol Tag"]
 featuredImage: ./spilled-milk-wordpress.jpeg
 ---
 
+```javascript
+// In your gatsby-config.js
+plugins: [
+    {
+        resolve: `gatsby-transformer-remark`,
+        options: {
+            plugins: [`gatsby-remark-prismjs`]
+        }
+    }
+];
+```
+
+```javascript{numberLines: true}
+// In your gatsby-config.js
+plugins: [
+    {
+        resolve: `gatsby-transformer-remark`,
+        options: {
+            plugins: [`gatsby-remark-prismjs`]
+        }
+    }
+];
+```
+
+```jsx
+class FlavorForm extends React.Component { // highlight-line
+  constructor(props) {
+    super(props);
+    this.state = {value: 'coconut'};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    // highlight-next-line
+    this.setState({value: event.target.value});
+  }
+
+  // highlight-start
+  handleSubmit(event) {
+    alert('Your favorite flavor is: ' + this.state.value);
+    event.preventDefault();
+  }
+  // highlight-end
+
+  render() {
+    return (
+      { /* highlight-range{1,4-9,12} */ }
+      <Lol>
+        <form onSubmit={this.handleSubmit}>
+            <label>
+            Pick your favorite flavor:
+            <select value={this.state.value} onChange={this.handleChange}>
+                <option value="grapefruit">Grapefruit</option>
+                <option value="lime">Lime</option>
+                <option value="coconut">Coconut</option>
+                <option value="mango">Mango</option>
+            </select>
+            </label>
+            <input type="submit" value="Submit" />
+        </form>
+      </Lol>
+    );
+  }
+}
+```
+
+```shell{outputLines: 2-10,12}
+npm install --save
+```
+
+```shell{promptUser: alice}{promptHost: dev.localhost}
+npm install --save
+```
+
+I can highlight `css›.some-class { background-color: red }` with CSS syntax.
+
 [View raw (TEST.md)](https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tellus augue, elementum vel nisi eget, vulputate laoreet sem. Donec vitae ligula faucibus, hendrerit leo pretium, molestie erat. Maecenas ornare facilisis magna a varius. Donec congue mauris sit amet convallis rutrum. Suspendisse cursus mattis leo ut accumsan. Aenean eget rhoncus est, sed imperdiet purus. Integer malesuada ante quis venenatis lobortis. Nunc egestas metus dolor, a luctus dolor elementum et. Praesent venenatis magna eu massa faucibus dignissim. Ut ut egestas felis, eu iaculis felis. Etiam sed arcu faucibus, accumsan nulla vestibulum, interdum dolor. Aliquam erat volutpat. Fusce non semper orci, non tincidunt dolor. Donec sit amet elementum urna. Praesent semper pellentesque ipsum, in tincidunt nisl fringilla non.

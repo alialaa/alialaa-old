@@ -10,6 +10,11 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import styles, { courseHeaderOverrides } from "./post.styles";
 import Github from "@svgs/github";
+import "../../components/global-styles/font-dank.css";
+import "dracula-prism/css/dracula-prism.css";
+import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+import "prismjs/plugins/command-line/prism-command-line.css";
+import "./prism-overrides.css";
 
 const getDocHeight = () => {
     return Math.max(
@@ -177,27 +182,58 @@ const Post = (props: any) => {
                     </div>
                     <footer id="post-footer">
                         <div className="container">
-                            <a
-                                href={`https://github.com/alialaa/alialaa/blob/master/src/posts${
-                                    mdx.fileAbsolutePath.split("src/posts")[1]
-                                }`}
+                            <div className="tags-edit">
+                                <div className="tags-wrap">
+                                    <p>Tagged:</p>
+                                    <Tags tags={mdx.frontmatter.tags} />
+                                </div>
+                                <a
+                                    href={`https://github.com/alialaa/alialaa/blob/master/src/posts${
+                                        mdx.fileAbsolutePath.split("src/posts")[1]
+                                    }`}
+                                    className="edit-link"
+                                >
+                                    <Github focusable="false" aria-hidden /> Edit on GitHub
+                                </a>
+                            </div>
+
+                            <nav
+                                className="posts-navigation"
+                                role="navigation"
+                                aria-label="Posts Navigation"
                             >
-                                <Github focusable="false" aria-hidden /> Edit on GitHub
-                            </a>
-                            {mdx.frontmatter.tags}
-                            <nav role="navigation" aria-label="Posts Navigation">
-                                <ul>
+                                <ul
+                                    style={{
+                                        justifyContent: previous ? "space-between" : "flex-end"
+                                    }}
+                                >
                                     {previous && (
-                                        <li>
-                                            <Link to={`/blog/${previous.frontmatter.slug}`}>
-                                                {previous.frontmatter.title}
+                                        <li className="post-nav-prev">
+                                            <Link
+                                                className="shadow"
+                                                to={`/blog/${previous.frontmatter.slug}`}
+                                            >
+                                                <span className="post-nav-subtitle">
+                                                    Previous Post:{" "}
+                                                </span>
+                                                <span className="post-nav-title">
+                                                    {previous.frontmatter.title}
+                                                </span>
                                             </Link>
                                         </li>
                                     )}
                                     {next && (
-                                        <li>
-                                            <Link to={`/blog/${next.frontmatter.slug}`}>
-                                                {next.frontmatter.title}
+                                        <li className="post-nav-next">
+                                            <Link
+                                                className="shadow"
+                                                to={`/blog/${next.frontmatter.slug}`}
+                                            >
+                                                <span className="post-nav-subtitle">
+                                                    Next Post:{" "}
+                                                </span>
+                                                <span className="post-nav-title">
+                                                    {next.frontmatter.title}
+                                                </span>
                                             </Link>
                                         </li>
                                     )}

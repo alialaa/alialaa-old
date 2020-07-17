@@ -117,7 +117,13 @@ module.exports = {
                             // markdownCaptions: true
                         }
                     },
-                    `gatsby-remark-autolink-headers`
+                    `gatsby-remark-autolink-headers`,
+                    {
+                        resolve: `gatsby-remark-prismjs`,
+                        options: {
+                            inlineCodeMarker: "›"
+                        }
+                    }
                 ]
             }
         },
