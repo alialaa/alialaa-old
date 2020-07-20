@@ -15,6 +15,7 @@ const styles = css`
     }
     h2.title {
         font-size: calc(2.8rem + 0.5vw);
+        margin-bottom: 2rem;
         a {
             font-weight: 800;
             color: #000000;

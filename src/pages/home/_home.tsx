@@ -84,7 +84,7 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                                         </p>
                                                     </div>
                                                     <h4>
-                                                        <Link to="/blog">
+                                                        <Link to={`/blog/${post.frontmatter.slug}`}>
                                                             {post.frontmatter.title}
                                                         </Link>
                                                     </h4>
