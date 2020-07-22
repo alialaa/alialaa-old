@@ -49,7 +49,11 @@ const Tags = ({ tags }: { tags: [] }) => {
     );
 };
 
-const shortcodes = { Link }; // Provide common components here
+const Lead = ({ children }: { children: React.ReactNode }) => {
+    return <p className="lead">{children}</p>;
+};
+
+const shortcodes = { Link, Lead }; // Provide common components here
 
 const Post = (props: any) => {
     const [progress, setProgress] = useState(0);
@@ -177,7 +181,9 @@ const Post = (props: any) => {
                     )} */}
                     <div className="post-content">
                         <div className="container">
-                            <MDXRenderer>{mdx.body}</MDXRenderer>
+                            <div className="post-content-inner">
+                                <MDXRenderer>{mdx.body}</MDXRenderer>
+                            </div>
                         </div>
                     </div>
                     <footer id="post-footer">

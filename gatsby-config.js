@@ -117,13 +117,15 @@ module.exports = {
                             // markdownCaptions: true
                         }
                     },
+                    `gatsby-remark-bracketed-spans`,
                     `gatsby-remark-autolink-headers`,
                     {
                         resolve: `gatsby-remark-prismjs`,
                         options: {
                             inlineCodeMarker: "›"
                         }
-                    }
+                    },
+                    `gatsby-remark-responsive-iframe`
                 ]
             }
         },

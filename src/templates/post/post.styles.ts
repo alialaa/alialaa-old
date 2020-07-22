@@ -19,6 +19,30 @@ export const courseHeaderOverrides = css`
 `;
 
 const styles = css`
+    p {
+        font-size: 1.95rem;
+        margin: 2rem 0;
+    }
+    span.lead {
+        font-size: 2.1rem;
+        margin-bottom: 6rem;
+        font-weight: 500;
+        display: block;
+    }
+    ul,
+    ol {
+        padding: 0;
+        list-style-position: inside;
+        font-size: 1.95rem;
+        margin: 2rem 0;
+        font-weight: 400;
+        li {
+            margin-bottom: 1rem;
+        }
+    }
+    .gatsby-resp-iframe-wrapper {
+        margin: 6rem 0;
+    }
     .progress {
         position: fixed;
         top: 0px;
@@ -116,7 +140,11 @@ const styles = css`
         }
     }
     .post-content {
-        padding: 8rem 0;
+        padding: 5rem 0 8rem;
+        .post-content-inner {
+            width: 100%;
+            max-width: 850px;
+        }
     }
     .tags {
         margin: 0;
@@ -153,9 +181,13 @@ const styles = css`
             .tags-wrap {
                 font-weight: 600;
                 margin-bottom: 2rem;
+                p {
+                    margin-top: 0;
+                    margin-bottom: 1.6rem;
+                }
                 ul.tags {
                     li {
-                        font-size: 1.9rem;
+                        font-size: 1.7rem;
                         a {
                             &:focus {
                                 outline-color: var(--links);
