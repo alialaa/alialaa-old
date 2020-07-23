@@ -1,3 +1,21 @@
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background-color: #bf1fd5;
+    color: #fff;
+}
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+    text-shadow: none;
+    background-color: #bf1fd5;
+    color: #fff;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
     font-size: 1.8rem;
@@ -49,9 +67,20 @@ pre[class*="language-"] {
  */
 .gatsby-highlight {
     background-color: rgb(26, 26, 37);
-    margin: 2em 0;
+    margin: 3rem 0;
     padding: 1em;
     overflow: auto;
+}
+
+.gatsby-code-title {
+    margin-bottom: -3rem;
+    margin-top: 3rem;
+    padding: 0.5em 1em;
+    font-family: "dm", PT Mono, Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    background-color: #1a1a26;
+    border-bottom: 1px solid var(--bg);
+    color: white;
+    z-index: 0;
 }
 
 /**

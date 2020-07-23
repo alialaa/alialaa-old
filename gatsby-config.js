@@ -109,6 +109,7 @@ module.exports = {
             options: {
                 remarkPlugins: [require("remark-unwrap-images")],
                 gatsbyRemarkPlugins: [
+                    `gatsby-remark-code-titles`,
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
@@ -117,7 +118,16 @@ module.exports = {
                             // markdownCaptions: true
                         }
                     },
-                    `gatsby-remark-bracketed-spans`,
+                    {
+                        resolve: "gatsby-remark-custom-blocks",
+                        options: {
+                            blocks: {
+                                lead: {
+                                    classes: "lead"
+                                }
+                            }
+                        }
+                    },
                     `gatsby-remark-autolink-headers`,
                     {
                         resolve: `gatsby-remark-prismjs`,
