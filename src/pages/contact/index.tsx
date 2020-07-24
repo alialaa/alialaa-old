@@ -20,10 +20,9 @@ const Contact = ({ data }: any) => {
                         <br />
                         <p className="lead">
                             <strong>
-                                I am currently focusing more on creating online content. But
-                                nevertheless I also do freelance work from time to time. If you
-                                would like to hire me for a job, please understand what I can do for
-                                you first:
+                                I am currently focusing more on creating online content. But I also
+                                do freelance work from time to time. If you would like to hire me
+                                for a job, please understand what I can do for you first:
                             </strong>
                         </p>
                         <ul>
@@ -105,11 +104,11 @@ const Contact = ({ data }: any) => {
                             </li>
                             <li>
                                 <p>
-                                    If your questions requires me looking at your code, please
-                                    upload your entire project folder either on github or any
-                                    storage service like google drive. If you are going to send a
-                                    compressed folder, use ZIP and not RAR. Also avoing adding
-                                    generated folders like node_modules in the compressed file.
+                                    If your question requires me looking at your code, please upload
+                                    your entire project folder either on github or any storage
+                                    service like google drive. If you are going to send a compressed
+                                    folder, use ZIP and not RAR. Also avoid adding generated folders
+                                    like node_modules in the compressed file.
                                 </p>
                             </li>
                             <li>
@@ -123,7 +122,7 @@ const Contact = ({ data }: any) => {
                                     >
                                         hello@alialaa.com
                                     </a>
-                                    . But please keep this as your last option.
+                                    . But please keep that as your last option.
                                 </p>
                             </li>
                         </ul>

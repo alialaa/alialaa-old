@@ -27,10 +27,13 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                         <p>
                             I am a freelance front-end developer based in Egypt 🇪🇬. I develop
                             UI&apos;s for the web and hybrid mobile applications. I am currently
-                            focusing on creating <Link to="/">online courses</Link>,{" "}
-                            <Link to="/">writing articles</Link> and{" "}
-                            <Link to="/">publishing free tutorials</Link>. If you are interested in
-                            working with me, feel free to <Link to="/">contact me</Link>.
+                            focusing on creating <Link to="/courses">online courses</Link>,{" "}
+                            <Link to="/blog">writing articles</Link> and{" "}
+                            <a href="https://www.youtube.com/channel/UCa-VVCGLQZv6IQWTKyVlnjg">
+                                publishing free tutorials
+                            </a>
+                            . If you are interested in working with me, feel free to{" "}
+                            <Link to="/contact">contact me</Link>.
                         </p>
                     </div>
                 </div>

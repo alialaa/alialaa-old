@@ -142,15 +142,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         });
     });
 
+    const generateTagSlug = tag => {
+        return tag.split(" ").join("-").toLowerCase();
+    };
+
     const tags = postsResult.data.tagsGroup.group;
     tags.forEach(tag => {
         const numPages = Math.ceil(tag.totalCount / postsPerPage);
         Array.from({ length: numPages }).forEach((x, i) => {
+            console.log(generateTagSlug(tag.fieldValue));
             createPage({
                 path:
                     i === 0
-                        ? `/tags/${_.kebabCase(tag.fieldValue)}`
-                        : `/tags/${_.kebabCase(tag.fieldValue)}/page/${i + 1}`,
+                        ? `/tags/${generateTagSlug(tag.fieldValue)}`
+                        : `/tags/${generateTagSlug(tag.fieldValue)}/page/${i + 1}`,
                 component: path.resolve("./src/templates/tag/tag.tsx"),
                 context: {
                     limit: postsPerPage,
@@ -158,7 +163,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                     numPages,
                     currentPage: i + 1,
                     tag: tag.fieldValue,
-                    tagSlug: _.kebabCase(tag.fieldValue)
+                    tagSlug: generateTagSlug(tag.fieldValue)
                 }
             });
         });

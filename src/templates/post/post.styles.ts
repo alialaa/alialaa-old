@@ -19,15 +19,58 @@ export const courseHeaderOverrides = css`
 `;
 
 const styles = css`
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-weight: 700;
-        &:hover {
-            a.anchor {
+    .post-content {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            &:hover {
+                a.anchor {
+                    display: inline-block;
+                    position: relative;
+                    width: auto;
+                    height: auto;
+                    left: auto;
+                    overflow: visible;
+                }
+            }
+        }
+        .box {
+            padding: 2rem;
+            font-size: 1.9rem;
+            margin: 3rem 0;
+        }
+        img,
+        .gatsby-resp-image-wrapper,
+        .gatsby-resp-image-figure {
+            max-width: 100%;
+            margin: 3rem 0;
+            display: block;
+        }
+        .gatsby-resp-image-figure .gatsby-resp-image-wrapper {
+            margin: 0;
+        }
+        h2 {
+            margin: 8rem 0 2.5rem;
+        }
+        p {
+            font-size: 1.95rem;
+            margin: 2rem 0;
+        }
+        a.anchor {
+            width: 30px;
+            text-align: center;
+            margin-right: 10px;
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            &:focus {
                 display: inline-block;
                 position: relative;
                 width: auto;
@@ -35,81 +78,44 @@ const styles = css`
                 left: auto;
                 overflow: visible;
             }
-        }
-    }
-    img,
-    .gatsby-resp-image-wrapper,
-    .gatsby-resp-image-figure {
-        max-width: 100%;
-        margin: 3rem 0;
-        display: block;
-    }
-    .gatsby-resp-image-figure .gatsby-resp-image-wrapper {
-        margin: 0;
-    }
-    h2 {
-        margin: 8rem 0 2.5rem;
-    }
-    p {
-        font-size: 1.95rem;
-        margin: 2rem 0;
-    }
-    a.anchor {
-        width: 30px;
-        text-align: center;
-        margin-right: 10px;
-        position: absolute;
-        left: -10000px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        &:focus {
-            display: inline-block;
-            position: relative;
-            width: auto;
-            height: auto;
-            left: auto;
-            overflow: visible;
-        }
-        svg {
-            width: 23px;
-            height: 23px;
-            path {
-                fill: var(--text);
+            svg {
+                width: 23px;
+                height: 23px;
+                path {
+                    fill: var(--text);
+                }
             }
         }
-    }
-    b,
-    strong {
-        font-weight: 600;
-        a {
+        b,
+        strong {
             font-weight: 600;
+            a {
+                font-weight: 600;
+            }
         }
-    }
-    .custom-block.lead p {
-        font-size: 2.1rem;
-        margin-bottom: 6rem;
-        font-weight: 500;
-        display: block;
-        a {
-            font-weight: 600;
+        .custom-block.lead p {
+            font-size: 2.1rem;
+            margin-bottom: 6rem;
+            font-weight: 500;
+            display: block;
+            a {
+                font-weight: 600;
+            }
         }
-    }
-    ul,
-    ol {
-        padding: 0;
-        padding-left: 1rem;
-        list-style-position: inside;
-        font-size: 1.95rem;
-        margin: 2rem 0;
-        font-weight: 400;
-        li {
-            margin-bottom: 1rem;
+        ul,
+        ol {
+            padding: 0;
+            padding-left: 2.5rem;
+            font-size: 1.95rem;
+            margin: 2rem 0;
+            font-weight: 400;
+            li {
+                margin-bottom: 1rem;
+            }
         }
-    }
-    .gatsby-resp-iframe-wrapper {
-        margin: 6rem 0;
+        .gatsby-resp-iframe-wrapper {
+            margin: 6rem 0;
+        }
     }
     .progress {
         position: fixed;

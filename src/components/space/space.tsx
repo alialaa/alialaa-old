@@ -48,13 +48,13 @@ function Light({ mars }: { mars: boolean }) {
     );
 }
 
-function Title({ page }: { page: NavigationItemType | undefined }) {
+function Title({ page, title }: { page: NavigationItemType | undefined; title: string | null }) {
     if (!page) return null;
     const { size, viewport } = useThree();
     return (
         <group position={[0, -viewport.height / 2 + (size.width >= 1280 ? 750 : 550), -350]}>
             <Text hAlign="center" size={size.width >= 1280 ? 30 : 35} position={[0, 0, 0]}>
-                {page.pageTitle || page.title}
+                {title || page.pageTitle || page.title}
             </Text>
         </group>
     );
@@ -79,12 +79,14 @@ function Space({
     page,
     night,
     animations,
-    mars
+    mars,
+    title
 }: {
     page: NavigationItemType | undefined;
     night: boolean;
     animations: boolean;
     mars: boolean;
+    title: string | null;
 }) {
     const [down, set] = useState<boolean>(false);
     const mouse = useRef<[number, number]>([0, 0]);
@@ -168,8 +170,8 @@ function Space({
                                     A Front-end Web Developer
                                 </Text>
                             </group>
-                        ) : page ? (
-                            <Title page={page} />
+                        ) : page || title ? (
+                            <Title title={title} page={page} />
                         ) : null}
                     </Suspense>
                     <Suspense fallback={null}>

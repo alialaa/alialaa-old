@@ -5,9 +5,11 @@ type HeaderContextType = {
     header: React.ReactNode | null;
     is404: boolean;
     headerStyles: SerializedStyles | null;
+    canvasTitle: string | null;
     setHeader: (header: React.ReactNode) => void;
     setHeaderStyles: (styles: SerializedStyles | null) => void;
     setIs404: (val: boolean) => void;
+    setCanvasTitle: (val: string | null) => void;
 };
 
 type HeaderProviderType = {
@@ -19,12 +21,15 @@ const HeaderContext = createContext<HeaderContextType>({
     header: null,
     headerStyles: null,
     is404: false,
+    canvasTitle: null,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     setHeader: () => {},
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     setHeaderStyles: () => {},
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    setIs404: () => {}
+    setIs404: () => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    setCanvasTitle: () => {}
 });
 
 function useHeader() {
@@ -37,6 +42,7 @@ function useHeader() {
 }
 function HeaderProvider({ children }: HeaderProviderType) {
     const [header, setLocalHeader] = useState<React.ReactNode | null>(null);
+    const [canvasTitle, setLocalCanvasTitle] = useState<string | null>(null);
     const [headerStyles, setLocalHeaderStyles] = useState<SerializedStyles | null>(null);
     const [is404, setLocalIs404] = useState<boolean>(false);
 
@@ -60,6 +66,12 @@ function HeaderProvider({ children }: HeaderProviderType) {
         },
         [is404]
     );
+    const setCanvasTitle = useCallback(
+        (val: string | null) => {
+            setLocalCanvasTitle(val);
+        },
+        [canvasTitle]
+    );
 
     return (
         <HeaderContext.Provider
@@ -67,9 +79,11 @@ function HeaderProvider({ children }: HeaderProviderType) {
                 header,
                 headerStyles,
                 is404,
+                canvasTitle,
                 setHeader,
                 setHeaderStyles,
-                setIs404
+                setIs404,
+                setCanvasTitle
             }}
         >
             {children}

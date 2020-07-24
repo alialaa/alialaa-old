@@ -33,8 +33,9 @@ function SEO({ description, lang = "en", meta = [], title, pathname, image }: SE
         `
     );
     const metaDescription = description || site.siteMetadata.description;
-    const cover = `${site.siteMetadata.siteUrl}${image ||
-        defaultImage.childImageSharp.original.src}`;
+    const cover = `${site.siteMetadata.siteUrl}${
+        image || defaultImage.childImageSharp.original.src
+    }`;
     const url = `${site.siteMetadata.siteUrl}${
         pathname ? (pathname[pathname.length - 1] === "/" ? pathname : pathname + "/") : "/"
     }`;

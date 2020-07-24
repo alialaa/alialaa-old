@@ -157,7 +157,7 @@ const About = ({ data }: any) => {
                         <p>
                             After few years of having a regular job, I gained a lot of experience
                             and worked on a lot of big projects. Nevertheless, I started getting
-                            tired of the routine. I felt like I needed a new challange at this
+                            tired of the routine. I felt like I needed a new challenge at this
                             point. So I decided to start freelancing. When I took that decision, I
                             had no idea what to do and how to find clients. I started applying for
                             jobs on <a href="https://www.upwork.com">Upwork</a>. And given my empty
@@ -224,7 +224,7 @@ const About = ({ data }: any) => {
                             on Udemy.
                         </p>
                         <p>
-                            I struggeled a bit at the beginning with sales, but after a while the
+                            I struggled a bit at the beginning with sales, but after a while the
                             course started getting some traction and also some good reviews. Few
                             months later I decided to do more courses. Although it&apos;s a very
                             stressful process to create and edit a course on your own; but I really

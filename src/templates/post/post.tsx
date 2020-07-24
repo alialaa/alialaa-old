@@ -34,14 +34,7 @@ const Tags = ({ tags }: { tags: [] }) => {
             {tags.map((tag: any) => {
                 return (
                     <li key={tag}>
-                        <Link
-                            to={`/tags/${tag
-                                .split(" ")
-                                .join("-")
-                                .toLowerCase()}`}
-                        >
-                            #{tag}
-                        </Link>
+                        <Link to={`/tags/${tag.split(" ").join("-").toLowerCase()}`}>#{tag}</Link>
                     </li>
                 );
             })}
@@ -52,8 +45,11 @@ const Tags = ({ tags }: { tags: [] }) => {
 const Lead = ({ children }: { children: React.ReactNode }) => {
     return <p className="lead">{children}</p>;
 };
+const Box = ({ children }: { children: React.ReactNode }) => {
+    return <div className="box shadow">{children}</div>;
+};
 
-const shortcodes = { Link, Lead }; // Provide common components here
+const shortcodes = { Link, Lead, Box }; // Provide common components here
 
 const Post = (props: any) => {
     const [progress, setProgress] = useState(0);

@@ -31,9 +31,9 @@ const between = (minBP: breakpointType, maxBP: breakpointType): string => {
     if (breakpoints[minBP] >= breakpoints[maxBP]) {
         throw new Error("Invalid media query range.");
     }
-    return `@media screen and (min-width: ${pxToEM(breakpoints[minBP])}em) and (max-width: ${pxToEM(
-        breakpoints[maxBP]
-    ) - 0.0625}em)`;
+    return `@media screen and (min-width: ${pxToEM(breakpoints[minBP])}em) and (max-width: ${
+        pxToEM(breakpoints[maxBP]) - 0.0625
+    }em)`;
 };
 const only = (bp: breakpointType): string => {
     if (isFirst(bp)) {

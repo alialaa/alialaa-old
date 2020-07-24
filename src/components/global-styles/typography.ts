@@ -40,7 +40,7 @@ const styles = css`
     }
     p {
         margin: 0;
-        font-size: 1.9rem;
+        font-size: 1.95rem;
         margin-bottom: 1.4rem;
         &.lead {
             font-size: 2.1rem;

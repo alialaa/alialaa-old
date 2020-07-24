@@ -152,7 +152,7 @@ type HeaderProps = {
 };
 const Header = ({ siteTitle }: HeaderProps) => {
     const { pathname } = useLocation();
-    const { header, headerStyles, is404 } = useHeader();
+    const { header, headerStyles, is404, canvasTitle } = useHeader();
     const { toggleAnimations, toggleDark, animations, dark, loaded: settingstLoaded } = useTheme();
     return (
         <header
@@ -168,6 +168,7 @@ const Header = ({ siteTitle }: HeaderProps) => {
                                 mars={is404}
                                 night={dark}
                                 page={getPageInfo(pathname)}
+                                title={canvasTitle}
                                 animations={animations}
                             />
                         </Suspense>

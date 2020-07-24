@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "@reach/router";
 import { SEO, Pagination, Post } from "@components";
 import styles from "../blog/blog.styles";
 import { graphql } from "gatsby";
 import { Link } from "gatsby";
 import { useTheme } from "@context/theme-context";
+import { useHeader } from "@context/header-context";
 
 const Tag = ({ data, pageContext }: any) => {
     const { pathname } = useLocation();
     const { edges: posts } = data.posts;
     const { group: tags } = data.tags;
     const { dark } = useTheme();
+    const { setCanvasTitle } = useHeader();
     const { numPages, currentPage, tag, tagSlug } = pageContext;
+
+    useEffect(() => {
+        setCanvasTitle("#" + tag);
+        return () => {
+            setCanvasTitle(null);
+        };
+    }, []);
     return (
         <div css={styles}>
             <SEO title={`Articles tagged #${tag}`} pathname={pathname} />

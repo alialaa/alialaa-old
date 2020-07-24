@@ -50,10 +50,7 @@ const Post = ({ post }: PostProps) => {
                                 return (
                                     <li key={tag}>
                                         <Link
-                                            to={`/tags/${tag
-                                                .split(" ")
-                                                .join("-")
-                                                .toLowerCase()}`}
+                                            to={`/tags/${tag.split(" ").join("-").toLowerCase()}`}
                                         >
                                             #{tag}
                                         </Link>
