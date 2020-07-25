@@ -11,8 +11,8 @@ featuredImage: ./minimax.jpg
 
 <Box>
     <strong>
-        View a <a href="http://github.com/alialaa">demo</a> or visit{" "}
-        <a href="http://github.com/alialaa">the project’s github page</a>.
+        View a <a href="https://codesandbox.io/s/elegant-merkle-dy0z6">demo</a> or visit{" "}
+        <a href="https://github.com/alialaa/tic-tac-toe-js-2020">the project’s github page</a>.
     </strong>
 </Box>
 
@@ -93,7 +93,7 @@ getBestMove(board, maximizing = true, callback = () => {}, depth = 0) {
     if(depth == 0) this.nodesMap.clear();
 
     //If the board state is a terminal one, return the heuristic value
-    if(board.isTerminal() || depth == this.nodesMap ) {
+    if(board.isTerminal() || depth === this.maxDepth ) {
         if(board.isTerminal().winner === 'x') {
             return 100 - depth;
         } else if (board.isTerminal().winner === 'o') {
@@ -165,7 +165,7 @@ export default class Player {
         if (depth == 0) this.nodesMap.clear();
 
         //If the board state is a terminal one, return the heuristic value
-        if (board.isTerminal() || depth == this.nodesMap) {
+        if (board.isTerminal() || depth === this.maxDepth) {
             if (board.isTerminal().winner === "x") {
                 return 100 - depth;
             } else if (board.isTerminal().winner === "o") {
