@@ -87,6 +87,7 @@ module.exports = {
         `gatsby-plugin-remove-trailing-slashes`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-mdx`,
+        `gatsby-transformer-yaml`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -99,6 +100,13 @@ module.exports = {
             options: {
                 name: `posts`,
                 path: `${__dirname}/src/posts`
+            }
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `content`,
+                path: `${__dirname}/content`
             }
         },
         `gatsby-transformer-sharp`,

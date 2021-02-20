@@ -18,16 +18,7 @@ const Course = (props: any) => {
     const { setHeader, setHeaderStyles } = useHeader();
     const { dark } = useTheme();
     const { data } = props;
-    const {
-        title,
-        summary,
-        udemyUrl,
-        image,
-        duration,
-        promo,
-        url,
-        objectives
-    } = data.allCourse.nodes[0];
+    const { title, summary, udemyUrl, image, duration, promo, url, objectives } = data.coursesYaml;
     useEffect(() => {
         setHeader(<div style={{ height: 0 }}></div>);
         setHeaderStyles(courseHeaderOverrides);
@@ -143,44 +134,50 @@ const Course = (props: any) => {
                         </div>
                     </div>
                 </section>
-                <section className="reviews-wrap" id="reviews">
-                    <div className="container">
-                        <SpaceSVG2
-                            className={`bg ${dark ? "dark" : ""}`}
-                            fill={dark ? "#ffffff" : "#000000"}
-                            aria-hidden
-                            focusable="false"
-                        />
-                        <h2>What Students are Saying:</h2>
-                        <ul className={`reviews ${dark ? "dark" : ""}`}>
-                            {data.reviews.edges.map((review: { [key: string]: any }) => {
-                                return (
-                                    <li key={review.node.id}>
-                                        <FiveStarts aria-hidden focusable="false" />
-                                        <blockquote cite="https://www.udemy.com/course/github-actions">
-                                            <p>“{review.node.content}”</p>
-                                            <footer>
-                                                — <cite>{review.node.user.title}</cite>
-                                            </footer>
-                                        </blockquote>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                        <div className="buy-button-wrap">
-                            <div>
-                                <ButtonAnchor className="buy-button" dark={dark} href={udemyUrl}>
-                                    See More Reviews on Udemy <span aria-hidden>→</span>
-                                </ButtonAnchor>
-                            </div>
-                            <div>
-                                <Link className="all-courses-link" to="/courses">
-                                    See All Courses
-                                </Link>
+                {data.reviews.edges && data.reviews.edges.length > 6 && (
+                    <section className="reviews-wrap" id="reviews">
+                        <div className="container">
+                            <SpaceSVG2
+                                className={`bg ${dark ? "dark" : ""}`}
+                                fill={dark ? "#ffffff" : "#000000"}
+                                aria-hidden
+                                focusable="false"
+                            />
+                            <h2>What Students are Saying:</h2>
+                            <ul className={`reviews ${dark ? "dark" : ""}`}>
+                                {data.reviews.edges.map((review: { [key: string]: any }) => {
+                                    return (
+                                        <li key={review.node.id}>
+                                            <FiveStarts aria-hidden focusable="false" />
+                                            <blockquote cite="https://www.udemy.com/course/github-actions">
+                                                <p>“{review.node.content}”</p>
+                                                <footer>
+                                                    — <cite>{review.node.user.title}</cite>
+                                                </footer>
+                                            </blockquote>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                            <div className="buy-button-wrap">
+                                <div>
+                                    <ButtonAnchor
+                                        className="buy-button"
+                                        dark={dark}
+                                        href={udemyUrl}
+                                    >
+                                        See More Reviews on Udemy <span aria-hidden>→</span>
+                                    </ButtonAnchor>
+                                </div>
+                                <div>
+                                    <Link className="all-courses-link" to="/courses">
+                                        See All Courses
+                                    </Link>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
             </div>
         </div>
     );
@@ -189,24 +186,22 @@ export default Course;
 
 export const query = graphql`
     query($url: String!, $udemyID: String!, $lengthRegex: String!) {
-        allCourse(filter: { url: { eq: $url } }) {
-            nodes {
-                title
-                summary
-                udemyID
-                udemyUrl
-                duration
-                promo
-                url
-                objectives
-                image {
-                    childImageSharp {
-                        fluid(maxWidth: 1200) {
-                            ...GatsbyImageSharpFluid
-                        }
-                        original {
-                            src
-                        }
+        coursesYaml(url: { eq: $url }) {
+            title
+            summary
+            udemyID
+            udemyUrl
+            duration
+            promo
+            url
+            objectives
+            image {
+                childImageSharp {
+                    fluid(maxWidth: 1200) {
+                        ...GatsbyImageSharpFluid
+                    }
+                    original {
+                        src
                     }
                 }
             }

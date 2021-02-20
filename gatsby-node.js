@@ -5,38 +5,39 @@ const yaml = require("js-yaml");
 const _ = require("lodash");
 
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
-    const ymlDoc = yaml.safeLoad(fs.readFileSync("./content/courses.yml", "utf-8"));
-    ymlDoc.forEach(course => {
-        const { name, ext } = path.parse(course.image);
-        const absolutePath = path.resolve(__dirname, "./src/images/", course.image);
-        const imageData = {
-            name,
-            ext,
-            absolutePath,
-            extension: ext.substring(1)
-        };
-        const imageNode = {
-            ...imageData,
-            id: createNodeId(`course-image-${course.udemyID}`),
-            internal: {
-                type: "CourseImage",
-                contentDigest: createContentDigest(imageData)
-            }
-        };
-        console.log(imageNode);
-        actions.createNode(imageNode);
+    // const ymlDoc = yaml.safeLoad(fs.readFileSync("./content/courses.yml", "utf-8"));
+    // ymlDoc.forEach(course => {
+    //     // const { name, ext } = path.parse(course.image);
+    //     // const absolutePath = path.resolve(__dirname, "./src/images/", course.image);
+    //     // console.log('absolutePath', absolutePath)
+    //     // const imageData = {
+    //     //     name,
+    //     //     ext,
+    //     //     absolutePath,
+    //     //     extension: ext.substring(1)
+    //     // };
+    //     // const imageNode = {
+    //     //     ...imageData,
+    //     //     id: createNodeId(`course-image-${course.udemyID}`),
+    //     //     internal: {
+    //     //         type: "CourseImage",
+    //     //         contentDigest: createContentDigest(imageData)
+    //     //     }
+    //     // };
+    //     // console.log(imageNode);
+    //     // actions.createNode(imageNode);
 
-        const node = {
-            ...course,
-            id: createNodeId(`Course-${course.udemyID}`),
-            image: imageNode,
-            internal: {
-                type: "Course",
-                contentDigest: createContentDigest(course)
-            }
-        };
-        actions.createNode(node);
-    });
+    //     const node = {
+    //         ...course,
+    //         id: createNodeId(`Course-${course.udemyID}`),
+    //         // image: imageNode,
+    //         internal: {
+    //             type: "Course",
+    //             contentDigest: createContentDigest(course)
+    //         }
+    //     };
+    //     actions.createNode(node);
+    // });
 
     const reviews = await axios.get(
         "https://www.udemy.com/instructor-api/v1/taught-courses/reviews?fields[course]=id,title,published_title&fields[course_review]=content,rating,course,user&star=5&page_size=100&status=commented",
@@ -65,7 +66,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     // COURSE PAGES ######################################
     const { data } = await graphql(`
         query {
-            allCourse {
+            allCoursesYaml {
                 edges {
                     node {
                         url
@@ -75,7 +76,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             }
         }
     `);
-    data.allCourse.edges.forEach(edge => {
+    data.allCoursesYaml.edges.forEach(edge => {
         const url = edge.node.url;
         const udemyID = edge.node.udemyID;
         createPage({
@@ -84,8 +85,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             context: {
                 url: url,
                 udemyID: udemyID,
-                lengthRegex:
-                    udemyID === "x015vNbBDIRfbZt9qM09qkwzA==" ? "/^.{10,700}$/" : "/^.{80,400}$/" //due to lack of reviews lollzzz
+                lengthRegex: "/^.{80,400}$/"
+                // lengthRegex:
+                //     udemyID === "x015vNbBDIRfbZt9qM09qkwzA==" ? "/^.{10,700}$/" : "/^.{80,400}$/" //due to lack of reviews lollzzz
             }
         });
     });

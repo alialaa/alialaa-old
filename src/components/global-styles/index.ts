@@ -36,23 +36,29 @@ const styles = css`
         }
     } */
     #nprogress .bar {
-        background: linear-gradient(90deg,#c11dd4 0%,#8c44db 100%) !important;
+        background: linear-gradient(90deg, #c11dd4 0%, #8c44db 100%) !important;
         height: 4px !important;
     }
     #nprogress .peg {
         box-shadow: none !important;
     }
     #main {
-        &.blog, &.courses, &.about, &.contact, &.uses, &.tags {
+        &.blog,
+        &.courses,
+        &.about,
+        &.contact,
+        &.uses,
+        &.tags {
             @media screen and (min-width: ${890 / 16}em) {
                 background-color: var(--bg);
                 margin-top: -14%;
             }
-            @media screen and (min-width: ${890 / 16}em) and (max-width: ${1280 / 16}em) { 
+            @media screen and (min-width: ${890 / 16}em) and (max-width: ${1280 / 16}em) {
                 margin-top: -8%;
             }
         }
-        &.courses.single-course, &.blog.single-post {
+        &.courses.single-course,
+        &.blog.single-post {
             margin-top: 0;
         }
         .page-intro {
@@ -60,9 +66,9 @@ const styles = css`
             margin-bottom: 6rem;
             /* max-width: max(80%,750px); */
             br {
-                content: '';
+                content: "";
                 display: block;
-                margin-bottom: 1rem
+                margin-bottom: 1rem;
             }
         }
         .page-title {
@@ -94,7 +100,8 @@ const styles = css`
             }
         }
     }
-    .shadow, .shadow-2 {
+    .shadow,
+    .shadow-2 {
         background: var(--card);
         border: 1px solid var(--card-border);
         &:after {
@@ -105,8 +112,7 @@ const styles = css`
             background: linear-gradient(
                 -161deg,
                 var(--purple) 0%,
-                var(--purple2) 100%
-                /* var(--card-border) 100% */
+                var(--purple2) 100% /* var(--card-border) 100% */
             );
             top: 4px;
             left: 4px;

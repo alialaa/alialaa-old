@@ -11,6 +11,7 @@ import SpaceSVG2 from "@svgs/space2";
 import FiveStarts from "@svgs/5starts";
 
 const Home = ({ data }: { data: { [key: string]: any } }) => {
+    console.log(data);
     const { dark } = useTheme();
     const { pathname } = useLocation();
     const post = data.posts.edges;

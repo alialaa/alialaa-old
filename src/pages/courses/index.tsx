@@ -46,7 +46,7 @@ const Courses = ({ data }: any) => {
 
 export const query = graphql`
     query CoursesQuery {
-        courses: allCourse {
+        courses: allCoursesYaml {
             edges {
                 node {
                     id

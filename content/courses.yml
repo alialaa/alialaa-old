@@ -1,9 +1,37 @@
+- title: "React Native: Create an Unbeatable & Multiplayer Tic-Tac-Toe"
+  summary: Create, Publish & Monetize a Single Player Bot & Multiplayer Tic-Tac-Toe with Expo, Typescript & AWS Amplify GraphQL API.
+  udemyID: x01Zw0hs61ln1xIF1VOhHCiwg==
+  udemyUrl: https://www.udemy.com/course/react-native-tic-tac-toe/?referralCode=053BC78FF2DC2E2D1E70
+  url: react-native-tic-tac-toe
+  image: ../src/images/tttrn.jpg
+  duration: 23
+  promo: https://d3imz9xia0py4c.cloudfront.net/ttt-promo.mp4
+  objectives:
+    - Learn About Typescript & What's its purpose.
+    - Learn About Expo & the Difference between Expo & Vanilla React Native.
+    - Install & Run an Expo Application on a Physical Device, Android Emulator & iOS Simulator.
+    - Learn How to Use Typescript with Expo.
+    - Integrate ESLint, Prettier & Husky for a Better Workflow.
+    - Using React Navigation Efficiently with Typescript Integration.
+    - Create a Single Player Tic Tac Toe Game.
+    - Implement the Minimax Algorithm to Create a Tic Tac Toe Bot with Different Difficulties (From Easy to Unbeatable).
+    - Use Sound Effects and Haptics Feedback in Our Game.
+    - Create Custom React Hooks for Code Re-usability.
+    - Create Simple Animations Using the Animated API.
+    - Creating Persistent App Settings Using React Context & AsyncStorage.
+    - Learn About AWS Amplify & its Purpose.
+    - Use AWS Amplify & AWS Cognito to add Authentication to our App.
+    - Create a GraphQL API with AWS Amplify, AWS AppSync & AWS Lambda Functions.
+    - Create a Real Time Multiplayer Tic Tac Toe with the GraphQL API.
+    - Learn How to Send Push Notifications Using Expo & Lambda Functions.
+    - Monetize Your Game Using Google AdMob.
+    - Build & Publish your App to the iOS App Store & Google Play Store.
 - title: The Complete GitHub Actions & Workflows Guide
   summary: Automate code testing, deployment & versioning using CI/CD workflows. Create & publish re-usable GitHub actions to the GitHub Marketplace.
   udemyID: x015vNbBDIRfbZt9qM09qkwzA==
   udemyUrl: https://www.udemy.com/course/github-actions/?referralCode=49A5F56B87CD62AEF6D4
   url: github-actions
-  image: ghactionscover.jpg
+  image: ../src/images/ghactionscover.jpg
   duration: 11
   promo: https://d3imz9xia0py4c.cloudfront.net/github-actions.mp4
   objectives:
@@ -26,7 +54,7 @@
   udemyID: x01mYHnrkrB1UnCkvDk2IuEFw==
   udemyUrl: https://www.udemy.com/course/the-complete-guide-to-building-premium-wordpress-themes/?referralCode=A1E38F238B8F5A8D2B82
   url: wordpress
-  image: wordpress.jpg
+  image: ../src/images/wordpress.jpg
   duration: 17.5
   promo: https://d3imz9xia0py4c.cloudfront.net/wordpress.mp4
   objectives:
@@ -49,7 +77,7 @@
   udemyID: x01wnWjnHsnoEivUNcc52Z9HA==
   udemyUrl: https://www.udemy.com/course/gutenberg/?referralCode=C4656BA80E6D4EE8B654
   url: gutenberg
-  image: gutenberg.jpg
+  image: ../src/images/gutenberg.jpg
   duration: 8
   promo: https://d3imz9xia0py4c.cloudfront.net/gutenberg.mp4
   objectives:
