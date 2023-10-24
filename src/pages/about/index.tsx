@@ -4,7 +4,7 @@ import { useLocation } from "@reach/router";
 import { SEO } from "@components";
 import styles from "./_about.styles";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import { StaticImage } from "gatsby-plugin-image";
 import courses from "../../../content/courses.yml";
 
 const About = ({ data }: any) => {
@@ -18,7 +18,10 @@ const About = ({ data }: any) => {
                 <div className="content">
                     <div className="portrait-image grid-item ">
                         <div className="shadow">
-                            <Img fluid={data.portrait.childImageSharp.fluid} alt="A photo of me" />
+                            <StaticImage
+                                fluid={data.portrait.childImageSharp.gatsbyImageData}
+                                alt="A photo of me"
+                            />
                         </div>
                     </div>
                     <div className="intro-text grid-item ">
@@ -61,8 +64,8 @@ const About = ({ data }: any) => {
                     <div className="uni-image grid-item ">
                         <figure>
                             <div className="shadow">
-                                <Img
-                                    fluid={data.uni.childImageSharp.fluid}
+                                <StaticImage
+                                    fluid={data.uni.childImageSharp.gatsbyImageData}
                                     alt="A photo of a classroom. A memory I found on my phone of my days studying at the university."
                                 />
                             </div>
@@ -92,8 +95,8 @@ const About = ({ data }: any) => {
                     <div className="themeforest-image grid-item ">
                         <figure>
                             <div className="shadow">
-                                <Img
-                                    fluid={data.themeforest.childImageSharp.fluid}
+                                <StaticImage
+                                    fluid={data.themeforest.childImageSharp.gatsbyImageData}
                                     alt="A photo of my computer screen showing my first WordPress template accepted on themeforest."
                                 />
                             </div>
@@ -251,8 +254,8 @@ const About = ({ data }: any) => {
                     <div className="desk-image grid-item ">
                         <figure>
                             <div className="shadow">
-                                <Img
-                                    fluid={data.editing.childImageSharp.fluid}
+                                <StaticImage
+                                    fluid={data.editing.childImageSharp.gatsbyImageData}
                                     alt="A photo I took while editing one of the lectures of my first course. Shows my laptop screen with the editing software opened."
                                 />
                             </div>
@@ -263,8 +266,8 @@ const About = ({ data }: any) => {
                         <br />
                         <figure>
                             <div className="shadow">
-                                <Img
-                                    fluid={data.desk.childImageSharp.fluid}
+                                <StaticImage
+                                    fluid={data.desk.childImageSharp.gatsbyImageData}
                                     alt="A photo I took during recording one of my courses showing my recording set-up"
                                 />
                             </div>
@@ -327,8 +330,8 @@ const About = ({ data }: any) => {
                     <div className="more-image grid-item ">
                         <figure>
                             <div className="shadow">
-                                <Img
-                                    fluid={data.cat.childImageSharp.fluid}
+                                <StaticImage
+                                    fluid={data.cat.childImageSharp.gatsbyImageData}
                                     alt="A photo of me and Nadya (a street cat)."
                                 />
                             </div>
@@ -341,51 +344,37 @@ const About = ({ data }: any) => {
     );
 };
 
-export const query = graphql`
-    query AboutQuery {
-        portrait: file(relativePath: { eq: "portrait2.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        uni: file(relativePath: { eq: "uni.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        themeforest: file(relativePath: { eq: "themeforest.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        desk: file(relativePath: { eq: "desk2.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        editing: file(relativePath: { eq: "editing.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        cat: file(relativePath: { eq: "cat.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
+export const query = graphql`query AboutQuery {
+  portrait: file(relativePath: {eq: "portrait2.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 800, layout: CONSTRAINED)
     }
-`;
+  }
+  uni: file(relativePath: {eq: "uni.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 800, layout: CONSTRAINED)
+    }
+  }
+  themeforest: file(relativePath: {eq: "themeforest.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 800, layout: CONSTRAINED)
+    }
+  }
+  desk: file(relativePath: {eq: "desk2.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 800, layout: CONSTRAINED)
+    }
+  }
+  editing: file(relativePath: {eq: "editing.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 800, layout: CONSTRAINED)
+    }
+  }
+  cat: file(relativePath: {eq: "cat.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 800, layout: CONSTRAINED)
+    }
+  }
+}`;
 
 export default About;

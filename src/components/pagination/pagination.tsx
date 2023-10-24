@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./pagination.style";
 import { useTheme } from "@context/theme-context";
 import { Link } from "gatsby";
-import Img from "gatsby-image";
+// import Img from "gatsby-image";
 
 type PaginationProps = {
     numPages: number;

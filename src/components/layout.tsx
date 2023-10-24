@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Header, Footer } from "@components";
 import { useLocation } from "@reach/router";
-import { Global, css } from "@emotion/core";
+import { Global, css } from "@emotion/react";
 import Helmet from "react-helmet";
 import { useTheme } from "@context/theme-context";
 import { pageClassName } from "@utils";

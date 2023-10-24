@@ -1,4 +1,4 @@
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { mq } from "@utils";
 import typography from "./typography";
 import grid from "./grid";

@@ -60,41 +60,37 @@ const Blog = ({ data, pageContext }: any) => {
     );
 };
 
-export const BLOGQuery = graphql`
-    query blogIndex($skip: Int!, $limit: Int!) {
-        posts: allMdx(
-            sort: { fields: [frontmatter___date], order: DESC }
-            limit: $limit
-            skip: $skip
-        ) {
-            edges {
-                node {
-                    id
-                    excerpt(pruneLength: 200)
-                    timeToRead
-                    frontmatter {
-                        title
-                        slug
-                        date
-                        tags
-                        featuredImage {
-                            childImageSharp {
-                                fluid(maxWidth: 800) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                            }
-                        }
-                    }
-                }
+export const BLOGQuery = graphql`query blogIndex($skip: Int!, $limit: Int!) {
+  posts: allMdx(
+    sort: {fields: [frontmatter___date], order: DESC}
+    limit: $limit
+    skip: $skip
+  ) {
+    edges {
+      node {
+        id
+        excerpt(pruneLength: 200)
+        timeToRead
+        frontmatter {
+          title
+          slug
+          date
+          tags
+          featuredImage {
+            childImageSharp {
+              gatsbyImageData(width: 800, layout: CONSTRAINED)
             }
+          }
         }
-        tags: allMdx {
-            group(field: frontmatter___tags) {
-                tag: fieldValue
-                totalCount
-            }
-        }
+      }
     }
-`;
+  }
+  tags: allMdx {
+    group(field: frontmatter___tags) {
+      tag: fieldValue
+      totalCount
+    }
+  }
+}`;
 
 export default Blog;

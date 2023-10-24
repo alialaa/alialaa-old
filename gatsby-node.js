@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const yaml = require("js-yaml");
 const _ = require("lodash");
+const readingTime = require("reading-time");
 
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
     // const ymlDoc = yaml.safeLoad(fs.readFileSync("./content/courses.yml", "utf-8"));
@@ -178,4 +179,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             context: { id: node.id, next, previous }
         });
     });
+};
+
+exports.onCreateNode = ({ node, actions }) => {
+    const { createNodeField } = actions;
+    if (node.internal.type === `Mdx`) {
+        createNodeField({
+            node,
+            name: `timeToRead`,
+            value: readingTime(node.body)
+        });
+    }
 };

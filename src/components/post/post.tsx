@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./post.style";
 import { useTheme } from "@context/theme-context";
 import { Link } from "gatsby";
-import Img from "gatsby-image";
+// import Img from "gatsby-image";
+import { StaticImage } from "gatsby-plugin-image";
 
 type PostProps = {
     post: {
@@ -28,7 +29,9 @@ const Post = ({ post }: PostProps) => {
     return (
         <li className={`post ${dark ? "dark" : ""} shadow-2`} css={styles}>
             <article>
-                {post.featuredImage && <Img fluid={post.featuredImage.childImageSharp.fluid} />}
+                {post.featuredImage && (
+                    <StaticImage fluid={post.featuredImage.childImageSharp.gatsbyImageData} />
+                )}
                 <header>
                     <div className="info">
                         <time dateTime={post.date}>{dateString}</time>

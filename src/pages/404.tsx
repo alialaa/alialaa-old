@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import SEO from "../components/seo";
 import { useHeader } from "@context/header-context";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import Link from "gatsby-link";
 
 const styles = css`

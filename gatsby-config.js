@@ -69,7 +69,7 @@ module.exports = {
                 trackingId: "UA-170033469-1"
             }
         },
-        "gatsby-plugin-webpack-bundle-analyser-v2",
+        // "gatsby-plugin-webpack-bundle-analyser-v2",
         `gatsby-plugin-sitemap`,
         {
             resolve: `gatsby-plugin-nprogress`,
@@ -84,7 +84,6 @@ module.exports = {
             }
         },
         `gatsby-plugin-typescript`,
-        `gatsby-plugin-remove-trailing-slashes`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-mdx`,
         `gatsby-transformer-yaml`,
@@ -109,13 +108,13 @@ module.exports = {
                 path: `${__dirname}/content`
             }
         },
+        `gatsby-plugin-image`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         `gatsby-remark-images`,
         {
             resolve: `gatsby-plugin-mdx`,
             options: {
-                remarkPlugins: [require("remark-unwrap-images")],
                 gatsbyRemarkPlugins: [
                     `gatsby-remark-code-titles`,
                     {

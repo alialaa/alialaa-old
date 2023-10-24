@@ -4,7 +4,7 @@ import { useLocation } from "@reach/router";
 import { testimonials } from "@utils";
 import { Link } from "gatsby";
 import styles from "./_home.styles";
-import Img from "gatsby-image";
+import { StaticImage } from "gatsby-plugin-image";
 import { useTheme } from "@context/theme-context";
 import SpaceSVG from "@svgs/space";
 import SpaceSVG2 from "@svgs/space2";
@@ -67,10 +67,9 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                                 return (
                                     <article key={post.id} className="post">
                                         {post.frontmatter.featuredImage && (
-                                            <Img
+                                            <StaticImage
                                                 fluid={
-                                                    post.frontmatter.featuredImage.childImageSharp
-                                                        .fluid
+                                                    post.frontmatter.featuredImage.childImageSharp.gatsbyImageData
                                                 }
                                                 alt=""
                                             />
@@ -130,7 +129,7 @@ const Home = ({ data }: { data: { [key: string]: any } }) => {
                 <div className="container">
                     <div className="course">
                         <div className="course-image">
-                            <Img fluid={data.courseImage.childImageSharp.fluid} alt="" />
+                            <StaticImage fluid={data.courseImage.childImageSharp.gatsbyImageData} alt="" />
                         </div>
                         <div className="course-info-wrap">
                             <div className="course-info">

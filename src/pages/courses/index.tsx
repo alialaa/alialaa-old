@@ -4,7 +4,7 @@ import { useLocation } from "@reach/router";
 import { SEO } from "@components";
 import styles from "./_courses.styles";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import { StaticImage } from "gatsby-plugin-image";
 
 const Courses = ({ data }: any) => {
     const { pathname } = useLocation();
@@ -28,7 +28,10 @@ const Courses = ({ data }: any) => {
                     {data.courses.edges.map((course: any) => {
                         return (
                             <article className="course" key={course.node.udemyID}>
-                                <Img fluid={course.node.image.childImageSharp.fluid} alt="" />
+                                <StaticImage
+                                    fluid={course.node.image.childImageSharp.gatsbyImageData}
+                                    alt=""
+                                />
                                 <h2>
                                     <Link to={`/courses/${course.node.url}`}>
                                         {course.node.title}
@@ -44,26 +47,22 @@ const Courses = ({ data }: any) => {
     );
 };
 
-export const query = graphql`
-    query CoursesQuery {
-        courses: allCoursesYaml {
-            edges {
-                node {
-                    id
-                    udemyID
-                    title
-                    url
-                    summary
-                    image {
-                        childImageSharp {
-                            fluid(maxWidth: 800) {
-                                ...GatsbyImageSharpFluid
-                            }
-                        }
-                    }
-                }
-            }
+export const query = graphql`query CoursesQuery {
+  courses: allCoursesYaml {
+    edges {
+      node {
+        id
+        udemyID
+        title
+        url
+        summary
+        image {
+          childImageSharp {
+            gatsbyImageData(width: 800, layout: CONSTRAINED)
+          }
         }
+      }
     }
-`;
+  }
+}`;
 export default Courses;

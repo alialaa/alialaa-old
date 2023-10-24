@@ -4,7 +4,7 @@ import { useLoader } from "react-three-fiber";
 import earthImg from "@images/2k_earth_daymap.jpg";
 import moonImg from "@images/2k_moon.jpg";
 //@ts-ignore because react-spring/three has no type declerations
-import { animated, useSpring } from "react-spring/three";
+import { animated, useSpring } from "@react-spring/three";
 
 type EarthProps = {
     animations: boolean;

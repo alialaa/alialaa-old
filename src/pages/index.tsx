@@ -8,7 +8,7 @@ export const query = graphql`
                 node {
                     id
                     excerpt
-                    timeToRead
+                    # timeToRead
                     frontmatter {
                         title
                         slug
@@ -16,9 +16,7 @@ export const query = graphql`
                         tags
                         featuredImage {
                             childImageSharp {
-                                fluid(maxWidth: 550) {
-                                    ...GatsbyImageSharpFluid
-                                }
+                                gatsbyImageData(width: 550, layout: CONSTRAINED)
                             }
                         }
                     }
@@ -27,9 +25,7 @@ export const query = graphql`
         }
         courseImage: file(relativePath: { eq: "ghactionscover.jpg" }) {
             childImageSharp {
-                fluid(maxWidth: 900) {
-                    ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(width: 900, layout: CONSTRAINED)
             }
         }
         featuredCourseReviews: allCourseReview(

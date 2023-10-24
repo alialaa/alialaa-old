@@ -4,7 +4,7 @@ import { SEO } from "@components";
 import Microphone from "@svgs/microphone";
 import styles from "./_uses.styles";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import { StaticImage } from "gatsby-plugin-image";
 import { useTheme } from "@context/theme-context";
 
 const Uses = ({ data }: any) => {
@@ -18,8 +18,8 @@ const Uses = ({ data }: any) => {
                 <div className="course-production">
                     <div className="course-production-image">
                         <div className="shadow">
-                            <Img
-                                fluid={data.deskImage.childImageSharp.fluid}
+                            <StaticImage
+                                fluid={data.deskImage.childImageSharp.gatsbyImageData}
                                 alt="A photo I took during recording one of my courses showing my recording set-up"
                             />
                         </div>
@@ -189,16 +189,12 @@ const Uses = ({ data }: any) => {
     );
 };
 
-export const query = graphql`
-    query UsesQuery {
-        deskImage: file(relativePath: { eq: "desk2.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
+export const query = graphql`query UsesQuery {
+  deskImage: file(relativePath: {eq: "desk2.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 800, layout: CONSTRAINED)
     }
-`;
+  }
+}`;
 
 export default Uses;

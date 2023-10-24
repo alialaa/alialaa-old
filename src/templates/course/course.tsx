@@ -6,7 +6,7 @@ import Link from "gatsby-link";
 import { useTheme } from "@context/theme-context";
 import { useHeader } from "@context/header-context";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import { StaticImage } from "gatsby-plugin-image";
 import styles, { courseHeaderOverrides } from "./course.styles";
 import FiveStarts from "@svgs/5starts";
 import SpaceSVG from "@svgs/space";
@@ -32,12 +32,12 @@ const Course = (props: any) => {
         <div css={styles}>
             <div className="header">
                 <div className="header-bg">
-                    <Img
+                    <StaticImage
                         imgStyle={{
                             objectFit: "cover",
                             objectPosition: "50% 50%"
                         }}
-                        fluid={image.childImageSharp.fluid}
+                        fluid={image.childImageSharp.gatsbyImageData}
                         alt=""
                     />
                 </div>
@@ -97,7 +97,7 @@ const Course = (props: any) => {
                                 // muted
                                 controls
                                 src={promo}
-                                poster={image.childImageSharp.fluid.src}
+                                poster={image.childImageSharp.gatsbyImageData.src}
                             >
                                 <p>Your browser doesn&apos;t support HTML5 video</p>
                                 <track
@@ -197,9 +197,7 @@ export const query = graphql`
             objectives
             image {
                 childImageSharp {
-                    fluid(maxWidth: 1200) {
-                        ...GatsbyImageSharpFluid
-                    }
+                    gatsbyImageData(layout: FULL_WIDTH)
                     original {
                         src
                     }

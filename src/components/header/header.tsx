@@ -161,7 +161,7 @@ const Header = ({ siteTitle }: HeaderProps) => {
         >
             {header}
             <div className={`canvas-wrap ${header ? "hidden" : ""}`}>
-                <div className="canvas">
+                {/* <div className="canvas">
                     {typeof window !== "undefined" && (
                         <Suspense fallback={null}>
                             <Space
@@ -173,7 +173,7 @@ const Header = ({ siteTitle }: HeaderProps) => {
                             />
                         </Suspense>
                     )}
-                </div>
+                </div> */}
             </div>
             <div className="content">
                 <h1>

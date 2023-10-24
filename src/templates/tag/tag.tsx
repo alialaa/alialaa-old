@@ -70,43 +70,39 @@ const Tag = ({ data, pageContext }: any) => {
     );
 };
 
-export const TagQuery = graphql`
-    query tagIndex($skip: Int!, $limit: Int!, $tag: String) {
-        posts: allMdx(
-            sort: { fields: [frontmatter___date], order: DESC }
-            filter: { frontmatter: { tags: { in: [$tag] } } }
-            limit: $limit
-            skip: $skip
-        ) {
-            totalCount
-            edges {
-                node {
-                    id
-                    excerpt(pruneLength: 200)
-                    timeToRead
-                    frontmatter {
-                        title
-                        slug
-                        date
-                        tags
-                        featuredImage {
-                            childImageSharp {
-                                fluid(maxWidth: 800) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                            }
-                        }
-                    }
-                }
+export const TagQuery = graphql`query tagIndex($skip: Int!, $limit: Int!, $tag: String) {
+  posts: allMdx(
+    sort: {fields: [frontmatter___date], order: DESC}
+    filter: {frontmatter: {tags: {in: [$tag]}}}
+    limit: $limit
+    skip: $skip
+  ) {
+    totalCount
+    edges {
+      node {
+        id
+        excerpt(pruneLength: 200)
+        timeToRead
+        frontmatter {
+          title
+          slug
+          date
+          tags
+          featuredImage {
+            childImageSharp {
+              gatsbyImageData(width: 800, layout: CONSTRAINED)
             }
+          }
         }
-        tags: allMdx {
-            group(field: frontmatter___tags) {
-                tag: fieldValue
-                totalCount
-            }
-        }
+      }
     }
-`;
+  }
+  tags: allMdx {
+    group(field: frontmatter___tags) {
+      tag: fieldValue
+      totalCount
+    }
+  }
+}`;
 
 export default Tag;

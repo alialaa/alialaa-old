@@ -7,7 +7,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { useHeader } from "@context/header-context";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import { StaticImage } from "gatsby-plugin-image";
 import styles, { courseHeaderOverrides } from "./post.styles";
 import Github from "@svgs/github";
 import "../../components/global-styles/font-dank.css";
@@ -148,12 +148,12 @@ const Post = (props: any) => {
                 <article>
                     <header className="header">
                         <div className="header-bg">
-                            <Img
+                            <StaticImage
                                 imgStyle={{
                                     objectFit: "cover",
                                     objectPosition: "50% 50%"
                                 }}
-                                fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid}
+                                fluid={mdx.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
                                 alt=""
                             />
                         </div>
@@ -173,7 +173,7 @@ const Post = (props: any) => {
                         </div>
                     </header>
                     {/* {mdx.frontmatter.featuredImage && (
-                        <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid} />
+                        <StaticImage fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid} />
                     )} */}
                     <div className="post-content">
                         <div className="container">
@@ -250,33 +250,29 @@ const Post = (props: any) => {
 };
 export default Post;
 
-export const query = graphql`
-    query BlogPostQuery($id: String) {
-        site {
-            siteMetadata {
-                siteUrl
-            }
-        }
-        mdx(id: { eq: $id }) {
-            id
-            body
-            timeToRead
-            fileAbsolutePath
-            frontmatter {
-                title
-                date
-                tags
-                featuredImage {
-                    childImageSharp {
-                        fluid(maxWidth: 800) {
-                            ...GatsbyImageSharpFluid
-                        }
-                        original {
-                            src
-                        }
-                    }
-                }
-            }
-        }
+export const query = graphql`query BlogPostQuery($id: String) {
+  site {
+    siteMetadata {
+      siteUrl
     }
-`;
+  }
+  mdx(id: {eq: $id}) {
+    id
+    body
+    timeToRead
+    fileAbsolutePath
+    frontmatter {
+      title
+      date
+      tags
+      featuredImage {
+        childImageSharp {
+          gatsbyImageData(width: 800, layout: CONSTRAINED)
+          original {
+            src
+          }
+        }
+      }
+    }
+  }
+}`;
