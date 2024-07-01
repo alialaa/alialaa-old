@@ -1,0 +1,391 @@
+---
+title: "Tic-Tac-Toe with JavaScript: Creating the Board Class"
+slug: tic-tac-toe-js
+date: 2020-07-23
+tags: ["JavaScript"]
+featuredImage: ./ttt.jpg
+---
+
+[[lead]]
+| In this series of article we will create an unbeatable tic-tac-toe game using JavaScript. This is a reiteration on [an article that I wrote in 2017 on medium](https://medium.com/@alialaa/tic-tac-toe-with-javascript-es2015-set-up-the-project-with-webpack-547eadca8016). Some things have changed however since 2017. In the old version of the article I used webpack to process ESNext JS into ES5 because most browsers didn't support modules, classes and other ESNext features at the time. This time however I am going to assume you are using a modern browser and we are going to use ESNext features directly without any transpiling.
+
+_This article consists of 3 parts. In this first part, we will start building the logic behind the Tic-Tac-Toe board. We will learn how to create a Javascript class that represents the board. This class will hold the current state of the board in addition to some methods that will help us get some information about the board._
+
+<Box>
+    <strong>
+        View a <a href="https://codesandbox.io/s/elegant-merkle-dy0z6">demo</a> or visit{" "}
+        <a href="https://github.com/alialaa/tic-tac-toe-js-2020">the project’s github page</a>.
+    </strong>
+</Box>
+
+-   Part 1: Building the Tic-Tac-Toe Board
+-   <Link to="/blog/tic-tac-toe-js-minimax">Part 2: AI Player with Minimax Algorithm</Link>
+-   <Link to="/blog/tic-tac-toe-js-ui">Part 3: Building the User Interface</Link>
+
+## Folder Structure
+
+Let's start by creating our project's folder. The structure of the folder will be very simple; an **index.html** file and a **script.js** file. In addition to that, we will have a folder called **classes** which we will put our JS classes in. So let's start with the **Board** class by creating a **board.js** file in the **classes** folder. And that will be our folder structure at this point:
+
+```
+project
+│   index.html
+│   script.js
+│
+|───classes
+    │   classes.js
+```
+
+Inside of **index.html** we will have a basic html document. At the bottom of the document we will import our **script.js** file using a script tag. And since we are going to use [modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), we will have to add `js›type="module"` to the script tag:
+
+```html:title=index.html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tic Tac Toe</title>
+    </head>
+    <body>
+        <script type="module" src="script.js"></script>
+    </body>
+</html>
+```
+
+## Setting-up a Server to Avoid CORS Errors in the Browser
+
+Let's now try to add some code in our **classes/board.js** file and then import that file into our **script.js** file and make sure that our code will run in the browser. So in **classes/board.js** let's add a simple class:
+
+```js:title=board.js
+export default class Board {
+    constructor() {
+        console.log("Hello Board");
+    }
+}
+```
+
+Now in our **script.js**, let's try to import and initialize our Board class:
+
+```js:title=script.js
+import Board from "./classes/board.js";
+const board = new Board();
+```
+
+If you now open **index.html** in your browser, you should expect to see **"Hello Board"** in the console since we are logging this string in our class constructor. However, in some browsers you might get a [CORS error](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors) like this:
+
+![Image showing a cross origin request error in google chrome's console](./images/cors.jpg)
+
+This happens because some browsers block resources that are fetched from the **file://** protocol. So in order to use **http** we need to put our folder on a server. A quick way to run our project on a local server is by using an NPM package called [serve](https://www.npmjs.com/package/serve). All you have to do to use it is to open your CMD/Terminal and change to your folder directory:
+
+```bash
+cd path/to/your/folder
+```
+
+Make sure that you have [npm](https://www.npmjs.com/) installed on your machine and then run the following command:
+
+```bash
+npx serve
+```
+
+You will get a localhost url like **http://localhost:5000** which you can open in your browser and now the CORS error should be gone and you should see **"Hello Board"** in your console.
+
+## The Board Structure
+
+Let's now start building our board. First, we will have one argument for our board class. This argument will be an array of length 9. This array will hold the state of the board. The state refers to the current configuration of the board or the positions of X’s and O’s. Each index in the array will refer to a certain cell in the board. If we define the state as ["x","","o","o","","","x","",""] it will map to this:
+
+![Image showing two tic tac toe boards. The first one shows the designated array index for each cell. The second shows an example of a board with a certain configuration array.](./images/config-map.png "The board on the left shows the designated array index for each cell. On the right is a board with an array configuration of: ["x","","o","o","","","x","",""].")
+
+Let's now go to our **board.js** and add our argument for the class's constructor function which is the state of the board. And the default will ba an empty board; thus, an array of 9 empty cells:
+
+```js:title=board.js
+export default class Board {
+    constructor(state = ["", "", "", "", "", "", "", "", ""]) {
+        this.state = state;
+    }
+}
+```
+
+## Printing a Formatted Board
+
+The first method we are going to create is not necessary for the game’s logic; however, it’s going to help us visualize the board in the browser’s console as we develop. This method is going to be called **printFormattedBoard**:
+
+```js:title=board.js
+printFormattedBoard() {
+    let formattedString = '';
+    this.state.forEach((cell, index) => {
+        formattedString += cell ? ` ${cell} |` : '   |';
+        if((index + 1) % 3 === 0)  {
+            formattedString = formattedString.slice(0,-1);
+            if(index < 8) formattedString += '\n\u2015\u2015\u2015 \u2015\u2015\u2015 \u2015\u2015\u2015\n';
+        }
+    });
+    console.log('%c' + formattedString, 'color: #c11dd4;font-size:16px');
+}
+```
+
+This methods iterates the state array using forEach, and prints each cell content + a vertical line next to it. Every 3 cells, we print 3 horizontal lines using the \u2015 unicode character in a new line. We also make sure that we don’t print the 3 horizontal lines after the last 3 cells. To test this, in **script.js** let's type:
+
+```js:title=script.js
+import Board from "./classes/board.js";
+
+const board = new Board(["x", "o", "", "", "o", "", "", "", "o"]);
+board.printFormattedBoard();
+```
+
+Now in the console we should see our board formatted like so:
+
+![Image showing a formatted board printed in the browser's console.](./images/board-1.png)
+
+## Checking the Board’s Status
+
+The next 3 methods will be used to check the current status of the board. We need to check for 3 things; is the board empty? is the board full? and is the board in a terminal state? A terminal state is where either one of the players has won or the game is a draw.
+
+To check if the board is empty, we will use the array helper [every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every).
+
+```js:title=board.js
+isEmpty() {
+    return this.state.every(function(cell) {
+        return cell === "";
+    });
+}
+```
+
+The every helper will return true if every iteration returned true; i.e. if `js›cell === ""` is true for all cells. `js›cell === ""` can be refactored to `js›!cell` since an empty string is a false statement. Also, we can use arrow functions instead of normal functions. Thus, isEmpty and isFull can be written as so:
+
+```js:title=board.js
+isEmpty() {
+    return this.state.every(cell => !cell);
+}
+isFull() {
+    return this.state.every(cell => cell);
+}
+```
+
+The last thing we need to check is the terminal state board. This is method is going to be long but very repetitive. First we will use isEmpty and return false if the board is empty. Then using if conditions we will check for horizontal, vertical and diagonal wins. If non of the conditions is true, we will check if the board is full. If the board is full and none of the winning conditions are met, then it must be a draw.
+
+In case a win or a draw happens, an object will be returned containing the winner, the direction of winning (vertical, horizontal or diagonal) and the row/column number where the winner won or in case of diagonal wins; the name of the diagonal will be returned (**main** for the diagonal from the top left corner to the bottom right corner & **counter** for the diagonal from the top right to the bottom left corner). This object will be very useful when we build our UI for the game.
+
+```js:title=board.js
+isTerminal() {
+	//Return False if board in empty
+    if(this.isEmpty()) return false;
+    //Checking Horizontal Wins
+    if(this.state[0] === this.state[1] && this.state[0] === this.state[2] && this.state[0]) {
+    	return {'winner': this.state[0], 'direction': 'H', 'row': 1};
+    }
+    if(this.state[3] === this.state[4] && this.state[3] === this.state[5] && this.state[3]) {
+    	return {'winner': this.state[3], 'direction': 'H', 'row': 2};
+    }
+    if(this.state[6] === this.state[7] && this.state[6] === this.state[8] && this.state[6]) {
+    	return {'winner': this.state[6], 'direction': 'H', 'row': 3};
+    }
+
+    //Checking Vertical Wins
+    if(this.state[0] === this.state[3] && this.state[0] === this.state[6] && this.state[0]) {
+    	return {'winner': this.state[0], 'direction': 'V', 'column': 1};
+    }
+    if(this.state[1] === this.state[4] && this.state[1] === this.state[7] && this.state[1]) {
+    	return {'winner': this.state[1], 'direction': 'V', 'column': 2};
+    }
+    if(this.state[2] === this.state[5] && this.state[2] === this.state[8] && this.state[2]) {
+    	return {'winner': this.state[2], 'direction': 'V', 'column': 3};
+    }
+
+    //Checking Diagonal Wins
+    if(this.state[0] === this.state[4] && this.state[0] === this.state[8] && this.state[0]) {
+    	return {'winner': this.state[0], 'direction': 'D', 'diagonal': 'main'};
+    }
+    if(this.state[2] === this.state[4] && this.state[2] === this.state[6] && this.state[2]) {
+    	return {'winner': this.state[2], 'direction': 'D', 'diagonal': 'counter'};
+    }
+
+    //If no winner but the board is full, then it's a draw
+    if(this.isFull()) {
+        return {'winner': 'draw'};
+    }
+
+    //return false otherwise
+    return false;
+}
+```
+
+Let's now test this code by trying out some board configurations and logging the values of our methods. For example by having this code in script.js:
+
+```js:title=script.js
+import Board from "./classes/board.js";
+
+const board = new Board(["x", "o", "x", "x", "o", "o", "o", "o", "x"]);
+board.printFormattedBoard();
+console.log(board.isEmpty());
+console.log(board.isFull());
+console.log(board.isTerminal());
+```
+
+Your console should look like so:
+
+![Image showing methods testing results in the browser's console.](./images/methods-test.png)
+
+Try out some other board states and make sure everything is working as expected!
+
+## Inserting a Symbol and Getting Possible Moves
+
+The **insert** method will simply insert a symbol at a certain cell. The method will receive the symbol (x or o) and the position (cell index). First We will return an error if the cell does not exist or if the symbol is invalid just to make sure that we don't accidentally misuse this method. Then we will return false if the cell is already occupied. Otherwise we will simply update the state array and return true:
+
+```js:title=board.js
+insert(symbol, position) {
+    if(![0,1,2,3,4,5,6,7,8].includes(position)) {
+        throw new Error('Cell index does not exist!')
+    }
+    if(!['x','o'].includes(symbol)) {
+        throw new Error('The symbol can only be x or o!')
+    }
+    if(this.state[position]) {
+        return false;
+    }
+    this.state[position] = symbol;
+    return true;
+}
+```
+
+Finally, we will create a method that returns an array containing all available moves. This will simply iterate the state array and pushes to the returned array the index of the cell only if it’s empty:
+
+```js:title=board.js
+getAvailableMoves() {
+    const moves = [];
+    this.state.forEach((cell, index) => {
+        if(!cell) moves.push(index);
+    });
+    return moves;
+}
+```
+
+Let's now do some testing. Assuming we have this board configuration, let's test some of our methods:
+
+```js:title=script.js
+import Board from "./classes/board.js";
+
+const board = new Board(["x", "o", "", "x", "o", "", "o", "", "x"]);
+board.printFormattedBoard();
+console.log(board.isTerminal());
+board.insert("o", 7);
+board.printFormattedBoard();
+console.log(board.getAvailableMoves());
+console.log(board.isTerminal());
+```
+
+This should be our result:
+
+![Image showing methods testing results in the browser's console.](./images/methods-test-2.png)
+
+This is how our completed Board class should look like:
+
+```js:title=board.js
+/**
+ * @desc This class represents the board, contains methods that checks board state, insert a symbol, etc..
+ * @param {Array} state - an array representing the state of the board
+ */
+class Board {
+    //Initializing the board
+    constructor(state = ["", "", "", "", "", "", "", "", ""]) {
+        this.state = state;
+    }
+    //Logs a visualized board with the current state to the console
+    printFormattedBoard() {
+        let formattedString = "";
+        this.state.forEach((cell, index) => {
+            formattedString += cell ? ` ${cell} |` : "   |";
+            if ((index + 1) % 3 === 0) {
+                formattedString = formattedString.slice(0, -1);
+                if (index < 8)
+                    formattedString +=
+                        "\n\u2015\u2015\u2015 \u2015\u2015\u2015 \u2015\u2015\u2015\n";
+            }
+        });
+        console.log("%c" + formattedString, "color: #c11dd4;font-size:16px");
+    }
+    //Checks if board has no symbols yet
+    isEmpty() {
+        return this.state.every(cell => !cell);
+    }
+    //Check if board has no spaces available
+    isFull() {
+        return this.state.every(cell => cell);
+    }
+    /**
+     * Inserts a new symbol(x,o) into a cell
+     * @param {String} symbol
+     * @param {Number} position
+     * @return {Boolean} boolean represent success of the operation
+     */
+    insert(symbol, position) {
+        if (![0, 1, 2, 3, 4, 5, 6, 7, 8].includes(position)) {
+            throw new Error("Cell index does not exist!");
+        }
+        if (!["x", "o"].includes(symbol)) {
+            throw new Error("The symbol can only be x or o!");
+        }
+        if (this.state[position]) {
+            return false;
+        }
+        this.state[position] = symbol;
+        return true;
+    }
+    //Returns an array containing available moves for the current state
+    getAvailableMoves() {
+        const moves = [];
+        this.state.forEach((cell, index) => {
+            if (!cell) moves.push(index);
+        });
+        return moves;
+    }
+    /**
+     * Checks if the board has a terminal state ie. a player wins or the board is full with no winner
+     * @return {Object} an object containing the winner, direction of winning and row/column/diagonal number/name
+     */
+    isTerminal() {
+        //Return False if board in empty
+        if (this.isEmpty()) return false;
+        //Checking Horizontal Wins
+        if (this.state[0] === this.state[1] && this.state[0] === this.state[2] && this.state[0]) {
+            return { winner: this.state[0], direction: "H", row: 1 };
+        }
+        if (this.state[3] === this.state[4] && this.state[3] === this.state[5] && this.state[3]) {
+            return { winner: this.state[3], direction: "H", row: 2 };
+        }
+        if (this.state[6] === this.state[7] && this.state[6] === this.state[8] && this.state[6]) {
+            return { winner: this.state[6], direction: "H", row: 3 };
+        }
+
+        //Checking Vertical Wins
+        if (this.state[0] === this.state[3] && this.state[0] === this.state[6] && this.state[0]) {
+            return { winner: this.state[0], direction: "V", column: 1 };
+        }
+        if (this.state[1] === this.state[4] && this.state[1] === this.state[7] && this.state[1]) {
+            return { winner: this.state[1], direction: "V", column: 2 };
+        }
+        if (this.state[2] === this.state[5] && this.state[2] === this.state[8] && this.state[2]) {
+            return { winner: this.state[2], direction: "V", column: 3 };
+        }
+
+        //Checking Diagonal Wins
+        if (this.state[0] === this.state[4] && this.state[0] === this.state[8] && this.state[0]) {
+            return { winner: this.state[0], direction: "D", diagonal: "main" };
+        }
+        if (this.state[2] === this.state[4] && this.state[2] === this.state[6] && this.state[2]) {
+            return { winner: this.state[2], direction: "D", diagonal: "counter" };
+        }
+
+        //If no winner but the board is full, then it's a draw
+        if (this.isFull()) {
+            return { winner: "draw" };
+        }
+
+        //return false otherwise
+        return false;
+    }
+}
+export default Board;
+```
+
+<br />
+
+In the next part, we will start creating a **Player** class. This class will use an algorithm to get the best possible move. We will also add different difficulty levels to this player.
