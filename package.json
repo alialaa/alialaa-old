@@ -32,6 +32,7 @@
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
 		"typescript-eslint": "^8.0.0-alpha.20",
+		"unist-util-visit": "^5.0.0",
 		"vite": "^5.0.3",
 		"vitest": "^1.2.0"
 	},
@@ -40,8 +41,8 @@
 		"@unsass/breakpoint": "^2.4.0",
 		"dracula-prism": "^2.1.16",
 		"modern-normalize": "^2.0.0",
+		"reading-time": "^1.5.0",
 		"remark-code-title": "^0.2.5",
-		"remark-reading-time": "^2.0.1",
 		"shiki": "^1.10.0",
 		"shiki-transformer-copy-button": "^0.0.3"
 	}

@@ -4,16 +4,8 @@ import { escapeSvelte, mdsvex } from 'mdsvex';
 import remarkCodeTitle from 'remark-code-title';
 import {  createHighlighter } from 'shiki';
 import { addCopyButton } from 'shiki-transformer-copy-button';
-import readingTime from "remark-reading-time";
-import readingMdxTime from "remark-reading-time/mdx.js";
-// async function highlighter(code, lang) {
-//   return await codeToHtml(code, {
-//     lang,
-//     // transformers: [
-//     //   addCopyButton(code)
-//     // ]
-//   })
-// }
+import readingTime from './mdsvex-reading-time.js';
+
 
 async function highlighter(code, lang = 'text') {
 	const highlighter = await createHighlighter({
@@ -38,7 +30,6 @@ const config = {
 			remarkPlugins: [
 				remarkCodeTitle,
 				readingTime,
-				readingMdxTime
 			]
 		})
 	],
