@@ -6,7 +6,7 @@ tags: ["JavaScript", "CSS"]
 featuredImage: ./ttt-ui.jpg
 ---
 
-<!-- [[lead]] -->
+[[lead]]
 | In the <a href="/blog/tic-tac-toe-js-minimax">previous part</a> we created a JavaScript class for the computer player. In this final part, we will build a simple user interface for the tic-tac-toe board. We will use classes and methods created in previous parts to simulate a game with a certain search depth and a starting player.
 
 <!-- <Box> -->
