@@ -1,26 +1,43 @@
 
 @import url('./fonts.scss');
 
-:root {
-	--bg-color: #fffbf6;
-	--card-color: #ffffff;
-	--text-color: #000000;
-	--border-color: #000000;
-	--accent-color: #bf2b00;
-	--secondary-color: #ffca94;
-	--error: #c24141;
-	--warning: #e7a917;
+	:root {
+		--content-width: 1800px;
+		--purple: #8c44db;
+		--purple2: #c11dd4;
+		--pink: #ee1d90;
+		--bg: #f9f5fd;
+		--text: #000;
+		--links: #000;
+		--titles: #000;
+		--text-shadow: #da80e5;
+		--card: #ffffff;
+		--card-border: #441a4a;
+		--op-card: #13101d;
+		--op-card-border: #c5b1c9;
+		&[data-dark="true"] {
+				--bg: #05010f;
+				--text: #eef0fd;
+				--links: #fff;
+				--titles: #fff;
+				--text-shadow: #b531c4;
+				--card: #13101d;
+				--card-border: #c5b1c9;
+				--op-card: #ffffff;
+				--op-card-border: #441a4a;
+		}
 }
 
+
 ::selection {
-	background-color: var(--accent-color);
+	background-color: var(--purple2);
 	color: #fff;
 }
 
 body {
 	font-family: "Visby", Arial, Helvetica, sans-serif;
-	background-color: var(--bg-color);
-	color: var(--text-color);
+	background-color: var(--bg);
+	color: var(--text);
 	word-wrap: break-word;
 }
 
@@ -63,7 +80,7 @@ p {
 }
 
 a {
-	color: var(--accent-color);
+	color: var(--purple2);
 }
 
 select,
@@ -71,7 +88,7 @@ input,
 button,
 a {
 	&:focus-visible {
-		outline: 2px solid var(--accent-color);
+		outline: 2px solid var(--purple2);
 		outline-offset: 2px;
 	}
 }
