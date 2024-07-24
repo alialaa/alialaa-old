@@ -113,3 +113,10 @@ a {
 	padding: 0.85rem 2rem;
 	font-weight: 500;
 }
+
+.content-wrapper {
+	max-width: var(--content-width);
+	margin: 0 auto;
+	padding: 0 30px;
+	position: relative;
+}
