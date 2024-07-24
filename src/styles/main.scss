@@ -1,33 +1,31 @@
-
 @import url('./fonts.scss');
 
-	:root {
-		--content-width: 1800px;
-		--purple: #8c44db;
-		--purple2: #c11dd4;
-		--pink: #ee1d90;
-		--bg: #f9f5fd;
-		--text: #000;
-		--links: #000;
-		--titles: #000;
-		--text-shadow: #da80e5;
-		--card: #ffffff;
-		--card-border: #441a4a;
-		--op-card: #13101d;
-		--op-card-border: #c5b1c9;
-		&[data-dark="true"] {
-				--bg: #05010f;
-				--text: #eef0fd;
-				--links: #fff;
-				--titles: #fff;
-				--text-shadow: #b531c4;
-				--card: #13101d;
-				--card-border: #c5b1c9;
-				--op-card: #ffffff;
-				--op-card-border: #441a4a;
-		}
+:root {
+	--content-width: 1800px;
+	--purple: #8c44db;
+	--purple2: #c11dd4;
+	--pink: #ee1d90;
+	--bg: #f9f5fd;
+	--text: #000;
+	--links: #000;
+	--titles: #000;
+	--text-shadow: #da80e5;
+	--card: #ffffff;
+	--card-border: #441a4a;
+	--op-card: #13101d;
+	--op-card-border: #c5b1c9;
+	&[data-dark='true'] {
+		--bg: #05010f;
+		--text: #eef0fd;
+		--links: #fff;
+		--titles: #fff;
+		--text-shadow: #b531c4;
+		--card: #13101d;
+		--card-border: #c5b1c9;
+		--op-card: #ffffff;
+		--op-card-border: #441a4a;
+	}
 }
-
 
 ::selection {
 	background-color: var(--purple2);
@@ -35,7 +33,7 @@
 }
 
 body {
-	font-family: "Visby", Arial, Helvetica, sans-serif;
+	font-family: 'Visby', Arial, Helvetica, sans-serif;
 	background-color: var(--bg);
 	color: var(--text);
 	word-wrap: break-word;
@@ -80,7 +78,7 @@ p {
 }
 
 a {
-	color: var(--purple2);
+	color: var(--links);
 }
 
 select,
@@ -95,23 +93,23 @@ a {
 
 .visually-hidden,
 .skip-link {
-		position: absolute;
-		left: -10000px;
-		top: auto;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 }
 .skip-link:focus {
-		background: #05010e;
-		display: inline-block;
-		left: 2rem;
-		top: 2rem;
-		position: absolute;
-		width: auto;
-		height: auto;
-		z-index: 200;
-		color: #fff;
-		padding: 0.85rem 2rem;
-		font-weight: 500;
+	background: #05010e;
+	display: inline-block;
+	left: 2rem;
+	top: 2rem;
+	position: absolute;
+	width: auto;
+	height: auto;
+	z-index: 200;
+	color: #fff;
+	padding: 0.85rem 2rem;
+	font-weight: 500;
 }
