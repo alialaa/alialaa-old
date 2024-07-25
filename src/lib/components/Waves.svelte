@@ -94,6 +94,7 @@
 		position: relative;
 		background: var(--bg);
 		view-timeline: --waves-container block;
+		overflow: hidden;
 	}
 	.wave {
 		height: 100%;
@@ -101,6 +102,7 @@
 		position: absolute;
 		bottom: 0;
 		left: 0;
+		min-width: 1000px;
 	}
 	.layer-1 {
 		background: linear-gradient(360deg, var(--bg) 0%, var(--wave-1) 100%);

@@ -32,10 +32,11 @@
 }
 
 :root {
-	--content-width: 1800px;
+	--content-width: 1650px;
 	--purple: #8c44db;
 	--purple2: #c11dd4;
 	--pink: #ee1d90;
+	@include lightVars();
 	@media (prefers-color-scheme: dark) {
 		@include darkVars();
 	}
@@ -136,7 +137,11 @@ a {
 
 .content-wrapper {
 	max-width: var(--content-width);
+	width: 100%;
 	margin: 0 auto;
-	padding: 0 30px;
+	padding: 0 20px;
 	position: relative;
+	@include breakpoint.up('md') {
+		padding: 0 30px;
+	}
 }

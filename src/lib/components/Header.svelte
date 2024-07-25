@@ -70,7 +70,7 @@
 						text-decoration: none;
 						position: relative;
 						@include breakpoint.down('sm') {
-							font-size: 1.5rem;
+							font-size: 0.9rem;
 						}
 						@include breakpoint.down('sm') {
 							padding: 15px 10px;
@@ -108,13 +108,12 @@
 			left: 15px;
 			z-index: 100;
 			display: flex;
-			@include breakpoint.down('sm') {
+			@include breakpoint.down('md') {
 				position: relative;
 				top: 0;
 				left: 0;
 				justify-content: center;
-				margin-top: -3rem;
-				margin-bottom: 6rem;
+				margin-top: 2em;
 			}
 			:global(.toggle-button) {
 				background: transparent;

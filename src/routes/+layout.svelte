@@ -80,3 +80,9 @@
 <div id="main">
 	{@render children()}
 </div>
+
+<style lang="scss">
+	#main {
+		width: 100%;
+	}
+</style>

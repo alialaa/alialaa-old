@@ -22,9 +22,16 @@
 		padding-bottom: 5vh !important;
 	}
 	.intro {
-		font-size: 1.7rem;
+		font-size: 1.3rem;
 		max-width: 1300px;
 		padding-top: 40px;
+		margin: 0;
+		@include breakpoint.up('md') {
+			font-size: 1.5rem;
+		}
+		@include breakpoint.up('lg') {
+			font-size: 1.7rem;
+		}
 		a {
 			font-weight: 500;
 			text-decoration: underline solid var(--purple);
