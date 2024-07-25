@@ -4,11 +4,6 @@
 	import Hero from './home/Hero.svelte';
 </script>
 
-<Waves>
-	<Header />
-	<Hero />
-</Waves>
-
 <div class="content-wrapper">
 	<p class="intro">
 		I am a freelance front-end developer based in Egypt 🇪🇬. I develop UI's for the web and hybrid
@@ -23,9 +18,13 @@
 <div style="height: 1000px"></div>
 
 <style lang="scss">
+	:global(.waves-wrapper) {
+		padding-bottom: 5vh !important;
+	}
 	.intro {
 		font-size: 1.7rem;
 		max-width: 1300px;
+		padding-top: 40px;
 		a {
 			font-weight: 500;
 			text-decoration: underline solid var(--purple);

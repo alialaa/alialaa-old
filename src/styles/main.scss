@@ -2,6 +2,7 @@
 
 @mixin lightVars() {
 	--bg: #f9f5fd;
+	--op-bg: #05010f;
 	--text: #000;
 	--links: #000;
 	--titles: #000;
@@ -16,6 +17,7 @@
 }
 @mixin darkVars() {
 	--bg: #05010f;
+	--op-bg: #f9f5fd;
 	--text: #eef0fd;
 	--links: #fff;
 	--titles: #fff;
@@ -119,7 +121,7 @@ a {
 	overflow: hidden;
 }
 .skip-link:focus {
-	background: #05010e;
+	background: var(--op-bg);
 	display: inline-block;
 	left: 2rem;
 	top: 2rem;
@@ -127,7 +129,7 @@ a {
 	width: auto;
 	height: auto;
 	z-index: 200;
-	color: #fff;
+	color: var(--bg);
 	padding: 0.85rem 2rem;
 	font-weight: 500;
 }

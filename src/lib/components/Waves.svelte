@@ -4,7 +4,7 @@
 	let { children, ...rest }: HTMLAttributes<HTMLDivElement> = $props();
 </script>
 
-<div class="wrapper" {...rest}>
+<div class="waves-wrapper" {...rest}>
 	<div class="wave layer-3"></div>
 	<div class="wave layer-2"></div>
 	<div class="wave layer-1"></div>
@@ -88,7 +88,7 @@
 			);
 		}
 	}
-	.wrapper {
+	.waves-wrapper {
 		padding-top: 5vh;
 		padding-bottom: 8vh;
 		position: relative;

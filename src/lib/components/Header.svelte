@@ -1,7 +1,16 @@
-<script>
+<script lang="ts">
 	import Logo from '$components/Logo.svelte';
 	import { navigationItems } from '$lib/utils/navigation';
 	import { page } from '$app/stores';
+	import { getContext } from 'svelte';
+	import type { PreferencesContext } from '$types';
+	import ColorSchemeButton from './ColorSchemeButton.svelte';
+	import ReducedMotionButton from './ReducedMotionButton.svelte';
+
+	const { getColorScheme, setColorScheme, getReducedMotion, setReducedMotion } =
+		getContext<PreferencesContext>('preferences');
+	let colorScheme = $derived(getColorScheme());
+	let reducedMotion = $derived(getReducedMotion());
 </script>
 
 <div class="wrapper">
@@ -22,6 +31,10 @@
 			{/each}
 		</ul>
 	</nav>
+	<div class="preferences">
+		<ColorSchemeButton {reducedMotion} {colorScheme} {setColorScheme} />
+		<ReducedMotionButton {reducedMotion} {setReducedMotion} />
+	</div>
 </div>
 
 <style lang="scss">
@@ -86,6 +99,47 @@
 							}
 						}
 					}
+				}
+			}
+		}
+		.preferences {
+			position: absolute;
+			top: -5vh;
+			left: 15px;
+			z-index: 100;
+			display: flex;
+			@include breakpoint.down('sm') {
+				position: relative;
+				top: 0;
+				left: 0;
+				justify-content: center;
+				margin-top: -3rem;
+				margin-bottom: 6rem;
+			}
+			:global(.toggle-button) {
+				background: transparent;
+				border: none;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				cursor: pointer;
+				padding: 8px;
+				margin: 0 5px;
+				position: relative;
+			}
+			// :global(.toggle-button:focus-visible) {
+			// 	outline: none;
+			// 	background-color: rgba(255, 255, 255, 0.2);
+			// }
+
+			:global(.toggle-button .toggle-button-text) {
+				color: var(--text);
+				font-size: functions.toRem(11);
+				margin: 0;
+				margin-top: 10px;
+				@include breakpoint.down('sm') {
+					font-size: 10px;
 				}
 			}
 		}

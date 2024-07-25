@@ -4,6 +4,12 @@
 	import { browser } from '$app/environment';
 	import { setContext } from 'svelte';
 	import type { PreferencesContext } from '$types';
+	import Waves from '$components/Waves.svelte';
+	import Header from '$components/Header.svelte';
+	import { page } from '$app/stores';
+	import Hero from './home/Hero.svelte';
+
+	let { children } = $props();
 	let reducedMotionSystem: boolean | null = $state(null);
 	let colorSchemeSystem: string | null = $state(null);
 	let reducedMotion: boolean | null = $state(null);
@@ -22,8 +28,8 @@
 		});
 	}
 	$effect(() => {
-		const colorSchemeLocal = JSON.parse(localStorage.getItem('colorScheme') || 'null');
-		const reducedMotionLocal = JSON.parse(localStorage.getItem('colorScheme') || 'null');
+		const colorSchemeLocal = localStorage.getItem('colorScheme') || null;
+		const reducedMotionLocal = JSON.parse(localStorage.getItem('reducedMotion') || 'null');
 		reducedMotion = reducedMotionLocal === null ? reducedMotionSystem : reducedMotionLocal;
 		colorScheme = colorSchemeLocal === null ? colorSchemeSystem : colorSchemeLocal;
 	});
@@ -53,7 +59,24 @@
 			/\bno-js\b/,
 			'js'
 		);
+		(function () {
+			const prefersDarkModeSystem =
+				window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+			const colorSchemePref = localStorage.getItem('colorScheme') || null;
+			document.documentElement.setAttribute(
+				'data-dark',
+				colorSchemePref === null ? prefersDarkModeSystem : colorSchemePref === 'dark'
+			);
+		})();
 	</script>
 </svelte:head>
 
-<slot />
+<a class="skip-link" href="#main">Skip to Content</a>
+<Waves>
+	<Header />
+	{#if $page.url.pathname === '/'}<Hero />{/if}
+</Waves>
+
+<div id="main">
+	{@render children()}
+</div>
