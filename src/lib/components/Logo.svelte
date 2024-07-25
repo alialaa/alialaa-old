@@ -42,7 +42,7 @@
 		id="l_s"
 		class={isAnimating ? 'animate' : ''}
 		fill="none"
-		stroke="#fff"
+		stroke="var(--text)"
 		stroke-width="3"
 		stroke-miterlimit="10"
 		d="M432.5,146.5h-40.881l-53.456-145h-1h-29h-1
@@ -63,13 +63,15 @@ H287.781z"
 		}
 	}
 	#l_s {
-		fill: rgba(255, 255, 255, 1);
+		fill: var(--text);
 		transition: fill 0.7s;
 		&.animate {
-			fill: rgba(255, 255, 255, 0);
-			stroke-dasharray: 2000;
-			stroke-dashoffset: 2000;
-			animation: 3s linear drawLogo;
+			:global(html[data-animations='true'].js) & {
+				fill: rgba(255, 255, 255, 0);
+				stroke-dasharray: 2000;
+				stroke-dashoffset: 2000;
+				animation: 3s linear drawLogo;
+			}
 		}
 	}
 </style>

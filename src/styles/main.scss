@@ -1,10 +1,6 @@
 @import url('./fonts.scss');
 
-:root {
-	--content-width: 1800px;
-	--purple: #8c44db;
-	--purple2: #c11dd4;
-	--pink: #ee1d90;
+@mixin lightVars() {
 	--bg: #f9f5fd;
 	--text: #000;
 	--links: #000;
@@ -14,16 +10,38 @@
 	--card-border: #441a4a;
 	--op-card: #13101d;
 	--op-card-border: #c5b1c9;
+	--wave-1: #e3ddf5;
+	--wave-2: #d5cce6;
+	--wave-3: #e8e2f4;
+}
+@mixin darkVars() {
+	--bg: #05010f;
+	--text: #eef0fd;
+	--links: #fff;
+	--titles: #fff;
+	--text-shadow: #b531c4;
+	--card: #13101d;
+	--card-border: #c5b1c9;
+	--op-card: #ffffff;
+	--op-card-border: #441a4a;
+	--wave-1: #262233;
+	--wave-2: #201b29;
+	--wave-3: #2a2437;
+}
+
+:root {
+	--content-width: 1800px;
+	--purple: #8c44db;
+	--purple2: #c11dd4;
+	--pink: #ee1d90;
+	@media (prefers-color-scheme: dark) {
+		@include darkVars();
+	}
 	&[data-dark='true'] {
-		--bg: #05010f;
-		--text: #eef0fd;
-		--links: #fff;
-		--titles: #fff;
-		--text-shadow: #b531c4;
-		--card: #13101d;
-		--card-border: #c5b1c9;
-		--op-card: #ffffff;
-		--op-card-border: #441a4a;
+		@include darkVars();
+	}
+	&[data-dark='false'] {
+		@include lightVars();
 	}
 }
 

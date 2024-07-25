@@ -43,7 +43,7 @@
 					display: inline-block;
 					&:after {
 						content: '/';
-						color: #fff;
+						color: var(--text);
 						margin: 0 0.5rem;
 						@include breakpoint.down('sm') {
 							content: none;
@@ -53,7 +53,7 @@
 						content: none;
 					}
 					a {
-						color: #ffffff;
+						color: var(--text);
 						text-decoration: none;
 						position: relative;
 						@include breakpoint.down('sm') {

@@ -103,7 +103,7 @@
 		left: 0;
 	}
 	.layer-1 {
-		background: linear-gradient(360deg, var(--bg) 0%, #262233 100%);
+		background: linear-gradient(360deg, var(--bg) 0%, var(--wave-1) 100%);
 		clip-path: polygon(
 			59.5% 80%,
 			78.2% 50.8%,
@@ -123,7 +123,7 @@
 		animation-range: exit-crossing 0% exit-crossing 100%;
 	}
 	.layer-2 {
-		background: linear-gradient(352deg, var(--bg) 0%, #201b29 100%);
+		background: linear-gradient(352deg, var(--bg) 0%, var(--wave-2) 100%);
 		clip-path: polygon(
 			53.4% 36.5%,
 			73.3% 24.3%,
@@ -145,7 +145,7 @@
 		animation-range: exit-crossing 0% exit-crossing 100%;
 	}
 	.layer-3 {
-		background: linear-gradient(352deg, var(--bg) 0%, #2a2437 100%);
+		background: linear-gradient(352deg, var(--bg) 0%, var(--wave-3) 100%);
 		clip-path: polygon(
 			49.1% 8.5%,
 			68.6% 20%,
@@ -165,5 +165,17 @@
 			ease-out fade_1;
 		animation-timeline: auto, --waves-container, --waves-container;
 		animation-range: exit-crossing 0% exit-crossing 100%;
+	}
+	:global(html.no-js) {
+		@media (prefers-reduced-motion) {
+			.wave {
+				animation: none !important;
+			}
+		}
+	}
+	:global(html.js[data-animations='false']) {
+		.wave {
+			animation: none !important;
+		}
 	}
 </style>

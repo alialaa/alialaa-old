@@ -20,7 +20,6 @@
 		margin: 1.5rem 0 0 0;
 	}
 	h2 {
-		color: #ffffffeb;
 		position: relative;
 		font-size: 4rem;
 		margin: 0;
