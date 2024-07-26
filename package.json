@@ -17,6 +17,7 @@
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/enhanced-img": "^0.3.1",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/eslint": "^8.56.7",
@@ -40,6 +41,7 @@
 	"dependencies": {
 		"@unsass/breakpoint": "^2.4.0",
 		"dracula-prism": "^2.1.16",
+		"lucide-svelte": "^0.416.0",
 		"modern-normalize": "^2.0.0",
 		"reading-time": "^1.5.0",
 		"rehype-autolink-headings": "^7.1.0",

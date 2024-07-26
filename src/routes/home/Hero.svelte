@@ -42,22 +42,5 @@
 		@include breakpoint.up('lg') {
 			font-size: 4rem;
 		}
-		span.underline {
-			position: relative;
-			transform-style: preserve-3d;
-			display: inline-block;
-			&::before {
-				content: '';
-				background-image: url('../../lib/assets/zig-02.svg');
-				position: absolute;
-				bottom: -10%;
-				transform: translateZ(-1px);
-				left: 0;
-				width: 100%;
-				height: 30%;
-				background-repeat: repeat-x;
-				z-index: -1;
-			}
-		}
 	}
 </style>

@@ -1,7 +1,13 @@
 <script lang="ts">
-	import Header from '$components/Header.svelte';
-	import Waves from '$components/Waves.svelte';
-	import Hero from './home/Hero.svelte';
+	import ZigLine from '$components/ZigLine.svelte';
+	import type { PreferencesContext } from '$types';
+	import { getContext } from 'svelte';
+	import FeaturedPosts from './home/FeaturedPosts.svelte';
+	import FeaturedCourses from './home/FeaturedCourses.svelte';
+
+	let { data } = $props();
+	const { getColorScheme } = getContext<PreferencesContext>('preferences');
+	let colorScheme = $derived(getColorScheme());
 </script>
 
 <div class="content-wrapper">
@@ -13,9 +19,18 @@
 		<a href="https://www.youtube.com/channel/UCa-VVCGLQZv6IQWTKyVlnjg">publishing free tutorials</a
 		>. If you are interested in working with me, feel free to <a href="/contact">contact me</a>.
 	</p>
+	<div class="intro-line">
+		<ZigLine
+			maxWidth="550px"
+			height="25px"
+			color={colorScheme === 'dark' ? '#da80e5' : '#8c44db'}
+		/>
+	</div>
 </div>
 
-<div style="height: 1000px"></div>
+<FeaturedPosts />
+
+<FeaturedCourses featuredReviews={data.featuredCourseReviews} />
 
 <style lang="scss">
 	:global(.waves-wrapper) {
@@ -35,6 +50,31 @@
 		a {
 			font-weight: 500;
 			text-decoration: underline solid var(--purple);
+		}
+	}
+	.intro-line {
+		margin: 40px 0 80px;
+		position: relative;
+		:global(.zigzag-line) {
+			position: relative;
+		}
+		:global(.zigzag-line:after) {
+			content: '';
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background: linear-gradient(
+				to right,
+				rgba(0, 0, 0, 0) 0%,
+				rgba(0, 0, 0, 0) 70%,
+				var(--bg) 100%
+			);
+
+			top: 0;
+			left: 0;
+		}
+		:global(.zigzag-line) {
+			// mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, var(--bg) 80%, var(--bg) 100%);
 		}
 	}
 </style>

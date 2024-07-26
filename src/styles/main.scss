@@ -14,6 +14,7 @@
 	--wave-1: #e3ddf5;
 	--wave-2: #d5cce6;
 	--wave-3: #e8e2f4;
+	--feat-course-gradient: rgba(249, 245, 253, 0.88);
 }
 @mixin darkVars() {
 	--bg: #05010f;
@@ -29,6 +30,7 @@
 	--wave-1: #262233;
 	--wave-2: #201b29;
 	--wave-3: #2a2437;
+	--feat-course-gradient: rgba(6, 0, 16, 0.76);
 }
 
 :root {
@@ -58,6 +60,10 @@ body {
 	background-color: var(--bg);
 	color: var(--text);
 	word-wrap: break-word;
+}
+
+img {
+	max-width: 100%;
 }
 
 h1,
@@ -143,5 +149,23 @@ a {
 	position: relative;
 	@include breakpoint.up('md') {
 		padding: 0 30px;
+	}
+}
+
+span.underline {
+	position: relative;
+	transform-style: preserve-3d;
+	display: inline-block;
+	&::before {
+		content: '';
+		background-image: url('../lib/assets/zig-02.svg');
+		position: absolute;
+		bottom: -10%;
+		transform: translateZ(-1px);
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background-repeat: repeat-x;
+		z-index: -1;
 	}
 }
