@@ -23,7 +23,7 @@
 		<ZigLine
 			maxWidth="550px"
 			height="25px"
-			color={colorScheme === 'dark' ? '#da80e5' : '#8c44db'}
+			color={colorScheme === 'dark' ? '#da80e5' : '#da80e5'}
 		/>
 	</div>
 </div>

@@ -212,14 +212,14 @@
 						blockquote {
 							margin: 0;
 							span {
-								font-size: functions.toRem(16);
+								font-size: functions.toRem(17);
 								font-weight: 400;
-								margin-bottom: functions.toRem(15);
+								margin-bottom: functions.toRem(16);
 								display: block;
 								line-height: 1.7;
 							}
 							footer {
-								font-size: functions.toRem(14);
+								font-size: functions.toRem(15);
 								font-weight: 400;
 								opacity: 0.85;
 							}
@@ -315,7 +315,7 @@
 				width: 70%;
 			}
 			.course-buttons {
-				margin-top: functions.toRem(20);
+				margin-top: functions.toRem(40);
 				:global(a) {
 					margin-right: functions.toRem(20);
 					margin-bottom: functions.toRem(20);
@@ -339,6 +339,8 @@
 			}
 			p {
 				font-size: calc(functions.toRem(18) + 0.4vw);
+				margin: 0;
+				margin-top: functions.toRem(15);
 			}
 		}
 		.course-reviews {
