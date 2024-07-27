@@ -14,8 +14,8 @@
 			</div>
 			<div class="more-link">
 				<a href="/blog"
-					>View All <span class="visually-hidden">Posts</span>
-					<ArrowRight size="20" aria-hidden="true" focusable="false" />
+					>View All Posts
+					<ArrowRight size="22" aria-hidden="true" focusable="false" />
 				</a>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 			display: flex;
 			align-items: center;
 			font-weight: 600;
-			font-size: functions.toRem(18);
+			font-size: functions.toRem(20);
 			text-decoration: underline solid var(--purple2);
 			:global(svg) {
 				margin-inline-start: 10px;

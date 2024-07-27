@@ -1,0 +1,126 @@
+- title: Modern Web Animations
+  summary: Deep Dive into Animations and Transitions, The Web Animations API, Scroll Driven Animations and The View Transitions API.
+  udemyID: x01-ltjzWZ4oMbnhJQYpRKKoQ==
+  udemyUrl: https://www.udemy.com/course/web-animations/?referralCode=1DA035648D67DE975EB3
+  url: web-animations
+  image: /src/lib/assets/courses/animations.jpg
+  duration: 15
+  promo: https://d3imz9xia0py4c.cloudfront.net/web-animations-intro.mp4
+  objectives:
+    - Learn about CSS Animations & Transitions.
+    - Learn about the new JavaScript Web Animations API.
+    - Discover scroll driven animations in details.
+    - Create impressive page transitions with the View Transitions API.
+- title: "Svelte & SvelteKit: The Complete Guide"
+  summary: Build & Deploy High Performance, Accessible, Server Side Rendered Web Apps that Work Even with JavaScript Disabled.
+  udemyID: x01gxVGxh2jpnE0jBwf0aqQWg==
+  udemyUrl: https://www.udemy.com/course/svelte-and-sveltekit/?referralCode=0CCE6FDD87D53E9DEC67
+  url: svelte-and-sveltekit
+  image: /src/lib/assets/courses/svelte.png
+  duration: 32
+  promo: https://d3imz9xia0py4c.cloudfront.net/svelte-intro.mp4
+  objectives:
+    - Learn everything about Svelte from Scratch.
+    - Learn everything about SvelteKit.
+    - Use SvelteKit to create a high performance web application.
+    - Create applications that work without JavaScript enabled.
+- title: The Complete GitHub Actions & Workflows Guide
+  summary: Automate Code Testing, Deployment & Versioning using CI/CD Workflows. Create & Publish GitHub Actions to the Marketplace.
+  udemyID: x015vNbBDIRfbZt9qM09qkwzA==
+  udemyUrl: https://www.udemy.com/course/github-actions/?referralCode=49A5F56B87CD62AEF6D4
+  url: github-actions
+  image: /src/lib/assets/courses/gh.jpg
+  duration: 15
+  promo: https://d3imz9xia0py4c.cloudfront.net/github-actions-intro.mp4
+  objectives:
+    - Learn about writing serialized data in the YAML format.
+    - Learn about all the GitHub Actions concepts (Workflows, Steps, Jobs, Actions, etc..).
+    - Discover everything you can do in a GitHub workflow (events, schedules, filtering, environment variables, context, encryption, matrix and more).
+    - Learn how docker can be used in a GitHub workflow.
+    - Create a real-life CI/CD workflow for code testing, formatting, versioning and more.
+    - Use caching in workflows for an improved performance.
+    - Learn about uploading artifacts in workflows.
+    - Learn about how to create your own custom GitHub Actions using Javascript or Docker.
+    - Create an action for opening GitHub issues using JavaScript.
+    - Create an action for sending slack messages using PHP.
+    - Learn how to publish GitHub actions in the GitHub marketplace.
+- title: Gutenberg Blocks for WordPress and React Developers
+  summary: Use Your ReactJS and Redux Knowledge to Create Complex Gutenberg Blocks and Plugins from scratch.
+  udemyID: x01wnWjnHsnoEivUNcc52Z9HA==
+  udemyUrl: https://www.udemy.com/course/gutenberg/?referralCode=C4656BA80E6D4EE8B654
+  url: gutenberg
+  image: /src/lib/assets/courses/gutenberg.jpg
+  duration: 16
+  promo: https://d3imz9xia0py4c.cloudfront.net/gutenberg-intro.mp4
+  objectives:
+    - Learn about the block editor design guidelines.
+    - Discover how the block editor saves your post in the database and how the editor UI is constructed.
+    - Learn how to use wp-scripts to transpile ES6 and JSX, compile SASS to CSS, bundle and minify your JS and CSS files and more.
+    - Integrate ESLint, Prettier, Stylelint and Husky in your project to improve your workflow.
+    - Create a new custom Gutenberg block from scratch.
+    - Customize the block editor features in your WordPress theme.
+    - Discover every aspect you need to know to create a complex Gutenberg block.
+    - Create a nested block (a block that accepts other blocks inside of it).
+    - Use third party react libraries to create complex features.
+    - Learn about handling deprecated blocks.
+    - Learn how to transform your custom block into another block.
+    - Create a dynamic block.
+    - Explore how to use the existing data stores in your blocks.
+    - Learn how to create your own data stores stores in order to share data between blocks.
+    - Learn different ways to manage meta fields in the block editor.
+    - Learn how to create a custom sidebar in the block editor and manage your meta fields inside of it.
+    - Learn how to extend the existing block editor's sidebar.
+    - Learn about features like patterns, context, formatting API and templates.
+    - Modify existing block's behavior with JavaScript & PHP filters.
+    - Internationalize blocks by generating and loading translation files.
+- title: The Complete Guide to Building Premium WordPress Themes
+  summary: Create premium wordpress themes from scratch. Learn all the best practices that will get your theme approved on marketplaces like themeforest.
+  udemyID: x01mYHnrkrB1UnCkvDk2IuEFw==
+  udemyUrl: https://www.udemy.com/course/the-complete-guide-to-building-premium-wordpress-themes/?referralCode=A1E38F238B8F5A8D2B82
+  url: wordpress
+  image: /src/lib/src/images/wordpress.jpg
+  duration: 17.5
+  promo: https://d3imz9xia0py4c.cloudfront.net/wordpress.mp4
+  objectives:
+    - Learn how to code and create premium WordPress themes that pass the themeforest review.
+    - Use NPM/Yarn and Gulp to create a workflow for an efficient and a reusable Wordpress theme.
+    - Discover all core aspects for creating a WordPress theme.
+    - Learn how to create a secure and translation ready WordPress theme.
+    - Learn How to make your theme customizable with WordPress's Customizer API.
+    - Write Javascript using the latest ES6+ versions.
+    - Create custom WordPress widgets and integrate them with Customizer.
+    - Create custom post types and custom taxonomies.
+    - Learn about shortcodes and how to create them.
+    - Learn how your WordPress website can be more accessible.
+    - Create basic plugins and learn how to properly include them in your theme.
+    - Make your theme modifiable with child themes.
+    - Understand how things work in WordPress in a deeper way by digging into the source code.
+    - Create themes that are compatible with the new editor 'Gutenberg'.
+- title: "React Native: Create an Unbeatable & Multiplayer Tic-Tac-Toe"
+  summary: Create, Publish & Monetize a Single Player Bot & Multiplayer Tic-Tac-Toe with Expo, Typescript & AWS Amplify GraphQL API.
+  udemyID: x01Zw0hs61ln1xIF1VOhHCiwg==
+  udemyUrl: https://www.udemy.com/course/react-native-tic-tac-toe/?referralCode=053BC78FF2DC2E2D1E70
+  url: react-native-tic-tac-toe
+  image: /src/lib/src/images/tttrn.jpg
+  duration: 23
+  promo: https://d3imz9xia0py4c.cloudfront.net/ttt-promo.mp4
+  objectives:
+    - Learn About Typescript & What's its purpose.
+    - Learn About Expo & the Difference between Expo & Vanilla React Native.
+    - Install & Run an Expo Application on a Physical Device, Android Emulator & iOS Simulator.
+    - Learn How to Use Typescript with Expo.
+    - Integrate ESLint, Prettier & Husky for a Better Workflow.
+    - Using React Navigation Efficiently with Typescript Integration.
+    - Create a Single Player Tic Tac Toe Game.
+    - Implement the Minimax Algorithm to Create a Tic Tac Toe Bot with Different Difficulties (From Easy to Unbeatable).
+    - Use Sound Effects and Haptics Feedback in Our Game.
+    - Create Custom React Hooks for Code Re-usability.
+    - Create Simple Animations Using the Animated API.
+    - Creating Persistent App Settings Using React Context & AsyncStorage.
+    - Learn About AWS Amplify & its Purpose.
+    - Use AWS Amplify & AWS Cognito to add Authentication to our App.
+    - Create a GraphQL API with AWS Amplify, AWS AppSync & AWS Lambda Functions.
+    - Create a Real Time Multiplayer Tic Tac Toe with the GraphQL API.
+    - Learn How to Send Push Notifications Using Expo & Lambda Functions.
+    - Monetize Your Game Using Google AdMob.
+    - Build & Publish your App to the iOS App Store & Google Play Store.

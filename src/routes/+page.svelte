@@ -30,7 +30,10 @@
 
 <FeaturedPosts />
 
-<FeaturedCourses featuredReviews={data.featuredCourseReviews} />
+<FeaturedCourses
+	featuredReviews={data.featuredCoursesReviews}
+	featuredCourses={data.featuredCourses}
+/>
 
 <style lang="scss">
 	:global(.waves-wrapper) {

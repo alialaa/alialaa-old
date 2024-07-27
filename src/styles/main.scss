@@ -15,6 +15,7 @@
 	--wave-2: #d5cce6;
 	--wave-3: #e8e2f4;
 	--feat-course-gradient: rgba(249, 245, 253, 0.88);
+	--pattern-opacity: 0.7;
 }
 @mixin darkVars() {
 	--bg: #05010f;
@@ -31,6 +32,7 @@
 	--wave-2: #201b29;
 	--wave-3: #2a2437;
 	--feat-course-gradient: rgba(6, 0, 16, 0.76);
+	--pattern-opacity: 0.2;
 }
 
 :root {

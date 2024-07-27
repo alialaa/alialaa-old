@@ -2,9 +2,18 @@
 	import Button from '$components/Button.svelte';
 	import Card from '$components/Card.svelte';
 	import FiveStarts from '$components/FiveStarts.svelte';
+	import { ArrowRight } from 'lucide-svelte';
 
-	let { featuredReviews }: { featuredReviews: { [key: string]: any }[] } = $props();
-	console.log(featuredReviews);
+	const images = import.meta.glob(['$lib/assets/courses/*.{jpeg,jpg,png}'], {
+		eager: true,
+		query: { enhanced: true }
+	});
+
+	let {
+		featuredReviews,
+		featuredCourses
+	}: { featuredReviews: { [key: string]: any }[]; featuredCourses: { [key: string]: any }[] } =
+		$props();
 </script>
 
 <section class="featured-course">
@@ -43,7 +52,9 @@
 				</div>
 				<div class="course-reviews">
 					<ul>
-						{#each featuredReviews.slice(0, 3) as review}
+						{#each featuredReviews
+							.filter((r) => r.course.id === 'x015vNbBDIRfbZt9qM09qkwzA==')
+							.slice(0, 3) as review}
 							<li>
 								<Card>
 									<FiveStarts aria-hidden focusable="false" />
@@ -63,9 +74,205 @@
 	</div>
 </section>
 
+<section class="featured-courses">
+	<div class="pattern"></div>
+	<div class="content-wrapper">
+		<h3>More Courses</h3>
+		<div class="grid">
+			{#each featuredCourses as course}
+				{@const review = featuredReviews.find((r) => r.course.id === course.udemyID)}
+				<div class="course">
+					<Card>
+						{#if images[course.image]}
+							<div class="course-image">
+								<div class="image-wrapper">
+									<enhanced:img src={(images[course.image] as { default: string }).default} alt="">
+									</enhanced:img>
+								</div>
+							</div>
+						{/if}
+						<div class="content">
+							<h4>{course.title}</h4>
+							<p>{course.summary}</p>
+							<div class="course-buttons">
+								<Button href="/courses/{course.url}">
+									Learn More
+									<span class="visually-hidden">
+										About the course: The Complete GitHub Actions & Workflows Guide
+									</span>
+								</Button>
+								<Button href={course.udemyUrl}>
+									Buy{' '}
+									<span class="visually-hidden">
+										The Complete GitHub Actions & Workflows Guide
+									</span>{' '}
+									on Udemy
+								</Button>
+							</div>
+							{#if review}
+								<div class="review">
+									<FiveStarts aria-hidden focusable="false" />
+									<blockquote cite="https://www.udemy.com/course/github-actions">
+										<span>“{review.content}”</span>
+										<footer>
+											— <cite>{review.user.title}, Udemy Student</cite>
+										</footer>
+									</blockquote>
+								</div>
+							{/if}
+						</div>
+					</Card>
+				</div>
+			{/each}
+		</div>
+		<div class="more-link">
+			<a href="/blog"
+				>View All Courses
+				<ArrowRight size="22" aria-hidden="true" focusable="false" />
+			</a>
+		</div>
+	</div>
+</section>
+
 <style lang="scss">
+	.featured-courses {
+		padding: functions.toRem(0) 0 functions.toRem(60);
+		position: relative;
+		z-index: 21;
+		.pattern {
+			--pattern-size: 100px;
+			position: absolute;
+			z-index: -1;
+			width: 100%;
+			height: 100%;
+			top: 50%;
+			left: 0;
+			background:
+				linear-gradient(135deg, var(--bg) 25%, transparent 25%) calc(-1 * var(--pattern-size)) 0,
+				linear-gradient(225deg, var(--bg) 25%, transparent 25%) calc(-1 * var(--pattern-size)) 0,
+				linear-gradient(315deg, var(--bg) 25%, transparent 25%),
+				linear-gradient(45deg, var(--bg) 25%, transparent 25%);
+			background-size: calc(2 * var(--pattern-size)) calc(2 * var(--pattern-size));
+			background-color: var(--card);
+
+			opacity: var(--pattern-opacity);
+		}
+		h3 {
+			font-size: 1.8rem;
+			text-decoration: underline solid var(--purple);
+			margin-bottom: functions.toRem(30);
+		}
+		.grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: functions.toRem(20);
+
+			@include breakpoint.up('lg') {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				grid-gap: functions.toRem(30);
+			}
+			.course {
+				:global(.card) {
+					height: 100%;
+					padding: 2rem;
+				}
+				.content {
+					position: relative;
+					// padding-top: 5%;
+					h4 {
+						font-size: functions.toRem(32);
+						font-weight: 800;
+						margin: 0;
+						margin-bottom: functions.toRem(10);
+					}
+					p {
+						font-size: functions.toRem(19);
+						margin: 0;
+					}
+					.course-buttons {
+						margin-top: functions.toRem(30);
+						:global(a) {
+							margin-right: functions.toRem(20);
+							margin-bottom: functions.toRem(20);
+							padding: 0.7rem 1.7rem;
+							font-size: functions.toRem(14);
+						}
+					}
+					.review {
+						margin-top: functions.toRem(20);
+						background: linear-gradient(to bottom, var(--card), transparent);
+						// border: 1px solid var(--card-border);
+						padding: functions.toRem(30) functions.toRem(15);
+						text-align: center;
+						:global(svg) {
+							width: 120px;
+							max-width: 100%;
+							margin-bottom: functions.toRem(10);
+						}
+						blockquote {
+							margin: 0;
+							span {
+								font-size: functions.toRem(16);
+								font-weight: 400;
+								margin-bottom: functions.toRem(15);
+								display: block;
+								line-height: 1.7;
+							}
+							footer {
+								font-size: functions.toRem(14);
+								font-weight: 400;
+								opacity: 0.85;
+							}
+						}
+					}
+				}
+				.course-image {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					.image-wrapper {
+						position: relative;
+						height: 100%;
+						img {
+							max-width: none;
+							height: 100%;
+							width: 100%;
+							object-fit: cover;
+						}
+						&:after {
+							content: '';
+							width: 100%;
+							height: 100%;
+							position: absolute;
+							top: 0;
+							left: 0;
+							background: linear-gradient(to bottom, var(--feat-course-gradient), var(--card) 72%);
+						}
+					}
+				}
+			}
+		}
+		.more-link {
+			margin-top: functions.toRem(30);
+			display: flex;
+			justify-content: flex-end;
+			a {
+				display: flex;
+				align-items: center;
+				font-weight: 600;
+				font-size: functions.toRem(20);
+				text-decoration: underline solid var(--purple2);
+				:global(svg) {
+					margin-inline-start: 10px;
+				}
+			}
+		}
+	}
 	.featured-course {
-		padding: functions.toRem(80) 0 functions.toRem(60);
+		padding: functions.toRem(80) 0 functions.toRem(40);
+		// overflow: hidden;
 		z-index: 20;
 		position: relative;
 		.course {

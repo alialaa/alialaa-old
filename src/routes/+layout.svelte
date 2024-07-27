@@ -9,6 +9,8 @@
 	import { page } from '$app/stores';
 	import Hero from './home/Hero.svelte';
 
+	export const prerender = true;
+
 	let { children } = $props();
 	let reducedMotionSystem: boolean | null = $state(null);
 	let colorSchemeSystem: string | null = $state(null);
