@@ -4,6 +4,7 @@
 	import { getContext } from 'svelte';
 	import FeaturedPosts from './home/FeaturedPosts.svelte';
 	import FeaturedCourses from './home/FeaturedCourses.svelte';
+	import Testimonials from './home/Testimonials.svelte';
 
 	let { data } = $props();
 	const { getColorScheme } = getContext<PreferencesContext>('preferences');
@@ -34,6 +35,8 @@
 	featuredReviews={data.featuredCoursesReviews}
 	featuredCourses={data.featuredCourses}
 />
+
+<Testimonials />
 
 <style lang="scss">
 	:global(.waves-wrapper) {

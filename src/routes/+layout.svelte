@@ -8,6 +8,7 @@
 	import Header from '$components/Header.svelte';
 	import { page } from '$app/stores';
 	import Hero from './home/Hero.svelte';
+	import Footer from '$components/Footer.svelte';
 
 	export const prerender = true;
 
@@ -82,6 +83,7 @@
 <div id="main">
 	{@render children()}
 </div>
+<Footer {colorScheme} />
 
 <style lang="scss">
 	#main {

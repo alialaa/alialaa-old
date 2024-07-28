@@ -75,7 +75,6 @@
 </section>
 
 <section class="featured-courses">
-	<div class="pattern"></div>
 	<div class="content-wrapper">
 		<h3>More Courses</h3>
 		<div class="grid">
@@ -126,7 +125,7 @@
 			{/each}
 		</div>
 		<div class="more-link">
-			<a href="/blog"
+			<a href="/courses"
 				>View All Courses
 				<ArrowRight size="22" aria-hidden="true" focusable="false" />
 			</a>
@@ -138,25 +137,8 @@
 	.featured-courses {
 		padding: functions.toRem(0) 0 functions.toRem(60);
 		position: relative;
-		z-index: 21;
-		.pattern {
-			--pattern-size: 100px;
-			position: absolute;
-			z-index: -1;
-			width: 100%;
-			height: 100%;
-			top: 50%;
-			left: 0;
-			background:
-				linear-gradient(135deg, var(--bg) 25%, transparent 25%) calc(-1 * var(--pattern-size)) 0,
-				linear-gradient(225deg, var(--bg) 25%, transparent 25%) calc(-1 * var(--pattern-size)) 0,
-				linear-gradient(315deg, var(--bg) 25%, transparent 25%),
-				linear-gradient(45deg, var(--bg) 25%, transparent 25%);
-			background-size: calc(2 * var(--pattern-size)) calc(2 * var(--pattern-size));
-			background-color: var(--card);
+		z-index: 22;
 
-			opacity: var(--pattern-opacity);
-		}
 		h3 {
 			font-size: 1.8rem;
 			text-decoration: underline solid var(--purple);

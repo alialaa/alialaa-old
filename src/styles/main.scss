@@ -11,7 +11,7 @@
 	--card-border: #441a4a;
 	--op-card: #13101d;
 	--op-card-border: #c5b1c9;
-	--wave-1: #e3ddf5;
+	--wave-1: #f1eefa;
 	--wave-2: #d5cce6;
 	--wave-3: #e8e2f4;
 	--feat-course-gradient: rgba(249, 245, 253, 0.88);
@@ -62,6 +62,7 @@ body {
 	background-color: var(--bg);
 	color: var(--text);
 	word-wrap: break-word;
+	line-height: 1.7;
 }
 
 img {
