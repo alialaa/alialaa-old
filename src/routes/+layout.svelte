@@ -17,7 +17,6 @@
 	let colorSchemeSystem: string | null = $state(null);
 	let reducedMotion: boolean | null = $state(null);
 	let colorScheme: string | null = $state(null);
-
 	if (browser) {
 		const motionMediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 		const schemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');

@@ -3,6 +3,7 @@
 
 	import { navigationItems } from '$lib/utils/navigation';
 	import Logo from './Logo.svelte';
+	import Newsletter from './Newsletter.svelte';
 	import SocialIcon from './SocialIcon.svelte';
 	import Waves from './Waves.svelte';
 	import ZigLine from './ZigLine.svelte';
@@ -16,7 +17,7 @@
 	</div>
 	<div class="content-wrapper">
 		<div class="footer-row">
-			<div class="footer-column">Newsletter</div>
+			<div class="footer-column"><Newsletter /></div>
 			<div class="footer-column links">
 				<div class="quick">
 					<h3>Site Links:</h3>

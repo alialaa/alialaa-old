@@ -2,6 +2,8 @@ import { UDEMY_API_TOKEN } from '$env/static/private';
 import type { PageServerLoad } from './$types';
 import fs from 'fs';
 import { parse } from 'yaml';
+import type { Actions } from './$types';
+import { fail } from '@sveltejs/kit';
 
 const options = {
 	headers: {
@@ -42,7 +44,6 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		animationsRes.json(),
 		gutenbergRes.json()
 	]);
-	console.log(animationsResJSON);
 	[
 		ghResJSON.results,
 		svelteResJSON.results,
@@ -71,3 +72,15 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		)
 	};
 };
+
+export const actions = {
+	subscribeToNewsletter: async ({ request }) => {
+		const data = await request.formData();
+		const email = data.get('email');
+		const name = data.get('name');
+		console.log(email, name);
+		if (!email) {
+			return fail(400, { email, name, missingEmail: true });
+		}
+	}
+} satisfies Actions;

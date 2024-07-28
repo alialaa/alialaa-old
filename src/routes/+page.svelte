@@ -6,8 +6,9 @@
 	import FeaturedCourses from './home/FeaturedCourses.svelte';
 	import Testimonials from './home/Testimonials.svelte';
 
-	let { data } = $props();
+	let { data, form } = $props();
 	const { getColorScheme } = getContext<PreferencesContext>('preferences');
+	console.log(form);
 	let colorScheme = $derived(getColorScheme());
 </script>
 

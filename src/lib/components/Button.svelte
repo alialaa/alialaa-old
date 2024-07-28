@@ -6,11 +6,19 @@
 		| (HTMLAnchorAttributes & { href: string })
 	) & {
 		variant?: 'solid' | 'outline';
+		dark?: boolean;
 		size?: 'small' | 'medium';
 		className?: string;
 	};
 
-	let { variant = 'solid', children, class: className, size = 'medium', ...rest }: props = $props();
+	let {
+		variant = 'solid',
+		dark = false,
+		children,
+		class: className,
+		size = 'medium',
+		...rest
+	}: props = $props();
 
 	let node: HTMLAnchorElement | HTMLButtonElement;
 
@@ -23,6 +31,7 @@
 	this={rest.href ? 'a' : 'button'}
 	bind:this={node}
 	class="button button-{variant} button-size-{size} {className}"
+	class:dark
 	{...rest}
 >
 	{#if children}
@@ -46,6 +55,20 @@
 		cursor: pointer;
 		letter-spacing: 0.5px;
 		position: relative;
+		&.dark {
+			color: #ffffff;
+			&:after {
+				background: #130f1e;
+				border: 1px solid #c5b1c8;
+			}
+			&:hover {
+				color: #000;
+				&:after {
+					background: #ffffff;
+					border: 1px solid #441a4a;
+				}
+			}
+		}
 		&:before {
 			content: '';
 			position: absolute;
