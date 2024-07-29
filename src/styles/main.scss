@@ -40,6 +40,8 @@
 	--purple: #8c44db;
 	--purple2: #c11dd4;
 	--pink: #ee1d90;
+	--error: #c24141;
+	--warning: #e7a917;
 	@include lightVars();
 	@media (prefers-color-scheme: dark) {
 		@include darkVars();

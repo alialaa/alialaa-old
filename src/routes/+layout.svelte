@@ -9,8 +9,12 @@
 	import { page } from '$app/stores';
 	import Hero from './home/Hero.svelte';
 	import Footer from '$components/Footer.svelte';
+	import { X } from 'lucide-svelte';
 
 	export const prerender = true;
+
+	let hasError = $derived($page.url.searchParams.get('error'));
+	let hasSuccess = $derived($page.url.searchParams.get('success'));
 
 	let { children } = $props();
 	let reducedMotionSystem: boolean | null = $state(null);
@@ -74,6 +78,15 @@
 </svelte:head>
 
 <a class="skip-link" href="#main">Skip to Content</a>
+
+{#if hasError || hasSuccess}
+	<div class="message" role="status" class:error={hasError} class:success={hasSuccess}>
+		{hasError ?? hasSuccess}
+		<a href={$page.url.pathname} class="close">
+			<X aria-hidden focusable="false" /> <span class="visually-hidden">Close message</span>
+		</a>
+	</div>
+{/if}
 <Waves>
 	<Header />
 	{#if $page.url.pathname === '/'}<Hero />{/if}
@@ -87,5 +100,29 @@
 <style lang="scss">
 	#main {
 		width: 100%;
+	}
+	.message {
+		position: sticky;
+		z-index: 9999;
+		padding: functions.toRem(10) functions.toRem(20);
+		top: 0;
+		.close {
+			position: absolute;
+			right: 10px;
+			top: 5px;
+			&:focus {
+				outline-color: #fff;
+			}
+			:global(svg) {
+				stroke: var(--text);
+				vertical-align: middle;
+			}
+		}
+		&.error {
+			background-color: var(--error);
+		}
+		&.success {
+			background-color: var(--purple);
+		}
 	}
 </style>
