@@ -24,9 +24,10 @@ pre.shiki code .line::before {
 	text-align: right;
 	color: rgba(115, 138, 148, 0.4);
 }
+
 @media (prefers-color-scheme: dark) {
-	.shiki,
-	.shiki span {
+	html.no-js .shiki,
+	html.no-js .shiki span {
 		color: var(--shiki-dark) !important;
 		background-color: var(--shiki-dark-bg) !important;
 		/* Optional, if you also want font styles */
@@ -34,4 +35,13 @@ pre.shiki code .line::before {
 		font-weight: var(--shiki-dark-font-weight) !important;
 		text-decoration: var(--shiki-dark-text-decoration) !important;
 	}
+}
+:root[data-dark='true'] .shiki,
+:root[data-dark='true'] .shiki span {
+	color: var(--shiki-dark) !important;
+	background-color: var(--shiki-dark-bg) !important;
+	/* Optional, if you also want font styles */
+	font-style: var(--shiki-dark-font-style) !important;
+	font-weight: var(--shiki-dark-font-weight) !important;
+	text-decoration: var(--shiki-dark-text-decoration) !important;
 }

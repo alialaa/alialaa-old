@@ -68,7 +68,7 @@ In the case above, X will obviously choose 99 over 97 since it’s an easier way
 It’s time now to translate this theory into code. In our **classes** folder, let's create a new file called **player.js**. The Player class will be constructed with a maximum depth argument. This argument will be used to limit how deep the computer will propagate through the tree. That way the lower depth we choose, the easier the game will be.
 In addition to that, we will define a new map. The keys for this map will hold a certain heuristic value, and the value will hold a comma separated string for all the moves that resulted in that value. That way for a maximizing player we can choose the highest key and the move will be either the value or a random value if there are multiple values.
 
-```js:title=player.js
+```js title="player.js"
 import Board from "./board.js";
 
 export default class Player {
@@ -87,7 +87,7 @@ The first thing that we will do inside the function is clearing the **nodesMap**
 
 Then we will add the base of our recursive function. Every recursive function must have a base or a point where the recursion will stop otherwise we might end up with an infinite recursion. In our case, the recursion will stop when a terminal state is reached or the depth reached the maximum depth. In that case we will return the heuristic value of the state:
 
-```js:title=player.js
+```js title="player.js"
 getBestMove(board, maximizing = true, callback = () => {}, depth = 0) {
     //clear nodesMap if the function is called for a new move
     if(depth == 0) this.nodesMap.clear();
@@ -108,7 +108,7 @@ Now we will check if it's the maximizing player's turn and then loop through all
 
 Outside the loop, we check if we are at the top level and return the index of the cell that corresponds to the best value or a random index if multiple indices have the best value.
 
-```js:title=player.js
+```js title="player.js"
 if (maximizing) {
     //Initialize best to the lowest possible value
     let best = -100;
@@ -152,7 +152,7 @@ if (maximizing) {
 
 Similarly, we will check if the player is minimizing and our code will be very similar, except for minor changes like inserting o instead of x and using Math.min instead of Math.max. Here is our final class:
 
-```js:title=player.js
+```js title="player.js"
 import Board from "./board.js";
 
 export default class Player {
@@ -262,7 +262,7 @@ export default class Player {
 
 Let’s test this function now and also take a look at how the **nodesMap** map looks like. In **script.js** let's type:
 
-```js:title=script.js
+```js title="script.js"
 import Board from "./classes/board.js";
 import Player from "./classes/player.js";
 
@@ -277,7 +277,7 @@ console.log(p.nodesMap);
 
 As you can see, cell 4 is decided as the best move for X since it will lead to a direct win. Let’s take a look at the same board but this time if it was O’s turn:
 
-```js:title=script.js
+```js title="script.js"
 import Board from "./classes/board.js";
 import Player from "./classes/player.js";
 

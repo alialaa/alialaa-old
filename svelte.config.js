@@ -5,6 +5,7 @@ import remarkCodeTitle from 'remark-code-title';
 import { createHighlighter } from 'shiki';
 import { addCopyButton } from 'shiki-transformer-copy-button';
 import readingTime from './mdsvex-reading-time.js';
+import excerpt from './mdsvex-excerpt.js';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import unWrapImages from 'remark-unwrap-images';
@@ -12,7 +13,7 @@ import remarkCustomBlocks from 'remark-custom-blocks';
 
 async function highlighter(code, lang = 'text') {
 	const highlighter = await createHighlighter({
-		themes: ['github-dark-default', 'github-light'],
+		themes: ['github-light', 'github-dark-default'],
 		langs: ['javascript', 'typescript', 'html', 'css']
 	});
 	await highlighter.loadLanguage('javascript', 'typescript', 'html', 'css');
@@ -41,6 +42,7 @@ const config = {
 				remarkCodeTitle,
 				unWrapImages,
 				readingTime,
+				excerpt,
 				[
 					remarkCustomBlocks,
 					{
