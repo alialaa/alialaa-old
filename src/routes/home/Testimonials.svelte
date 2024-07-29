@@ -32,7 +32,7 @@
 	.testimonials {
 		position: relative;
 		z-index: 21;
-		padding: functions.toRem(80) 0 functions.toRem(120);
+		padding: functions.toRem(40) 0 functions.toRem(120);
 		.pattern {
 			--pattern-size: 60px;
 			position: absolute;
