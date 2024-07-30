@@ -10,6 +10,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import unWrapImages from 'remark-unwrap-images';
 import remarkCustomBlocks from 'remark-custom-blocks';
+import toc from './mdsvex-toc.js';
 
 async function highlighter(code, lang = 'text') {
 	const highlighter = await createHighlighter({
@@ -43,6 +44,8 @@ const config = {
 				unWrapImages,
 				readingTime,
 				excerpt,
+				toc,
+				// remarkToc,
 				[
 					remarkCustomBlocks,
 					{

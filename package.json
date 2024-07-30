@@ -40,6 +40,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@microflash/rehype-toc": "^1.0.2",
 		"@unsass/breakpoint": "^2.4.0",
 		"dracula-prism": "^2.1.16",
 		"lucide-svelte": "^0.416.0",
@@ -49,6 +50,7 @@
 		"rehype-slug": "^6.0.0",
 		"remark-code-title": "^0.2.5",
 		"remark-custom-blocks": "^2.6.1",
+		"remark-toc": "^9.0.0",
 		"remark-unwrap-images": "^4.0.0",
 		"shiki": "^1.10.0",
 		"shiki-transformer-copy-button": "^0.0.3",
