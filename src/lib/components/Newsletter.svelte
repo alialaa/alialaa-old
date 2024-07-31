@@ -1,4 +1,6 @@
 <script>
+	// @ts-nocheck
+
 	import { Mail } from 'lucide-svelte';
 	import Button from './Button.svelte';
 	import { page } from '$app/stores';
@@ -24,7 +26,7 @@
 	</div>
 	<form
 		method="POST"
-		action="/newsletter?redirect={$page.url.pathname}"
+		action="/newsletter"
 		use:enhance={({ cancel }) => {
 			if (loading) {
 				cancel();
@@ -36,16 +38,12 @@
 				if (result.type === 'error') {
 					error = result.error?.message || 'An error has occurred!';
 				}
-				if (result.type === 'redirect') {
-					const url = new URL(`${$page.url.origin}${result.location}`);
-					const _error = url.searchParams.get('error');
-					const _success = url.searchParams.get('success');
-					if (_error) {
-						error = _error;
-					}
-					if (_success) {
-						success = _success;
-					}
+				console.log(result);
+				if (result.type === 'failure') {
+					error = result.data?.newsletterError || 'An Error has Occurred!';
+				}
+				if (result.type === 'success') {
+					success = result.data?.newsletterSuccess || 'Thanks for Subscribing!';
 				}
 				loading = false;
 			};

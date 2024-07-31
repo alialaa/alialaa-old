@@ -1,22 +1,22 @@
 import type { Actions } from './$types';
-import { redirect } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 
 export const prerender = false;
 
 export const actions = {
-	default: async ({ request, fetch, url }) => {
+	default: async ({ request, fetch }) => {
 		const data = await request.formData();
 		const email = data.get('email');
 		const name = data.get('name') || '';
-		const redirectTo = url.searchParams.get('redirect');
 
 		if (!email) {
-			redirect(
-				303,
-				redirectTo
-					? `${redirectTo}?error=Email must be provided.`
-					: `/?error=Email must be provided.`
-			);
+			return fail(400, { newsletterError: 'Email must be provided.' });
+			// redirect(
+			// 	303,
+			// 	redirectTo
+			// 		? `${redirectTo}?error=Email must be provided.`
+			// 		: `/?error=Email must be provided.`
+			// );
 		}
 
 		const info: { [key: string]: string } = {
@@ -42,10 +42,12 @@ export const actions = {
 		const resText = await res.text();
 
 		if (res.status === 200) {
-			redirect(303, redirectTo ? `${redirectTo}?success=${resText}` : `/?success=${resText}`);
+			return { newsletterSuccess: resText };
+			// redirect(303, redirectTo ? `${redirectTo}?success=${resText}` : `/?success=${resText}`);
 		} else {
 			const message = resText || 'An error has occured! Please try again later.';
-			redirect(303, redirectTo ? `${redirectTo}?error=${message}` : `/?success=${message}`);
+			return fail(res.status, { newsletterError: message });
+			// redirect(303, redirectTo ? `${redirectTo}?error=${message}` : `/?success=${message}`);
 		}
 	}
 } satisfies Actions;
