@@ -24,7 +24,7 @@
 	</div>
 	<form
 		method="POST"
-		action="/?/subscribeToNewsletter&redirect={$page.url.pathname}"
+		action="/newsletter?redirect={$page.url.pathname}"
 		use:enhance={({ cancel }) => {
 			if (loading) {
 				cancel();

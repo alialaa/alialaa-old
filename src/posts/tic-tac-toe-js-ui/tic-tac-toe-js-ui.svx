@@ -6,16 +6,20 @@ tags: ["JavaScript", "CSS"]
 featuredImage: ./ttt-ui.jpg
 ---
 
+<script>
+import Card from '$lib/components/Card.svelte'
+</script>
+
 [[lead]]
 | In the <a href="/blog/tic-tac-toe-js-minimax">previous part</a> we created a JavaScript class for the computer player. In this final part, we will build a simple user interface for the tic-tac-toe board. We will use classes and methods created in previous parts to simulate a game with a certain search depth and a starting player.
 
 
-<!-- <Box> -->
+<Card>
     <strong>
         View a <a href="https://codesandbox.io/s/elegant-merkle-dy0z6">demo</a> or visit{" "}
         <a href="https://github.com/alialaa/tic-tac-toe-js-2020">the project’s github page</a>.
     </strong>
-<!-- </Box> -->
+</Card>
 
 _This is the second part of a 3 parts series. Below you can find the list of other parts:_
 

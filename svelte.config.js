@@ -11,13 +11,14 @@ import rehypeSlug from 'rehype-slug';
 import unWrapImages from 'remark-unwrap-images';
 import remarkCustomBlocks from 'remark-custom-blocks';
 import toc from './mdsvex-toc.js';
+import relativeImages from 'mdsvex-relative-images';
 
 async function highlighter(code, lang = 'text') {
 	const highlighter = await createHighlighter({
 		themes: ['github-light', 'github-dark-default'],
-		langs: ['javascript', 'typescript', 'html', 'css']
+		langs: ['javascript', 'typescript', 'html', 'css', 'bash']
 	});
-	await highlighter.loadLanguage('javascript', 'typescript', 'html', 'css');
+	await highlighter.loadLanguage('javascript', 'typescript', 'html', 'css', 'bash');
 	const html = escapeSvelte(
 		highlighter.codeToHtml(code, {
 			lang,
@@ -40,6 +41,7 @@ const config = {
 			smartypants: true,
 			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
 			remarkPlugins: [
+				relativeImages,
 				remarkCodeTitle,
 				unWrapImages,
 				readingTime,

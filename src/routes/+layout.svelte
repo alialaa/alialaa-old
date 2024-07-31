@@ -11,6 +11,8 @@
 	import Footer from '$components/Footer.svelte';
 	import { X } from 'lucide-svelte';
 
+	// let hasError = false;
+	// let hasSuccess = false;
 	let hasError = $derived($page.url.searchParams.get('error'));
 	let hasSuccess = $derived($page.url.searchParams.get('success'));
 

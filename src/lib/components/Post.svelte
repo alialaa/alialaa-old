@@ -29,7 +29,8 @@
 					</p>
 				</div>
 				<h2 class="title">
-					<a href={`/blog/rfgerg`}>Automating your WordPress Theme Development Workflow with Gulp</a
+					<a href={`/blog/tic-tac-toe-js-ui`}
+						>Automating your WordPress Theme Development Workflow with Gulp</a
 					>
 				</h2>
 			</header>

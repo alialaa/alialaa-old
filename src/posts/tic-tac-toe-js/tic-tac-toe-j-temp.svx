@@ -1,26 +1,28 @@
 ---
-title: "Tic-Tac-Toe with JavaScript: Creating the Board Class"
+title: 'Tic-Tac-Toe with JavaScript: Creating the Board Class'
 slug: tic-tac-toe-js
 date: 2020-07-23
-tags: ["JavaScript"]
+tags: ['JavaScript']
 featuredImage: ./ttt.jpg
 ---
+
+<script>import Card from '$lib/components/Card.svelte'</script>
 
 [[lead]]
 | In this series of article we will create an unbeatable tic-tac-toe game using JavaScript. This is a reiteration on [an article that I wrote in 2017 on medium](https://medium.com/@alialaa/tic-tac-toe-with-javascript-es2015-set-up-the-project-with-webpack-547eadca8016). Some things have changed however since 2017. In the old version of the article I used webpack to process ESNext JS into ES5 because most browsers didn't support modules, classes and other ESNext features at the time. This time however I am going to assume you are using a modern browser and we are going to use ESNext features directly without any transpiling.
 
 _This article consists of 3 parts. In this first part, we will start building the logic behind the Tic-Tac-Toe board. We will learn how to create a Javascript class that represents the board. This class will hold the current state of the board in addition to some methods that will help us get some information about the board._
 
-<Box>
-    <strong>
-        View a <a href="https://codesandbox.io/s/elegant-merkle-dy0z6">demo</a> or visit{" "}
-        <a href="https://github.com/alialaa/tic-tac-toe-js-2020">the project’s github page</a>.
-    </strong>
-</Box>
+<Card>
+	<strong>
+		View a <a href="https://codesandbox.io/s/elegant-merkle-dy0z6">demo</a> or visit{' '}
+		<a href="https://github.com/alialaa/tic-tac-toe-js-2020">the project’s github page</a>.
+	</strong>
+</Card>
 
--   Part 1: Building the Tic-Tac-Toe Board
--   <Link to="/blog/tic-tac-toe-js-minimax">Part 2: AI Player with Minimax Algorithm</Link>
--   <Link to="/blog/tic-tac-toe-js-ui">Part 3: Building the User Interface</Link>
+- Part 1: Building the Tic-Tac-Toe Board
+- <a to="/blog/tic-tac-toe-js-minimax">Part 2: AI Player with Minimax Algorithm</a>
+- <a to="/blog/tic-tac-toe-js-ui">Part 3: Building the User Interface</a>
 
 ## Folder Structure
 
@@ -37,7 +39,7 @@ project
 
 Inside of **index.html** we will have a basic html document. At the bottom of the document we will import our **script.js** file using a script tag. And since we are going to use [modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), we will have to add `js›type="module"` to the script tag:
 
-```html:title=index.html
+```html title="index.html"
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -55,7 +57,7 @@ Inside of **index.html** we will have a basic html document. At the bottom of th
 
 Let's now try to add some code in our **classes/board.js** file and then import that file into our **script.js** file and make sure that our code will run in the browser. So in **classes/board.js** let's add a simple class:
 
-```js:title=board.js
+```js title="board.js"
 export default class Board {
     constructor() {
         console.log("Hello Board");
@@ -65,7 +67,7 @@ export default class Board {
 
 Now in our **script.js**, let's try to import and initialize our Board class:
 
-```js:title=script.js
+```js title="script.js"
 import Board from "./classes/board.js";
 const board = new Board();
 ```
@@ -92,11 +94,12 @@ You will get a localhost url like **http://localhost:5000** which you can open i
 
 Let's now start building our board. First, we will have one argument for our board class. This argument will be an array of length 9. This array will hold the state of the board. The state refers to the current configuration of the board or the positions of X’s and O’s. Each index in the array will refer to a certain cell in the board. If we define the state as ["x","","o","o","","","x","",""] it will map to this:
 
-![Image showing two tic tac toe boards. The first one shows the designated array index for each cell. The second shows an example of a board with a certain configuration array.](./images/config-map.png "The board on the left shows the designated array index for each cell. On the right is a board with an array configuration of: ["x","","o","o","","","x","",""].")
+![Image showing two tic tac toe boards. The first one shows the designated array index for each cell. The second shows an example of a board with a certain configuration array.](./images/config-map.png)
+"The board on the left shows the designated array index for each cell. On the right is a board with an array configuration of: ["x","","o","o","","","x","",""]."
 
 Let's now go to our **board.js** and add our argument for the class's constructor function which is the state of the board. And the default will ba an empty board; thus, an array of 9 empty cells:
 
-```js:title=board.js
+```js title="board.js"
 export default class Board {
     constructor(state = ["", "", "", "", "", "", "", "", ""]) {
         this.state = state;
@@ -108,7 +111,7 @@ export default class Board {
 
 The first method we are going to create is not necessary for the game’s logic; however, it’s going to help us visualize the board in the browser’s console as we develop. This method is going to be called **printFormattedBoard**:
 
-```js:title=board.js
+```js title="board.js"
 printFormattedBoard() {
     let formattedString = '';
     this.state.forEach((cell, index) => {
@@ -124,7 +127,7 @@ printFormattedBoard() {
 
 This methods iterates the state array using forEach, and prints each cell content + a vertical line next to it. Every 3 cells, we print 3 horizontal lines using the \u2015 unicode character in a new line. We also make sure that we don’t print the 3 horizontal lines after the last 3 cells. To test this, in **script.js** let's type:
 
-```js:title=script.js
+```js title="script.js"
 import Board from "./classes/board.js";
 
 const board = new Board(["x", "o", "", "", "o", "", "", "", "o"]);
@@ -141,7 +144,7 @@ The next 3 methods will be used to check the current status of the board. We nee
 
 To check if the board is empty, we will use the array helper [every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every).
 
-```js:title=board.js
+```js title="board.js"
 isEmpty() {
     return this.state.every(function(cell) {
         return cell === "";
@@ -151,7 +154,7 @@ isEmpty() {
 
 The every helper will return true if every iteration returned true; i.e. if `js›cell === ""` is true for all cells. `js›cell === ""` can be refactored to `js›!cell` since an empty string is a false statement. Also, we can use arrow functions instead of normal functions. Thus, isEmpty and isFull can be written as so:
 
-```js:title=board.js
+```js title="board.js"
 isEmpty() {
     return this.state.every(cell => !cell);
 }
@@ -164,7 +167,7 @@ The last thing we need to check is the terminal state board. This is method is g
 
 In case a win or a draw happens, an object will be returned containing the winner, the direction of winning (vertical, horizontal or diagonal) and the row/column number where the winner won or in case of diagonal wins; the name of the diagonal will be returned (**main** for the diagonal from the top left corner to the bottom right corner & **counter** for the diagonal from the top right to the bottom left corner). This object will be very useful when we build our UI for the game.
 
-```js:title=board.js
+```js title="board.js"
 isTerminal() {
 	//Return False if board in empty
     if(this.isEmpty()) return false;
@@ -210,7 +213,7 @@ isTerminal() {
 
 Let's now test this code by trying out some board configurations and logging the values of our methods. For example by having this code in script.js:
 
-```js:title=script.js
+```js title="script.js"
 import Board from "./classes/board.js";
 
 const board = new Board(["x", "o", "x", "x", "o", "o", "o", "o", "x"]);
@@ -230,7 +233,7 @@ Try out some other board states and make sure everything is working as expected!
 
 The **insert** method will simply insert a symbol at a certain cell. The method will receive the symbol (x or o) and the position (cell index). First We will return an error if the cell does not exist or if the symbol is invalid just to make sure that we don't accidentally misuse this method. Then we will return false if the cell is already occupied. Otherwise we will simply update the state array and return true:
 
-```js:title=board.js
+```js title="board.js"
 insert(symbol, position) {
     if(![0,1,2,3,4,5,6,7,8].includes(position)) {
         throw new Error('Cell index does not exist!')
@@ -248,7 +251,7 @@ insert(symbol, position) {
 
 Finally, we will create a method that returns an array containing all available moves. This will simply iterate the state array and pushes to the returned array the index of the cell only if it’s empty:
 
-```js:title=board.js
+```js title="board.js"
 getAvailableMoves() {
     const moves = [];
     this.state.forEach((cell, index) => {
@@ -260,7 +263,7 @@ getAvailableMoves() {
 
 Let's now do some testing. Assuming we have this board configuration, let's test some of our methods:
 
-```js:title=script.js
+```js title="script.js"
 import Board from "./classes/board.js";
 
 const board = new Board(["x", "o", "", "x", "o", "", "o", "", "x"]);
@@ -278,7 +281,7 @@ This should be our result:
 
 This is how our completed Board class should look like:
 
-```js:title=board.js
+```js title="board.js"
 /**
  * @desc This class represents the board, contains methods that checks board state, insert a symbol, etc..
  * @param {Array} state - an array representing the state of the board

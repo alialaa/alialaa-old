@@ -11,7 +11,7 @@
 <style lang="scss">
 	.card {
 		padding: 1rem;
-		padding-bottom: 0.6rem;
+		// padding-bottom: 0.6rem;
 		border: 1px solid var(--card-border);
 		background-color: var(--card);
 		position: relative;

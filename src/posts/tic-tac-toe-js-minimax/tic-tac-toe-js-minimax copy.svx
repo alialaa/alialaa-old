@@ -22,9 +22,9 @@ import Card from '$lib/components/Card.svelte'
 
 _This is the second part of a 3 parts series. Below you can find the list of other parts:_
 
--   <a href="/blog/tic-tac-toe-js">Part 1: Building the Tic-Tac-Toe Board</a>
+-   <a to="/blog/tic-tac-toe-js">Part 1: Building the Tic-Tac-Toe Board</a>
 -   Part 2: AI Player with Minimax Algorithm
--   <a href="/blog/tic-tac-toe-js-ui">Part 3: Building the User Interface</a>
+-   <a to="/blog/tic-tac-toe-js-ui">Part 3: Building the User Interface</a>
 
 <br />
 
