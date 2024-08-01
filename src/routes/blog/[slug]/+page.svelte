@@ -264,7 +264,7 @@
 						color: #fff;
 						padding: functions.toRem(5) functions.toRem(10);
 						&:focus {
-							outline-color: #fff;
+							outline-color: var(--op-bg);
 						}
 					}
 				}

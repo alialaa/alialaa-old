@@ -76,22 +76,39 @@ pre.shiki code .line::before {
 }
 
 pre.shiki {
+	button.copy:focus {
+		position: absolute;
+		width: auto;
+		height: auto;
+		right: 16px;
+		top: 16px;
+		left: auto;
+	}
 	&:hover {
 		button.copy {
-			display: block;
+			position: absolute;
+			width: auto;
+			height: auto;
+			right: 16px;
+			top: 16px;
+			left: auto;
 		}
 	}
 	button.copy {
 		position: absolute;
-		right: 16px;
-		top: 16px;
+
 		padding: 7px 14px;
-		display: none;
 		background-color: transparent;
 		border: 1px solid var(--code-border);
 		font-weight: 400;
 		font-family: 'Visby', Arial, Helvetica, sans-serif;
 		font-size: functions.toRem(14);
+		position: absolute;
+		left: -10000px;
+		top: auto;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
 		cursor: pointer;
 		span.ready,
 		span.success {
