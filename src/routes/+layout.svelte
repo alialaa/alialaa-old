@@ -114,7 +114,7 @@
 	</div>
 {/if}
 
-<Waves>
+<Waves data-route={$page.route.id}>
 	<Header />
 	{#if $page.url.pathname === '/'}<Hero />{/if}
 </Waves>

@@ -46,9 +46,10 @@
 <Testimonials />
 
 <style lang="scss">
-	:global(.waves-wrapper) {
+	:global(.waves-wrapper[data-route='/']) {
 		padding-bottom: 5vh !important;
 	}
+
 	.intro {
 		font-size: 1.3rem;
 		max-width: 1300px;

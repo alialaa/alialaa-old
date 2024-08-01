@@ -72,7 +72,7 @@
 </main>
 
 <style lang="scss">
-	:global(.waves-wrapper) {
+	:global(.waves-wrapper[data-route='/blog/[slug]']) {
 		padding-bottom: 40vh !important;
 		@include breakpoint.up('xl') {
 			padding-bottom: 50vh !important;
