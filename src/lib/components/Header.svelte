@@ -108,7 +108,7 @@
 		}
 		.preferences {
 			position: absolute;
-			top: 0vh;
+			top: -5vh;
 			left: 15px;
 			z-index: 100;
 			display: flex;

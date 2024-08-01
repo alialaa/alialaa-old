@@ -21,8 +21,8 @@ _This article consists of 3 parts. In this first part, we will start building th
 </Card>
 
 - Part 1: Building the Tic-Tac-Toe Board
-- <a to="/blog/tic-tac-toe-js-minimax">Part 2: AI Player with Minimax Algorithm</a>
-- <a to="/blog/tic-tac-toe-js-ui">Part 3: Building the User Interface</a>
+- <a href="/blog/tic-tac-toe-js-minimax">Part 2: AI Player with Minimax Algorithm</a>
+- <a href="/blog/tic-tac-toe-js-ui">Part 3: Building the User Interface</a>
 
 ## Folder Structure
 

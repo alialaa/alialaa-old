@@ -2,13 +2,14 @@ pre.shiki {
 	width: 100%;
 	padding: 1.5rem;
 	position: relative;
-	margin: 0 0 2rem 0;
+	margin: 2rem 0;
 	overflow: auto;
 }
 [data-remark-code-title='true'] {
 	padding: 0.75rem 1.5rem;
 	background-color: var(--code-bg);
-	margin-bottom: 1px;
+	border-bottom: 1px solid var(--bg);
+	margin: 2rem 0 -2rem;
 	font-family:
 		'dm',
 		PT Mono,
@@ -19,7 +20,7 @@ pre.shiki {
 		monospace;
 }
 pre.shiki code {
-	font-size: 1.15rem;
+	font-size: 1.2rem;
 	font-family:
 		'dm',
 		PT Mono,
