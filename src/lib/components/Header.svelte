@@ -41,6 +41,10 @@
 	.wrapper {
 		text-align: center;
 		position: relative;
+		// position: absolute;
+		// width: 100%;
+		// top: 2rem;
+		// z-index: 100;
 		.navigation {
 			margin-top: 1rem;
 			@include breakpoint.down('md') {
@@ -104,7 +108,7 @@
 		}
 		.preferences {
 			position: absolute;
-			top: -5vh;
+			top: 0vh;
 			left: 15px;
 			z-index: 100;
 			display: flex;

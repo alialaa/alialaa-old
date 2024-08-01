@@ -5,12 +5,18 @@
 	import FeaturedPosts from './home/FeaturedPosts.svelte';
 	import FeaturedCourses from './home/FeaturedCourses.svelte';
 	import Testimonials from './home/Testimonials.svelte';
+	import Hero from './home/Hero.svelte';
+	import Waves from '$components/Waves.svelte';
 
 	let { data, form } = $props();
 	const { getColorScheme } = getContext<PreferencesContext>('preferences');
 	console.log(form);
 	let colorScheme = $derived(getColorScheme());
 </script>
+
+<!-- <Waves>
+	<Hero />
+</Waves> -->
 
 <div class="content-wrapper">
 	<p class="intro">

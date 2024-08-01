@@ -23,7 +23,10 @@ async function highlighter(code, lang = 'text') {
 		highlighter.codeToHtml(code, {
 			lang,
 			themes: { light: 'github-light', dark: 'github-dark-default' },
-			transformers: [addCopyButton(code)]
+			transformers: [addCopyButton(code)],
+			colorReplacements: {
+				'#0d1117': '#15151e'
+			}
 		})
 	);
 	return `{@html \`${html}\` }`;

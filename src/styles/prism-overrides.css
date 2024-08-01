@@ -1,5 +1,25 @@
+pre.shiki {
+	width: 100%;
+	padding: 1.5rem;
+	position: relative;
+	margin: 0 0 2rem 0;
+	overflow: auto;
+}
+[data-remark-code-title='true'] {
+	padding: 0.75rem 1.5rem;
+	background-color: var(--code-bg);
+	margin-bottom: 1px;
+	font-family:
+		'dm',
+		PT Mono,
+		Consolas,
+		Monaco,
+		'Andale Mono',
+		'Ubuntu Mono',
+		monospace;
+}
 pre.shiki code {
-	font-size: 1.1rem;
+	font-size: 1.15rem;
 	font-family:
 		'dm',
 		PT Mono,
@@ -10,7 +30,44 @@ pre.shiki code {
 		monospace;
 }
 
-pre.shiki code {
+pre.shiki button.copy {
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	height: 28px;
+	width: 28px;
+	padding: 0;
+	display: flex;
+
+	& span {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+
+	& .ready {
+		background-image: url(/icons/copy.svg);
+	}
+
+	& .success {
+		display: none;
+		background-image: url(/icons/copy-success.svg);
+	}
+
+	&.copied {
+		& .success {
+			display: block;
+		}
+
+		& .ready {
+			display: none;
+		}
+	}
+}
+
+/* pre.shiki code {
 	counter-reset: step;
 	counter-increment: step 0;
 }
@@ -22,9 +79,12 @@ pre.shiki code .line::before {
 	margin-right: 1.5rem;
 	display: inline-block;
 	text-align: right;
-	color: rgba(115, 138, 148, 0.4);
-}
+	color: var(--card-border);
+} */
 
+:root {
+	--shiki-dark-bg: var(--card) !important;
+}
 @media (prefers-color-scheme: dark) {
 	html.no-js .shiki,
 	html.no-js .shiki span {
