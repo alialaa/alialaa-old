@@ -10,6 +10,32 @@
 	import Hero from './home/Hero.svelte';
 	import Footer from '$components/Footer.svelte';
 	import { X } from 'lucide-svelte';
+	import NProgress from 'nprogress';
+	import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
+	import 'nprogress/nprogress.css';
+
+	NProgress.configure({ showSpinner: false });
+
+	beforeNavigate(() => {
+		NProgress.start();
+	});
+
+	afterNavigate(() => {
+		NProgress.done();
+	});
+
+	onNavigate((navigation) => {
+		// @ts-ignore
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			// @ts-ignore
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 
 	let hasError = false;
 	let hasSuccess = false;

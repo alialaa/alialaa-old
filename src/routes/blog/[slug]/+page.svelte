@@ -50,7 +50,20 @@
 						{/if}
 					</div>
 				</header>
+
 				<div class="post-content">
+					<div class="toc">
+						<Card>
+							<h2>Table of Contents</h2>
+							<nav>
+								<ol>
+									{#each data.meta.toc as item}
+										<li><a href="#{item.id}">{item.text}</a></li>
+									{/each}
+								</ol>
+							</nav>
+						</Card>
+					</div>
 					<svelte:component this={data.content} />
 				</div>
 			</article>
@@ -60,44 +73,57 @@
 
 <style lang="scss">
 	:global(.waves-wrapper) {
-		padding-bottom: 50vh !important;
+		padding-bottom: 40vh !important;
+		@include breakpoint.up('xl') {
+			padding-bottom: 50vh !important;
+		}
 	}
 	.wrapper {
 		margin-top: -30vh;
 		position: relative;
 	}
+	.toc {
+		h2 {
+			margin: 0 0 functions.toRem(10) 0 !important;
+			font-size: functions.toRem(20) !important;
+		}
+		ol {
+			margin: 0;
+			padding: 0 !important;
+			list-style-position: inside;
+			li {
+				font-size: functions.toRem(18);
+				margin-bottom: 5px;
+				opacity: 0.8;
+				font-weight: 500;
+				&:hover {
+					opacity: 1;
+				}
+				a {
+					text-decoration: none;
+				}
+			}
+		}
+	}
 	.inner {
 		display: grid;
-		grid-template-columns: 3fr 1fr;
-		gap: 60px;
-		position: relative;
 
+		position: relative;
+		@include breakpoint.up('xl') {
+			grid-template-columns: 3fr 1fr;
+			gap: 60px;
+		}
 		aside.toc {
 			order: 2;
 			z-index: 10;
 			padding-top: 100px;
 			flex: 1;
-			h2 {
-				margin: 0 0 functions.toRem(10) 0;
-				font-size: functions.toRem(20);
+			display: none;
+			margin-bottom: functions.toRem(80);
+			@include breakpoint.up('xl') {
+				display: block;
 			}
-			ol {
-				margin: 0;
-				padding: 0;
-				list-style-position: inside;
-				li {
-					font-size: functions.toRem(18);
-					margin-bottom: 5px;
-					opacity: 0.8;
-					font-weight: 500;
-					&:hover {
-						opacity: 1;
-					}
-					a {
-						text-decoration: none;
-					}
-				}
-			}
+
 			.stick {
 				position: sticky;
 				top: 2rem;
@@ -114,6 +140,13 @@
 	}
 	.post-content {
 		padding: 0 0 functions.toRem(80);
+		.toc {
+			margin-bottom: functions.toRem(40);
+
+			@include breakpoint.up('xl') {
+				display: none;
+			}
+		}
 		:global(h1),
 		:global(h2),
 		:global(h3),

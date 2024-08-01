@@ -17,6 +17,7 @@
 	--feat-course-gradient: rgba(249, 245, 253, 0.88);
 	--pattern-opacity: 0.7;
 	--code-bg: #fff;
+	--code-border: #c5b1c9;
 }
 @mixin darkVars() {
 	--bg: #05010f;
@@ -35,6 +36,7 @@
 	--feat-course-gradient: rgba(6, 0, 16, 0.76);
 	--pattern-opacity: 0.2;
 	--code-bg: #15151e;
+	--code-border: #3a344c;
 }
 
 :root {
@@ -59,6 +61,14 @@
 ::selection {
 	background-color: var(--purple2);
 	color: #fff;
+}
+
+#nprogress .bar {
+	background: linear-gradient(90deg, #c11dd4 0%, #8c44db 100%) !important;
+	height: 4px !important;
+}
+#nprogress .peg {
+	box-shadow: none !important;
 }
 
 body {
