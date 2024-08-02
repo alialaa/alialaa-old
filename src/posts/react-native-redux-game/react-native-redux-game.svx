@@ -1,18 +1,18 @@
 ---
-title: How I Created a Simple Game with Expo, React Native & Redux
+title: How I Created a Simple Game with Expo, React Native and Redux
 slug: react-native-redux-game
 date: 2017-10-20
-tags: ["React Native", "Redux", "Expo"]
+tags: ['React Native', 'Redux', 'Expo']
 featuredImage: ./dktp.jpg
 ---
 
 This is an article that [I wrote in 2017 on medium](https://codeburst.io/how-i-created-a-simple-game-with-expo-react-native-redux-cf4f0580f7f3). The dependencies used might be outdated; however, It might still be useful to take a look at. At the time I wrote this article, [expo](https://expo.io/) was relatively new and I was working with it on a big react native project and I thought it was completely magical. So I decided to try and create a simple game using expo and it turned out OK. In this article I shed some light on my experience creating the game. [You can find the article here.](https://codeburst.io/how-i-created-a-simple-game-with-expo-react-native-redux-cf4f0580f7f3) Here's a demo of the final outcome:
 
 <iframe
-    src="https://player.vimeo.com/video/238110455"
-    width="640"
-    height="640"
-    frameborder="0"
-    allow="autoplay; fullscreen"
-    allowfullscreen
+	src="https://player.vimeo.com/video/238110455"
+	width="640"
+	height="640"
+	frameborder="0"
+	allow="autoplay; fullscreen"
+	allowfullscreen
 ></iframe>

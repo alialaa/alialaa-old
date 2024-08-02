@@ -1,0 +1,12 @@
+---
+title: Managing WordPress Metadata in Gutenberg Using a Sidebar Plugin
+slug: gutenberg-metadata-sidebar-plugin
+date: 2019-02-20
+tags: ["WordPress", "Gutenberg", "ReactJS"]
+featuredImage: ./gutenberg4.jpg
+---
+
+[[lead]]
+| In this article, we will discuss metaboxes and metafields in WordPress. Specifically, we’ll cover how to replace the old PHP metaboxes in Gutenberg and extend Gutenberg’s sidebar to add a React component that will be used to manipulate the metadata using the global JavaScript Redux-like stores. Note that metadata in Gutenberg can also be manipulated using blocks. And both ways are discussed in <a href="/courses/gutenberg">my course</a>, however, in this article I am going to focus on managing metadata in the sidebar since I believe this method will be used more often.
+
+This article was written for CSS Tricks on the 20th of february, 2019. [You can read it here](https://css-tricks.com/managing-wordpress-metadata-in-gutenberg-using-a-sidebar-plugin/).

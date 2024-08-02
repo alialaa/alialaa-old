@@ -3,7 +3,7 @@ title: 'Tic-Tac-Toe with JavaScript: Creating the Board Class'
 slug: tic-tac-toe-js
 date: 2020-07-23
 tags: ['JavaScript']
-featuredImage: ./ttt.jpg
+featured: true
 ---
 
 <script>import Card from '$lib/components/Card.svelte'</script>

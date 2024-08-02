@@ -3,7 +3,7 @@ title: "Tic-Tac-Toe with JavaScript: Building the User Interface"
 slug: tic-tac-toe-js-ui
 date: 2020-07-25
 tags: ["JavaScript", "CSS"]
-featuredImage: ./ttt-ui.jpg
+featured: true
 ---
 
 <script>

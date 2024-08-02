@@ -1,4 +1,5 @@
 import { UDEMY_API_TOKEN } from '$env/static/private';
+import type { Post } from '$types';
 import type { PageServerLoad } from './$types';
 import fs from 'fs';
 import { parse } from 'yaml';
@@ -58,7 +59,10 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		featuredCoursesReviews.push(...filtered);
 	});
 
+	const featuredPostsRes = await fetch('api/posts?featured=true&limit=3');
+	const featuredPostsResJSON = await featuredPostsRes.json();
 	return {
+		featuredPosts: featuredPostsResJSON.posts as Post[],
 		featuredCoursesReviews,
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		featuredCourses: coursesJSON.filter((c: any) =>

@@ -2,13 +2,15 @@
 	import '../../../styles/prism-overrides.scss';
 	import formatDate from '$lib/utils/format-date';
 	import Card from '$components/Card.svelte';
+	import SocialIcon from '$components/SocialIcon.svelte';
 	export let data;
 </script>
 
 <main class="wrapper">
+	<div class="progress"><div class="value"></div></div>
 	<div class="content-wrapper">
 		<div class="inner">
-			{#if data.meta.toc}
+			{#if data.meta.toc && data.meta.toc.length > 0}
 				<aside class="toc">
 					<div class="stick">
 						<Card>
@@ -36,7 +38,7 @@
 						{#if data.meta.readingStats}
 							{@const time = Math.round(data.meta.readingStats.minutes)}
 							<p>
-								Reading Time: {time} minute{time > 1 && 's'}
+								Reading Time: {time || 1} minute{#if time > 1}s{/if}
 							</p>
 						{/if}
 						{#if data.meta.tags && data.meta.tags.length > 0}
@@ -52,20 +54,46 @@
 				</header>
 
 				<div class="post-content">
-					<div class="toc">
-						<Card>
-							<h2>Table of Contents</h2>
-							<nav>
-								<ol>
-									{#each data.meta.toc as item}
-										<li><a href="#{item.id}">{item.text}</a></li>
-									{/each}
-								</ol>
-							</nav>
-						</Card>
-					</div>
+					{#if data.meta.toc && data.meta.toc.length > 0}
+						<div class="toc">
+							<Card>
+								<h2>Table of Contents</h2>
+								<nav>
+									<ol>
+										{#each data.meta.toc as item}
+											<li><a href="#{item.id}">{item.text}</a></li>
+										{/each}
+									</ol>
+								</nav>
+							</Card>
+						</div>
+					{/if}
 					<svelte:component this={data.content} />
 				</div>
+				<footer id="post-footer">
+					<div class="container">
+						<div class="tags-edit">
+							<div class="tags-wrap">
+								{#if data.meta.tags && data.meta.tags.length > 0}
+									<p>Tagged:</p>
+									<ul class="tags">
+										{#each data.meta.tags as tag}
+											<li>
+												<a href={`/tags/${tag.split(' ').join('-').toLowerCase()}`}>#{tag}</a>
+											</li>
+										{/each}
+									</ul>
+								{/if}
+							</div>
+							<a
+								href={`https://github.com/alialaa/alialaa/blob/master/src/posts/${data.meta.slug}/${data.meta.slug}.svx`}
+								class="edit-link"
+							>
+								<SocialIcon platform="Github" focusable="false" aria-hidden="true" /> Edit on GitHub
+							</a>
+						</div>
+					</div>
+				</footer>
 			</article>
 		</div>
 	</div>
@@ -78,9 +106,34 @@
 			padding-bottom: 50vh !important;
 		}
 	}
+	@keyframes progress {
+		from {
+			width: 0;
+		}
+		to {
+			width: 100%;
+		}
+	}
+	.progress {
+		position: fixed;
+		top: 0px;
+		z-index: 100;
+		left: 0px;
+		width: 100%;
+		height: 5px;
+		.value {
+			background-image: linear-gradient(-90deg, var(--purple) 0%, var(--purple2) 100%);
+			height: 5px;
+			width: 0;
+			animation: linear both progress;
+			animation-timeline: --post-content;
+			animation-range: exit-crossing 0% contain 100%;
+		}
+	}
 	.wrapper {
 		margin-top: -30vh;
 		position: relative;
+		view-timeline: --post-content;
 	}
 	.toc {
 		h2 {
@@ -119,7 +172,7 @@
 			padding-top: 100px;
 			flex: 1;
 			display: none;
-			margin-bottom: functions.toRem(80);
+			margin-bottom: functions.toRem(120);
 			@include breakpoint.up('xl') {
 				display: block;
 			}
@@ -139,7 +192,7 @@
 		}
 	}
 	.post-content {
-		padding: 0 0 functions.toRem(80);
+		padding: 0 0 functions.toRem(60);
 		.toc {
 			margin-bottom: functions.toRem(40);
 
@@ -178,9 +231,14 @@
 			margin: 3rem 0;
 			display: block;
 		}
+		:global(iframe) {
+			max-width: 100%;
+			margin: 3rem 0;
+		}
 
 		:global(h2) {
 			margin: functions.toRem(80) 0 functions.toRem(25);
+			text-decoration: underline solid var(--purple);
 		}
 		:global(p) {
 			font-size: functions.toRem(19.5);
@@ -242,33 +300,14 @@
 		// flex: 3;
 		min-width: 0;
 		header {
-			max-width: 800px;
+			max-width: 900px;
 			margin-bottom: functions.toRem(80);
 			h1 {
 				font-size: max(calc(1.5rem + 1.8vw), 2.4rem);
 				font-weight: 800;
 				margin-bottom: functions.toRem(20);
 			}
-			.tags {
-				margin: 0;
-				padding: 0;
-				margin-top: functions.toRem(50);
-				list-style: none;
-				li {
-					display: inline-block;
-					margin-right: functions.toRem(10);
-					margin-bottom: functions.toRem(10);
-					font-size: functions.toRem(15);
-					a {
-						background: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%);
-						color: #fff;
-						padding: functions.toRem(5) functions.toRem(10);
-						&:focus {
-							outline-color: var(--op-bg);
-						}
-					}
-				}
-			}
+
 			.info {
 				font-size: functions.toRem(18);
 				font-weight: 500;
@@ -282,6 +321,73 @@
 						content: '|';
 						margin: 0 0.7rem;
 					}
+				}
+			}
+		}
+	}
+	.tags {
+		margin: 0;
+		padding: 0;
+		margin-top: functions.toRem(50);
+		list-style: none;
+		li {
+			display: inline-block;
+			margin-right: functions.toRem(10);
+			margin-bottom: functions.toRem(10);
+			font-size: functions.toRem(15);
+			a {
+				background: linear-gradient(-90deg, #c11dd4 0%, #8c44db 100%);
+				color: #fff;
+				padding: functions.toRem(5) functions.toRem(10);
+				&:focus {
+					outline-color: var(--op-bg);
+				}
+			}
+		}
+	}
+	#post-footer {
+		padding: 0 0 functions.toRem(120) 0;
+		.tags-edit {
+			display: flex;
+			flex-direction: column;
+			font-size: functions.toRem(18);
+			justify-content: space-between;
+
+			// margin-bottom: functions.toRem(40);
+			@include breakpoint.up('md') {
+				flex-direction: row;
+				align-items: center;
+			}
+			.tags-wrap {
+				font-weight: 600;
+				margin-bottom: functions.toRem(20);
+				p {
+					margin-top: 0;
+					margin-bottom: functions.toRem(16);
+					font-size: functions.toRem(18);
+				}
+				ul.tags {
+					margin-top: 0;
+					li {
+						font-size: functions.toRem(17);
+						a {
+							&:focus {
+								outline-color: var(--links);
+							}
+						}
+					}
+				}
+			}
+			.edit-link {
+				font-weight: 600;
+				:global(svg) {
+					width: 25px;
+					height: auto;
+					margin-right: 5px;
+					vertical-align: middle;
+				}
+				:global(svg path) {
+					fill: var(--text);
 				}
 			}
 		}

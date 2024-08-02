@@ -2,7 +2,7 @@
 
 import { visit } from 'unist-util-visit';
 
-export default function excerpt(options = { length: 200 }) {
+export default function excerpt(options = { length: 400 }) {
 	return (tree, file) => {
 		let text = '';
 		visit(tree, ['text'], (node) => {

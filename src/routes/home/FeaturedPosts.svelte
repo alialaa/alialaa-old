@@ -1,6 +1,9 @@
-<script>
+<script lang="ts">
 	import Post from '$components/Post.svelte';
 	import { ArrowRight } from 'lucide-svelte';
+	import type { Post as PostType } from '$types';
+
+	let { posts }: { posts: PostType[] } = $props();
 </script>
 
 <section class="wrapper">
@@ -8,8 +11,8 @@
 		<div class="inner-content">
 			<h3><span class="">Featured Posts</span></h3>
 			<div class="posts">
-				{#each new Array(3).fill(null) as p}
-					<Post />
+				{#each posts as post}
+					<Post {post} />
 				{/each}
 			</div>
 			<div class="more-link">

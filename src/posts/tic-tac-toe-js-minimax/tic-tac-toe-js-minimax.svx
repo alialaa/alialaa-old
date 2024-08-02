@@ -3,7 +3,7 @@ title: "Tic-Tac-Toe with JavaScript: AI Player with Minimax Algorithm"
 slug: tic-tac-toe-js-minimax
 date: 2020-07-24
 tags: ["JavaScript"]
-featuredImage: ./minimax.jpg
+featured: true
 ---
 
 <script>
