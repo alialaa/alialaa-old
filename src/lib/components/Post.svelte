@@ -29,7 +29,7 @@
 					{/if}
 				</div>
 				<h2 class="title">
-					<a href={`/blog/tic-tac-toe-js-ui`}>{post.title}</a>
+					<a href="/blog/{post.slug}">{post.title}</a>
 				</h2>
 			</header>
 			<p class="excerpt">

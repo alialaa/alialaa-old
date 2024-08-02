@@ -1,11 +1,7 @@
-import { json } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
 import type { Post } from '$types';
 
-export const GET: RequestHandler = ({ url }) => {
-	const tag = url.searchParams.get('tag');
-	const limit = url.searchParams.get('limit');
-	const featured = url.searchParams.get('featured');
+export default function getPosts(options?: { limit?: number; featured?: boolean; tag?: string }) {
+	const { limit, featured, tag } = options || {};
 	let posts: Post[] = [];
 	const tags: { name: string; count: number }[] = [];
 	const paths = import.meta.glob('/src/posts/**/*.svx', { eager: true });
@@ -41,6 +37,5 @@ export const GET: RequestHandler = ({ url }) => {
 		(first, second) =>
 			new Date(second.date as string).getTime() - new Date(first.date as string).getTime()
 	);
-
-	return json({ posts, tags });
-};
+	return { posts, tags };
+}

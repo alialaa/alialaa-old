@@ -101,7 +101,7 @@
 
 <style lang="scss">
 	:global(.waves-wrapper[data-route='/blog/[slug]']) {
-		padding-bottom: 40vh !important;
+		padding-bottom: 50vh !important;
 		@include breakpoint.up('xl') {
 			padding-bottom: 50vh !important;
 		}
@@ -131,9 +131,12 @@
 		}
 	}
 	.wrapper {
-		margin-top: -30vh;
+		margin-top: -40vh;
 		position: relative;
 		view-timeline: --post-content;
+		@include breakpoint.up('xl') {
+			margin-top: -35vh !important;
+		}
 	}
 	.toc {
 		h2 {

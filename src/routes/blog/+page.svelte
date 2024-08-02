@@ -38,17 +38,17 @@
 
 <style lang="scss">
 	:global(.waves-wrapper[data-route='/blog']) {
-		padding-bottom: 40vh !important;
+		padding-bottom: 50vh !important;
 		@include breakpoint.up('xl') {
 			padding-bottom: 50vh !important;
 		}
 	}
 	.wrapper {
-		margin-top: -35vh;
+		margin-top: -40vh;
 		padding-bottom: functions.toRem(120);
 		position: relative;
 		@include breakpoint.up('xl') {
-			margin-top: -40vh !important;
+			margin-top: -35vh !important;
 		}
 	}
 	.cols {

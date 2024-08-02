@@ -2,7 +2,7 @@ import type { Post, Tag } from '$types';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ fetch }) => {
-	const res = await fetch('api/posts');
+	const res = await fetch('api/posts/all');
 	const { posts, tags }: { posts: Post[]; tags: Tag[] } = await res.json();
 	// console.log(posts);
 	return {

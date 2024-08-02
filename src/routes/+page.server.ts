@@ -59,7 +59,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		featuredCoursesReviews.push(...filtered);
 	});
 
-	const featuredPostsRes = await fetch('api/posts?featured=true&limit=3');
+	const featuredPostsRes = await fetch('api/posts/featured');
 	const featuredPostsResJSON = await featuredPostsRes.json();
 	return {
 		featuredPosts: featuredPostsResJSON.posts as Post[],
