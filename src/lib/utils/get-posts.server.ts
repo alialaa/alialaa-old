@@ -1,4 +1,5 @@
 import type { Post } from '$types';
+import generateTagSlug from './generate-tag-slug';
 
 export default function getPosts(options?: { limit?: number; featured?: boolean; tag?: string }) {
 	const { limit, featured, tag } = options || {};
@@ -16,7 +17,7 @@ export default function getPosts(options?: { limit?: number; featured?: boolean;
 		if (featured && !post.featured) continue;
 		if (metadata.tags) {
 			metadata.tags.forEach((tag) => {
-				const existing = tags.find((t) => t.name === tag);
+				const existing = tags.find((t) => generateTagSlug(t.name) === generateTagSlug(tag));
 				if (existing) {
 					existing.count++;
 				} else {
@@ -25,7 +26,7 @@ export default function getPosts(options?: { limit?: number; featured?: boolean;
 			});
 		}
 		if (tag) {
-			if (metadata.tags && metadata.tags.includes(tag)) {
+			if (metadata.tags && metadata.tags.find((t) => generateTagSlug(t) === generateTagSlug(tag))) {
 				posts.push(post);
 			}
 		} else {
