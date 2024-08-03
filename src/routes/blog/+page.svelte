@@ -1,9 +1,12 @@
 <script lang="ts">
+	import Head from '$components/Head.svelte';
 	import Post from '$components/Post.svelte';
 
 	let { data } = $props();
 	console.log(data.tags);
 </script>
+
+<Head title="The Blog" />
 
 <div class="wrapper">
 	<div class="content-wrapper">

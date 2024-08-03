@@ -5,12 +5,15 @@
 	import FeaturedPosts from './home/FeaturedPosts.svelte';
 	import FeaturedCourses from './home/FeaturedCourses.svelte';
 	import Testimonials from './home/Testimonials.svelte';
+	import Head from '$components/Head.svelte';
 
 	let { data, form } = $props();
 	const { getColorScheme } = getContext<PreferencesContext>('preferences');
 	console.log(form);
 	let colorScheme = $derived(getColorScheme());
 </script>
+
+<Head title="Home" />
 
 <div class="content-wrapper">
 	<p class="intro">

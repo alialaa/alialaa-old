@@ -2,11 +2,13 @@
 	import Post from '$components/Post.svelte';
 	import { page } from '$app/stores';
 	import generateTagSlug from '$lib/utils/generate-tag-slug.js';
+	import Head from '$components/Head.svelte';
 
 	let { data } = $props();
 	let selectedTag = $derived(data.tags.find((t) => generateTagSlug(t.name) === $page.params.slug));
-	console.log(selectedTag);
 </script>
+
+<Head title="Posts Tagged: #{selectedTag?.name}" />
 
 <div class="wrapper">
 	<div class="content-wrapper">

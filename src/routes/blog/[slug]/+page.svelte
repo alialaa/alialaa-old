@@ -3,8 +3,26 @@
 	import formatDate from '$lib/utils/format-date';
 	import Card from '$components/Card.svelte';
 	import SocialIcon from '$components/SocialIcon.svelte';
-	export let data;
+	import Head from '$components/Head.svelte';
+	let { data } = $props();
+	let structuredData = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'BlogPosting',
+		headline: data.meta.title,
+		datePublished: data.meta.date,
+		dateModified: data.meta.date,
+		author: {
+			'@type': 'Person',
+			name: 'Ali Alaa',
+			url: 'https://alialaa.dev'
+		}
+	});
 </script>
+
+<Head title={data.meta.title} description={data.meta.excerpt} />
+<svelte:head>
+	{@html '<script type="application/ld+json">' + JSON.stringify(structuredData) + '</script>'}
+</svelte:head>
 
 <main class="wrapper">
 	<div class="progress"><div class="value"></div></div>
