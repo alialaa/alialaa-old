@@ -3,7 +3,6 @@
 	import Post from '$components/Post.svelte';
 
 	let { data } = $props();
-	console.log(data.tags);
 </script>
 
 <Head title="The Blog" />
