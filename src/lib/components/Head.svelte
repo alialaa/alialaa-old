@@ -62,6 +62,21 @@
 				item: `${$page.url.href}`
 			});
 		}
+	} else if ($page.route.id?.includes('/courses')) {
+		breadcrumbs.itemListElement.push({
+			'@type': 'ListItem',
+			position: 2,
+			name: 'Courses',
+			item: `${$page.url.origin}/courses`
+		});
+		if ($page.route?.id?.includes('courses/[slug]')) {
+			breadcrumbs.itemListElement.push({
+				'@type': 'ListItem',
+				position: 3,
+				name: title,
+				item: `${$page.url.href}`
+			});
+		}
 	} else if ($page.route.id?.includes('/about')) {
 		breadcrumbs.itemListElement.push({
 			'@type': 'ListItem',

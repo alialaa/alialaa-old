@@ -78,7 +78,7 @@
   udemyID: x01mYHnrkrB1UnCkvDk2IuEFw==
   udemyUrl: https://www.udemy.com/course/the-complete-guide-to-building-premium-wordpress-themes/?referralCode=A1E38F238B8F5A8D2B82
   url: wordpress
-  image: /src/lib/src/images/wordpress.jpg
+  image: /src/lib/assets/courses/wordpress.jpg
   duration: 17.5
   promo: https://d3imz9xia0py4c.cloudfront.net/wordpress.mp4
   objectives:
@@ -101,7 +101,7 @@
   udemyID: x01Zw0hs61ln1xIF1VOhHCiwg==
   udemyUrl: https://www.udemy.com/course/react-native-tic-tac-toe/?referralCode=053BC78FF2DC2E2D1E70
   url: react-native-tic-tac-toe
-  image: /src/lib/src/images/tttrn.jpg
+  image: /src/lib/assets/courses/tttrn.jpg
   duration: 23
   promo: https://d3imz9xia0py4c.cloudfront.net/ttt-promo.mp4
   objectives:
