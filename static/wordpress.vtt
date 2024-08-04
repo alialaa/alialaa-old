@@ -1,0 +1,117 @@
+WEBVTT
+
+0
+00:06.690 --> 00:12.090
+Welcome to the complete guide to building premium WordPress themes. In this course you'll learn how to code
+
+1
+00:12.090 --> 00:18.540
+WordPress themes using best practices, coding standards and advanced workflows.
+
+2
+00:19.080 --> 00:22.890
+My name is Ali and I will be instructing you throughout this course.
+
+3
+00:23.070 --> 00:25.790
+Years ago I discovered my love for web development.
+
+4
+00:26.190 --> 00:33.670
+I started learning HTML, CSS and JavaScript and then I became obsessed with WordPress themes. I saw amazing stuff people created
+
+5
+00:33.690 --> 00:40.860
+websites like Theme Forest and I decided I'm going to learn this and publish my own themes. After a series
+
+6
+00:40.860 --> 00:42.660
+of failures and rejections,
+
+7
+00:42.900 --> 00:48.150
+I was able to get themes and plugins published on Theme Forest and that gave me a lot of experience
+
+8
+00:48.460 --> 00:51.240
+that I decided to share with you in this course.
+
+9
+00:51.450 --> 00:57.060
+This course is made for anybody seeking to code their great designs into premium WordPress themes that
+
+10
+00:57.060 --> 01:01.190
+are guaranteed to get accepted on marketplaces like Theme Forest.
+
+11
+01:01.500 --> 01:07.950
+After completing this course you will not only be able to create secure, translation ready and feature packed themes
+
+12
+01:08.460 --> 01:14.340
+but you'll also have a deep understanding on how WordPress works. During the course we will create a theme
+
+13
+01:14.340 --> 01:16.050
+from scratch.
+
+14
+01:16.050 --> 01:21.030
+First we will start by discussing some important theoretical topics that you should know before getting
+
+15
+01:21.030 --> 01:22.470
+deeper into coding a theme.
+
+16
+01:23.160 --> 01:28.620
+We will use diagrams and visualizations to help you understand concepts that we will use throughout
+
+17
+01:28.620 --> 01:29.940
+the entire theme.
+
+18
+01:30.390 --> 01:35.760
+Then we will spend some time writing some JavaScript that will help us automate some repetitive tasks
+
+19
+01:36.150 --> 01:42.350
+like compiling SASS to CSS, minifying CSS and JavaScript and many more.
+
+20
+01:42.600 --> 01:48.090
+After that we will dig deeper into our theme and in each section we will add a new major feature.
+
+21
+01:50.740 --> 01:55.940
+To take this course ideally you should be an existing web developer familiar with WordPress.
+
+22
+01:56.440 --> 02:01.070
+But don't worry if you have no prior work experience it's not a problem.
+
+23
+02:01.270 --> 02:03.980
+We will create everything from scratch.
+
+24
+02:04.000 --> 02:09.500
+You should however be good at HTML, CSS and JavaScript and also PHP.
+
+25
+02:09.800 --> 02:16.330
+You should at least have an idea about PHP variables, constants, functions, classes, objects, arrays and so on.
+
+26
+02:16.360 --> 02:24.520
+This is not a design, CSS, HTML or PHP course. I will mainly focus on WordPress functionality.
+
+27
+02:24.850 --> 02:29.290
+So make sure to read the course description for more information about that and also take a look at
+
+28
+02:29.290 --> 02:32.660
+the course curriculum and looking forward to see you inside. 

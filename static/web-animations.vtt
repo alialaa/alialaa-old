@@ -1,0 +1,118 @@
+WEBVTT
+
+00:04.190 --> 00:06.470
+Welcome to modern web animations.
+
+00:06.680 --> 00:12.650
+In this course we are going to learn everything about web animations using only modern browsers, APIs
+
+00:12.650 --> 00:14.630
+and no third party libraries.
+
+00:15.480 --> 00:18.000
+I'm Ali, your guide for this course.
+
+00:18.360 --> 00:25.110
+As a seasoned front end web developer with a passion for creating user interfaces and interactive experiences,
+
+00:25.110 --> 00:28.890
+I have spent years building web and mobile applications.
+
+00:29.280 --> 00:34.950
+I am also passionate about creating educational content that has been highly rated by thousands.
+
+00:35.640 --> 00:39.150
+I am excited to embark on this animation's journey with you.
+
+00:39.750 --> 00:46.500
+CSS animations and transitions have been a web development staple for a while, but recently modern
+
+00:46.500 --> 00:51.930
+browsers have also introduced new APIs that take web animations to the next level.
+
+00:52.470 --> 00:59.520
+These APIs offer developers more control, flexibility, and powerful features for creating even more
+
+00:59.520 --> 01:01.800
+impressive and dynamic animations.
+
+01:02.370 --> 01:07.500
+By the end of this course, you will be a master of modern Web Animation APIs.
+
+01:07.530 --> 01:14.490
+You will have a deep understanding of the new web animations, JavaScript API, scroll driven animations,
+
+01:14.490 --> 01:16.500
+and the view Transitions API.
+
+01:17.500 --> 01:20.380
+To ensure everyone is on the same page.
+
+01:20.380 --> 01:24.940
+We will begin with a refresher on CSS animations and transitions.
+
+01:25.540 --> 01:30.610
+This section is valuable for beginners and those who want to brush up their skills.
+
+01:30.940 --> 01:36.520
+We are going to discuss everything about CSS animations and transitions in great detail.
+
+01:37.740 --> 01:44.880
+Sometimes, however, CSS animations can feel restrictive, especially when it comes to complex animations
+
+01:44.880 --> 01:47.700
+or dynamically changing animation properties.
+
+01:48.060 --> 01:53.790
+So in the second section we are going to discover the Web Animations JavaScript API.
+
+01:54.390 --> 02:00.870
+The Web Animations API unlocks the power of the browser's animation engine for developers.
+
+02:01.380 --> 02:07.920
+It allows us to construct animations and control their playback with JavaScript and not only CSS.
+
+02:08.610 --> 02:11.250
+This allows for more dynamic animations.
+
+02:11.910 --> 02:17.070
+The Web Animations API is one of the most performant ways to animate on the web.
+
+02:18.150 --> 02:26.550
+In the third section, we will explore a new feature that was added to CSS animations Animation Timelines.
+
+02:26.760 --> 02:33.480
+This exciting feature lets you create animations triggered by scrolling progress or an element's visibility
+
+02:33.480 --> 02:34.920
+within the viewport.
+
+02:35.700 --> 02:41.760
+This opens the door for creating impressive scroll driven animations without having to load any external
+
+02:41.760 --> 02:42.690
+libraries.
+
+02:43.730 --> 02:50.330
+Finally, we will delve into the View Transitions API, a powerful new browser tool.
+
+02:50.810 --> 02:57.320
+This API simplifies creating smooth, animated transitions between different states of your web pages.
+
+02:57.320 --> 02:58.160
+Content.
+
+02:59.420 --> 03:05.600
+It can be particularly valuable in single page applications when we need to have an animation, when
+
+03:05.600 --> 03:10.700
+we navigate between different routes before the View Transitions API.
+
+03:10.730 --> 03:14.390
+These kinds of animations were extremely complicated to achieve.
+
+03:15.720 --> 03:22.020
+Some basic HTML, CSS and JavaScript knowledge is the only requirement for this course.
+
+03:22.890 --> 03:27.000
+So join modern web animations now and bring your websites to life.

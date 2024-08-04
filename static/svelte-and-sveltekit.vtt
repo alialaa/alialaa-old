@@ -1,0 +1,88 @@
+WEBVTT
+
+00:04.990 --> 00:08.530
+Welcome to the Complete Guide to svelte and Svelte KITT.
+
+00:08.890 --> 00:14.740
+In this course, we are going to learn everything about building web components with svelte and high
+
+00:14.740 --> 00:18.070
+performance web applications with svelte kit.
+
+00:19.120 --> 00:20.080
+My name is Ali.
+
+00:20.110 --> 00:25.960
+I have been working as a front end web developer for years, creating web and mobile applications and
+
+00:25.960 --> 00:32.230
+also publishing online educational content that has received thousands of positive reviews.
+
+00:33.610 --> 00:39.940
+At the end of this course, you will be able to build Web components using svelte and using svelte kit.
+
+00:39.970 --> 00:46.720
+You will be able to build high performance server side rendered web applications that can be fully functional
+
+00:46.720 --> 00:49.270
+even without having JavaScript enabled.
+
+00:50.470 --> 00:55.090
+The first nine sections in this course is dedicated to discussing svelte.
+
+00:55.360 --> 00:58.840
+We are going to discuss everything about svelte from scratch.
+
+00:59.080 --> 01:05.710
+We will start by creating simple components and then we are going to gradually progress into more complex
+
+01:05.710 --> 01:08.200
+components and more advanced topics.
+
+01:09.130 --> 01:13.000
+The next seven sections will be dedicated to Svelte Kit.
+
+01:13.480 --> 01:20.170
+We are going to discuss everything about svelte kit from how to create pages, layouts, how to load
+
+01:20.170 --> 01:26.650
+data on the server and on the client, how to handle errors, how to use environment variables, how
+
+01:26.650 --> 01:33.580
+to post data to your server in a progressively enhanced way, how to deploy your app and more topics
+
+01:33.580 --> 01:39.730
+that will eventually allow you to build a high performance server side rendered app that can work without
+
+01:39.730 --> 01:42.040
+having JavaScript enabled in the browser.
+
+01:42.790 --> 01:48.310
+And in the final section, we are going to build an app that is going to bring everything that we've
+
+01:48.310 --> 01:49.360
+learned together.
+
+01:49.870 --> 01:56.650
+In this final section, we are going to build a mini Spotify clone using svelte and svelte Kit and the
+
+01:56.650 --> 02:03.370
+Spotify API, and you can see a demo of the apps that we are going to be building in the free videos.
+
+02:07.680 --> 02:12.660
+Good JavaScript knowledge is the only requirement that you need in order to take this course.
+
+02:13.230 --> 02:19.860
+And basic typescript knowledge is also preferable as we are going to be using typescript with svelte
+
+02:19.860 --> 02:20.370
+git.
+
+02:21.390 --> 02:22.350
+So join us now.
+
+02:22.350 --> 02:27.870
+If you would like to learn this world framework from scratch and build high performance web applications
+
+02:27.870 --> 02:29.220
+with wealth kit.

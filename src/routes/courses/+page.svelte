@@ -35,7 +35,7 @@
 								<Clock focusable="false" aria-hidden="true" />
 								{course.duration} hours on-demand video
 							</div>
-							<div class="ino">
+							<div class="info">
 								<h2><a href="/courses/{course.url}">{course.title}</a></h2>
 								<p>{course.summary}</p>
 							</div>

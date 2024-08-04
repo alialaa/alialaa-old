@@ -1,0 +1,189 @@
+WEBVTT
+
+0
+00:00.820 --> 00:07.990
+Welcome to Gutenberg blocks for WordPress & ReactJS developers. In this course you are going to learn
+
+1
+00:07.990 --> 00:13.540
+everything you need to know in order to create complex blocks and plugins for the new WordPress editor
+
+2
+00:13.780 --> 00:15.070
+known as Gutenberg.
+
+3
+00:16.620 --> 00:19.650
+My name is Ali, and I will be instructing you throughout this course.
+
+4
+00:20.610 --> 00:26.130
+I've been working as a frontend web developer for years, creating WordPress themes and plugins and
+
+5
+00:26.130 --> 00:29.130
+also JavaScript and ReactJS web applications.
+
+6
+00:30.570 --> 00:36.300
+This course is designed for WordPress developers who are familiar with ReactJS and Redux and need to
+
+7
+00:36.300 --> 00:39.180
+learn everything about the new WordPress block editor.
+
+8
+00:40.770 --> 00:45.930
+At the end of this course, you should be able to use React and Redux in order to create complex blocks
+
+9
+00:45.930 --> 00:52.890
+from scratch and also add features to the existing block editor UI. Before creating any blocks,
+
+10
+00:53.100 --> 00:57.780
+we are going to discuss some design guidelines that you need to know before designing a block.
+
+11
+00:59.280 --> 01:03.180
+Then we are going to discover how UI and data are managed in the block editor,
+
+12
+01:04.170 --> 01:10.020
+what is the role of React and Redux, how your post is saved in the database and other information that
+
+13
+01:10.020 --> 01:13.710
+will give you some insights on how the block editor works behind the scenes.
+
+14
+01:15.200 --> 01:20.480
+Next, we are going to create a boilerplate that we are going to use in order to create blocks throughout
+
+15
+01:20.480 --> 01:20.990
+the course.
+
+16
+01:21.770 --> 01:26.990
+In this boilerplate, we are going to use a WordPress package called wp-scripts in order to compile
+
+17
+01:26.990 --> 01:30.230
+and minify our JavaScript & SASS files.
+
+18
+01:31.310 --> 01:38.030
+And also, we are going to configure some tools like ESLint, Prettier, Stylelint and husky for an improved
+
+19
+01:38.030 --> 01:39.380
+development experience.
+
+20
+01:41.030 --> 01:42.620
+Then we will start building blocks.
+
+21
+01:43.070 --> 01:45.440
+We're going to start by simple text box block.
+
+22
+01:46.250 --> 01:51.440
+However, in this simple block, we are going to go through the most common concepts that you will need
+
+23
+01:51.440 --> 01:52.520
+for creating the block.
+
+24
+01:54.770 --> 02:00.050
+And then we are going to create a more complex, nested team members block where you are going to be
+
+25
+02:00.050 --> 02:06.590
+able to add multiple team members, each with an image, a title, a bio and some social media links
+
+26
+02:06.590 --> 02:09.620
+that you can customize and drag and drop to reorder.
+
+27
+02:11.270 --> 02:17.900
+We will also discuss dynamic blocks, which are blocks that can generate dynamic content using PHP and
+
+28
+02:17.900 --> 02:19.580
+not just some static HTML.
+
+29
+02:21.920 --> 02:28.370
+We will explore the data stores that are based on Redux in the block editor, how to use existing data
+
+30
+02:28.430 --> 02:34.300
+stores, and how to create our own data stores in order to share data between multiple blocks and components.
+
+31
+02:36.350 --> 02:41.260
+Then we will see what are the different ways that we can use in order to manage metadata in the block
+
+32
+02:41.270 --> 02:41.720
+editor.
+
+33
+02:42.860 --> 02:49.610
+We will see how to modify the existing block editor's UI and add our own components in the sidebar and also
+
+34
+02:49.610 --> 02:53.630
+how to create a brand new sidebar and control our meta fields inside of it.
+
+35
+02:55.370 --> 03:01.520
+Finally, we are going to take a quick look on various topics like context, templates, patterns, formats,
+
+36
+03:01.520 --> 03:03.710
+filters and internationalization.
+
+37
+03:05.630 --> 03:11.180
+In order to get the most out of this course, you need to have some WordPress development experience.
+
+38
+03:12.260 --> 03:17.000
+JavaScript, preferably ES6 and later versions, is also required.
+
+39
+03:18.140 --> 03:24.590
+You should also be familiar with basic ReactJS concepts. The things like components, state, hooks
+
+40
+03:25.280 --> 03:28.280
+and other basic React concepts should not be new to you.
+
+41
+03:29.720 --> 03:31.450
+Redux knowledge is also ideal.
+
+42
+03:32.420 --> 03:34.550
+Not all blocks will require Redux knowledge,
+
+43
+03:34.820 --> 03:39.940
+however, in some blocks, redux will be used heavily. So it would be ideal if you are familiar with
+
+44
+03:39.970 --> 03:44.960
+Redux concepts like stores, actions, action creators and reducers.
+
+45
+03:46.980 --> 03:51.900
+So make sure to take a look at the course description and also the free preview videos, and I look
+
+46
+03:51.900 --> 03:53.370
+forward to seeing you inside.

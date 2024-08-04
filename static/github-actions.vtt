@@ -1,0 +1,352 @@
+WEBVTT
+
+00:00.653 --> 00:02.880
+(chill music)
+
+00:02.880 --> 00:04.470
+Ali: Welcome to the Complete Guide
+
+00:04.470 --> 00:06.483
+to GitHub Actions and Workflows.
+
+00:07.470 --> 00:09.930
+In this course, we are going to learn everything
+
+00:09.930 --> 00:13.713
+about GitHub's CI service known as GitHub Actions.
+
+00:15.090 --> 00:17.160
+My name is Ali and I will be instructing you
+
+00:17.160 --> 00:19.050
+throughout this course.
+
+00:19.050 --> 00:21.150
+I've been working as a front-end web developer
+
+00:21.150 --> 00:23.130
+for years and during these years
+
+00:23.130 --> 00:26.160
+I have used multiple CI services
+
+00:26.160 --> 00:29.463
+to test and deploy mobile and web applications.
+
+00:31.620 --> 00:33.150
+GitHub actions has some advantages
+
+00:33.150 --> 00:36.330
+over other CI services I have used.
+
+00:36.330 --> 00:38.940
+First, it is natively integrated
+
+00:38.940 --> 00:41.370
+with your GitHub repositories.
+
+00:41.370 --> 00:42.390
+And in addition to that
+
+00:42.390 --> 00:44.700
+and thanks to GitHub's popularity,
+
+00:44.700 --> 00:47.050
+you will easily find a large amount of resources
+
+00:47.050 --> 00:49.833
+like pre-made workflows and actions.
+
+00:51.000 --> 00:53.235
+Actions are reusable pieces of code
+
+00:53.235 --> 00:55.472
+that you can use in your workflows
+
+00:55.472 --> 00:59.400
+in order to perform certain tasks like deploying code,
+
+00:59.400 --> 01:03.363
+interacting with APIs, sending SMSs, and stuff like that.
+
+01:05.310 --> 01:07.650
+GitHub provides you with a marketplace
+
+01:07.650 --> 01:11.040
+containing tons of official and community actions
+
+01:11.040 --> 01:13.620
+that you can use in your workflows
+
+01:13.620 --> 01:16.083
+and that makes GitHub actions very powerful.
+
+01:17.550 --> 01:18.480
+At the end of this course,
+
+01:18.480 --> 01:21.616
+you should be able to write CICD workflows
+
+01:21.616 --> 01:24.990
+to automate tasks like testing, building,
+
+01:24.990 --> 01:27.963
+deploying an application using GitHub Actions.
+
+01:29.150 --> 01:31.230
+You'll also be able to write your own actions
+
+01:31.230 --> 01:33.753
+and publish them to the actions marketplace.
+
+01:35.010 --> 01:36.180
+Let's take a brief look
+
+01:36.180 --> 01:38.403
+on how our course is going to be structured.
+
+01:39.720 --> 01:40.770
+In the first section,
+
+01:40.770 --> 01:43.680
+we are going to have a conceptual introduction
+
+01:43.680 --> 01:45.870
+where we are going to discover what terms
+
+01:45.870 --> 01:49.140
+like workflows, actions, jobs, steps,
+
+01:49.140 --> 01:51.603
+and other terms mean in GitHub Actions.
+
+01:52.530 --> 01:55.710
+And we're also going to learn about the YAML format,
+
+01:55.710 --> 01:58.083
+which is used to write workflows in GitHub.
+
+01:59.430 --> 02:02.276
+Then we will start writing our first workflow
+
+02:02.276 --> 02:04.230
+and discover the basic things
+
+02:04.230 --> 02:05.703
+that we can do in a workflow.
+
+02:07.470 --> 02:09.390
+In section two, we are going to learn about
+
+02:09.390 --> 02:12.510
+different events that can trigger a workflow to run
+
+02:12.510 --> 02:14.190
+and that includes GitHub events,
+
+02:14.190 --> 02:16.500
+like push and pull request,
+
+02:16.500 --> 02:20.013
+external events, manual events, and schedules.
+
+02:21.259 --> 02:23.640
+In section three, we are going to discover
+
+02:23.640 --> 02:25.144
+how to write expressions
+
+02:25.144 --> 02:28.920
+and use context information and functions.
+
+02:28.920 --> 02:30.000
+We're also going to see
+
+02:30.000 --> 02:31.860
+how to use environment variables
+
+02:31.860 --> 02:33.903
+and how to encrypt secrets.
+
+02:34.781 --> 02:36.180
+In section four,
+
+02:36.180 --> 02:37.320
+we are going to take a look at
+
+02:37.320 --> 02:39.720
+some more advanced features,
+
+02:39.720 --> 02:43.320
+including matrices where we can run a job multiple times
+
+02:43.320 --> 02:45.221
+with different configurations
+
+02:45.221 --> 02:46.890
+and also we're going to learn about
+
+02:46.890 --> 02:51.453
+concurrency, reusable workflows, caching, and artifacts.
+
+02:52.950 --> 02:54.660
+Section five is going to be about
+
+02:54.660 --> 02:56.943
+using Docker in GitHub Actions.
+
+02:57.840 --> 02:59.070
+This section will require
+
+02:59.070 --> 03:01.200
+some basic Docker knowledge.
+
+03:01.200 --> 03:03.150
+We're going to see how can we use Docker
+
+03:03.150 --> 03:05.370
+in our jobs and steps,
+
+03:05.370 --> 03:07.470
+how to run multiple service containers
+
+03:07.470 --> 03:10.110
+that can communicate with each other,
+
+03:10.110 --> 03:12.930
+and how to publish Docker images to Docker hub
+
+03:12.930 --> 03:16.293
+and GitHub container registry using GitHub Actions.
+
+03:17.426 --> 03:19.410
+In section six, we're going to learn
+
+03:19.410 --> 03:21.360
+how to write our own actions
+
+03:21.360 --> 03:24.270
+and publish them into the marketplace.
+
+03:24.270 --> 03:27.381
+Actions can be written using JavaScript or Docker,
+
+03:27.381 --> 03:30.420
+so basic JavaScript or Docker knowledge
+
+03:30.420 --> 03:32.403
+will be required for this section.
+
+03:33.270 --> 03:35.224
+We are going to write a couple of actions
+
+03:35.224 --> 03:38.943
+for sending Slack messages and opening GitHub issues.
+
+03:40.830 --> 03:41.850
+In the final section,
+
+03:41.850 --> 03:46.050
+we are going to write an entire CICD workflow
+
+03:46.050 --> 03:48.270
+using all the knowledge that we've learned
+
+03:48.270 --> 03:49.833
+in the previous sections.
+
+03:50.820 --> 03:54.270
+This section is going to require having an AWS account,
+
+03:54.270 --> 03:56.430
+which requires a credit card,
+
+03:56.430 --> 03:57.990
+and you might also be charged
+
+03:57.990 --> 03:59.610
+if you are following the lectures
+
+03:59.610 --> 04:01.210
+and not just watching passively.
+
+04:02.700 --> 04:05.070
+We are going to use GitHub Actions to test,
+
+04:05.070 --> 04:08.700
+build, and deploy a web app to an Amazon service
+
+04:08.700 --> 04:10.683
+called Elastic Beanstalk.
+
+04:12.150 --> 04:14.370
+We are also going to use feature flags
+
+04:14.370 --> 04:17.250
+in order to continuously deploy our code
+
+04:17.250 --> 04:20.493
+without having to expose all features to the end user.
+
+04:21.660 --> 04:24.270
+We are going to automate versioning our app
+
+04:24.270 --> 04:27.060
+and also add a workflow for deploying
+
+04:27.060 --> 04:29.460
+and destroying poor request branches
+
+04:29.460 --> 04:32.073
+to an isolated AWS environment.
+
+04:33.093 --> 04:34.470
+We're also going to see
+
+04:34.470 --> 04:38.673
+how to use OpenID Connect to access AWS services.
+
+04:40.200 --> 04:41.520
+In order to be comfortable
+
+04:41.520 --> 04:43.530
+while watching this course,
+
+04:43.530 --> 04:46.421
+you will have to have some basic Git knowledge.
+
+04:46.421 --> 04:51.090
+Some lectures will also require some basic Docker knowledge.
+
+04:51.090 --> 04:52.620
+Creating actions will require
+
+04:52.620 --> 04:55.710
+either JavaScript or Docker knowledge.
+
+04:55.710 --> 04:57.030
+And also as I mentioned,
+
+04:57.030 --> 05:01.500
+the last section is going to require an AWS account
+
+05:01.500 --> 05:02.880
+and you might be charged
+
+05:02.880 --> 05:05.760
+if you are actively following your lectures.
+
+05:05.760 --> 05:08.280
+However, you can follow these lectures passively
+
+05:08.280 --> 05:09.243
+if you would like.
+
+05:10.680 --> 05:12.600
+So make sure to check the course description
+
+05:12.600 --> 05:16.386
+and the curriculum and also check the free preview videos
+
+05:16.386 --> 05:18.993
+and I look forward to seeing you inside.

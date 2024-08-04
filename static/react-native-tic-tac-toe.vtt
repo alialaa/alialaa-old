@@ -1,0 +1,349 @@
+WEBVTT
+
+0
+00:02.220 --> 00:07.620
+Welcome to Building Tic-Tac-Toe with React Native and TypeScript, where we are going to build a single
+
+1
+00:07.620 --> 00:14.310
+player tic tac toe game with an unbeatable bot and the realtime multiplayer game using a GraphQL API
+
+2
+00:14.610 --> 00:17.640
+that we are going to build using AWS Amplify.
+
+3
+00:18.600 --> 00:21.630
+My name is Ali and I will be instructing you throughout this course.
+
+4
+00:22.350 --> 00:27.540
+I've been working as a front-end web developer for over seven years and few years ago I started building
+
+5
+00:27.550 --> 00:29.660
+hybrid mobile apps using React Native.
+
+6
+00:30.330 --> 00:36.120
+During these years, I have contributed to building multiple large scale React Native applications.
+
+7
+00:37.180 --> 00:42.490
+In this case, we are going to use Expo, which is a tool that makes developing React Native applications
+
+8
+00:42.490 --> 00:45.580
+a lot easier, to create a tic tac toe game.
+
+9
+00:46.600 --> 00:49.540
+Creating tic tac toe might seem simple;
+
+10
+00:49.540 --> 00:52.240
+However, what we are going to learn is not just about the game.
+
+11
+00:52.840 --> 00:56.790
+You will also learn how to use TypeScript in a React Native application.
+
+12
+00:57.370 --> 01:01.270
+In addition to that, we are also going to create a bot for our single player game.
+
+13
+01:01.870 --> 01:06.370
+And this bot won't just play random moves, but it will be smart enough to be unbeatable.
+
+14
+01:07.480 --> 01:13.900
+Also, we are going to create a real-time multiplayer game using a GraphQL API that we will create
+
+15
+01:13.900 --> 01:16.750
+using an Amazon web service called Amplify.
+
+16
+01:18.290 --> 01:24.580
+We are also going to learn how to properly use Expo to send push notifications and how to monetize, build
+
+17
+01:24.580 --> 01:28.570
+and publish your app on Apple's App Store or Google Play store.
+
+18
+01:29.770 --> 01:32.860
+So let's take a quick look on how this course is structured.
+
+19
+01:34.630 --> 01:40.160
+Section 1 is an optional section for students without or with limited TypeScript knowledge.
+
+20
+01:40.930 --> 01:46.420
+We are going to have a very quick introduction to TypeScript and we are going to discuss things like
+
+21
+01:46.420 --> 01:49.960
+basic types, types, interfaces and generics.
+
+22
+01:51.390 --> 01:57.360
+In Section 2, we are going to discover the difference between Expo and vanilla React Native, and
+
+23
+01:57.360 --> 02:03.240
+then we are going to install Expo, create a new Expo project and run it on a physical device, Android
+
+24
+02:03.240 --> 02:10.290
+emulator and the iOS simulator. In Section 3, we are going to set up some tools that will be very helpful
+
+25
+02:10.290 --> 02:11.190
+in our workflow.
+
+26
+02:11.880 --> 02:18.290
+These tools include TypeScript itself, ESLint, Prettier and Husky.
+
+27
+02:18.300 --> 02:24.810
+In Section 4, we are going to do some general setup for our application, including things like loading fonts, creating
+
+28
+02:24.960 --> 02:28.560
+custom text component, setting up navigation and more.
+
+29
+02:30.090 --> 02:36.930
+In Section 5, we are going to build our single player game and this includes: the UI, the bot player,
+
+30
+02:37.500 --> 02:44.700
+adding sounds and haptics, creating a settings page to choose difficulty and other options and persisting
+
+31
+02:44.700 --> 02:48.750
+these settings on the phone using React context and AsyncStorage.
+
+32
+02:49.770 --> 02:58.500
+Section 6 will just be an introduction to AWS Amplify and some other AWS concepts like IAM.
+
+33
+02:58.500 --> 03:01.470
+We will also install Amplify and set it up in our project.
+
+34
+03:02.980 --> 03:09.700
+In Section 7, we are going to use AWS Cognito, which is a service that comes with Amplify and we are
+
+35
+03:09.700 --> 03:12.070
+going to use it to add authentication in our app.
+
+36
+03:13.030 --> 03:20.860
+This includes login, register, OTP confirmation, resend password, reset password, forgot password
+
+37
+03:20.860 --> 03:21.460
+and more.
+
+38
+03:22.870 --> 03:28.330
+Next, in Section 8, we are going to cover creating a GraphQL API using Amplify.
+
+39
+03:29.970 --> 03:36.060
+This API will be used for the multiplayer game, and we are going to create all the necessary database
+
+40
+03:36.060 --> 03:42.540
+models, GraphQL queries, mutations and subscriptions and also some lambda functions that we will
+
+41
+03:42.540 --> 03:47.730
+use in our multiplayer game.
+
+42
+03:47.760 --> 03:51.390
+After completing our API, we are going to move to Section 9 and start building our UI.
+
+43
+03:52.080 --> 03:59.250
+This includes listing games, paginating games, searching for players, starting a new game and handling
+
+44
+03:59.250 --> 04:00.770
+game updates in real time.
+
+45
+04:02.360 --> 04:09.560
+Section 10 would be entirely dedicated to sending push notifications with Expo.
+
+46
+04:09.560 --> 04:10.440
+Sending notifications may seem simple.
+
+47
+04:11.000 --> 04:16.070
+However, there are a lot of stuff that need to be handled that we will discover in this section.
+
+48
+04:16.700 --> 04:23.480
+Eventually, we will be able to send a notification to a player when he is invited to a new game.
+
+49
+04:23.480 --> 04:24.240
+In Section 11,
+
+50
+04:24.260 --> 04:28.990
+we will see how simple it is to add ads in your game using Google AdMob.
+
+51
+04:30.020 --> 04:35.960
+And finally, in Section 12, we will discover how smooth building and publishing your app with Expo
+
+52
+04:35.960 --> 04:36.380
+is.
+
+53
+04:36.990 --> 04:42.950
+We will build our apps for Android and iOS and publish our builds to the App Store and Play Store.
+
+54
+04:44.750 --> 04:49.010
+In order to be comfortable watching this course, you should have JavaScript knowledge.
+
+55
+04:50.180 --> 04:50.680
+TypeScript
+
+56
+04:50.690 --> 04:52.370
+knowledge is also preferable.
+
+57
+04:52.670 --> 04:55.820
+However, we are going to cover the basics in the first section.
+
+58
+04:57.080 --> 04:59.540
+React basic knowledge is also required.
+
+59
+05:00.050 --> 05:06.740
+So you should be familiar with functional components, hooks, context, state and other basic React
+
+60
+05:06.740 --> 05:07.340
+concepts.
+
+61
+05:08.810 --> 05:11.610
+This is also not a beginners React Native course.
+
+62
+05:11.990 --> 05:15.550
+So at least some basic React Native concepts are required.
+
+63
+05:16.490 --> 05:22.400
+So you should know things like what's a view in React Native, what's a touchable component, how to style
+
+64
+05:22.400 --> 05:25.430
+your views and other basic React Native concepts.
+
+65
+05:26.580 --> 05:33.470
+Also, basic GraphQL concepts are required so you should know what our queries, subscriptions and mutations,
+
+66
+05:33.860 --> 05:38.780
+how to write a graphical request and the difference between GraphQL and Rest API.
+
+67
+05:40.100 --> 05:45.020
+We are also going to use some Amazon Web Services so it's not required.
+
+68
+05:45.020 --> 05:50.960
+But if you're familiar with things like lambda function, DynamoDB it would just be an extra
+
+69
+05:51.500 --> 05:51.890
+However,
+
+70
+05:51.890 --> 05:53.900
+we are going to do everything from scratch.
+
+71
+05:55.300 --> 06:02.980
+A Mac OS machine is required only if you need to run your app on the iOS simulator or publish your app
+
+72
+06:02.980 --> 06:03.800
+to the App Store.
+
+73
+06:04.480 --> 06:10.690
+Other than that, you can follow the course with any other OS and any physical iOS or Android device.
+
+74
+06:11.830 --> 06:16.120
+For the multiplayer part of the course and AWS account is required.
+
+75
+06:16.780 --> 06:23.200
+You will have to enter your credit card information to create an account. However you are probably not going
+
+76
+06:23.200 --> 06:25.600
+to be charged just by watching the course.
+
+77
+06:26.620 --> 06:33.790
+You will get a free monthly usage for most AWS services and it's very unlikely to consume that free
+
+78
+06:33.790 --> 06:36.190
+usage just by following the course.
+
+79
+06:37.570 --> 06:43.030
+And finally, if you would like to publish your apps on the App Store or Play Store, you will have
+
+80
+06:43.030 --> 06:50.500
+to have an Apple developer account for iOS, which costs $99 per year and a Google
+
+81
+06:50.500 --> 06:55.660
+developer account for Android, which costs a one time fee of $25.
+
+82
+06:58.050 --> 07:03.450
+But of course, this is only if you would like to publish your apps and it's not going to be necessary
+
+83
+07:03.450 --> 07:11.100
+during development. So make sure to check the course description and also the free preview videos.
+
+84
+07:11.100 --> 07:16.410
+In the free preview videos will find a demo of the app that we are going to create to make sure
+
+85
+07:16.410 --> 07:17.350
+to check that out.
+
+86
+07:17.370 --> 07:19.290
+And I look forward to seeing you inside.
