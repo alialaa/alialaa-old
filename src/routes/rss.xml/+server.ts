@@ -5,8 +5,8 @@ import { dev } from '$app/environment';
 const url = dev ? 'http://localhost:5173' : 'https://alialaa.dev';
 
 export const GET: RequestHandler = async ({ fetch }) => {
-	const response = await fetch('api/posts');
-	const posts: Post[] = await response.json();
+	const response = await fetch('api/posts/all');
+	const { posts }: { posts: Post[] } = await response.json();
 	const headers = { 'Content-Type': 'application/xml' };
 
 	const xml = `
