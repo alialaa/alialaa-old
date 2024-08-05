@@ -111,7 +111,7 @@
 							{#if review}
 								<div class="review">
 									<FiveStarts aria-hidden focusable="false" />
-									<blockquote cite="https://www.udemy.com/course/github-actions">
+									<blockquote cite={course.udemyUrl}>
 										<span>“{review.content}”</span>
 										<footer>
 											— <cite>{review.user.title}, Udemy Student</cite>

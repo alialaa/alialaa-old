@@ -1,5 +1,8 @@
 - title: Modern Web Animations
   summary: Deep Dive into Animations and Transitions, The Web Animations API, Scroll Driven Animations and The View Transitions API.
+  educationalLevel: "Intermediate"
+  topics: ["CSS", "Animations", "JavaScript", "ReactJS"]
+  language: "en"
   udemyID: x01-ltjzWZ4oMbnhJQYpRKKoQ==
   udemyUrl: https://www.udemy.com/course/web-animations/?referralCode=1DA035648D67DE975EB3
   url: web-animations
@@ -8,11 +11,14 @@
   promo: https://d3imz9xia0py4c.cloudfront.net/web-animations-intro.mp4
   objectives:
     - Learn about CSS Animations & Transitions.
-    - Learn about the new JavaScript Web Animations API.
+    - Learn about the new JavaScript , "ReactJS"Web Animations API.
     - Discover scroll driven animations in details.
     - Create impressive page transitions with the View Transitions API.
 - title: "Svelte & SvelteKit: The Complete Guide"
   summary: Build & Deploy High Performance, Accessible, Server Side Rendered Web Apps that Work Even with JavaScript Disabled.
+  topics: ["SvelteKit", "Svelte", "JavaScript", "ReactJS"]
+  educationalLevel: "Beginner"
+  language: "en"
   udemyID: x01gxVGxh2jpnE0jBwf0aqQWg==
   udemyUrl: https://www.udemy.com/course/svelte-and-sveltekit/?referralCode=0CCE6FDD87D53E9DEC67
   url: svelte-and-sveltekit
@@ -23,9 +29,12 @@
     - Learn everything about Svelte from Scratch.
     - Learn everything about SvelteKit.
     - Use SvelteKit to create a high performance web application.
-    - Create applications that work without JavaScript enabled.
+    - Create applications that work without JavaScript , "ReactJS"enabled.
 - title: The Complete GitHub Actions & Workflows Guide
   summary: Automate Code Testing, Deployment & Versioning using CI/CD Workflows. Create & Publish GitHub Actions to the Marketplace.
+  topics: ["Github Actions", "Github", "Automation", "CI/CD"]
+  educationalLevel: "Beginner"
+  language: "en"
   udemyID: x015vNbBDIRfbZt9qM09qkwzA==
   udemyUrl: https://www.udemy.com/course/github-actions/?referralCode=49A5F56B87CD62AEF6D4
   url: github-actions
@@ -41,12 +50,15 @@
     - Use caching in workflows for an improved performance.
     - Learn about uploading artifacts in workflows.
     - Learn about how to create your own custom GitHub Actions using Javascript or Docker.
-    - Create an action for opening GitHub issues using JavaScript.
+    - Create an action for opening GitHub issues using JavaScript., "ReactJS"
     - Create an action for sending slack messages using PHP.
     - Learn how to publish GitHub actions in the GitHub marketplace.
 - title: Gutenberg Blocks for WordPress and React Developers
   summary: Use Your ReactJS and Redux Knowledge to Create Complex Gutenberg Blocks and Plugins from scratch.
   udemyID: x01wnWjnHsnoEivUNcc52Z9HA==
+  topics: ["WordPress", "JavaScript", "ReactJS"]
+  educationalLevel: "Intermediate"
+  language: "en"
   udemyUrl: https://www.udemy.com/course/gutenberg/?referralCode=C4656BA80E6D4EE8B654
   url: gutenberg
   image: /src/lib/assets/courses/gutenberg.jpg
@@ -71,11 +83,14 @@
     - Learn how to create a custom sidebar in the block editor and manage your meta fields inside of it.
     - Learn how to extend the existing block editor's sidebar.
     - Learn about features like patterns, context, formatting API and templates.
-    - Modify existing block's behavior with JavaScript & PHP filters.
+    - Modify existing block's behavior with JavaScript , "ReactJS"& PHP filters.
     - Internationalize blocks by generating and loading translation files.
 - title: The Complete Guide to Building Premium WordPress Themes
   summary: Create premium wordpress themes from scratch. Learn all the best practices that will get your theme approved on marketplaces like themeforest.
+  topics: ["WordPress", "HTML", "CSS", "PHP"]
   udemyID: x01mYHnrkrB1UnCkvDk2IuEFw==
+  educationalLevel: "Beginner"
+  language: "en"
   udemyUrl: https://www.udemy.com/course/the-complete-guide-to-building-premium-wordpress-themes/?referralCode=A1E38F238B8F5A8D2B82
   url: wordpress
   image: /src/lib/assets/courses/wordpress.jpg
@@ -99,6 +114,9 @@
 - title: "React Native: Create an Unbeatable & Multiplayer Tic-Tac-Toe"
   summary: Create, Publish & Monetize a Single Player Bot & Multiplayer Tic-Tac-Toe with Expo, Typescript & AWS Amplify GraphQL API.
   udemyID: x01Zw0hs61ln1xIF1VOhHCiwg==
+  topics: ["ReactJS", "React Native"]
+  educationalLevel: "Advanced"
+  language: "en"
   udemyUrl: https://www.udemy.com/course/react-native-tic-tac-toe/?referralCode=053BC78FF2DC2E2D1E70
   url: react-native-tic-tac-toe
   image: /src/lib/assets/courses/tttrn.jpg
