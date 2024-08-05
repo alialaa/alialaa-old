@@ -7,10 +7,15 @@
 	import FiveStarts from '$components/FiveStarts.svelte';
 	import { page } from '$app/stores';
 	import ZigLine from '$components/ZigLine.svelte';
+	import { getContext } from 'svelte';
+	import type { PreferencesContext } from '$types';
 
 	let { data } = $props();
 	let video: HTMLVideoElement;
 	let image = $derived(getImage(data.course.udemyID, data.course.image));
+
+	const { getColorScheme } = getContext<PreferencesContext>('preferences');
+	let colorScheme = $derived(getColorScheme());
 
 	let structuredData = $derived({
 		'@context': 'https://schema.org/',
@@ -149,7 +154,13 @@
 				{/each}
 			</ul>
 			<div class="button">
+				<div class="line">
+					<ZigLine height="25px" color={colorScheme === 'dark' ? '#262233' : '#e3ddf5'} />
+				</div>
 				<Button href={data.course.udemyUrl}>Learn More & Buy on Udemy</Button>
+				<div class="line right">
+					<ZigLine height="25px" color={colorScheme === 'dark' ? '#262233' : '#e3ddf5'} />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -298,8 +309,11 @@
 		z-index: 100;
 		padding-bottom: functions.toRem(80);
 		.button {
-			text-align: center;
-			margin-top: functions.toRem(40);
+			// text-align: center;
+			margin-top: functions.toRem(80);
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			:global(.button) {
 				max-width: 100%;
 				padding: functions.toRem(20) functions.toRem(45);
@@ -338,28 +352,36 @@
 		}
 	}
 	.line {
-		margin: functions.toRem(60) 0 0;
+		// margin: functions.toRem(60) 0 0;
 		position: relative;
 		text-align: center;
+		flex: 1;
+		padding: 0 10px;
 		:global(.zigzag-line) {
 			position: relative;
 		}
-		:global(.zigzag-line:after) {
-			content: '';
-			position: absolute;
-			height: 100%;
-			width: 100%;
-			background: linear-gradient(
-				to right,
-				var(--bg) 0%,
-				rgba(0, 0, 0, 0) 25%,
-				rgba(0, 0, 0, 0) 75%,
-				var(--bg) 100%
-			);
-
-			top: 0;
-			left: 0;
-		}
+		// :global(.zigzag-line:after) {
+		// 	content: '';
+		// 	position: absolute;
+		// 	height: 100%;
+		// 	width: 100%;
+		// 	background: linear-gradient(
+		// 		to right,
+		// 		rgba(0, 0, 0, 0) 0%,
+		// 		rgba(0, 0, 0, 0) 50%,
+		// 		var(--bg) 100%
+		// 	);
+		// 	top: 0;
+		// 	left: 0;
+		// }
+		// &.right :global(.zigzag-line:after) {
+		// 	background: linear-gradient(
+		// 		to right,
+		// 		var(--bg) 0%,
+		// 		rgba(0, 0, 0, 0) 50%,
+		// 		rgba(0, 0, 0, 0) 100%
+		// 	);
+		// }
 	}
 	.header {
 		display: grid;
@@ -409,7 +431,7 @@
 				display: block;
 			}
 			:global(.card) {
-				padding: 0;
+				padding: 1px;
 			}
 			img {
 				height: auto;

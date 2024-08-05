@@ -61,7 +61,7 @@
 
 <style lang="scss">
 	.newsletter {
-		background: var(--wave-1);
+		background: var(--newsletter-bg);
 		padding: functions.toRem(30);
 		border: 2px dashed var(--purple);
 		width: 100%;
