@@ -62,7 +62,8 @@
 		}
 		h3 {
 			font-size: 2.1rem;
-			text-decoration: underline solid var(--purple);
+			text-decoration: underline;
+			text-decoration-color: var(--purple);
 			margin-bottom: functions.toRem(30);
 		}
 		ul {

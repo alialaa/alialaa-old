@@ -59,7 +59,8 @@
 		}
 		a {
 			font-weight: 500;
-			text-decoration: underline solid var(--purple);
+			text-decoration: underline;
+			text-decoration-color: var(--purple);
 		}
 	}
 	.intro-line {

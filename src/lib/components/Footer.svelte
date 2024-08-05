@@ -162,7 +162,8 @@
 						a {
 							font-weight: 500;
 							font-size: functions.toRem(16);
-							text-decoration: underline var(--purple);
+							text-decoration: underline;
+							text-decoration-color: var(--purple);
 							@include breakpoint.down('sm') {
 								min-height: 48px;
 								display: inline-flex;
@@ -187,7 +188,8 @@
 							a {
 								text-decoration: none;
 								span {
-									text-decoration: underline var(--purple);
+									text-decoration: underline;
+									text-decoration-color: var(--purple);
 								}
 								:global(svg) {
 									width: 25px;

@@ -45,7 +45,8 @@
 			align-items: center;
 			font-weight: 600;
 			font-size: functions.toRem(20);
-			text-decoration: underline solid var(--purple2);
+			text-decoration: underline;
+			text-decoration-color: var(--purple);
 			:global(svg) {
 				margin-inline-start: 10px;
 			}
@@ -68,7 +69,8 @@
 	}
 	h3 {
 		font-size: 2.1rem;
-		text-decoration: underline solid var(--purple);
+		text-decoration: underline;
+		text-decoration-color: var(--purple);
 		margin-bottom: functions.toRem(30);
 	}
 </style>

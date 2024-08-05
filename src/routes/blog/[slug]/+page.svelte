@@ -139,6 +139,9 @@
 		left: 0px;
 		width: 100%;
 		height: 5px;
+		@supports not (animation-timeline: works) {
+			display: none;
+		}
 		.value {
 			background-image: linear-gradient(-90deg, var(--purple) 0%, var(--purple2) 100%);
 			height: 5px;
@@ -259,7 +262,8 @@
 
 		:global(h2) {
 			margin: functions.toRem(80) 0 functions.toRem(25);
-			text-decoration: underline solid var(--purple);
+			text-decoration: underline;
+			text-decoration-color: var(--purple);
 		}
 		:global(p) {
 			font-size: functions.toRem(19.5);
