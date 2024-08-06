@@ -95,6 +95,7 @@
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 3;
 		overflow: hidden;
+		// font-weight: 400;
 	}
 	.info {
 		color: var(--links);

@@ -293,11 +293,13 @@
 							<Card>
 								<blockquote>
 									<p>
-										“Fantastic course! I was familiar with Azure DevOps basics but didn't know
-										anything about Github actions, this course has helped with that! It has very
-										easy to follow instructions and the material is taught and presented in a way
-										you can understand. I highly recommend this course, it helped me pass my DevOps
-										Engineer Interview!”
+										“Ali's course stands out as an exceptional learning resource. Not only is the
+										content incredibly informative, but Ali's teaching style is both engaging and
+										transparent. He has a unique knack for breaking down complex topics into easily
+										digestible segments, making the learning process seamless and enjoyable. I
+										particularly appreciate the clarity with which he explains things, ensuring that
+										learners at all levels can grasp the material. Highly recommend for anyone
+										looking to deepen their understanding in the subject matter!.”
 									</p>
 								</blockquote>
 							</Card>
@@ -306,13 +308,11 @@
 							<Card>
 								<blockquote>
 									<p>
-										“Ali's course stands out as an exceptional learning resource. Not only is the
-										content incredibly informative, but Ali's teaching style is both engaging and
-										transparent. He has a unique knack for breaking down complex topics into easily
-										digestible segments, making the learning process seamless and enjoyable. I
-										particularly appreciate the clarity with which he explains things, ensuring that
-										learners at all levels can grasp the material. Highly recommend for anyone
-										looking to deepen their understanding in the subject matter!.”
+										“Fantastic course! I was familiar with Azure DevOps basics but didn't know
+										anything about Github actions, this course has helped with that! It has very
+										easy to follow instructions and the material is taught and presented in a way
+										you can understand. I highly recommend this course, it helped me pass my DevOps
+										Engineer Interview!”
 									</p>
 								</blockquote>
 							</Card>

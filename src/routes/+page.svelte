@@ -51,6 +51,7 @@
 		max-width: 1300px;
 		padding-top: 40px;
 		margin: 0;
+		font-weight: 400;
 		@include breakpoint.up('md') {
 			font-size: 1.5rem;
 		}

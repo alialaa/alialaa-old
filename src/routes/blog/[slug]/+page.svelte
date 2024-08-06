@@ -314,7 +314,7 @@
 			padding-left: functions.toRem(25);
 			font-size: functions.toRem(19.5);
 			margin: functions.toRem(20) 0;
-			font-weight: 400;
+			// font-weight: 400;
 		}
 		:global(ul li),
 		:global(ol li) {

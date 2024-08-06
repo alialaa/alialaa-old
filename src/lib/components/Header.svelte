@@ -58,6 +58,7 @@
 				text-align: center;
 				li {
 					display: inline-block;
+					font-weight: 500;
 					&:after {
 						content: '/';
 						color: var(--text);
