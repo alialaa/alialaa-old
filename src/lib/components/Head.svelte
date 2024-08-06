@@ -91,6 +91,13 @@
 			name: 'Uses',
 			item: `${$page.url.origin}/uses`
 		});
+	} else if ($page.route.id?.includes('/contact')) {
+		breadcrumbs.itemListElement.push({
+			'@type': 'ListItem',
+			position: 2,
+			name: 'Contact',
+			item: `${$page.url.origin}/contact`
+		});
 	} else if ($page.route.id?.includes('/tags/[slug]')) {
 		breadcrumbs.itemListElement.push({
 			'@type': 'ListItem',

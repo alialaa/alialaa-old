@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	let { children, ...rest }: HTMLAttributes<HTMLDivElement> = $props();
+	let { children, class: c, ...rest }: HTMLAttributes<HTMLDivElement> = $props();
 </script>
 
-<div class="card" {...rest}>
+<div class="card {c}" {...rest}>
 	{#if children}{@render children()}{/if}
 </div>
 

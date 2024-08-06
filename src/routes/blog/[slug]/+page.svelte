@@ -139,7 +139,7 @@
 		left: 0px;
 		width: 100%;
 		height: 5px;
-		@supports not (animation-timeline: works) {
+		@supports not (animation-timeline: --post-content) {
 			display: none;
 		}
 		.value {
