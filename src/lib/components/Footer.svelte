@@ -117,7 +117,7 @@
 		padding: functions.toRem(80) 0;
 		background-color: var(--card);
 		position: relative;
-		z-index: 22;
+		z-index: 101;
 		:global(.zigzag-line) {
 			position: absolute;
 			top: -14px;

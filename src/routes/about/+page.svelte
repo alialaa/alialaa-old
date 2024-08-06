@@ -376,15 +376,15 @@
 	}
 	h2 {
 		font-weight: 800;
-		font-size: calc(functions.toRem(30) + 1.5vw);
+		font-size: calc(functions.toRem(28) + 1.2vw);
 		line-height: 1.2;
 		margin-bottom: functions.toRem(30);
 		text-decoration: underline;
 		text-decoration-color: var(--purple);
 	}
 	h3 {
-		font-weight: 800;
-		font-size: calc(functions.toRem(30) + 1.3vw);
+		font-weight: 700;
+		font-size: calc(functions.toRem(28) + 0.7vw);
 		line-height: 1.2;
 		margin-bottom: functions.toRem(26);
 		text-decoration: underline;
