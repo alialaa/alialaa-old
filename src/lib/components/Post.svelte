@@ -18,16 +18,28 @@
 		></enhanced:img> -->
 		<div class="content">
 			<header>
-				<div class="info">
-					Published on:{' '}
-					<time dateTime={post.date}>{formatDate(post.date)}</time>
-					{#if post.readingStats}
-						{@const time = Math.round(post.readingStats.minutes)}
-						<p>
-							Reading Time: {time || 1} minute{#if time > 1}s{/if}
-						</p>
-					{/if}
-				</div>
+				{#if size === 'large'}
+					<div class="info">
+						Published on:{' '}
+						<time dateTime={post.date}>{formatDate(post.date)}</time>
+						{#if post.readingStats}
+							{@const time = Math.round(post.readingStats.minutes)}
+							<p>
+								Reading Time: {time || 1} minute{#if time > 1}s{/if}
+							</p>
+						{/if}
+					</div>
+				{:else}
+					<div class="info">
+						<time dateTime={post.date}>{formatDate(post.date)}</time>
+						{#if post.readingStats}
+							{@const time = Math.round(post.readingStats.minutes)}
+							<p>
+								{time || 1} minute{#if time > 1}s{/if}
+							</p>
+						{/if}
+					</div>
+				{/if}
 				<h2 class="title">
 					<a href="/blog/{post.slug}">{post.title}</a>
 				</h2>

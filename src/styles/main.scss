@@ -45,7 +45,7 @@
 }
 
 :root {
-	--content-width: 1650px;
+	--content-width: min(90vw, 1650px);
 	--purple: #8c44db;
 	--purple2: #c11dd4;
 	--pink: #ee1d90;
