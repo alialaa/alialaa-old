@@ -16,57 +16,37 @@
 				<Card>
 					<div class="section-title">
 						<h2>Course Production</h2>
-						<p>Here are some of the things that I use to produce courses.</p>
+						<!-- <p>Here are some of the things that I use to produce courses.</p> -->
 					</div>
 					<ul>
 						<li>
-							I use a MacBook Pro (Retina, 15-inch, Mid 2015), 2.5 GHz Quad-Core Intel Core i7, 16
-							GB memory. It works fine for recording. Sometimes however, especially during summer
-							when it&apos;s hot, the fan speed gets a bit high. That of course gets into the voice
-							recording and then I have to deal with it when post-processing the voice.
+							I use a Mac mini (M1, 2020), 16 GB memory. It's working great so far for recording.
+							Very quite and fast enough for my kind of editing.
 						</li>
 						<li>
-							I don&apos;t record my laptop&apos;s screen directly. I have an{' '}
-							<a href="https://www.amazon.com/ASUS-VX248H-1920x1080-Gaming-Monitor/dp/B00GMGHCVG">
-								ASUS VX248H 24&quot; Full HD monitor
-							</a>{' '}
-							connected to the laptop. I use the laptop&apos;s screen for looking at finished code or
-							notes while recording. Although the laptop&apos;s screen resolution is higher than the
-							monitor&apos;s, I chose to record the monitor since I don&apos;t need a higher resolution
-							than 1080p. Recording the laptop results in unnecessarily large files.
+							I have a couple of 24'' ASUS VG248 Full HD monitors. I use one to record the screen
+							and the other to have some notes/code opened that I look at while recording.
 						</li>
 						<li>
 							For screen recording and editing I use{' '}
 							<a href="http://www.telestream.net/screenflow/overview.htm">ScreenFlow</a>. I used to
 							use{' '}
-							<a href="https://www.techsmith.com/camtasia-pricing.html">Camtasia</a> wich I got for a
-							good price using a promo code. However when I needed to upgrade to the newest verison I
-							found out that ScreenFlow is almost half the price and it does everything that I want.
+							<a href="https://www.techsmith.com/camtasia-pricing.html">Camtasia</a> which I got for
+							a good price using a promo code. However when I needed to upgrade to the newest version
+							I found out that ScreenFlow is almost half the price and it does everything that I want.
 						</li>
 						<li>
 							I have recently been recording using a{' '}
 							<a href="http://www.rode.com/microphones/nt1">RØDE NT1</a> with a{' '}
 							<a href="https://www.rode.com/interfaces/ai1">RØDE AI-1</a> interface. RØDE is also
 							responsible for attaching the mic to the desk using the{' '}
-							<a href="http://www.rode.com/accessories/psa1">PSA1</a> boom arm. Before that I used
-							to use a{' '}
-							<a href="http://recordinghacks.com/microphones/CAD/GXL2400"> CAD Audio GXL2400 </a>
-							. It was a great choice given its price, but the RØDE NT1 is much more superior.
+							<a href="http://www.rode.com/accessories/psa1">PSA1</a> boom arm.
 						</li>
 						<li>
 							I use{' '}
 							<a href="https://www.adobe.com/products/audition.html">Adobe Audacity</a>{' '}
 							for post-processing my voice recordings. I do things like noise reduction, normalization,
 							equalization, etc...
-						</li>
-						<li>
-							I tried using{' '}
-							<a href="https://www.google.com/search?q=Acoustic+foam">
-								soundproofing panels
-							</a>{' '}
-							(as seen in the picture above). However it didn&apos;t work for me, I probably needed a
-							lot of them in order to have an effect. I just tried moving my desk into a more &quot;furniture
-							crammed&quot; place and the echo was significantly less.
 						</li>
 					</ul>
 				</Card>
@@ -75,13 +55,13 @@
 				<Card>
 					<div class="section-title">
 						<h2>Coding & Services</h2>
-						<p>Hardware, Code editor, softwares, terminal and more.</p>
+						<!-- <p>Hardware, Code editor, softwares, terminal and more.</p> -->
 					</div>
 					<div class="coding-list">
 						<ul>
 							<li>
-								I currently code on a MacBook Pro (Retina, 15-inch, Mid 2015), 2.5 GHz Quad-Core
-								Intel Core i7, 16 GB memory. It&apos;s old but still working fine for me.
+								I currently code on a Mac mini (M1, 2020), 16 GB memory and a 14-inch MacBook Pro
+								(M3 Pro, 2023), 18 GB Memory.
 							</li>
 							<li>
 								I use <a href="https://code.visualstudio.com">VS Code</a> as my main code editor for
@@ -89,31 +69,38 @@
 							</li>
 							<li>
 								I prefer dark VS Code themes. My current theme is{' '}
-								<a href="https://draculatheme.com/visual-studio-code/">Dracula</a>. This is also the
-								theme that I use when recording.
+								<a
+									href="https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme"
+									>GitHub Dark Default</a
+								>.
 							</li>
 							<li>
 								I use <a href="https://dank.sh">Dank Mono</a> as a font for VS Code. I also use this
 								font on this website in the blog for code snippets.
 							</li>
 							<li>
-								I use the default macOS terminal with the default Z shell. I am not sure why would I
-								use another terminal to be honest 😁.
+								I use the default macOS terminal with the default Z shell. And <a
+									href="https://aws.amazon.com/q/">Amazon Q</a
+								> for assistance.
 							</li>
 							<li>
-								<a href="https://www.google.com/chrome/">Google Chrome</a> is my main browser. I use
-								other browsers for testing.
+								For browsers, I use <a href="https://www.apple.com/eg/safari/">Safari</a> for
+								browsing and <a href="https://www.google.com/chrome/">Google Chrome</a> for development.
+								I use other browsers for testing.
 							</li>
 							<li>
 								I use <a href="https://www.mamp.info/">MAMP</a> for WordPress development,
 								<a href="https://www.postman.com/">Postman</a>
 								for API testing, <a href="https://www.notion.so/">Notion</a> for notes and task
-								management, <a href="https://slack.com/">Slack</a> for communication and{' '}
+								management, <a href="https://slack.com/">Slack</a> and
+								<a href="https://discord.com">Discord</a>
+								for communication and{' '}
 								<a href="https://www.apple.com/keynote/">Keynote</a> for course presentations.
 							</li>
 							<li>
-								This website is hosted on{' '}
-								<a href="https://www.netlify.com/">Netlify</a>, the code is hosted on
+								This website is built with <a href="https://kit.svelte.dev/">SvelteKit</a>, hosted
+								on{' '}
+								<a href="https://www.netlify.com/">Netlify</a> and the code is hosted on
 								<a href="https://github.com/alialaa/alialaa"> GitHub</a>. Amazon&apos;s
 								<a href="https://aws.amazon.com/s3/">S3</a>
 								and{' '}
